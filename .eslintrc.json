@@ -10,9 +10,12 @@
     "sourceType": "module"
   },
   "rules": {
-    "react/react-in-jsx-scope": "off",
+    "react/function-component-definition": [2, { "namedComponents": ["arrow-function", "function-declaration"] }],
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/react-in-jsx-scope": "off",
     "react/jsx-one-expression-per-line": "off",
-    "object-curly-newline": "off"
+    "arrow-body-style": "off",
+    "object-curly-newline": "off",
+    "linebreak-style": 0
   }
 }
