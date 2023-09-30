@@ -5,7 +5,7 @@ const Footer = () => {
       <br />
       <span className="text-zinc-400 text-xs">카테캠 전남대 12조</span>
       <hr className="border-1 border-zinc-300" />
-      <div className="text-right m-1 text-zinc-400">Copyright &#169;</div>
+      <div className="text-right text-sm m-1 text-zinc-400">Copyright &#169;</div>
     </div>
   );
 };
