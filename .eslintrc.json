@@ -16,6 +16,8 @@
     "react/jsx-one-expression-per-line": "off",
     "arrow-body-style": "off",
     "object-curly-newline": "off",
-    "linebreak-style": 0
+    "linebreak-style": 0,
+    "jsx-a11y/click-events-have-key-events": "off",
+    "jsx-a11y/no-noninteractive-element-interactions": "off"
   }
 }
