@@ -25,5 +25,12 @@
         "labelAttributes": ["htmlFor"]
       }
     ]
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": ["src"]
+      }
+    }
   }
 }
