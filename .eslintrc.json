@@ -19,6 +19,19 @@
     "linebreak-style": 0,
     "react/prop-types": "off",
     "react/jsx-props-no-spreading": "off",
-    "react/button-has-type": "off"
+    "react/button-has-type": "off",
+    "jsx-a11y/label-has-associated-control": [
+      2,
+      {
+        "labelAttributes": ["htmlFor"]
+      }
+    ]
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": ["src"]
+      }
+    }
   }
 }
