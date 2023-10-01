@@ -13,10 +13,10 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="page--layout box-content">
+    <div className="page--layout">
       <div className="h-[50px] flex items-center pl-[30px]">Nav바 위치</div>
       <section className="grid mt-[80px]">
-        <div className="text-[#0075FF] text-lg ml-[30px]">
+        <div className="text-blue text-lg ml-[30px]">
           이제 편리하게
           <br />
           음료를 픽업하고, 픽업받아요!

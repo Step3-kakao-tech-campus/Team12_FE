@@ -58,8 +58,8 @@ const KakaoOuathPage = () => {
   // }, []);
 
   return (
-    <div className="page--layout box-content">
-      <div className="text-[#0075FF] text-xl ml-[30px] mt-[200px]">
+    <div className="page--layout">
+      <div className="text-blue text-xl ml-[30px] mt-[200px]">
         로그인 중이에요! <br />
         잠시만 기다려주세요😊
       </div>
