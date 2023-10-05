@@ -22,7 +22,7 @@ const Card = ({
       className={`w-80 h-20 rounded-xl border-[#8B8B8B] border m-auto my-[15px] 
       ${match ? 'bg-[#000000]/50' : ''}`}
     >
-      <Link to={match ? './' : to} className={`flex justify-between py-2 px-3 ${match ? 'cursor-default' : ''}`}>
+      <Link to={match ? './' : to} className={`flex justify-between static py-2 px-3 ${match ? 'cursor-default' : ''}`}>
         <div>
           <div className="flex items-center">
             <MdOutlineLocationOn className="mr-1" style={{ color: '#0075FF' }} />
@@ -44,6 +44,7 @@ const Card = ({
           </div>
         </div>
       </Link>
+      {match ? <div className="text-[#fff] relative bottom-[50px] left-[130px] font-medium">매칭완료</div> : ''}
     </div>
   );
 };
