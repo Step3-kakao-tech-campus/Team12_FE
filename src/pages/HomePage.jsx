@@ -1,9 +1,12 @@
 import React from 'react';
+import Footer from '../components/atoms/Footer';
+import Nav from '../components/atoms/Nav';
 
 const HomePage = () => {
   return (
     <div className="page--layout">
-      <h1>픽업셔틀</h1>
+      <Nav />
+      <Footer />
     </div>
   );
 };
