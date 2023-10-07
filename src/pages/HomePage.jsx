@@ -1,9 +1,9 @@
-/* eslint-disable */
 import React from 'react';
 import Footer from '../components/atoms/Footer';
 import Nav from '../components/atoms/Nav';
-import { Link } from 'react-router-dom';
 import Card from '../components/atoms/Card';
+// eslint-disable-next-line
+import { Link } from 'react-router-dom';
 
 const HomePage = () => {
   return (
@@ -21,14 +21,15 @@ const HomePage = () => {
       <div>
         <div className="mt-10 px-6 flex justify-between items-center">
           <div className="text-xl text-blue">현재 픽업을 기다리고 있어요.</div>
+          {/* eslint-disable-next-line */}
           <Link to={'/articles'}>
             <div className="text-zinc-400">더보기</div>
           </Link>
         </div>
         <div className="mx-5">
-          <Card />
-          <Card />
-          <Card />
+          <Card to="/detail-post" />
+          <Card to="/detail-post" />
+          <Card to="/detail-post" />
         </div>
       </div>
       <Footer />
