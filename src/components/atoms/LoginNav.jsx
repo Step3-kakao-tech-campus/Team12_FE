@@ -1,15 +1,18 @@
 import React from 'react';
 import { BsArrowLeft } from 'react-icons/bs';
 import { MdHome } from 'react-icons/md';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const LoginNav = () => {
+  const navigate = useNavigate();
+  const goPreviousPage = () => {
+    navigate(-1); // 바로 이전 페이지로 이동
+  };
+
   return (
     <div>
       <div className="flex justify-between p-[25px] ">
-        <Link to="/">
-          <BsArrowLeft size={25} />
-        </Link>
+        <BsArrowLeft className="cursor-pointer" onClick={goPreviousPage} size={25} />
         <Link to="/">
           <MdHome size={25} />
         </Link>
