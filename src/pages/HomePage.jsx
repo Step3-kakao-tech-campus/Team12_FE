@@ -1,9 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Footer from '../components/atoms/Footer';
 import Nav from '../components/atoms/Nav';
 import Card from '../components/atoms/Card';
-// eslint-disable-next-line
-import { Link } from 'react-router-dom';
 
 const HomePage = () => {
   return (
