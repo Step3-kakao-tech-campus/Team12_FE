@@ -1,7 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import ArticleNav from '../components/atoms/ArticleNav';
-import Card from '../components/atoms/Card';
 import Cards from '../components/molecules/Cards';
 import FilterForm from '../components/molecules/FilterForm';
 import WritePostIcon from '../assets/images/postWrite.png';
@@ -27,11 +26,11 @@ const PostListPage = () => {
     },
     {
       boardId: 6,
-      shopName: '전남대 후문 스타벅스',
+      shopName: '전남대 후문 이디야',
       destination: '공과대학 7호관',
       finishedAt: 1696040640,
       tip: 1500,
-      match: false,
+      match: true,
     },
     {
       boardId: 5,
@@ -44,6 +43,30 @@ const PostListPage = () => {
     {
       boardId: 4,
       shopName: '전남대 후문 스타벅스',
+      destination: '공과대학 7호관',
+      finishedAt: 1696040640,
+      tip: 1000,
+      match: false,
+    },
+    {
+      boardId: 3,
+      shopName: '전남대 후문 스타벅스',
+      destination: '공과대학 7호관',
+      finishedAt: 1696040640,
+      tip: 1000,
+      match: false,
+    },
+    {
+      boardId: 2,
+      shopName: '전남대 후문 이디야',
+      destination: '공과대학 7호관',
+      finishedAt: 1696040640,
+      tip: 1000,
+      match: true,
+    },
+    {
+      boardId: 1,
+      shopName: '전남대 후문 이디야',
       destination: '공과대학 7호관',
       finishedAt: 1696040640,
       tip: 1000,
@@ -62,13 +85,10 @@ const PostListPage = () => {
       <ArticleNav />
       <div className="text-center text-blue text-xl">공고 현황</div>
       <FilterForm />
-      <div className="h-[550px] overflow-scroll scrollbar-hide">
-        {/* 여기에 있는 2개의 Card 컴포넌트는 매칭 o/x에 따른 예시를 보여주기 위해 임시로 넣었습니다 */}
-        <Card match />
-        <Card />
+      <div className="h-[550px] overflow-y-auto overflow-x-hidden scrollbar-hide">
         <Cards articles={data} />
       </div>
-      <div className="flex flex-row-reverse p-[23px]">
+      <div className="flex flex-row-reverse h-[84px] items-center px-[22px]">
         <img className="cursor-pointer" onClick={goWritePost} src={WritePostIcon} alt="공고 쓰기" />
       </div>
     </div>
