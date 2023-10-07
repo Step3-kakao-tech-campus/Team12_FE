@@ -28,5 +28,6 @@
     border: 1px solid #ddd;
     background-color: #fff;
     box-sizing: content-box;
+    overflow: auto;
   }
 }
