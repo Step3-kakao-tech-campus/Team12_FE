@@ -1,26 +1,51 @@
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import OtherNav from '../components/atoms/OtherNav';
-import CircleNavigate from '../components/organisms/CircleNavigate';
 import BtnNavigate from '../components/molecules/BtnNavigate';
-import Labels from '../components/molecules/Labels';
-import SelectInput from '../components/atoms/SelectInput';
-import Input from '../components/atoms/Input';
+import OrderInfo from '../components/templates/OrderInfo';
+import OrderRequest from '../components/templates/OrderRequest';
+import OrderDeadLine from '../components/templates/OrderDeadLine';
+import CircleNavigate from '../components/organisms/CircleNavigate';
 
 const PostWritePage = () => {
+  const navigate = useNavigate();
+  const [focus, setFocus] = useState(1);
+  let currentPage;
+
+  const handlePrev = () => {
+    if (focus > 1) {
+      setFocus((prev) => prev - 1);
+    } else {
+      navigate(-1);
+    }
+  };
+
+  const handleNext = () => {
+    if (focus < 3) {
+      setFocus((prev) => prev + 1);
+    }
+  };
+
+  switch (focus) {
+    case 1:
+      currentPage = <OrderInfo />;
+      break;
+    case 2:
+      currentPage = <OrderRequest />;
+      break;
+    case 3:
+      currentPage = <OrderDeadLine />;
+      break;
+    default:
+      currentPage = null;
+  }
+
   return (
     <div className="page--layout">
       <OtherNav />
-      <CircleNavigate />
-      <div className="p-[35px]">
-        <Labels
-          htmlFor="cafe"
-          label="주문할 매장은 어디인가요? *"
-          subLabel="음료를 주문할 매장을 정확하게 입력해주세요."
-        />
-        <SelectInput id="cafe" width="18rem" />
-        <Labels htmlFor="drink" label="어떤 음료를 주문하실건가요? *" subLabel="주문할 음료를 정확하게 입력해주세요." />
-        <Input id="drink" placeholder="아이스 아메리카노 1잔" />
-      </div>
-      <BtnNavigate />
+      <CircleNavigate navigate={focus} />
+      <div className="p-[35px]">{currentPage}</div>
+      <BtnNavigate handlePrev={handlePrev} handleNext={handleNext} />
     </div>
   );
 };
