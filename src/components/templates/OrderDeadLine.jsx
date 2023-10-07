@@ -11,7 +11,7 @@ const OrderDeadLine = () => {
       />
       <div className="flex items-center place-content-between">
         <Input type="number" min="0" max="24" id="deadline" width="w-[6rem]" placeholder="13" />시
-        <Input type="number" min="0" max="24" id="deadline-1" width="w-[6rem]" placeholder="15" />
+        <Input type="number" min="0" max="59" id="deadline-1" width="w-[6rem]" placeholder="15" />
         분까지
       </div>
     </div>
