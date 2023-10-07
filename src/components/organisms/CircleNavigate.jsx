@@ -3,7 +3,7 @@ import Line from '../atoms/Line';
 
 const CircleNavigate = ({ navigate }) => {
   return (
-    <div className="relative">
+    <div className="relative mt-4">
       <div className="flex place-content-around">
         <CircleBtn num="1" active={navigate === 1}>
           주문정보
