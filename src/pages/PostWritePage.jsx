@@ -41,11 +41,15 @@ const PostWritePage = () => {
   }
 
   return (
-    <div className="page--layout">
-      <OtherNav />
-      <CircleNavigate navigate={focus} />
-      <div className="p-[35px]">{currentPage}</div>
-      <BtnNavigate handlePrev={handlePrev} handleNext={handleNext} />
+    <div className="page--layout flex flex-col justify-between">
+      <div className="flex flex-col justify-start">
+        <OtherNav />
+        <CircleNavigate navigate={focus} />
+        <div className="p-[35px]">{currentPage}</div>
+      </div>
+      <div className="mb-8">
+        <BtnNavigate handlePrev={handlePrev} handleNext={handleNext} />
+      </div>
     </div>
   );
 };
