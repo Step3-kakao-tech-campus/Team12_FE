@@ -21,14 +21,14 @@ const HomePage = () => {
         <div className="mt-10 px-6 flex justify-between items-center">
           <div className="text-xl text-blue">현재 픽업을 기다리고 있어요.</div>
           {/* eslint-disable-next-line */}
-          <Link to={'/articles'}>
+          <Link to={'/post'}>
             <div className="text-zinc-400">더보기</div>
           </Link>
         </div>
         <div className="mx-5">
-          <Card to="/detail-post" />
-          <Card to="/detail-post" />
-          <Card to="/detail-post" />
+          <Card to="/post/1" />
+          <Card to="/post/2" />
+          <Card to="/post/3" />
         </div>
       </div>
       <Footer />

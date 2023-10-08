@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import ArticleNav from '../components/atoms/ArticleNav';
+import OtherNav from '../components/atoms/OtherNav';
 import Cards from '../components/molecules/Cards';
 import FilterForm from '../components/molecules/FilterForm';
 import WritePostIcon from '../assets/images/postWrite.png';
@@ -77,12 +77,12 @@ const PostListPage = () => {
   const navigate = useNavigate();
 
   const goWritePost = () => {
-    navigate('/start-post');
+    navigate('/post-write-intro');
   };
 
   return (
     <div className="page--layout">
-      <ArticleNav />
+      <OtherNav />
       <div className="text-center text-blue text-xl">공고 현황</div>
       <FilterForm />
       <div className="h-[550px] overflow-y-auto overflow-x-hidden scrollbar-hide">

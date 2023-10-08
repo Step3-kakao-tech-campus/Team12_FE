@@ -11,7 +11,7 @@ const Cards = ({ articles }) => {
           pickupTip={article.tip}
           deadline={article.finishedAt}
           match={article.match}
-          to={`/articles/${article.boardId}`}
+          to={`/post/${article.boardId}`}
         />
       ))}
     </div>
