@@ -2,8 +2,8 @@ import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { loginSuccessMessage } from '../utils/alert';
-// import axios from 'axios';
 import Loader from '../components/atoms/Loader';
+// import axios from 'axios';
 
 // 리다이렉팅 처리 화면
 const KakaoOuathPage = () => {
@@ -17,11 +17,11 @@ const KakaoOuathPage = () => {
   useEffect(() => {
     if (kakaoOauthCode) {
       try {
-        console.log('login success!');
-        localStorage.setItem('token', 'ACCESS_TOKEN');
+        // console.log('login success!');
+        localStorage.setItem('aceessToken', 'token');
         Swal.fire(loginSuccessMessage).then(navigate('/'));
       } catch (error) {
-        console.log(error);
+        // console.log(error);
       }
     }
   }, []);
