@@ -2,8 +2,8 @@ import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { loginSuccessMessage } from '../utils/alert';
-// import axios from 'axios';
 import Loader from '../components/atoms/Loader';
+// import axios from 'axios';
 
 // 리다이렉팅 처리 화면
 const KakaoOuathPage = () => {
@@ -15,15 +15,17 @@ const KakaoOuathPage = () => {
   // 실제 과정은 인가 코드를 백엔드 API로 보내고 나서 토큰 정보를 발급받아 이용하게 된다.
   // 우선은 임시 토큰을 이용하여 이를 서비스 이용시 인증하는데 사용!
   useEffect(() => {
-    if (kakaoOauthCode) {
-      try {
-        console.log('login success!');
-        localStorage.setItem('token', 'ACCESS_TOKEN');
-        Swal.fire(loginSuccessMessage).then(navigate('/'));
-      } catch (error) {
-        console.log(error);
+    setTimeout(() => {
+      if (kakaoOauthCode) {
+        try {
+          // console.log('login success!');
+          localStorage.setItem('accessToken', 'token');
+          Swal.fire(loginSuccessMessage).then(navigate('/'));
+        } catch (error) {
+          // console.log(error);
+        }
       }
-    }
+    }, [2000]);
   }, []);
 
   // 백엔드로 인가 코드를 넘기고 토큰을 받아오는 코드, 이후 로그인 처리 완료

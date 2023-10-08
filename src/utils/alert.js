@@ -7,3 +7,8 @@ export const loginSuccessMessage = {
   icon: 'success',
   confirmButtonText: '확인',
 };
+export const loginNeedMessage = {
+  title: '로그인이 필요한 서비스입니다!',
+  text: '로그인을 먼저 해주세요😊',
+  confirmButtonText: '확인',
+};
