@@ -7,7 +7,7 @@ import logo from '../../assets/images/logo.png';
 const Nav = () => {
   return (
     <div>
-      <nav className="absolute h-16 p-5 mt-1 top-0 left-0 right-0 flex justify-between items-center">
+      <nav className="absolute h-16 p-5 top-0 left-0 right-0 flex justify-between items-center">
         <Link to={'/'}>
           <div>
             <img src={logo} className="float-left" size={35} />
@@ -21,10 +21,10 @@ const Nav = () => {
         </Link>
       </nav>
       <div className="absolute h-12 p-5 top-16 left-0 right-0 flex items-center">
-        <Link to={'/start-post'}>
+        <Link to={'/post-write-intro'}>
           <div className="p-1">공고작성</div>
         </Link>
-        <Link to={'/articles'}>
+        <Link to={'/post'}>
           <div className="pl-3">공고현황</div>
         </Link>
       </div>

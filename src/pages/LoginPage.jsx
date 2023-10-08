@@ -1,5 +1,6 @@
 import React from 'react';
 import loginIcon from '../assets/images/kakao_login_medium_wide.png';
+import LoginNav from '../components/atoms/LoginNav';
 
 // 버튼을 눌러 개인정보 동의 후 계속하기를 하면 REDIRECT_URI로 리다이렉트 된다.
 // 이후 주소에 카카오에서 보낸 인가 코드가 있는데, 이를 파싱해서 백엔드로 전송
@@ -14,7 +15,7 @@ const LoginPage = () => {
 
   return (
     <div className="page--layout">
-      <div className="h-[50px] flex items-center pl-[30px]">Nav바 위치</div>
+      <LoginNav />
       <section className="grid mt-[80px]">
         <div className="text-blue text-lg ml-[30px]">
           이제 편리하게
