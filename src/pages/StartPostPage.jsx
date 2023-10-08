@@ -10,7 +10,7 @@ const StartPostPage = () => {
       </div>
       <div className="flex justify-center mb-14">
         <Link to="/post-write">
-          <Button height="w-[19rem] h-[2.5rem]" bgColor="bg-white" textColor="text-sky-blue">
+          <Button width="w-[19rem]" height=" h-[2.5rem]" bgColor="bg-white" textColor="text-sky-blue">
             공고 작성하기
           </Button>
         </Link>
