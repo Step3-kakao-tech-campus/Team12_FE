@@ -5,9 +5,10 @@ const Button = ({
   onClick,
   disabled,
   children,
+  margin,
   width = 'w-64',
   height = 'h-8',
-  bgColor = 'bg-blue-600',
+  bgColor = 'bg-blue',
   textColor = 'text-white',
   bdRadius = 'rounded-lg',
 }) => {
@@ -16,7 +17,7 @@ const Button = ({
       type={type || 'button'}
       onClick={onClick}
       disabled={disabled}
-      className={`${width} ${height} ${textColor} ${bgColor} ${bdRadius}`}
+      className={`${width} ${height} ${textColor} ${bgColor} ${bdRadius} ${margin}`}
     >
       {children}
     </button>

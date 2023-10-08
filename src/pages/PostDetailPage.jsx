@@ -2,13 +2,14 @@ import React from 'react';
 import { MdOutlineLocationOn, MdLocationPin } from 'react-icons/md';
 import { BsArrowDown } from 'react-icons/bs';
 import Button from '../components/atoms/Button';
+import OtherNav from '../components/atoms/OtherNav';
 
-const DetailPostPage = () => {
+const PostDetailPage = () => {
   return (
     <div className="page--layout">
       {/* 파란색 부분 */}
       <div className="bg-sky-blue h-60 rounded-b-3xl">
-        <div className="h-14 bg-slate-400">네비게이션 바</div>
+        <OtherNav iconColor="#fff" bgColor="#000" />
         <div className="p-5">
           <div className="mt-1 text-white text-xl">매칭을 기다리고 있어요.</div>
           <div className="p-4">
@@ -54,4 +55,4 @@ const DetailPostPage = () => {
   );
 };
 
-export default DetailPostPage;
+export default PostDetailPage;
