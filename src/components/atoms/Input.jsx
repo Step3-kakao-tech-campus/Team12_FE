@@ -1,4 +1,4 @@
-const Input = ({ type, value, name, placeholder, ...inputProps }) => {
+const Input = ({ type, value, name, placeholder, width = 'w-[18rem]', ...inputProps }) => {
   return (
     <input
       type={type}
@@ -6,7 +6,7 @@ const Input = ({ type, value, name, placeholder, ...inputProps }) => {
       value={value}
       placeholder={placeholder}
       {...inputProps}
-      className="w-[20rem] rounded-xl border-gray-300 border-2 px-5 py-2 text-sm block my-4"
+      className={`${width} rounded-lg border-gray-300 border-2 px-5 py-2 text-sm block my-2`}
     />
   );
 };
