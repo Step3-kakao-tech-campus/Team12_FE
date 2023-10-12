@@ -1,10 +1,9 @@
 import { useState } from 'react';
+import shortId from 'I';
 import Labels from '../molecules/Labels';
 import SelectInput from '../atoms/SelectInput';
 import Input from '../atoms/Input';
 import PlusMinusBtn from '../molecules/PlusMinusBtn';
-
-const shortid = require('shortid');
 
 const OrderInfo = () => {
   const [drinkInput, setDrinkInput] = useState([]);
@@ -40,7 +39,7 @@ const OrderInfo = () => {
             <PlusMinusBtn handlePlus={handleAddInput} handleMinus={handleMinusInput} />
           </div>
           {drinkInput.map((item) => (
-            <div key={shortid.generate()}>{item}</div>
+            <div key={shortId.generate()}>{item}</div>
           ))}
         </div>
       </div>
