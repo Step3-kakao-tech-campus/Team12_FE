@@ -1,0 +1,13 @@
+.custom-thumb::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  background: #0075ff;
+  height: 22px;
+  width: 22px;
+  margin-top: -7px;
+  border-radius: 10rem;
+}
+
+.custom-thumb::-webkit-slider-runnable-track {
+  height: 10px;
+}
