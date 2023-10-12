@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import shortId from 'I';
+import shortId from 'shortid';
 import Labels from '../molecules/Labels';
 import SelectInput from '../atoms/SelectInput';
 import Input from '../atoms/Input';
