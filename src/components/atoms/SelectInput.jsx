@@ -8,8 +8,9 @@ const SelectInput = ({ type, value, name, placeholder, width = 'w-[18rem]', sort
       value={value}
       placeholder={placeholder}
       {...inputProps}
-      className={`${width} rounded-lg border-gray-300 border-2 px-5 py-2 text-sm block my-2`}
+      className={`${width} rounded-lg border-gray-300 border-2 px-4 py-2 text-sm block my-2`}
     >
+      <option value="none">=== 선택 ===</option>
       {sort.map((item) => (
         <option key={item} value={item}>
           {item}
