@@ -17,12 +17,14 @@ const OrderRequest = () => {
           label="지불할 픽업팁을 선택 해주세요. *"
           subLabel="매칭이 성사되면, 피커에게 입금 해야합니다."
         />
-        <div className="flex justify-between my-2">
+        <div className="flex justify-between my-2 mx-[0.4rem]">
           <div>😭</div>
           <div>😍</div>
         </div>
-        <RangeInput />
-        <div className="flex justify-between text-xs text-gray-400">
+        <div className="flex justify-center items-center">
+          <RangeInput />
+        </div>
+        <div className="mt-3 flex justify-between text-xs text-gray-400">
           {price.map((x) => {
             return <div>{x}</div>;
           })}

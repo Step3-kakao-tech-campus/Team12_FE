@@ -16,7 +16,7 @@ const RangeInput = () => {
       step="500"
       value={value}
       onChange={handleValueChange}
-      className="custom-thumb w-[18rem] bg-gray-200 rounded-lg focus:ring-0 transition-colors appearance-none"
+      className="custom-thumb w-[17rem] bg-gray-200 rounded-lg appearance-none"
     />
   );
 };
