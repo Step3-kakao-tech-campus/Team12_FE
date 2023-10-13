@@ -30,7 +30,7 @@ const OrderRequest = () => {
           })}
         </div>
       </div>
-      <div className="mt-6 mb-12">
+      <div className="mt-6">
         <Labels htmlFor="request" label="피커에게 요청사항이 있나요? *" subLabel="50자까지 입력 가능합니다." />
         <TextArea id="request" maxLength="50" placeholder="1층 도착하면 알려주세요!" />
       </div>
