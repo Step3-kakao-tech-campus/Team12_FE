@@ -1,15 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useInView } from 'react-intersection-observer';
 import OtherNav from '../components/atoms/OtherNav';
 import Cards from '../components/molecules/Cards';
 import FilterForm from '../components/molecules/FilterForm';
 import WritePostIcon from '../assets/images/postWrite.png';
 
 const PostListPage = () => {
-  const [posts, setPosts] = useState([]);
-  const [filter, setFilter] = useState('');
-  const navigate = useNavigate();
-
   // 임시 더미 데이터(데이터를 서버로부터 fetch 해왔다고 가정)
   const data = [
     {
@@ -86,6 +83,20 @@ const PostListPage = () => {
     },
   ];
 
+  const [posts, setPosts] = useState([]);
+  const [filter, setFilter] = useState('');
+  const navigate = useNavigate();
+
+  const { ref, inView } = useInView({ threshold: 0.5 });
+
+  // inView가 사용자에게 보이면 다음 페이지를 렌더링해온다.
+  useEffect(() => {
+    console.log(inView);
+    if (inView) {
+      console.log('다음 페이지 요청 & inView : ', inView);
+    }
+  }, [inView]);
+
   const goWritePost = () => {
     navigate('/post-write-intro');
   };
@@ -109,6 +120,7 @@ const PostListPage = () => {
       <FilterForm getFilter={getFilter} />
       <div className="h-[550px] overflow-y-auto overflow-x-hidden scrollbar-hide">
         <Cards articles={posts} />
+        <div ref={ref} className="w-[100%] h-[10px]" />
       </div>
       <div className="flex flex-row-reverse h-[84px] items-center px-[22px]">
         <img className="cursor-pointer" onClick={goWritePost} src={WritePostIcon} alt="공고 쓰기" />
