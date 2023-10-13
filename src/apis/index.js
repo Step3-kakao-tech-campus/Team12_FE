@@ -5,7 +5,8 @@ import { useNavigate } from 'react-router-dom';
 const navigate = useNavigate();
 
 // 프론트에서 API를 활용하기 위한 기본 axios 인스턴스
-const instance = axios.create({
+// eslint-disable-next-line import/prefer-default-export
+export const instance = axios.create({
   baseURL: process.env.REACT_APP_API_URL, // production level 에서는 env에서 baseURL을 넣어주어야함(보안 관련)
   timeout: 1000, // 타임아웃이 없으면 무한정 wait가 걸려버릴 수 있음
   headers: {
@@ -76,5 +77,3 @@ instance.interceptors.response.use(
     return Promise.reject(error);
   },
 );
-
-export default instance;
