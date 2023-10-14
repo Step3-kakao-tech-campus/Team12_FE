@@ -12,24 +12,25 @@ const PostWritePage = () => {
   const navigate = useNavigate();
   const [focus, setFocus] = useState(1);
   const {
+    register,
     handleSubmit,
     control,
     formState: { errors },
   } = useForm({
     defaultValues: {
-      store: '',
-      beverage: '',
-      destination: '',
-      tip: '',
-      request: '',
-      finishedAt: '',
+      tip: 1000,
     },
   });
   let currentPage;
 
-  const orderInfo = useWatch({
+  const orderInfoValue = useWatch({
     control,
     name: ['store', 'beverage'],
+  });
+
+  const requestValue = useWatch({
+    control,
+    name: ['destination'],
   });
 
   const handlePrev = () => {
@@ -41,12 +42,11 @@ const PostWritePage = () => {
   };
 
   const handleNext = () => {
-    if (focus < 3) {
-      if (focus === 1) {
-        if (orderInfo[0] && orderInfo[1]) {
-          setFocus((prev) => prev + 1);
-        }
-      }
+    if (focus === 1 && orderInfoValue[0] && orderInfoValue[1]) {
+      setFocus((prev) => prev + 1);
+    }
+    if (focus === 2 && requestValue[0]) {
+      setFocus((prev) => prev + 1);
     }
   };
 
@@ -56,13 +56,13 @@ const PostWritePage = () => {
 
   switch (focus) {
     case 1:
-      currentPage = <OrderInfo control={control} storeError={!!errors.store} beverageError={!!errors.beverage} />;
+      currentPage = <OrderInfo register={register} storeError={!!errors.store} beverageError={!!errors.beverage} />;
       break;
     case 2:
-      currentPage = <OrderRequest />;
+      currentPage = <OrderRequest register={register} destinationError={!!errors.destination} />;
       break;
     case 3:
-      currentPage = <OrderDeadLine />;
+      currentPage = <OrderDeadLine register={register} deadLineError={!!errors.hour || !!errors.minute} />;
       break;
     default:
       currentPage = null;
