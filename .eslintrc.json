@@ -27,7 +27,8 @@
       {
         "labelAttributes": ["htmlFor"]
       }
-    ]
+    ],
+    "max-len": ["error", { "code": 150, "ignoreRegExpLiterals": true }]
   },
   "settings": {
     "import/resolver": {
