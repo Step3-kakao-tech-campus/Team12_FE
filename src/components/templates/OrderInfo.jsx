@@ -44,7 +44,7 @@ const OrderInfo = ({ storeError, beverageError, control, ...props }) => {
           rules={{ required: true }}
           render={({ field }) => <SelectInput id={STORE} name={STORE} className="mb-10" {...field} />}
         />
-        {storeError && ErrorMsg}
+        {storeError && <ErrorMsg />}
       </div>
       <div className="mt-6">
         <Labels
@@ -69,7 +69,7 @@ const OrderInfo = ({ storeError, beverageError, control, ...props }) => {
           ))}
         </div>
       </div>
-      {beverageError && ErrorMsg}
+      {beverageError && <ErrorMsg />}
     </>
   );
 };
