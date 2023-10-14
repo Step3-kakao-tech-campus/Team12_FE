@@ -1,34 +1,16 @@
-import { useState } from 'react';
-import shortId from 'shortid';
-import { Controller } from 'react-hook-form';
+import { useForm, useFieldArray } from 'react-hook-form';
 import Labels from '../molecules/Labels';
 import SelectInput from '../atoms/SelectInput';
 import Input from '../atoms/Input';
 import ErrorMsg from '../atoms/ErrorMsg';
-import PlusMinusBtn from '../molecules/PlusMinusBtn';
+import PlusBtn from '../atoms/PlusBtn';
+import MinusBtn from '../atoms/MinusBtn';
 
-const OrderInfo = ({ storeError, beverageError, control, ...props }) => {
-  const [beverageInput, setBeverageInput] = useState([]);
+const OrderInfo = ({ register, storeError, beverageError }) => {
   const STORE = 'store';
   const BEVERAGE = 'beverage';
-
-  const handleAddInput = () => {
-    setBeverageInput((prevBeverageInput) => [
-      ...prevBeverageInput,
-      <Input
-        width="w-[15rem]"
-        name={`beverage_${beverageInput.length + 1}`}
-        placeholder="아이스 아메리카노 1잔"
-        {...props}
-      />,
-    ]);
-  };
-
-  const handleMinusInput = () => {
-    if (beverageInput.length > 0) {
-      setBeverageInput(beverageInput.slice(0, -1));
-    }
-  };
+  const { control } = useForm();
+  const { fields, append, remove } = useFieldArray({ control, name: BEVERAGE });
 
   return (
     <>
@@ -38,12 +20,7 @@ const OrderInfo = ({ storeError, beverageError, control, ...props }) => {
           label="주문할 매장은 어디인가요? *"
           subLabel="음료를 주문할 매장을 정확하게 입력해주세요."
         />
-        <Controller
-          name={STORE}
-          control={control}
-          rules={{ required: true }}
-          render={({ field }) => <SelectInput id={STORE} name={STORE} className="mb-10" {...field} />}
-        />
+        <SelectInput register={register} required id={STORE} name={STORE} className="mb-10" />
         {storeError && <ErrorMsg />}
       </div>
       <div className="mt-6">
@@ -54,19 +31,32 @@ const OrderInfo = ({ storeError, beverageError, control, ...props }) => {
         />
         <div className="flex flex-col">
           <div className="flex items-center">
-            <Controller
+            <Input
+              id={BEVERAGE}
               name={BEVERAGE}
-              control={control}
-              rules={{ required: true }}
-              render={({ field }) => (
-                <Input id={BEVERAGE} name={BEVERAGE} width="w-[15rem]" placeholder="아이스 아메리카노 1잔" {...field} />
-              )}
+              register={register}
+              required
+              width="w-[15rem]"
+              placeholder="아이스 아메리카노 1잔"
             />
-            <PlusMinusBtn handlePlus={handleAddInput} handleMinus={handleMinusInput} />
+            <PlusBtn onClick={() => append({ BEVERAGE })} />
           </div>
-          {beverageInput.map((item) => (
-            <div key={shortId.generate()}>{item}</div>
-          ))}
+          {fields.map((field, index) => {
+            return (
+              <div className="flex items-center">
+                <li key={field.id} className="list-none">
+                  <Input
+                    id={BEVERAGE}
+                    name={`${BEVERAGE}[${index}]`}
+                    register={register}
+                    width="w-[15rem]"
+                    placeholder="아이스 아메리카노 1잔"
+                  />
+                </li>
+                <MinusBtn onClick={() => remove(index)} />
+              </div>
+            );
+          })}
         </div>
       </div>
       {beverageError && <ErrorMsg />}
