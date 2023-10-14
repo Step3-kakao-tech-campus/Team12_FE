@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useForm, useWatch } from 'react-hook-form';
+import Swal from 'sweetalert2';
 import OtherNav from '../components/atoms/OtherNav';
 import BtnNavigate from '../components/molecules/BtnNavigate';
 import OrderInfo from '../components/templates/OrderInfo';
@@ -11,6 +12,8 @@ import CircleNavigate from '../components/organisms/CircleNavigate';
 const PostWritePage = () => {
   const navigate = useNavigate();
   const [focus, setFocus] = useState(1);
+  let currentPage;
+
   const {
     register,
     handleSubmit,
@@ -21,7 +24,6 @@ const PostWritePage = () => {
       tip: 1000,
     },
   });
-  let currentPage;
 
   const orderInfoValue = useWatch({
     control,
@@ -41,6 +43,21 @@ const PostWritePage = () => {
     }
   };
 
+  const handleAlert = () => {
+    Swal.fire({
+      title: '공고를 등록하시겠습니까?',
+      html: `정보를 알맞게 입력하셨나요?<br/> 
+      피커는 입력한 정보를 바탕으로 움직이게 됩니다.`,
+      icon: 'question',
+      showCancelButton: true,
+      reverseButtons: true,
+      confirmButtonColor: '#0075FF',
+      cancelButtonColor: '#D9D9D9',
+      cancelButtonText: '취소',
+      confirmButtonText: '확인',
+    });
+  };
+
   const handleNext = () => {
     if (focus === 1 && orderInfoValue[0] && orderInfoValue[1]) {
       setFocus((prev) => prev + 1);
@@ -48,10 +65,11 @@ const PostWritePage = () => {
     if (focus === 2 && requestValue[0]) {
       setFocus((prev) => prev + 1);
     }
+    if (focus === 3) handleAlert();
   };
 
   const onSubmit = (data) => {
-    console.log(data);
+    console.log(data); // api 연결 후 수정 예정
   };
 
   switch (focus) {
