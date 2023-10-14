@@ -1,23 +1,32 @@
 import { useState } from 'react';
 import shortId from 'shortid';
+import { Controller } from 'react-hook-form';
 import Labels from '../molecules/Labels';
 import SelectInput from '../atoms/SelectInput';
 import Input from '../atoms/Input';
+import ErrorMsg from '../atoms/ErrorMsg';
 import PlusMinusBtn from '../molecules/PlusMinusBtn';
 
-const OrderInfo = () => {
-  const [drinkInput, setDrinkInput] = useState([]);
+const OrderInfo = ({ storeError, beverageError, control, ...props }) => {
+  const [beverageInput, setBeverageInput] = useState([]);
+  const STORE = 'store';
+  const BEVERAGE = 'beverage';
 
   const handleAddInput = () => {
-    setDrinkInput((prevDrinkInput) => [
-      ...prevDrinkInput,
-      <Input id="drink" width="w-[15rem]" placeholder="아이스 아메리카노 1잔" />,
+    setBeverageInput((prevBeverageInput) => [
+      ...prevBeverageInput,
+      <Input
+        width="w-[15rem]"
+        name={`beverage_${beverageInput.length + 1}`}
+        placeholder="아이스 아메리카노 1잔"
+        {...props}
+      />,
     ]);
   };
 
   const handleMinusInput = () => {
-    if (drinkInput.length > 0) {
-      setDrinkInput(drinkInput.slice(0, -1));
+    if (beverageInput.length > 0) {
+      setBeverageInput(beverageInput.slice(0, -1));
     }
   };
 
@@ -25,24 +34,42 @@ const OrderInfo = () => {
     <>
       <div className="mt-6 mb-12">
         <Labels
-          htmlFor="cafe"
+          htmlFor={STORE}
           label="주문할 매장은 어디인가요? *"
           subLabel="음료를 주문할 매장을 정확하게 입력해주세요."
         />
-        <SelectInput id="cafe" className="mb-10" />
+        <Controller
+          name={STORE}
+          control={control}
+          rules={{ required: true }}
+          render={({ field }) => <SelectInput id={STORE} name={STORE} className="mb-10" {...field} />}
+        />
+        {storeError && ErrorMsg}
       </div>
-      <div className="mt-6 mb-12">
-        <Labels htmlFor="drink" label="어떤 음료를 주문하실건가요? *" subLabel="주문할 음료를 정확하게 입력해주세요." />
+      <div className="mt-6">
+        <Labels
+          htmlFor={BEVERAGE}
+          label="어떤 음료를 주문하실건가요? *"
+          subLabel="주문할 음료를 정확하게 입력해주세요."
+        />
         <div className="flex flex-col">
           <div className="flex items-center">
-            <Input id="drink" width="w-[15rem]" placeholder="아이스 아메리카노 1잔" />
+            <Controller
+              name={BEVERAGE}
+              control={control}
+              rules={{ required: true }}
+              render={({ field }) => (
+                <Input id={BEVERAGE} name={BEVERAGE} width="w-[15rem]" placeholder="아이스 아메리카노 1잔" {...field} />
+              )}
+            />
             <PlusMinusBtn handlePlus={handleAddInput} handleMinus={handleMinusInput} />
           </div>
-          {drinkInput.map((item) => (
+          {beverageInput.map((item) => (
             <div key={shortId.generate()}>{item}</div>
           ))}
         </div>
       </div>
+      {beverageError && ErrorMsg}
     </>
   );
 };
