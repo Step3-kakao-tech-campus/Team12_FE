@@ -6,14 +6,6 @@ const OrderDeadLine = ({ register, deadLineError }) => {
   const HOUR = 'hour';
   const MINUTE = 'minute';
 
-  const today = new Date();
-  const year = today.getFullYear();
-  const month = today.getMonth() + 1;
-  const date = today.getDate();
-
-  const finishedAt = `${year}-${month}-${date}`;
-  console.log(finishedAt);
-
   return (
     <div className="mt-6 mb-12">
       <Labels
