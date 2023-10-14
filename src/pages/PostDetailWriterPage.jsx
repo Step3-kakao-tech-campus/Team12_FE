@@ -22,13 +22,13 @@ const PostDetailWriterPage = () => {
   };
   const control = () => {
     return Swal.fire({
-      showCancelButton: true,
+      showDenyButton: true,
       confirmButtonText: '수정',
-      cancelButtonText: '삭제',
+      denyButtonText: '삭제',
     }).then((result) => {
       if (result.isConfirmed) {
         // 공고 수정하게 됨
-      } else if (result.isDismissed) {
+      } else if (result.isDenied) {
         delate();
       }
     });
