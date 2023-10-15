@@ -1,23 +1,19 @@
 import '../../styles/thumb.css';
-import { useState } from 'react';
 
-const RangeInput = () => {
-  const [value, setValue] = useState(1000);
-
-  const handleValueChange = (e) => {
-    setValue(e.target.value);
-  };
-
+const RangeInput = ({ name, register }) => {
   return (
-    <input
-      type="range"
-      max="2500"
-      min="1000"
-      step="500"
-      value={value}
-      onChange={handleValueChange}
-      className="custom-thumb w-[17rem] bg-gray-200 rounded-lg appearance-none"
-    />
+    <>
+      <input
+        name={name}
+        {...register(name)}
+        type="range"
+        max="2500"
+        min="1000"
+        step="500"
+        className="custom-thumb w-[17rem] bg-gray-200 rounded-lg appearance-none"
+      />
+      <output htmlFor={name} />
+    </>
   );
 };
 
