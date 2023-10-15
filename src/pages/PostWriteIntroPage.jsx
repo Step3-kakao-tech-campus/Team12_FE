@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import Button from '../components/atoms/Button';
 import OtherNav from '../components/atoms/OtherNav';
+import routes from '../constant/routes';
 
 const PostWriteIntroPage = () => {
   return (
@@ -12,7 +13,7 @@ const PostWriteIntroPage = () => {
           <div>픽업을 위한 정보를 입력합니다.</div>
         </div>
         <div className="flex justify-center mb-14">
-          <Link to="/post-write">
+          <Link to={routes.postWrite}>
             <Button width="w-[19rem]" height=" h-[2.5rem]" bgColor="bg-white" textColor="text-sky-blue">
               공고 작성하기
             </Button>

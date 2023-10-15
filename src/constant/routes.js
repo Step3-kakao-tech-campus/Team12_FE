@@ -6,6 +6,7 @@ const routes = {
   post: '/post',
   detailPost: '/post/:id',
   postWriteIntro: '/post-write-intro',
+  postWriter: '/post/writer',
   postWrite: '/post-write',
   error: '/*',
 };
