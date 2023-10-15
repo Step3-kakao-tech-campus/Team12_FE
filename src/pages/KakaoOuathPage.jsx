@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+// import axios from 'axios';
 import { loginSuccessMessage } from '../utils/alert';
 import Loader from '../components/atoms/Loader';
-// import axios from 'axios';
 
 // 리다이렉팅 처리 화면
 const KakaoOuathPage = () => {
@@ -18,7 +18,7 @@ const KakaoOuathPage = () => {
     setTimeout(() => {
       if (kakaoOauthCode) {
         try {
-          // console.log('login success!');
+          console.log(kakaoOauthCode);
           localStorage.setItem('accessToken', 'token');
           Swal.fire(loginSuccessMessage).then(navigate('/'));
         } catch (error) {
@@ -26,9 +26,52 @@ const KakaoOuathPage = () => {
         }
       }
     }, [2000]);
-  }, []);
+  }, [kakaoOauthCode]);
 
-  // 백엔드로 인가 코드를 넘기고 토큰을 받아오는 코드, 이후 로그인 처리 완료
+  // 백엔드 API에 get을 요청하여 인가코드를 보내는 형태
+  // useEffect(() => {
+  //   if (kakaoOauthCode) {
+  //     (async () => {
+  //       try {
+  //         // 명세서의 내용에 따라 Body의 토큰을 받아서 로컬 스토리지에 저장하는 형태
+  //         const res = await axios.get(`백엔드 API 링크/kakao?code=${kakaoOauthCode}`);
+  //         const ACCESS_TOKEN = res.response.AccessToken;
+  //         await localStorage.setItem('accessToken', ACCESS_TOKEN);
+  //         await Swal.fire(loginSuccessMessage).then(navigate('/'));
+  //       } catch (error) {
+  //         console.error(error);
+  //       }
+  //     })();
+  //   }
+  // }, [kakaoOauthCode]);
+
+  // 백엔드 API에 post를 요청하여 인가코드를 보내는 형태
+  // 필요에 따라 API 연동 시점에 코드 리팩토링
+  // useEffect(() => {
+  //   if (kakaoOauthCode) {
+  //     (async () => {
+  //       try {
+  //         const res = await axios.post(
+  //           `백엔드 API 링크/kakao?code=${kakaoOauthCode}`,
+  //           {
+  //             authorizaitonCode: kakaoOauthCode,
+  //           },
+  //           {
+  //             headers: { 'Content-type': 'application/x-www-form-urlencoded;charset=utf-8' },
+  //           },
+  //         );
+  //         const ACCESS_TOKEN = res.response.AccessToken;
+  //         await localStorage.setItem('accessToken', ACCESS_TOKEN);
+  //         await Swal.fire(loginSuccessMessage).then(navigate('/'));
+  //       } catch (error) {
+  //         console.error(error);
+  //       }
+  //     })();
+  //   }
+  // }, [kakaoOauthCode]);
+
+  // 백엔드 API에 post를 요청하여 인가코드를 보내는 형태2
+  // 필요에 따라 API 연동 시점에 코드 리팩토링
   // useEffect(() => {
   //   if (kakaoOauthCode) {
   //     try {
@@ -37,7 +80,6 @@ const KakaoOuathPage = () => {
   //           // 백엔드에서 원하는 API로 request
   //           // "Content-Type: application/x-www-form-urlencoded" (공식문서 내용)
   //           // 인가 코드와 함께 post 요청을 보내고, 결과로 토큰을 받아 활용
-  //           // 토큰은 JWT Access Token & Refresh Token 2가지를 사용한다고 하심
   //           'https://kauth.kakao.com/...',
   //           {
   //             authorizaitonCode: kakaoOauthCode,
@@ -48,16 +90,15 @@ const KakaoOuathPage = () => {
   //         )
   //         .then((res) => {
   //           console.log(res);
-  //           const ACCESS_TOKEN = res.data.accessToken;
-  //           const REFRESH_TOKEN = res.data.refreshToken;
-  //           localStorage.setItem('acc_token', ACCESS_TOKEN);
-  //           localStorage.setItem('ref_token', REFRESH_TOKEN);
+  //           const ACCESS_TOKEN = res.response.AccessToken;
+  //           localStorage.setItem('accessToken', ACCESS_TOKEN);
+  //           Swal.fire(loginSuccessMessage).then(navigate('/'));
   //         });
-  //     } catch (err) {
-  //       console.log('error message : ', err);
+  //     } catch (error) {
+  //       console.error(error);
   //     }
   //   }
-  // }, []);
+  // }, [kakaoOauthCode]);
 
   return (
     <div className="page--layout">
