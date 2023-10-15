@@ -2,7 +2,7 @@ import { BsArrowDown } from 'react-icons/bs';
 import { MdOutlineLocationOn, MdLocationPin } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 import comma from '../../utils/comma';
-import date from '../../utils/date';
+import getDeadlineDate from '../../utils/date';
 
 // to : 해당 공고글의 링크로 이동
 const Card = ({
@@ -43,7 +43,7 @@ const Card = ({
             className={`grid justify-items-end text-[0.5rem] 
             ${match ? 'text-[#000]' : 'text-[#FF0000]'} `}
           >
-            {date(deadline)}
+            {getDeadlineDate(deadline)}
           </div>
         </div>
         {match ? (
