@@ -1,8 +1,5 @@
 import axios from 'axios';
 import Swal from 'sweetalert2';
-import { useNavigate } from 'react-router-dom';
-
-const navigate = useNavigate();
 
 // 프론트에서 API를 활용하기 위한 기본 axios 인스턴스
 // eslint-disable-next-line import/prefer-default-export
@@ -44,8 +41,7 @@ instance.interceptors.response.use(
         text: error.response.data.error.message,
         confirmButtonText: '확인',
       }).then(() => {
-        navigate('/login');
-        // window.location.href = '/login';
+        window.location.href = '/login';
       });
       return Promise.reject(error);
     }
@@ -59,8 +55,7 @@ instance.interceptors.response.use(
         text: error.response.data.error.message,
         confirmButtonText: '확인',
       }).then(() => {
-        navigate('/errorPage');
-        // window.location.href = '/errorPage';
+        window.location.href = '/errorPage';
       });
       return Promise.reject(error);
     }
