@@ -6,7 +6,7 @@ const Input = ({ type, value, name, placeholder, width = 'w-[18rem]', ...inputPr
       value={value}
       placeholder={placeholder}
       {...inputProps}
-      className={`${width} rounded-lg border-gray-300 border-2 px-5 py-2 text-sm block my-2`}
+      className={`${width} rounded-lg border-gray-300 border-2 px-4 py-2 text-sm block my-2`}
     />
   );
 };
