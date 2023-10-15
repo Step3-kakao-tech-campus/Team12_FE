@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useInView } from 'react-intersection-observer';
 import { useInfiniteQuery } from '@tanstack/react-query';
 // import { getPosts } from '../apis/post';
+import routes from '../constant/routes';
 import OtherNav from '../components/atoms/OtherNav';
 import Cards from '../components/molecules/Cards';
 import FilterForm from '../components/molecules/FilterForm';
@@ -125,7 +126,7 @@ const PostListPage = () => {
   }, [inView]);
 
   if (isError) {
-    navigate('/error');
+    navigate('/errorPage');
   }
 
   // filter가 업데이트 될 경우, 받아왔던 데이터를 filter에 따라 렌더링
@@ -135,7 +136,7 @@ const PostListPage = () => {
   }, [filter]);
 
   const goWritePost = () => {
-    navigate('/post-write-intro');
+    navigate(routes.postWriteIntro);
   };
 
   // FilterForm으로부터 사용자가 설정한 filter를 받아옴

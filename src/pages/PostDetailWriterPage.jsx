@@ -5,7 +5,7 @@ import { BsArrowDown, BsThreeDotsVertical } from 'react-icons/bs';
 import OtherNav from '../components/atoms/OtherNav';
 
 const PostDetailWriterPage = () => {
-  const delate = () => {
+  const postDelete = () => {
     return Swal.fire({
       title: '삭제하시겠습니까?',
       text: '삭제하면 음료를 픽업 받을 수 없게 됩니다.',
@@ -29,7 +29,7 @@ const PostDetailWriterPage = () => {
       if (result.isConfirmed) {
         // 공고 수정하게 됨
       } else if (result.isDenied) {
-        delate();
+        postDelete();
       }
     });
   };

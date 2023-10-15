@@ -4,6 +4,7 @@ import Swal from 'sweetalert2';
 // import axios from 'axios';
 import { loginSuccessMessage } from '../utils/alert';
 import Loader from '../components/atoms/Loader';
+import routes from '../constant/routes';
 
 // 리다이렉팅 처리 화면
 const KakaoOuathPage = () => {
@@ -20,7 +21,7 @@ const KakaoOuathPage = () => {
         try {
           console.log(kakaoOauthCode);
           localStorage.setItem('accessToken', 'token');
-          Swal.fire(loginSuccessMessage).then(navigate('/'));
+          Swal.fire(loginSuccessMessage).then(navigate(routes.home));
         } catch (error) {
           // console.log(error);
         }
@@ -37,7 +38,7 @@ const KakaoOuathPage = () => {
   //         const res = await axios.get(`백엔드 API 링크/kakao?code=${kakaoOauthCode}`);
   //         const ACCESS_TOKEN = res.response.AccessToken;
   //         await localStorage.setItem('accessToken', ACCESS_TOKEN);
-  //         await Swal.fire(loginSuccessMessage).then(navigate('/'));
+  //         await Swal.fire(loginSuccessMessage).then(navigate(routes.home));
   //       } catch (error) {
   //         console.error(error);
   //       }
@@ -62,7 +63,7 @@ const KakaoOuathPage = () => {
   //         );
   //         const ACCESS_TOKEN = res.response.AccessToken;
   //         await localStorage.setItem('accessToken', ACCESS_TOKEN);
-  //         await Swal.fire(loginSuccessMessage).then(navigate('/'));
+  //         await Swal.fire(loginSuccessMessage).then(navigate(routes.home));
   //       } catch (error) {
   //         console.error(error);
   //       }
@@ -92,7 +93,7 @@ const KakaoOuathPage = () => {
   //           console.log(res);
   //           const ACCESS_TOKEN = res.response.AccessToken;
   //           localStorage.setItem('accessToken', ACCESS_TOKEN);
-  //           Swal.fire(loginSuccessMessage).then(navigate('/'));
+  //           Swal.fire(loginSuccessMessage).then(navigate(routes.home));
   //         });
   //     } catch (error) {
   //       console.error(error);
