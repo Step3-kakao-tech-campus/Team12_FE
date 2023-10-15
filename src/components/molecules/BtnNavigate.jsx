@@ -20,7 +20,7 @@ const BtnNavigate = ({ handlePrev, handleNext }) => {
           이전
         </div>
       </Button>
-      <Button onClick={handleNext} width={btnWidth} height={btnHeight} bgColor="bg-blue">
+      <Button type="submit" onClick={handleNext} width={btnWidth} height={btnHeight} bgColor="bg-blue">
         <div className="flex items-center justify-end">
           다음
           <IoIosArrowForward size={20} className="ml-9" />

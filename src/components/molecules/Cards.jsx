@@ -6,6 +6,7 @@ const Cards = ({ articles }) => {
     <div>
       {articles.map((article) => (
         <Card
+          key={article.boardId}
           orderLocation={article.shopName}
           pickupLocation={article.destination}
           pickupTip={article.tip}

@@ -3,6 +3,7 @@ import { BsArrowLeft } from 'react-icons/bs';
 import { BiSolidUser } from 'react-icons/bi';
 import { MdHome } from 'react-icons/md';
 import { Link, useNavigate } from 'react-router-dom';
+import routes from '../../constant/routes';
 
 const OtherNav = ({ iconColor = '#000', bgColor = 'bg-[#FFF]' }) => {
   const navigate = useNavigate();
@@ -15,10 +16,10 @@ const OtherNav = ({ iconColor = '#000', bgColor = 'bg-[#FFF]' }) => {
       <div className={`flex justify-between p-[25px] ${bgColor}`}>
         <BsArrowLeft className="cursor-pointer" onClick={goPreviousPage} size={25} color={iconColor} />
         <div className="flex">
-          <Link className="mr-4" to="/">
+          <Link className="mr-4" to={routes.home}>
             <MdHome size={25} color={iconColor} />
           </Link>
-          <Link to="/mypage">
+          <Link to={routes.mypage}>
             <BiSolidUser size={25} color={iconColor} />
           </Link>
         </div>

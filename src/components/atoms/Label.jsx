@@ -1,6 +1,6 @@
 const Label = ({ htmlFor, children }) => {
   return (
-    <label htmlFor={htmlFor} className="block text-lg">
+    <label htmlFor={htmlFor} className="block">
       {children}
     </label>
   );
