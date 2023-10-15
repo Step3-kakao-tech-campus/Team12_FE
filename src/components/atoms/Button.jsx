@@ -1,7 +1,7 @@
 // 필요에 맞게 너비, 높이, 배경색, 글자색, 테두리둥금 수치를 상위 컴포넌트에서 조정
 // props default 값은 로그인 버튼 기준입니다!
 const Button = ({
-  type,
+  type = 'button',
   onClick,
   disabled,
   children,
@@ -14,10 +14,10 @@ const Button = ({
 }) => {
   return (
     <button
-      type={type || 'button'}
+      type={type}
       onClick={onClick}
       disabled={disabled}
-      className={`${width} ${height} ${textColor} ${bgColor} ${bdRadius} ${margin}`}
+      className={[width, height, textColor, bgColor, bdRadius, margin].join(' ')}
     >
       {children}
     </button>
