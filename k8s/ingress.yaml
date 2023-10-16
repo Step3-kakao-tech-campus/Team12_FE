@@ -12,7 +12,7 @@ spec:
   rules:
     - http:
         paths:
-          - backend:
+          - frontend:
               serviceName: krampoline
               servicePort: 3000
             # 여러분의 app path 를 넣어주세요.
