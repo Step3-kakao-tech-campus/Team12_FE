@@ -20,7 +20,7 @@ const HomePage = () => {
       {/* 현재 픽업을 기다리고 있어요 부분 */}
       <div>
         <div className="mt-10 px-6 flex justify-between items-center">
-          <div className="text-xl text-blue">현재 픽업을 기다리고 있어요.</div>
+          <div className="text-xl text-blue">현재 픽업을 기다리고 있어요.호호!!(테스트)</div>
           {/* eslint-disable-next-line */}
           <Link to={routes.post}>
             <div className="text-zinc-400">더보기</div>
