@@ -13,11 +13,9 @@ import routes from './constant/routes';
 
 import './global.css';
 
-const staticServerUri = process.env.REACT_APP_PATH || '';
-
 function App() {
   return (
-    <BrowserRouter basename={staticServerUri}>
+    <BrowserRouter>
       <Routes>
         <Route path={routes.home} element={<HomePage />} />
         <Route path={routes.login} element={<LoginPage />} />
