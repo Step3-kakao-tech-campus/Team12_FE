@@ -12,3 +12,9 @@ export const loginNeedMessage = {
   text: '로그인을 먼저 해주세요😊',
   confirmButtonText: '확인',
 };
+export const authInvalidMessage = {
+  title: '해당 페이지에 대한 접근 권한이 없습니다!',
+  text: '접근 권한이 아예 없거나, 또는 학생증 인증을 진행해주세요!',
+  icon: 'error',
+  confirmButtonText: '확인',
+};
