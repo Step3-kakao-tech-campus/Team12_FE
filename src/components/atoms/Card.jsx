@@ -2,7 +2,7 @@ import { BsArrowDown } from 'react-icons/bs';
 import { MdOutlineLocationOn, MdLocationPin } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 import comma from '../../utils/comma';
-import date from '../../utils/date';
+import getDeadlineDate from '../../utils/date';
 
 // to : 해당 공고글의 링크로 이동
 const Card = ({
@@ -22,7 +22,10 @@ const Card = ({
       className={`w-80 h-20 rounded-xl border-[#8B8B8B] border m-auto my-[15px] 
       ${match ? 'bg-[#000000]/50' : ''}`}
     >
-      <Link to={match ? './' : to} className={`flex justify-between py-2 px-3 ${match ? 'cursor-default' : ''}`}>
+      <Link
+        to={match ? './' : to}
+        className={`relative flex justify-between py-2 px-3 ${match ? 'cursor-default' : ''}`}
+      >
         <div>
           <div className="flex items-center">
             <MdOutlineLocationOn className="mr-1" style={{ color: '#0075FF' }} />
@@ -40,11 +43,17 @@ const Card = ({
             className={`grid justify-items-end text-[0.5rem] 
             ${match ? 'text-[#000]' : 'text-[#FF0000]'} `}
           >
-            {date(deadline)}
+            {getDeadlineDate(deadline)}
           </div>
         </div>
+        {match ? (
+          <div className="text-[#fff] absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] font-medium">
+            매칭완료
+          </div>
+        ) : (
+          ''
+        )}
       </Link>
-      {match ? <div className="text-[#fff] relative bottom-[50px] left-[130px] font-medium">매칭완료</div> : ''}
     </div>
   );
 };

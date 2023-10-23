@@ -2,6 +2,7 @@ import React from 'react';
 import { BsArrowLeft } from 'react-icons/bs';
 import { MdHome } from 'react-icons/md';
 import { Link, useNavigate } from 'react-router-dom';
+import routes from '../../constant/routes';
 
 const LoginNav = () => {
   const navigate = useNavigate();
@@ -13,7 +14,7 @@ const LoginNav = () => {
     <div>
       <div className="flex justify-between p-[25px] ">
         <BsArrowLeft className="cursor-pointer" onClick={goPreviousPage} size={25} />
-        <Link to="/">
+        <Link to={routes.home}>
           <MdHome size={25} />
         </Link>
       </div>

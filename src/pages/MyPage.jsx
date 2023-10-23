@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import MyPageTemplate from '../components/templates/MyPageTemplate';
 import { loginNeedMessage } from '../utils/alert';
+import routes from '../constant/routes';
 
 const MyPage = () => {
   const navigate = useNavigate();
@@ -11,7 +12,7 @@ const MyPage = () => {
   useEffect(() => {
     if (localStorage.getItem('accessToken') == null) {
       Swal.fire(loginNeedMessage);
-      navigate('/login');
+      navigate(routes.login);
     }
   }, [navigate]);
 

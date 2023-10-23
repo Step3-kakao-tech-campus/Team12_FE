@@ -3,11 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import Loader from '../components/atoms/Loader';
 import Footer from '../components/atoms/Footer';
 import Button from '../components/atoms/Button';
+import routes from '../constant/routes';
 
 const ErrorPage = () => {
   const navigate = useNavigate();
   const goMain = () => {
-    navigate('/');
+    navigate(routes.home);
   };
 
   return (
