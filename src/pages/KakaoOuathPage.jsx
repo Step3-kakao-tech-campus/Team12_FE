@@ -21,6 +21,8 @@ const KakaoOuathPage = () => {
         try {
           console.log(kakaoOauthCode);
           localStorage.setItem('accessToken', 'token');
+          localStorage.setItem('userAuth', 'user');
+          localStorage.setItem('username', '김김김');
           Swal.fire(loginSuccessMessage).then(navigate(routes.home));
         } catch (error) {
           // console.log(error);
