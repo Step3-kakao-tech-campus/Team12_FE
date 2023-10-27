@@ -18,3 +18,16 @@ export const authInvalidMessage = {
   icon: 'error',
   confirmButtonText: '확인',
 };
+
+export const registerMessage = {
+  title: '공고를 등록하시겠습니까?',
+  html: `정보를 알맞게 입력하셨나요?<br/> 
+  피커는 입력한 정보를 바탕으로 움직이게 됩니다.`,
+  icon: 'question',
+  showCancelButton: true,
+  reverseButtons: true,
+  confirmButtonColor: '#0075FF',
+  cancelButtonColor: '#D9D9D9',
+  cancelButtonText: '취소',
+  confirmButtonText: '확인',
+};
