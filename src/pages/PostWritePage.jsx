@@ -12,7 +12,6 @@ import CircleNavigate from '../components/organisms/CircleNavigate';
 const PostWritePage = () => {
   const navigate = useNavigate();
   const [focus, setFocus] = useState(1);
-  let currentPage;
 
   const {
     register,
@@ -72,19 +71,17 @@ const PostWritePage = () => {
     console.log(data); // api 연결 후 수정 예정
   };
 
-  switch (focus) {
-    case 1:
-      currentPage = <OrderInfo register={register} storeError={!!errors.store} beverageError={!!errors.beverage} />;
-      break;
-    case 2:
-      currentPage = <OrderRequest register={register} destinationError={!!errors.destination} />;
-      break;
-    case 3:
-      currentPage = <OrderDeadLine register={register} deadLineError={!!errors.hour || !!errors.minute} />;
-      break;
-    default:
-      currentPage = null;
-  }
+  const currentPage = (function (page) {
+    if (page === 1) {
+      return <OrderInfo register={register} storeError={!!errors.store} beverageError={!!errors.beverage} />;
+    }
+    if (page === 2) {
+      return <OrderRequest register={register} destinationError={!!errors.destination} />;
+    }
+    if (page === 3) {
+      return <OrderDeadLine register={register} deadLineError={!!errors.hour || !!errors.minute} />;
+    }
+  })(focus);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
