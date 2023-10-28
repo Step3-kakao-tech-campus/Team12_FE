@@ -9,6 +9,7 @@ const routes = {
   postWriter: '/post/writer',
   postWrite: '/post-write',
   error: '/*',
+  admin: '/admin',
 };
 
 export default routes;

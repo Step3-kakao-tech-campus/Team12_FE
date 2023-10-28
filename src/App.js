@@ -9,6 +9,7 @@ import PostWriteIntroPage from './pages/PostWriteIntroPage';
 import PostWritePage from './pages/PostWritePage';
 import ErrorPage from './pages/ErrorPage';
 import PostDetailWriterPage from './pages/PostDetailWriterPage';
+import AdminPage from './pages/AdminPage';
 import ProtectedRoute from './components/templates/ProtectedRoute';
 import routes from './constant/routes';
 
@@ -37,6 +38,7 @@ function App() {
         <Route path={routes.postWriteIntro} element={<PostWriteIntroPage />} />
         <Route path={routes.postWrite} element={<PostWritePage />} />
         <Route path={routes.error} element={<ErrorPage />} />
+        <Route path={routes.admin} element={<AdminPage />} />
       </Routes>
     </BrowserRouter>
   );
