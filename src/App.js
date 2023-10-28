@@ -9,6 +9,7 @@ import PostWriteIntroPage from './pages/PostWriteIntroPage';
 import PostWritePage from './pages/PostWritePage';
 import ErrorPage from './pages/ErrorPage';
 import PostDetailWriterPage from './pages/PostDetailWriterPage';
+import RegisterBankPage from './pages/RegisterBankPage';
 import ProtectedRoute from './components/templates/ProtectedRoute';
 import routes from './constant/routes';
 
@@ -21,6 +22,7 @@ function App() {
         <Route path={routes.home} element={<HomePage />} />
         <Route path={routes.login} element={<LoginPage />} />
         <Route path={routes.loginKakao} element={<KakaoOuathPage />} />
+        <Route path={routes.registerBank} element={<RegisterBankPage />} />
         <Route
           path={routes.mypage}
           element={
