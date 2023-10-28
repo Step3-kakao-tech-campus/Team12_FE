@@ -10,6 +10,7 @@ import PostWritePage from './pages/PostWritePage';
 import ErrorPage from './pages/ErrorPage';
 import PostDetailWriterPage from './pages/PostDetailWriterPage';
 import AdminPage from './pages/AdminPage';
+import AdminAuthPage from './pages/AdminAuthPage';
 import ProtectedRoute from './components/templates/ProtectedRoute';
 import routes from './constant/routes';
 
@@ -39,6 +40,7 @@ function App() {
         <Route path={routes.postWrite} element={<PostWritePage />} />
         <Route path={routes.error} element={<ErrorPage />} />
         <Route path={routes.admin} element={<AdminPage />} />
+        <Route path={routes.adminAuth} element={<AdminAuthPage />} />
       </Routes>
     </BrowserRouter>
   );
