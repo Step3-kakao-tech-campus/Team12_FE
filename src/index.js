@@ -3,6 +3,11 @@ import ReactDOM from 'react-dom/client';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+/* eslint import/newline-after-import: "off" */
+import worker from './mocks/worker';
+if (process.env.NODE_ENV === 'development') {
+  worker.start();
+}
 
 const queryClient = new QueryClient();
 const root = ReactDOM.createRoot(document.getElementById('root'));
