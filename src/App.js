@@ -7,7 +7,6 @@ import PostListPage from './pages/PostListPage';
 import PostDetailPage from './pages/PostDetailPage';
 import PostWriteIntroPage from './pages/PostWriteIntroPage';
 import PostWritePage from './pages/PostWritePage';
-import PostDetailWriterPage from './pages/PostDetailWriterPage';
 import MyPage from './pages/MyPage';
 import AdminPage from './pages/AdminPage';
 import AdminAuthPage from './pages/AdminAuthPage';
