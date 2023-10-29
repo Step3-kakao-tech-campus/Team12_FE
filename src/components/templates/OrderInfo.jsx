@@ -33,7 +33,7 @@ const OrderInfo = ({ register, storeError, beverageError }) => {
           <div className="flex items-center">
             <Input
               id={BEVERAGE}
-              name={BEVERAGE}
+              name={`${BEVERAGE}[${0}]`}
               register={register}
               required
               width="w-[15rem]"
@@ -47,7 +47,7 @@ const OrderInfo = ({ register, storeError, beverageError }) => {
                 <li key={field.id} className="list-none">
                   <Input
                     id={BEVERAGE}
-                    name={`${BEVERAGE}[${index}]`}
+                    name={`${BEVERAGE}[${index + 1}]`}
                     register={register}
                     width="w-[15rem]"
                     placeholder="아이스 아메리카노 1잔"
