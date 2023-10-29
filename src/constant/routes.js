@@ -10,6 +10,8 @@ const routes = {
   postWriter: '/post/writer',
   postWrite: '/post-write',
   error: '/*',
+  admin: '/admin',
+  adminAuth: '/admin/auth/:id',
 };
 
 export default routes;
