@@ -2,6 +2,7 @@ const routes = {
   home: '/',
   login: '/login',
   loginKakao: '/login/kakao',
+  registerBank: '/register/bank',
   mypage: '/mypage',
   post: '/post',
   detailPost: '/post/:id',
@@ -9,6 +10,8 @@ const routes = {
   postWriter: '/post/writer',
   postWrite: '/post-write',
   error: '/*',
+  admin: '/admin',
+  adminAuth: '/admin/auth/:id',
 };
 
 export default routes;
