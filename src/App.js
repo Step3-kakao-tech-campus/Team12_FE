@@ -7,9 +7,9 @@ import PostListPage from './pages/PostListPage';
 import PostDetailPage from './pages/PostDetailPage';
 import PostWriteIntroPage from './pages/PostWriteIntroPage';
 import PostWritePage from './pages/PostWritePage';
-import ErrorPage from './pages/ErrorPage';
 import PostDetailWriterPage from './pages/PostDetailWriterPage';
 import RegisterBankPage from './pages/RegisterBankPage';
+import ErrorPage from './pages/ErrorPage';
 import ProtectedRoute from './components/templates/ProtectedRoute';
 import routes from './constant/routes';
 
@@ -33,7 +33,6 @@ function App() {
         />
         <Route path={routes.post} element={<PostListPage />} />
         <Route path={routes.detailPost} element={<PostDetailPage />} />
-        <Route path={routes.postWriter} element={<PostDetailWriterPage />} />
         <Route path={routes.postWriteIntro} element={<PostWriteIntroPage />} />
         <Route path={routes.postWrite} element={<PostWritePage />} />
         <Route path={routes.error} element={<ErrorPage />} />
