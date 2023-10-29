@@ -1,12 +1,12 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import WriterMatch from '../components/templates/WriterMatch';
 import WriterNoMatch from '../components/templates/WriterNoMatch';
 import PickerMatch from '../components/templates/PickerMatch';
 import PickerNoMatch from '../components/templates/PickerNoMatch';
 
 const PostDetailPage = () => {
-  const isWriter = false;
-  const [isMatch, setIsMatch] = useState(false);
+  const isWriter = localStorage.getItem('isWriter');
+  const [isMatch, setIsMatch] = useState(localStorage.getItem('isMatch'));
 
   /* eslint no-else-return: "error" */
   const showDetailPage = (isWritered, isMatched) => {
@@ -23,6 +23,10 @@ const PostDetailPage = () => {
     // 피커이고 매칭 안됐을 때
     return <PickerNoMatch setIsMatch={setIsMatch} />;
   };
+
+  useEffect(() => {
+    showDetailPage(isWriter, isMatch);
+  }, [isWriter, isMatch]);
 
   return (
     <div className="page--layout">
