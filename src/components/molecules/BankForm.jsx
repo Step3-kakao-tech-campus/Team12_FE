@@ -1,20 +1,35 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import { useMutation } from '@tanstack/react-query';
 import Button from '../atoms/Button';
 import banks from '../../constant/bank';
 import ErrorMsg from '../atoms/ErrorMsg';
 import routes from '../../constant/routes';
-import { bankInvalidMessage } from '../../utils/alert';
+import registerBank from '../../apis/register';
+import { bankInvalidMessage, unknownErrorMessage } from '../../utils/alert';
 
 const BankForm = () => {
-  const [bank, setBank] = useState('');
+  const [accountBank, setAccountBank] = useState('');
   const [accountNumber, setAccountNumber] = useState('');
   const [formValid, setFormValid] = useState(false);
 
+  const navigate = useNavigate();
+
+  const { mutate } = useMutation({
+    mutationFn: registerBank,
+    onSuccess: () => {
+      navigate(routes.login); // 회원가입 이후 로그인을 할 수 있도록 로그인 페이지로 이동시킴
+    },
+    onError: () => {
+      Swal.fire(unknownErrorMessage);
+      navigate(routes.error);
+    },
+  });
+
   // 계좌 은행을 선택할 때 호출될 함수
   const handleBankChange = (e) => {
-    setBank(e.target.value);
+    setAccountBank(e.target.value);
   };
 
   // 계좌 번호를 입력할 때 호출될 함수
@@ -26,8 +41,10 @@ const BankForm = () => {
   const handleSubmit = () => {
     if (formValid) {
       // 입력 정보 post 처리 이후 홈 페이지 이동(회원가입 완료)
-      console.log('계좌 은행:', bank);
-      console.log('계좌 번호:', accountNumber);
+      mutate({
+        bank: accountBank,
+        account: accountNumber,
+      });
     } else {
       Swal.fire(bankInvalidMessage);
     }
@@ -35,12 +52,12 @@ const BankForm = () => {
 
   // 계좌 은행 혹은 계좌 번호가 입력될 때 값의 입력 유무를 판단
   useEffect(() => {
-    if (bank.trim() !== '' && accountNumber.trim() !== '') {
+    if (accountBank.trim() !== '' && accountNumber.trim() !== '') {
       setFormValid(true);
     } else {
       setFormValid(false);
     }
-  }, [bank, accountNumber]);
+  }, [accountBank, accountNumber]);
 
   return (
     <div>
@@ -69,7 +86,12 @@ const BankForm = () => {
         {!formValid && <ErrorMsg />}
       </div>
       <div className="text-center">
-        <Button width="w-[270px]" onClick={handleSubmit}>
+        <Button
+          width="w-[270px]"
+          onClick={() => {
+            handleSubmit();
+          }}
+        >
           회원가입
         </Button>
         <div className="mt-[10px] text-[10px] text-[#8C8C8C]">
