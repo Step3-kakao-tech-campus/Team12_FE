@@ -37,7 +37,7 @@ const OrderRequest = ({ destinationError, register }) => {
         </div>
       </div>
       <div className="mt-6">
-        <Labels htmlFor={REQUEST} label="피커에게 요청사항이 있나요? *" subLabel="50자까지 입력 가능합니다." />
+        <Labels htmlFor={REQUEST} label="피커에게 요청사항이 있나요?" subLabel="50자까지 입력 가능합니다." />
         <TextArea
           id={REQUEST}
           name={REQUEST}
