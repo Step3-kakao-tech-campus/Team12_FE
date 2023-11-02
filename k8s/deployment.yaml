@@ -16,7 +16,7 @@ spec:
       containers:
         - name: frontend
           # 여러분의 image 주소를 입력해주세요.
-          image: krmp-d2hub-idock.9rum.cc/dev-test/repo_f04aab2f83bd
+          image: krmp-d2hub-idock.9rum.cc/dev-test/repo_dfb57ec32722
           env:
           - name: REACT_APP_REST_API_KEY
             valueFrom:
