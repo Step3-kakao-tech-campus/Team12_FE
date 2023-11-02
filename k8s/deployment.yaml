@@ -17,3 +17,9 @@ spec:
         - name: frontend
           # 여러분의 image 주소를 입력해주세요.
           image: krmp-d2hub-idock.9rum.cc/dev-test/repo_a9a03662f5a4
+          env:
+          - name: REACT_APP_REST_API_KEY
+            valueFrom:
+              configMapKeyRef:
+                name: my-configmap
+                key: REACT_APP_REST_API_KEY
