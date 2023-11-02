@@ -11,6 +11,7 @@
 
 # production
 /build
+api-key.txt
 
 # misc
 .DS_Store

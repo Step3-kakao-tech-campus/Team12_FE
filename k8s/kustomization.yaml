@@ -3,3 +3,7 @@ resources:
   - deployment.yaml
   - service.yaml
   - ingress.yaml
+secretGenerator:
+- name: api-key-secret
+  files:
+  - api-key.txt
