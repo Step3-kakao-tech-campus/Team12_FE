@@ -1,8 +1,8 @@
 # node 16 이미지를 기반으로 함
 FROM krmp-d2hub-idock.9rum.cc/goorm/node:16
 
-ENV REACT_APP_KAKAO_CLIENT_ID = bd3e8c1b259f545078e29a64ccbb3828 \
-    REACT_APP_BASE_URL = https://k6571a6a48148a.user-app.krampoline.com
+ENV REACT_APP_REST_API_KEY = bd3e8c1b259f545078e29a64ccbb3828 \
+    REACT_APP_BASE_URL = https://ka8d1b2b62898a.user-app.krampoline.com
 
 # 작업 디렉토리 설정
 WORKDIR /usr/src/app
