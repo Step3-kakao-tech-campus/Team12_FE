@@ -9,9 +9,6 @@ import { useQuery } from '@tanstack/react-query';
 import { getPostById } from '../apis/post';
 
 const PostDetailPage = () => {
-  // const isWriter = localStorage.getItem('isWriter');
-  // const [isMatch, setIsMatch] = useState(localStorage.getItem('isMatch'));
-
   // 샘플데이터
   const sample = {
     boardId: 1,
@@ -28,7 +25,7 @@ const PostDetailPage = () => {
     tip: 1000,
     request: '빨리 와주세요',
     finishedAt: 1696073040,
-    isMatch: false,
+    isMatch: true,
     same: true,
   };
 
@@ -50,12 +47,8 @@ const PostDetailPage = () => {
       return <PickerMatch response={post} />;
     }
     // 피커이고 매칭 안됐을 때
-    return <PickerNoMatch /*setIsMatch={setIsMatch}*/ response={post} />;
+    return <PickerNoMatch response={post} />;
   };
-
-  // useEffect(() => {
-  //   showDetailPage(isWriter, isMatch);
-  // }, [isWriter, isMatch]);
 
   return (
     <div className="page--layout">

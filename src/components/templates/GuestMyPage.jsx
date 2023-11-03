@@ -10,10 +10,6 @@ const GuestMyPage = () => {
   };
   return (
     <div>
-      <div className="h-24 p-5">
-        <div className="text-xl font-bold">닉네임</div>
-        <div>학생 미인증</div>
-      </div>
       <div className="w-full h-1 bg-zinc-200" />
       <div className="px-5 mt-5">
         <div className="py-3 text-lg">
