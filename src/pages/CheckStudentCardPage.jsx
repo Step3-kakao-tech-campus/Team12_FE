@@ -10,9 +10,16 @@ import { useNavigate } from 'react-router-dom';
 import routes from '../constant/routes';
 
 const CheckStudentCardPage = () => {
+  // 주석 부분은 백엔드랑 연결되면 사용
   // const { data } = useQuery('/mypage/auth', getUserAuth);
   // const checking = data?.data?.response;
-  const checking = false;
+
+  // 샘플
+  const checking = {
+    success: true,
+    response: '미인증',
+    error: null,
+  };
 
   const navigate = useNavigate();
   const didMount = useRef(false);
@@ -116,7 +123,7 @@ const CheckStudentCardPage = () => {
 
   // 학생증인증중인지 아닌지 체크
   const isCheck = (checking) => {
-    if (!checking) return uploadForm();
+    if (checking.response === '미인증') return uploadForm();
     else return <div className="text-center text-xl my-10">학생증 인증 검토 중입니다.</div>;
   };
 
