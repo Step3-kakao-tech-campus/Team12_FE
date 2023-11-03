@@ -6,7 +6,7 @@ import LoginNav from '../components/atoms/LoginNav';
 // 이후 주소에 카카오에서 보낸 인가 코드가 있는데, 이를 파싱해서 백엔드로 전송
 const LoginPage = () => {
   const REST_API_KEY = process.env.REACT_APP_REST_API_KEY;
-  const REDIRECT_URI = 'http://localhost:3000/login/kakao';
+  const REDIRECT_URI = 'https://k0e9f032b0b45a.user-app.krampoline.com/login/kakao';
   const KAKAO_AUTH_URI = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
 
   const loginHandler = () => {
