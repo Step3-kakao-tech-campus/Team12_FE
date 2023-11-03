@@ -13,3 +13,12 @@ import { instance } from './index';
 export const getPosts = (offset = '') => {
   return instance.get(`/articles?offset=${offset}&limit=10`);
 };
+
+// boardId로 공고 받아오기
+export const getPostById = (boardId) => {
+  if (!boardId) {
+    throw Error('id가 필요합니다.');
+  }
+  /* eslint-disable-next-line */
+  return instance.get('/post/' + boardId);
+};

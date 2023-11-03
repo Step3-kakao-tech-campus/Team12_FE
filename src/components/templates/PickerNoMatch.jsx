@@ -7,7 +7,7 @@ import Location from '../organisms/Location';
 import '../../styles/DeleteSpin.css';
 import PickerTime from '../organisms/PickerTime';
 
-const PickerNoMatch = ({ setIsMatch }) => {
+const PickerNoMatch = ({ setIsMatch, response }) => {
   const [page, setPage] = useState(0);
 
   // 이 음료 픽업하기 버튼을 눌렀을 때 뜨는 모달창
@@ -33,7 +33,7 @@ const PickerNoMatch = ({ setIsMatch }) => {
     }
     return (
       <>
-        <Info />
+        <Info response={response} />
         <div className="flex justify-center">
           <Button onClick={pickUpBtnModal} bgColor="bg-blue">
             이 음료 픽업하기
@@ -50,7 +50,7 @@ const PickerNoMatch = ({ setIsMatch }) => {
         <OtherNav iconColor="#fff" bgColor="#000" />
         <div className="px-5">
           <div className="mt-1 text-white text-xl">매칭을 기다리고 있어요.</div>
-          <Location />
+          <Location response={response} />
         </div>
       </div>
       {/* 하얀색 부분 */}
