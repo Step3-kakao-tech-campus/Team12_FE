@@ -8,11 +8,11 @@ import { useMutation } from '@tanstack/react-query';
 
 const CheckStudentCardPage = () => {
   const [imageSrc, setImageSrc] = useState(null);
-  const { mutate } = useMutation({
-    mutationFn: uploadCard,
-    onSuccess: () => {},
-    onError: () => {},
-  });
+  // const { mutate } = useMutation({
+  //   mutationFn: uploadCard,
+  //   onSuccess: () => {},
+  //   onError: () => {},
+  // });
 
   const onUpload = (e) => {
     const file = e.target.files[0];
