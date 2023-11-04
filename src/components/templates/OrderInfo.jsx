@@ -1,45 +1,48 @@
-import { useForm, useFieldArray } from 'react-hook-form';
+/*eslint-disable*/
+import { useFieldArray, useFormContext } from 'react-hook-form';
 import Labels from '../molecules/Labels';
 import SelectInput from '../atoms/SelectInput';
 import Input from '../atoms/Input';
 import ErrorMsg from '../atoms/ErrorMsg';
 import PlusBtn from '../atoms/PlusBtn';
 import MinusBtn from '../atoms/MinusBtn';
+import { ORDER_INFO_STORE, ORDER_INFO_BEVERAGE, STORE, BEVERAGE } from '../../constant/postWrite/orderInfo';
+import validateInputMsg from '../../constant/validateInputMsg';
 
-const OrderInfo = ({ register, storeError, beverageError }) => {
-  const STORE = 'store';
-  const BEVERAGE = 'beverage';
-  const { control } = useForm();
+const OrderInfo = () => {
+  const {
+    register,
+    formState: { errors },
+    control,
+  } = useFormContext();
   const { fields, append, remove } = useFieldArray({ control, name: BEVERAGE });
 
   return (
     <>
       <div className="mt-6 mb-12">
-        <Labels
-          htmlFor={STORE}
-          label="주문할 매장은 어디인가요? *"
-          subLabel="음료를 주문할 매장을 정확하게 입력해주세요."
+        <Labels htmlFor={STORE} label={ORDER_INFO_STORE.label} subLabel={ORDER_INFO_STORE.subLabel} />
+        <SelectInput
+          register={register(STORE, { required: validateInputMsg.STORE_MSG })}
+          id={STORE}
+          name={STORE}
+          className="mb-10"
         />
-        <SelectInput register={register} required id={STORE} name={STORE} className="mb-10" />
-        {storeError && <ErrorMsg />}
+        <ErrorMsg errors={errors} name={STORE} as="p" />
       </div>
+
       <div className="mt-6">
-        <Labels
-          htmlFor={BEVERAGE}
-          label="어떤 음료를 주문하실건가요? *"
-          subLabel="주문할 음료를 정확하게 입력해주세요."
-        />
+        <Labels htmlFor={BEVERAGE} label={ORDER_INFO_BEVERAGE.label} subLabel={ORDER_INFO_BEVERAGE.subLabel} />
         <div className="flex flex-col">
           <div className="flex items-center">
-            <Input
+            {/* <Input
               id={BEVERAGE}
-              name={`${BEVERAGE}[${0}]`}
-              register={register}
+              name={`${BEVERAGE}.0.value`}
+              register={register(`${BEVERAGE}.0.value`)}
               required
               width="w-[15rem]"
               placeholder="아이스 아메리카노 1잔"
-            />
-            <PlusBtn onClick={() => append({ BEVERAGE })} />
+            /> */}
+            <PlusBtn onClick={() => append({ value: '' })} />
           </div>
           {fields.map((field, index) => {
             return (
@@ -47,8 +50,10 @@ const OrderInfo = ({ register, storeError, beverageError }) => {
                 <li key={field.id} className="list-none">
                   <Input
                     id={BEVERAGE}
-                    name={`${BEVERAGE}[${index + 1}]`}
-                    register={register}
+                    name={`${BEVERAGE}.${index}.value`}
+                    register={register(`${BEVERAGE}.${index}.value`, {
+                      required: validateInputMsg.BEVERAGE_MSG,
+                    })}
                     width="w-[15rem]"
                     placeholder="아이스 아메리카노 1잔"
                   />
@@ -58,8 +63,8 @@ const OrderInfo = ({ register, storeError, beverageError }) => {
             );
           })}
         </div>
+        <ErrorMsg errors={errors} name={`${BEVERAGE}.0.value`} as="p" />
       </div>
-      {beverageError && <ErrorMsg />}
     </>
   );
 };
