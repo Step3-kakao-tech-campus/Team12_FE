@@ -4,7 +4,7 @@ import { useInView } from 'react-intersection-observer';
 import { useInfiniteQuery } from '@tanstack/react-query';
 import { getPosts } from '../apis/post';
 import routes from '../constant/routes';
-import OtherNav from '../components/atoms/OtherNav';
+import OtherNav from '../components/atoms/nav/OtherNav';
 import Cards from '../components/molecules/Cards';
 import FilterForm from '../components/molecules/FilterForm';
 import WritePostIcon from '../assets/images/postWrite.png';

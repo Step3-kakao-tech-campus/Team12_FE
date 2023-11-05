@@ -1,6 +1,6 @@
 import React from 'react';
 import loginIcon from '../assets/images/kakao_login_medium_wide.png';
-import LoginNav from '../components/atoms/LoginNav';
+import LoginNav from '../components/atoms/nav/LoginNav';
 
 // 버튼을 눌러 개인정보 동의 후 계속하기를 하면 REDIRECT_URI로 리다이렉트 된다.
 // 이후 주소에 카카오에서 보낸 인가 코드가 있는데, 이를 파싱해서 백엔드로 전송

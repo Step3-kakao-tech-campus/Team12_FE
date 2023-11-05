@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Loader from '../components/atoms/Loader';
 import Footer from '../components/atoms/Footer';
-import Button from '../components/atoms/Button';
+import Button from '../components/atoms/button/Button';
 import routes from '../constant/routes';
 
 const ErrorPage = () => {

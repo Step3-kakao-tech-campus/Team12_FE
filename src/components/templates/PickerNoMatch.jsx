@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
-import Button from '../atoms/Button';
-import OtherNav from '../atoms/OtherNav';
+import Button from '../atoms/button/Button';
+import OtherNav from '../atoms/nav/OtherNav';
 import Info from '../organisms/Info';
 import Location from '../organisms/Location';
 import '../../styles/DeleteSpin.css';

@@ -1,6 +1,6 @@
 /* eslint-disable */
 import Labels from '../molecules/Labels';
-import Input from '../atoms/Input';
+import Input from '../atoms/input/Input';
 import ErrorMsg from '../atoms/ErrorMsg';
 import { ORDER_DEADLINE, HOUR, MINUTE } from '../../constant/postWrite/orderDeadLine';
 import validateInputMsg from '../../constant/validateInputMsg';

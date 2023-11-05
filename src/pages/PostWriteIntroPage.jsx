@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import Button from '../components/atoms/Button';
-import OtherNav from '../components/atoms/OtherNav';
+import Button from '../components/atoms/button/Button';
+import OtherNav from '../components/atoms/nav/OtherNav';
 import routes from '../constant/routes';
 import intro from '../constant/postWrite/intro';
 

@@ -1,4 +1,4 @@
-import OtherNav from '../atoms/OtherNav';
+import OtherNav from '../atoms/nav/OtherNav';
 import Info from '../organisms/Info';
 import Location from '../organisms/Location';
 

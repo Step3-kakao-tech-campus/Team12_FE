@@ -1,8 +1,8 @@
 /*eslint-disable*/
 import Labels from '../molecules/Labels';
-import Input from '../atoms/Input';
+import Input from '../atoms/input/Input';
 import TextArea from '../atoms/TextArea';
-import RangeInput from '../atoms/RangeInput';
+import RangeInput from '../atoms/input/RangeInput';
 import ErrorMsg from '../atoms/ErrorMsg';
 import price from '../../constant/price';
 import { DESTINATION, TIP, REQUEST, ORDER_REQUEST } from '../../constant/postWrite/orderRequest';

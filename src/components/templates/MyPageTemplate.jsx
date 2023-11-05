@@ -1,6 +1,6 @@
 import React from 'react';
 // import { useQuery } from '@tanstack/react-query';
-import OtherNav from '../atoms/OtherNav';
+import OtherNav from '../atoms/nav/OtherNav';
 import AdminMyPage from './AdminMyPage';
 import GuestMyPage from './GuestMyPage';
 import StudentMyPage from './StudentMyPage';

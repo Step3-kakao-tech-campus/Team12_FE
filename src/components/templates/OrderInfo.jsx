@@ -1,11 +1,11 @@
 /*eslint-disable*/
 import { useFieldArray, useFormContext } from 'react-hook-form';
 import Labels from '../molecules/Labels';
-import SelectInput from '../atoms/SelectInput';
-import Input from '../atoms/Input';
+import SelectInput from '../atoms/input/SelectInput';
+import Input from '../atoms/input/Input';
 import ErrorMsg from '../atoms/ErrorMsg';
-import PlusBtn from '../atoms/PlusBtn';
-import MinusBtn from '../atoms/MinusBtn';
+import PlusBtn from '../atoms/button/PlusBtn';
+import MinusBtn from '../atoms/button/MinusBtn';
 import { ORDER_INFO_STORE, ORDER_INFO_BEVERAGE, STORE, BEVERAGE } from '../../constant/postWrite/orderInfo';
 import validateInputMsg from '../../constant/validateInputMsg';
 

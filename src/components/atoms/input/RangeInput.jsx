@@ -1,4 +1,4 @@
-import '../../styles/thumb.css';
+import '../../../styles/thumb.css';
 
 const RangeInput = ({ name, register }) => {
   return (
