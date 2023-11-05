@@ -40,19 +40,11 @@ const CheckStudentCardPage = () => {
 
   // 입력완료 누를 때 나타나는 모달창
   const requestCardModal = () => {
-    return Swal.fire({
-      requestCardModalMessage,
-    }).then((result) => {
+    return Swal.fire(requestCardModalMessage).then((result) => {
       if (result.isConfirmed && imageSrc) {
-        Swal.fire({
-          successRequestCardMessage,
-        }).then(mutate(imageSrc));
+        Swal.fire(successRequestCardMessage).then(mutate(imageSrc));
         // 그리고 사진 보내고 기다림
         mutate(formData);
-      } else {
-        Swal.fire({
-          errorRequestCardMessage,
-        });
       }
     });
   };
