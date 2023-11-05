@@ -1,15 +1,15 @@
 /*eslint-disable*/
 import { useFieldArray, useFormContext } from 'react-hook-form';
-import Labels from '../molecules/Labels';
-import SelectInput from '../atoms/input/SelectInput';
-import Input from '../atoms/input/Input';
-import ErrorMsg from '../atoms/ErrorMsg';
-import PlusBtn from '../atoms/button/PlusBtn';
-import MinusBtn from '../atoms/button/MinusBtn';
-import { ORDER_INFO_STORE, ORDER_INFO_BEVERAGE, STORE, BEVERAGE } from '../../constant/postWrite/orderInfo';
-import validateInputMsg from '../../constant/validateInputMsg';
+import Labels from '../../molecules/Labels';
+import SelectInput from '../../atoms/input/SelectInput';
+import Input from '../../atoms/input/Input';
+import ErrorMsg from '../../atoms/ErrorMsg';
+import PlusBtn from '../../atoms/button/PlusBtn';
+import MinusBtn from '../../atoms/button/MinusBtn';
+import { ORDER_INFO_STORE, ORDER_INFO_BEVERAGE, STORE, BEVERAGE } from '../../../constant/postWrite/orderInfo';
+import validateInputMsg from '../../../constant/validateInputMsg';
 
-const OrderInfo = () => {
+const OrderInfoTemplate = () => {
   const {
     register,
     formState: { errors },
@@ -69,4 +69,4 @@ const OrderInfo = () => {
   );
 };
 
-export default OrderInfo;
+export default OrderInfoTemplate;

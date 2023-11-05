@@ -1,9 +1,9 @@
 import React from 'react';
 // import { useQuery } from '@tanstack/react-query';
 import OtherNav from '../atoms/nav/OtherNav';
-import AdminMyPage from './AdminMyPage';
-import GuestMyPage from './GuestMyPage';
-import StudentMyPage from './StudentMyPage';
+import AdminMyPage from './mypage/AdminMyPageTemplate';
+import GuestMyPage from './mypage/GuestMyPageTemplate';
+import StudentMyPage from './mypage/StudentMyPageTemplate';
 import Footer from '../atoms/Footer';
 // import { getMyPage } from '../../apis/myPage';
 

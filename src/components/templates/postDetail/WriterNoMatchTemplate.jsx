@@ -1,11 +1,11 @@
 import { BsThreeDotsVertical } from 'react-icons/bs';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
-import OtherNav from '../atoms/nav/OtherNav';
-import Info from '../organisms/Info';
-import Location from '../organisms/Location';
+import OtherNav from '../../atoms/nav/OtherNav';
+import Info from '../../atoms/Info';
+import Location from '../../organisms/Location';
 
-const WriterNoMatch = ({ response }) => {
+const WriterNoMatchTemplate = ({ response }) => {
   const navigate = useNavigate();
 
   // 삭제 버튼 눌렀을 때
@@ -64,4 +64,4 @@ const WriterNoMatch = ({ response }) => {
   );
 };
 
-export default WriterNoMatch;
+export default WriterNoMatchTemplate;

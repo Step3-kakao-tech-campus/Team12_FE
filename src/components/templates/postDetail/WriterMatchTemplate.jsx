@@ -1,8 +1,8 @@
-import OtherNav from '../atoms/nav/OtherNav';
-import Info from '../organisms/Info';
-import Location from '../organisms/Location';
+import OtherNav from '../../atoms/nav/OtherNav';
+import Info from '../../atoms/Info';
+import Location from '../../organisms/Location';
 
-const WriterMatch = ({ response }) => {
+const WriterMatchTemplate = ({ response }) => {
   return (
     <>
       {/* 파란색 부분 */}
@@ -36,4 +36,4 @@ const WriterMatch = ({ response }) => {
   );
 };
 
-export default WriterMatch;
+export default WriterMatchTemplate;

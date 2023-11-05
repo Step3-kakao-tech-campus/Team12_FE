@@ -1,7 +1,7 @@
 import { CiEdit } from 'react-icons/ci';
 import { PiCaretRightLight, PiReadCvLogoThin, PiCheckSquareLight } from 'react-icons/pi';
 
-const StudentMyPage = () => {
+const StudentMyPageTemplate = () => {
   return (
     <div>
       <div className="w-full h-1 bg-zinc-200" />
@@ -26,4 +26,4 @@ const StudentMyPage = () => {
   );
 };
 
-export default StudentMyPage;
+export default StudentMyPageTemplate;

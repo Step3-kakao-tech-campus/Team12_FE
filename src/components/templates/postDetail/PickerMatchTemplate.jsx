@@ -1,9 +1,9 @@
-import Button from '../atoms/button/Button';
-import OtherNav from '../atoms/nav/OtherNav';
-import Info from '../organisms/Info';
-import Location from '../organisms/Location';
+import Button from '../../atoms/button/Button';
+import OtherNav from '../../atoms/nav/OtherNav';
+import Info from '../../atoms/Info';
+import Location from '../../organisms/Location';
 
-const PickerMatch = ({ response }) => {
+const PickerMatchTemplate = ({ response }) => {
   return (
     <>
       {/* 파란색 부분 */}
@@ -25,4 +25,4 @@ const PickerMatch = ({ response }) => {
   );
 };
 
-export default PickerMatch;
+export default PickerMatchTemplate;
