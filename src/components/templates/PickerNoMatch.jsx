@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
 import Button from '../atoms/Button';
 import OtherNav from '../atoms/OtherNav';
@@ -7,8 +7,15 @@ import Location from '../organisms/Location';
 import '../../styles/DeleteSpin.css';
 import PickerTime from '../organisms/PickerTime';
 
-const PickerNoMatch = ({ setIsMatch }) => {
+const PickerNoMatch = ({ response }) => {
   const [page, setPage] = useState(0);
+  const [isMatch, setIsMatch] = useState(false);
+
+  useEffect(() => {
+    // 임시로 새로고침해도 유지
+    setIsMatch(localStorage.getItem('match'));
+    // localStorage.removeItem('match');
+  }, [isMatch]);
 
   // 이 음료 픽업하기 버튼을 눌렀을 때 뜨는 모달창
   const pickUpBtnModal = () => {
@@ -33,9 +40,9 @@ const PickerNoMatch = ({ setIsMatch }) => {
     }
     return (
       <>
-        <Info />
+        <Info response={response} />
         <div className="flex justify-center">
-          <Button onClick={pickUpBtnModal} bgColor="bg-blue">
+          <Button onClick={pickUpBtnModal} bgColor={`${isMatch ? 'bg-zinc-300' : 'bg-blue'}`} disabled={isMatch}>
             이 음료 픽업하기
           </Button>
         </div>
@@ -50,7 +57,7 @@ const PickerNoMatch = ({ setIsMatch }) => {
         <OtherNav iconColor="#fff" bgColor="#000" />
         <div className="px-5">
           <div className="mt-1 text-white text-xl">매칭을 기다리고 있어요.</div>
-          <Location />
+          <Location response={response} />
         </div>
       </div>
       {/* 하얀색 부분 */}

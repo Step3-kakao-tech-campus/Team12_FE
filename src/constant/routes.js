@@ -12,6 +12,7 @@ const routes = {
   error: '/*',
   admin: '/admin',
   adminAuth: '/admin/auth/:id',
+  uploadStudentCard: '/uploadStudentCard',
 };
 
 export default routes;
