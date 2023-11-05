@@ -1,7 +1,8 @@
 import { instance } from './index';
 
 const registerBank = (userInfo) => {
-  return instance.post('/users/register/input', userInfo);
+  console.log('계좌정보 등록 : ', userInfo);
+  return instance.post('/signup', userInfo);
 };
 
 export default registerBank;

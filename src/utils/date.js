@@ -4,7 +4,14 @@
 const getDeadlineDate = (timestamp) => {
   const time = timestamp;
   const myDate = new Date(time * 1000);
-  const deadline = `${myDate.getHours()}:${myDate.getMinutes()}까지`;
+  let hours = myDate.getHours();
+  let minutes = myDate.getMinutes();
+
+  hours = hours >= 10 ? hours : `0${hours}`;
+  minutes = minutes >= 10 ? minutes : `0${minutes}`;
+
+  // const deadline = `${myDate.getHours()}:${myDate.getMinutes()}까지`;
+  const deadline = `${hours}:${minutes} 까지`;
 
   return deadline;
 };

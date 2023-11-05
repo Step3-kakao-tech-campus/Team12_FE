@@ -1,11 +1,23 @@
+import Time from '../atoms/Time';
+
 /* eslint-disable */
-const Info = () => {
+const Info = ({ response }) => {
+  // 마감시간
+  let finishTime = new Date(response.finishedAt);
+
+  // 메뉴들 나열하는 거
+  const showMenu = (item) => {
+    return item.map(({ name }) => {
+      return <div key={name}>{name}</div>;
+    });
+  };
+
   return (
     <div className="px-8 pt-6">
       {/* 주문정보 */}
       <div>
         <div className="text-xl font-bold text-blue py-2">주문 정보</div>
-        <div>아이스 아메리카노 1잔</div>
+        <div>{showMenu(response.beverage)}</div>
       </div>
       {/* 요청사항 */}
       <div className="my-12">
@@ -13,18 +25,18 @@ const Info = () => {
         <div>
           <div className="flex">
             <div className="text-zinc-400">픽업팁</div>
-            <div className="ml-8">3000원</div>
+            <div className="ml-8">{response.tip}원</div>
           </div>
           <div className="flex">
             <div className="text-zinc-400">요청사항</div>
-            <div className="ml-5">1층 도착하시면 연락주세요!</div>
+            <div className="ml-5">{response.request}</div>
           </div>
         </div>
       </div>
       {/* 마감기한 */}
       <div className="my-12">
         <div className="text-xl font-bold text-blue py-2">마감기한</div>
-        <div>오늘 14시 10분까지</div>
+        <div>{<Time date={finishTime} />}</div>
       </div>
     </div>
   );
