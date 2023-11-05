@@ -1,4 +1,4 @@
-import instance from './index';
+import { instance } from './index';
 
 // 공고상세페이지 받아오기 (피커, 작성자용)
 /* eslint-disable-next-line */

@@ -5,15 +5,15 @@ import routes from '../../constant/routes';
 
 const GuestMyPage = () => {
   const navigate = useNavigate();
-  const checkStudentIdCard = () => {
-    return navigate(routes.checkStudentCard);
+  const uploadStudentIdCard = () => {
+    return navigate(routes.uploadStudentCard);
   };
   return (
     <div>
       <div className="w-full h-1 bg-zinc-200" />
       <div className="px-5 mt-5">
         <div className="py-3 text-lg">
-          <button onClick={checkStudentIdCard} className="w-full flex justify-between">
+          <button onClick={uploadStudentIdCard} className="w-full flex justify-between">
             <div>
               <PiGraduationCapLight className="mx-2 inline-block" size={25} />
               <div className="inline-block">학생증 인증</div>

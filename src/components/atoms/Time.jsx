@@ -1,20 +1,20 @@
-/* eslint-disable */
-// 타임스탬프 값을 년월일로 변환
+// Time.jsx
+// Figma 내용의 오늘 ~시 ~분까지를 띄우기 위한 코드
+// arrow function 으로 변경해 보았습니다!
+// * ms 단위이기 때문에 1000을 곱해주어야 합니다
 
-function Time({ date }) {
-  let month = date.getMonth() + 1;
-  let day = date.getDate();
-  let hour = date.getHours();
-  let minute = date.getMinutes();
-  let second = date.getSeconds();
+const Time = (timestamp) => {
+  const time = timestamp;
+  const myDate = new Date(time * 1000);
+  let hours = myDate.getHours();
+  let minutes = myDate.getMinutes();
 
-  month = month >= 10 ? month : '0' + month;
-  day = day >= 10 ? day : '0' + day;
-  hour = hour >= 10 ? hour : '0' + hour;
-  minute = minute >= 10 ? minute : '0' + minute;
-  second = second >= 10 ? second : '0' + second;
+  hours = hours >= 10 ? hours : `0${hours}`;
+  minutes = minutes >= 10 ? minutes : `0${minutes}`;
 
-  return date.getFullYear() + '-' + month + '-' + day + ' ' + hour + ':' + minute + ':' + second;
-}
+  const deadline = `오늘 ${hours}시 ${minutes}분 까지`;
+
+  return deadline;
+};
 
 export default Time;

@@ -12,7 +12,7 @@ import AdminPage from './pages/AdminPage';
 import AdminAuthPage from './pages/AdminAuthPage';
 import ErrorPage from './pages/ErrorPage';
 import ProtectedRoute from './components/templates/ProtectedRoute';
-import CheckStudentCardPage from './pages/CheckStudentCardPage';
+import UploadStudentCardPage from './pages/UploadStudentCardPage';
 import routes from './constant/routes';
 
 import './global.css';
@@ -35,7 +35,7 @@ function App() {
             </ProtectedRoute>
           }
         />
-        <Route path={routes.checkStudentCard} element={<CheckStudentCardPage />} />
+        <Route path={routes.uploadStudentCard} element={<UploadStudentCardPage />} />
         <Route path={routes.post} element={<PostListPage />} />
         <Route path={routes.detailPost} element={<PostDetailPage />} />
         <Route path={routes.postWriteIntro} element={<PostWriteIntroPage />} />
