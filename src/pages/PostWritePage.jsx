@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useForm, FormProvider } from 'react-hook-form';
+import { useMutation } from '@tanstack/react-query';
 import Swal from 'sweetalert2';
 import OtherNav from '../components/atoms/OtherNav';
 import BtnNavigate from '../components/molecules/BtnNavigate';
@@ -13,6 +14,7 @@ import { DESTINATION } from '../constant/postWrite/orderRequest';
 import { HOUR, MINUTE } from '../constant/postWrite/orderDeadLine';
 import { registerMessage } from '../utils/alert';
 import dateAndTime from '../utils/dateAndTime';
+import writePost from '../apis/postWrite';
 
 const PostWritePage = () => {
   const navigate = useNavigate();
@@ -25,16 +27,29 @@ const PostWritePage = () => {
     name: [STORE, `${BEVERAGE}[0].value`, DESTINATION, HOUR, MINUTE],
   });
 
+  const { mutate } = useMutation({
+    mutationFn: writePost,
+  });
+
+  // msw
   const onSubmit = (data) => {
     const request = { ...data };
     request.finishedAt = dateAndTime(data);
 
+    // msw
     fetch('/articles/write', {
       method: 'POST',
       body: JSON.stringify(data),
     })
       .then((response) => response.json())
       .then((result) => console.log(result));
+
+    // react-query
+    mutate(data, {
+      onError: (error) => {
+        console.error(error);
+      },
+    });
   };
 
   const handleAlert = (data) => {
