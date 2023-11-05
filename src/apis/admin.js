@@ -1,7 +1,13 @@
 import { instance } from './index';
 
-const adminAuth = () => {
+export const adminAuth = () => {
   return instance.put('/admin/auth/approval');
 };
 
-export default adminAuth;
+export const adminAuthDetail = (id = 1) => {
+  return instance.get(`/admin/list/${id}`);
+};
+
+export const adminAuthList = () => {
+  return instance.get('/admin/auth/list');
+};
