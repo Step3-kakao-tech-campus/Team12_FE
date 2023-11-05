@@ -4,7 +4,6 @@ import Swal from 'sweetalert2';
 import { useMutation } from '@tanstack/react-query';
 import Button from '../atoms/Button';
 import banks from '../../constant/bank';
-import ErrorMsg from '../atoms/ErrorMsg';
 import routes from '../../constant/routes';
 import registerBank from '../../apis/register';
 import { bankInvalidMessage, unknownErrorMessage, registerCompleteMessage } from '../../utils/alert';
@@ -84,7 +83,7 @@ const BankForm = () => {
             onChange={handleAccountNumberChange}
           />
         </div>
-        {!formValid && <ErrorMsg />}
+        {!formValid && <p className="text-red-600 text-sm">필수 입력 항목입니다.</p>}
       </div>
       <div className="text-center">
         <Button
