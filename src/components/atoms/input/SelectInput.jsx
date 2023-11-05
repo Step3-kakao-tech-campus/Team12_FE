@@ -1,4 +1,4 @@
-import cafe from '../../constant/cafe';
+import cafe from '../../../constant/cafe';
 
 const SelectInput = ({
   register,
@@ -15,8 +15,8 @@ const SelectInput = ({
       type={type}
       name={name}
       placeholder={placeholder}
-      {...register(name, { required })}
       {...inputProps}
+      {...register}
       className={`${width} rounded-lg border-gray-300 border-2 px-4 py-2 text-sm block my-2`}
     >
       <option value="">=== 선택 ===</option>

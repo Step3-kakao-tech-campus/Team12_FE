@@ -42,3 +42,30 @@ export const unknownErrorMessage = {
   icon: 'error',
   confirmButtonText: '확인',
 };
+export const requestCardModalMessage = {
+  title: '인증을 요청 하시겠습니까?',
+  icon: 'question',
+  showCancelButton: true,
+  cancelButtonText: '취소',
+  confirmButtonText: '확인',
+  confirmButtonColor: '#0075ff',
+  heightAuto: true,
+};
+export const successRequestCardMessage = {
+  icon: 'success',
+  title: '인증 요청이 완료됐어요!',
+  showConfirmButton: false,
+  timer: 1500,
+};
+export const errorRequestCardMessage = {
+  icon: 'error',
+  title: '이미지를 업로드해 주세요!',
+  showConfirmButton: false,
+  timer: 1500,
+};
+export const registerCompleteMessage = {
+  title: '회원가입 완료!',
+  text: '픽업 셔틀에 오신 것을 환영합니다😊 로그인을 진행해주세요!!',
+  icon: 'success',
+  confirmButtonText: '확인',
+};

@@ -1,7 +1,22 @@
 import Swal from 'sweetalert2';
-import Button from '../atoms/Button';
+import { useState } from 'react';
+import { useMutation } from '@tanstack/react-query';
+import { useParams } from 'react-router-dom';
+import { postDetailPicker } from '../../apis/postDetail';
+import Button from '../atoms/button/Button';
 
 const PickerTime = ({ setPage, setIsMatch }) => {
+  const { id } = useParams();
+  const { mutate } = useMutation({
+    mutationFn: postDetailPicker,
+  });
+
+  // 픽업시간
+  const [value, setValue] = useState();
+  const onChange = (e) => {
+    setValue(e.target.value);
+  };
+
   // 픽업하기 눌렀다가 취소할 때
   const pickUpCancel = () => {
     setPage(0);
@@ -9,8 +24,15 @@ const PickerTime = ({ setPage, setIsMatch }) => {
 
   // 입력완료 버튼
   const doneWrite = () => {
+    // 임시
+    localStorage.setItem('match', true);
+    //
     setPage(0);
     setIsMatch(true);
+    mutate({
+      boardId: id,
+      arrivalTime: value,
+    });
     return Swal.fire({
       icon: 'success',
       title: '매칭이 완료 되었어요!',
@@ -29,6 +51,8 @@ const PickerTime = ({ setPage, setIsMatch }) => {
           className="text-center w-28 h-10 border-2 border-zinc-700 rounded-lg mr-3"
           type="number"
           placeholder="15"
+          value={value}
+          onChange={onChange}
         />
         분 후 도착
       </div>

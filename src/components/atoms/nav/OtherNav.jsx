@@ -3,7 +3,7 @@ import { BsArrowLeft } from 'react-icons/bs';
 import { BiSolidUser } from 'react-icons/bi';
 import { MdHome } from 'react-icons/md';
 import { Link, useNavigate } from 'react-router-dom';
-import routes from '../../constant/routes';
+import routes from '../../../constant/routes';
 
 const OtherNav = ({ iconColor = '#000', bgColor = 'bg-[#FFF]' }) => {
   const navigate = useNavigate();

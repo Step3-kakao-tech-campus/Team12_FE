@@ -1,7 +1,7 @@
 const AuthDetail = ({ user }) => {
   return (
     <>
-      <div className="text-lg">{user.nickname}</div>
+      <p className="text-lg">{user.nickname}</p>
       <img src={user.imageUrl} alt="student" />
     </>
   );
