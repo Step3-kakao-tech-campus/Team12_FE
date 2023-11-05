@@ -11,6 +11,9 @@ export const instance = axios.create({
 });
 
 /* eslint-disable-next-line */
-export const uploadCard = () => {
-  return instance.post('/mypage/image/url');
+export const uploadCard = (formData) => {
+  return instance.post('/mypage/image/url', {
+    key: 'image',
+    formData,
+  });
 };

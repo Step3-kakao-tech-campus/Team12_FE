@@ -8,6 +8,7 @@ import OtherNav from '../components/atoms/OtherNav';
 import Button from '../components/atoms/Button';
 import { useNavigate } from 'react-router-dom';
 import routes from '../constant/routes';
+import { uploadCard } from '../apis/uploadCard';
 
 const CheckStudentCardPage = () => {
   // 주석 부분은 백엔드랑 연결되면 사용
@@ -25,11 +26,10 @@ const CheckStudentCardPage = () => {
   const didMount = useRef(false);
   const [show, setShow] = useState(false);
   const [imageSrc, setImageSrc] = useState(null);
-  // const { mutate } = useMutation({
-  //   mutationFn: uploadCard,
-  //   onSuccess: () => {},
-  //   onError: () => {},
-  // });
+  const formData = new FormData();
+  const { mutate } = useMutation({
+    mutationFn: uploadCard,
+  });
 
   // 학생증 사진을 업로드하면 취소/입력완료 버튼이 뜬다
   useEffect(() => {
@@ -55,6 +55,7 @@ const CheckStudentCardPage = () => {
           timer: 1500,
         });
         // 그리고 사진 보내고 기다림
+        mutate(formData);
       }
     });
   };
@@ -85,6 +86,8 @@ const CheckStudentCardPage = () => {
     const file = e.target.files[0];
     const reader = new FileReader();
     reader.readAsDataURL(file);
+    console.log(file);
+    formData.append('file', file);
     return new Promise((resolve) => {
       reader.onload = () => {
         setImageSrc(reader.result || null); // 파일의 컨텐츠
