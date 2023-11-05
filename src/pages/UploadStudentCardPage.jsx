@@ -8,7 +8,8 @@ import OtherNav from '../components/atoms/OtherNav';
 import Button from '../components/atoms/Button';
 import { useNavigate } from 'react-router-dom';
 import routes from '../constant/routes';
-import { uploadCard } from '../apis/uploadCard';
+import uploadCard from '../apis/uploadCard';
+import { requestCardModalMessage, successRequestCardMessage, errorRequestCardMessage } from '../utils/alert';
 
 const CheckStudentCardPage = () => {
   // 주석 부분은 백엔드랑 연결되면 사용
@@ -40,22 +41,18 @@ const CheckStudentCardPage = () => {
   // 입력완료 누를 때 나타나는 모달창
   const requestCardModal = () => {
     return Swal.fire({
-      title: '인증을 요청 하시겠습니까?',
-      showCancelButton: true,
-      cancelButtonText: '취소',
-      confirmButtonText: '확인',
-      confirmButtonColor: '#0075ff',
-      heightAuto: true,
+      requestCardModalMessage,
     }).then((result) => {
       if (result.isConfirmed && imageSrc) {
         Swal.fire({
-          icon: 'success',
-          title: '인증 요청이 완료됐어요!',
-          showConfirmButton: false,
-          timer: 1500,
-        });
+          successRequestCardMessage,
+        }).then(mutate(imageSrc));
         // 그리고 사진 보내고 기다림
         mutate(formData);
+      } else {
+        Swal.fire({
+          errorRequestCardMessage,
+        });
       }
     });
   };

@@ -42,3 +42,23 @@ export const unknownErrorMessage = {
   icon: 'error',
   confirmButtonText: '확인',
 };
+export const requestCardModalMessage = {
+  title: '인증을 요청 하시겠습니까?',
+  showCancelButton: true,
+  cancelButtonText: '취소',
+  confirmButtonText: '확인',
+  confirmButtonColor: '#0075ff',
+  heightAuto: true,
+};
+export const successRequestCardMessage = {
+  icon: 'success',
+  title: '인증 요청이 완료됐어요!',
+  showConfirmButton: false,
+  timer: 1500,
+};
+export const errorRequestCardMessage = {
+  icon: 'error',
+  title: '이미지를 업로드해 주세요!',
+  showConfirmButton: false,
+  timer: 1500,
+};
