@@ -1,10 +1,16 @@
+/* eslint-disable */
 import { useEffect, useState } from 'react';
 import AuthRequest from '../components/organisms/AuthRequest';
 import OtherNav from '../components/atoms/OtherNav';
+import { adminAuthList } from '../apis/admin';
+import { useInView } from 'react-intersection-observer';
+import { useInfiniteQuery } from '@tanstack/react-query';
 
 const AdminPage = () => {
   const [userInfo, setUserInfo] = useState([]);
+  const { inView } = useInView();
 
+  // msw
   useEffect(() => {
     fetch('/admin')
       .then((response) => response.json())
@@ -14,6 +20,25 @@ const AdminPage = () => {
       });
   }, []);
 
+  // react-query
+  const { data, fetchNextPage, isLoading, refetch } = useInfiniteQuery(
+    ['adminAuthList'],
+    ({ pageParam = 0 }) => adminAuthList(pageParam),
+    {
+      getNextPageParam: (lastPage) => (!lastPage.isLast ? lastPage.nextPage : undefined),
+      onSuccess: (data) => {
+        console.log(data);
+      },
+      retry: false,
+    },
+  );
+
+  useEffect(() => {
+    if (inView) {
+      fetchNextPage();
+    }
+  }, [inView]);
+
   return (
     <djiv className="page--layout">
       <OtherNav />
@@ -22,6 +47,7 @@ const AdminPage = () => {
         {userInfo.map((item) => {
           return <AuthRequest key={item.id} user={item} />;
         })}
+        {isLoading && <div>로딩중</div>}
       </div>
     </djiv>
   );
