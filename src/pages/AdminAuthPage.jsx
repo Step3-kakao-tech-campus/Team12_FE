@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
-import { useMutation } from '@tanstack/react-query';
+import { useMutation, useQuery } from '@tanstack/react-query';
 import { useParams, useNavigate } from 'react-router-dom';
 import OtherNav from '../components/atoms/OtherNav';
 import AuthDetail from '../components/organisms/AuthDetail';
 import Button from '../components/atoms/Button';
 import { REJECT, APPROVE } from '../constant/auth';
-import adminAuth from '../apis/admin';
+import { adminAuth } from '../apis/admin';
 
 const AdminAuthPage = () => {
   const { id } = useParams();
@@ -21,6 +21,11 @@ const AdminAuthPage = () => {
         setUserInfo(data.response);
       });
   }, []);
+
+  // eslint-disable-next-line
+  const { data: userDetail } = useQuery(['admin_auth_approval', id], () => adminAuth(id), {
+    select: (data) => data?.response,
+  });
 
   const { mutate: handleAuth } = useMutation({
     mutationFn: adminAuth,
