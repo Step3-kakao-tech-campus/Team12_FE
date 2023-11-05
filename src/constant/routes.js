@@ -9,7 +9,6 @@ const routes = {
   uploadStudentCard: '/mypage/uploadStudentCard',
   post: '/post',
   detailPost: '/post/:id',
-  postWriter: '/post/writer',
   postWriteIntro: '/post-write-intro',
   postWrite: '/post-write',
   error: '/*',
