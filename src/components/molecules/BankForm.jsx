@@ -4,10 +4,9 @@ import Swal from 'sweetalert2';
 import { useMutation } from '@tanstack/react-query';
 import Button from '../atoms/Button';
 import banks from '../../constant/bank';
-import ErrorMsg from '../atoms/ErrorMsg';
 import routes from '../../constant/routes';
 import registerBank from '../../apis/register';
-import { bankInvalidMessage, unknownErrorMessage } from '../../utils/alert';
+import { bankInvalidMessage, unknownErrorMessage, registerCompleteMessage } from '../../utils/alert';
 
 const BankForm = () => {
   const [accountBank, setAccountBank] = useState('');
@@ -19,6 +18,7 @@ const BankForm = () => {
   const { mutate } = useMutation({
     mutationFn: registerBank,
     onSuccess: () => {
+      Swal.fire(registerCompleteMessage);
       navigate(routes.login); // 회원가입 이후 로그인을 할 수 있도록 로그인 페이지로 이동시킴
     },
     onError: () => {
@@ -42,8 +42,8 @@ const BankForm = () => {
     if (formValid) {
       // 입력 정보 post 처리 이후 홈 페이지 이동(회원가입 완료)
       mutate({
-        bank: accountBank,
-        account: accountNumber,
+        bankName: accountBank,
+        accountNum: accountNumber,
       });
     } else {
       Swal.fire(bankInvalidMessage);
@@ -83,7 +83,7 @@ const BankForm = () => {
             onChange={handleAccountNumberChange}
           />
         </div>
-        {!formValid && <ErrorMsg />}
+        {!formValid && <p className="text-red-600 text-sm">필수 입력 항목입니다.</p>}
       </div>
       <div className="text-center">
         <Button

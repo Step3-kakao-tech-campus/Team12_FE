@@ -62,3 +62,9 @@ export const errorRequestCardMessage = {
   showConfirmButton: false,
   timer: 1500,
 };
+export const registerCompleteMessage = {
+  title: '회원가입 완료!',
+  text: '픽업 셔틀에 오신 것을 환영합니다😊 로그인을 진행해주세요!!',
+  icon: 'success',
+  confirmButtonText: '확인',
+};
