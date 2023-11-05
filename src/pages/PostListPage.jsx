@@ -85,7 +85,12 @@ const PostListPage = () => {
         <div ref={ref} className="w-[100%] h-[10px]" />
       </div>
       <div className="flex flex-row-reverse h-[84px] items-center px-[22px]">
-        <img className="cursor-pointer" onClick={goWritePost} src={WritePostIcon} alt="공고 쓰기" />
+        <img
+          className="cursor-pointer transition-transform duration-1000 ease-in-out transform hover:scale-110"
+          onClick={goWritePost}
+          src={WritePostIcon}
+          alt="공고 쓰기"
+        />
       </div>
     </div>
   );
