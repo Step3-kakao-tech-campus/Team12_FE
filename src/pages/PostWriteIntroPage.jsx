@@ -10,8 +10,8 @@ const PostWriteIntroPage = () => {
       <OtherNav iconColor="#fff" bgColor="#000" />
       <div>
         <div className="text-white p-8">
-          <div className="font-bold text-xl">{intro.TITLE}</div>
-          <div>{intro.SUB_TITLE}</div>
+          <div className="font-bold text-xl animate-fade-in-move-right">{intro.TITLE}</div>
+          <div className="opacity-0 animate-fade-in-move-right-delayed">{intro.SUB_TITLE}</div>
         </div>
         <div className="flex justify-center mb-14">
           <Link to={routes.postWrite}>

@@ -17,10 +17,9 @@ const LoginPage = () => {
     <div className="page--layout">
       <LoginNav />
       <section className="grid mt-[80px]">
-        <div className="text-blue text-lg ml-[30px]">
-          이제 편리하게
-          <br />
-          음료를 픽업하고, 픽업받아요!
+        <div className="text-blue text-xl ml-[30px]">
+          <p className="animate-fade-in-move-right">이제 편리하게</p>
+          <p className="opacity-0 animate-fade-in-move-right-delayed">음료를 픽업하고, 픽업받아요!</p>
         </div>
         <img
           onClick={loginHandler}
