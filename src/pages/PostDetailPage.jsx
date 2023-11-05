@@ -25,8 +25,8 @@ const PostDetailPage = () => {
     tip: 1000,
     request: '빨리 와주세요',
     finishedAt: 1696073040,
-    isMatch: true,
-    same: true,
+    isMatch: false,
+    same: false,
   };
 
   // const { id } = useParams();
