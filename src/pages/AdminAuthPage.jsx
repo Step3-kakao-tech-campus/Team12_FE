@@ -6,6 +6,7 @@ import AuthDetail from '../components/organisms/AuthDetail';
 import Button from '../components/atoms/Button';
 import { REJECT, APPROVE } from '../constant/auth';
 import { adminAuth } from '../apis/admin';
+import routes from '../constant/routes';
 
 const AdminAuthPage = () => {
   const { id } = useParams();
@@ -15,7 +16,7 @@ const AdminAuthPage = () => {
   const btnHeight = 'h-[2.2rem]';
 
   useEffect(() => {
-    fetch(`/admin/auth/${id}`)
+    fetch(`/admin/auth/list/${id}`)
       .then((response) => response.json())
       .then((data) => {
         setUserInfo(data.response);
@@ -27,22 +28,25 @@ const AdminAuthPage = () => {
     select: (data) => data?.response,
   });
 
+  // 학생증 인증 요청 성공 & 에러에 따른 useMutation 정의
   const { mutate: handleAuth } = useMutation({
     mutationFn: adminAuth,
     onSuccess: () => {
-      navigate('/admin');
+      navigate(routes.admin);
     },
     onError: (error) => {
       console.error(error);
     },
   });
 
+  // 학생증 인증 승인
   const handleApprove = () => {
     handleAuth({ user_id: id });
   };
 
+  // 학생증 인증 거절
   const handleReject = () => {
-    navigate('/admin');
+    navigate(routes.admin);
   };
 
   return (
