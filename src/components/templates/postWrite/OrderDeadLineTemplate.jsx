@@ -1,12 +1,12 @@
 /* eslint-disable */
-import Labels from '../molecules/Labels';
-import Input from '../atoms/Input';
-import ErrorMsg from '../atoms/ErrorMsg';
-import { ORDER_DEADLINE, HOUR, MINUTE } from '../../constant/postWrite/orderDeadLine';
-import validateInputMsg from '../../constant/validateInputMsg';
+import Labels from '../../molecules/Labels';
+import Input from '../../atoms/input/Input';
+import ErrorMsg from '../../atoms/ErrorMsg';
+import { ORDER_DEADLINE, HOUR, MINUTE } from '../../../constant/postWrite/orderDeadLine';
+import validateInputMsg from '../../../constant/validateInputMsg';
 import { useFormContext } from 'react-hook-form';
 
-const OrderDeadLine = () => {
+const OrderDeadLineTemplate = () => {
   const {
     register,
     handleSubmit,
@@ -45,4 +45,4 @@ const OrderDeadLine = () => {
   );
 };
 
-export default OrderDeadLine;
+export default OrderDeadLineTemplate;

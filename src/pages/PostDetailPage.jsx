@@ -1,9 +1,9 @@
 /* eslint-disable */
 import { useEffect, useState } from 'react';
-import WriterMatch from '../components/templates/WriterMatch';
-import WriterNoMatch from '../components/templates/WriterNoMatch';
-import PickerMatch from '../components/templates/PickerMatch';
-import PickerNoMatch from '../components/templates/PickerNoMatch';
+import WriterMatch from '../components/templates/postDetail/WriterMatchTemplate';
+import WriterNoMatch from '../components/templates/postDetail/WriterNoMatchTemplate';
+import PickerMatch from '../components/templates/postDetail/PickerMatchTemplate';
+import PickerNoMatch from '../components/templates/postDetail/PickerNoMatchTemplate.jsx';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import { getPostById } from '../apis/post';

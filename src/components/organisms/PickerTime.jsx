@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useMutation } from '@tanstack/react-query';
 import { useParams } from 'react-router-dom';
 import { postDetailPicker } from '../../apis/postDetail';
-import Button from '../atoms/Button';
+import Button from '../atoms/button/Button';
 
 const PickerTime = ({ setPage, setIsMatch }) => {
   const { id } = useParams();

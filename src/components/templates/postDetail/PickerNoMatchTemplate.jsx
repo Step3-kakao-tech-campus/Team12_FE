@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
-import Button from '../atoms/Button';
-import OtherNav from '../atoms/OtherNav';
-import Info from '../organisms/Info';
-import Location from '../organisms/Location';
-import '../../styles/DeleteSpin.css';
-import PickerTime from '../organisms/PickerTime';
+import Button from '../../atoms/button/Button';
+import OtherNav from '../../atoms/nav/OtherNav';
+import Info from '../../atoms/Info';
+import Location from '../../organisms/Location';
+import '../../../styles/DeleteSpin.css';
+import PickerTime from '../../organisms/PickerTime';
 
-const PickerNoMatch = ({ response }) => {
+const PickerNoMatchTemplate = ({ response }) => {
   const [page, setPage] = useState(0);
   const [isMatch, setIsMatch] = useState(false);
 
@@ -66,4 +66,4 @@ const PickerNoMatch = ({ response }) => {
   );
 };
 
-export default PickerNoMatch;
+export default PickerNoMatchTemplate;

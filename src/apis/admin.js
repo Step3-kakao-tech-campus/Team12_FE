@@ -5,7 +5,7 @@ export const adminAuth = () => {
 };
 
 export const adminAuthDetail = (id = 1) => {
-  return instance.get(`/admin/list/${id}`);
+  return instance.get(`/admin/auth/list/${id}`);
 };
 
 export const adminAuthList = () => {

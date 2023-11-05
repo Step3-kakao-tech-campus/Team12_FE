@@ -1,4 +1,4 @@
-import Time from '../atoms/Time';
+import time from '../../utils/time';
 
 /* eslint-disable */
 const Info = ({ response }) => {
@@ -36,7 +36,7 @@ const Info = ({ response }) => {
       {/* 마감기한 */}
       <div className="my-12">
         <div className="text-xl font-bold text-blue py-2">마감기한</div>
-        <div>{<Time date={finishTime} />}</div>
+        <div>{time(finishTime)}</div>
       </div>
     </div>
   );

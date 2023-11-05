@@ -1,4 +1,4 @@
-import cafe from '../../constant/cafe';
+import cafe from '../../../constant/cafe';
 
 const SelectInput = ({
   register,

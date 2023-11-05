@@ -1,7 +1,7 @@
 /* eslint-disable */
 import { useEffect, useState } from 'react';
 import AuthRequest from '../components/organisms/AuthRequest';
-import OtherNav from '../components/atoms/OtherNav';
+import OtherNav from '../components/atoms/nav/OtherNav';
 import { adminAuthList } from '../apis/admin';
 import { useInView } from 'react-intersection-observer';
 import { useInfiniteQuery } from '@tanstack/react-query';
@@ -12,7 +12,7 @@ const AdminPage = () => {
 
   // msw
   useEffect(() => {
-    fetch('/admin')
+    fetch('/admin/auth/list')
       .then((response) => response.json())
       .then((data) => {
         const userArray = data.response.user;
@@ -40,7 +40,7 @@ const AdminPage = () => {
   }, [inView]);
 
   return (
-    <djiv className="page--layout">
+    <div className="page--layout">
       <OtherNav />
       <div className="pt-[25px] p-[35px]">
         <div className="text-center text-xl text-blue mb-10">학생 인증 요청</div>
@@ -49,7 +49,7 @@ const AdminPage = () => {
         })}
         {isLoading && <div>로딩중</div>}
       </div>
-    </djiv>
+    </div>
   );
 };
 

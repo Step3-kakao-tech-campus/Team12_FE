@@ -1,5 +1,5 @@
-import Label from '../atoms/Label';
-import SubLabel from '../atoms/SubLabel';
+import Label from '../atoms/label/Label';
+import SubLabel from '../atoms/label/SubLabel';
 
 const Labels = ({ htmlFor, label, subLabel }) => {
   return (

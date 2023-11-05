@@ -1,8 +1,3 @@
-// Time.jsx
-// Figma 내용의 오늘 ~시 ~분까지를 띄우기 위한 코드
-// arrow function 으로 변경해 보았습니다!
-// * ms 단위이기 때문에 1000을 곱해주어야 합니다
-
 const Time = (timestamp) => {
   const time = timestamp;
   const myDate = new Date(time * 1000);

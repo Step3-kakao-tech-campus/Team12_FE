@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Footer from '../components/atoms/Footer';
-import Nav from '../components/atoms/Nav';
+import Nav from '../components/atoms/nav/Nav';
 import Card from '../components/atoms/Card';
 import routes from '../constant/routes';
 

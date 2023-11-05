@@ -44,6 +44,7 @@ export const unknownErrorMessage = {
 };
 export const requestCardModalMessage = {
   title: '인증을 요청 하시겠습니까?',
+  icon: 'question',
   showCancelButton: true,
   cancelButtonText: '취소',
   confirmButtonText: '확인',

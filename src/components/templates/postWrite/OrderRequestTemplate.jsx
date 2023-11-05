@@ -1,15 +1,15 @@
 /*eslint-disable*/
-import Labels from '../molecules/Labels';
-import Input from '../atoms/Input';
-import TextArea from '../atoms/TextArea';
-import RangeInput from '../atoms/RangeInput';
-import ErrorMsg from '../atoms/ErrorMsg';
-import price from '../../constant/price';
-import { DESTINATION, TIP, REQUEST, ORDER_REQUEST } from '../../constant/postWrite/orderRequest';
-import validateInputMsg from '../../constant/validateInputMsg';
+import Labels from '../../molecules/Labels';
+import Input from '../../atoms/input/Input';
+import TextArea from '../../atoms/TextArea';
+import RangeInput from '../../atoms/input/RangeInput';
+import ErrorMsg from '../../atoms/ErrorMsg';
+import price from '../../../constant/price';
+import { DESTINATION, TIP, REQUEST, ORDER_REQUEST } from '../../../constant/postWrite/orderRequest';
+import validateInputMsg from '../../../constant/validateInputMsg';
 import { useFormContext } from 'react-hook-form';
 
-const OrderRequest = () => {
+const OrderRequestTemplate = () => {
   const {
     register,
     formState: { errors },
@@ -61,4 +61,4 @@ const OrderRequest = () => {
   );
 };
 
-export default OrderRequest;
+export default OrderRequestTemplate;
