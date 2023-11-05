@@ -1,21 +1,11 @@
 import { CiEdit } from 'react-icons/ci';
 import { PiCaretRightLight, PiReadCvLogoThin, PiCheckSquareLight } from 'react-icons/pi';
-import { RiAdminLine } from 'react-icons/ri';
 
-const AdminMyPage = () => {
+const StudentMyPageTemplate = () => {
   return (
     <div>
-      <div className="h-24 p-5">
-        <div className="text-xl font-bold">닉네임</div>
-        <div>관리자</div>
-      </div>
       <div className="w-full h-1 bg-zinc-200" />
       <div className="px-5 mt-5">
-        <div className="py-3 text-lg">
-          <RiAdminLine className="mx-2 inline-block" size={25} />
-          <div className="inline-block">관리자 페이지</div>
-          <PiCaretRightLight className="float-right" size={30} />
-        </div>
         <div className="py-3 text-lg">
           <PiReadCvLogoThin className="mx-2 inline-block" size={25} />
           <div className="inline-block">작성한 공고글</div>
@@ -36,4 +26,4 @@ const AdminMyPage = () => {
   );
 };
 
-export default AdminMyPage;
+export default StudentMyPageTemplate;

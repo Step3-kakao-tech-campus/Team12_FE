@@ -1,4 +1,4 @@
-import Button from '../atoms/Button';
+import Button from '../atoms/button/Button';
 
 const CircleBtn = ({ num, children, active }) => {
   const bgColor = active ? 'bg-blue' : 'bg-gray-400';

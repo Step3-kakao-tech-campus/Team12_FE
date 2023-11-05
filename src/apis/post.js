@@ -13,3 +13,9 @@ import { instance } from './index';
 export const getPosts = (offset = '') => {
   return instance.get(`/articles?offset=${offset}&limit=10`);
 };
+
+// 메인페이지 공고 최근 3개
+// eslint-disable-next-line import/prefer-default-export
+export const getLastPosts = () => {
+  return instance.get('/articles/latest');
+};

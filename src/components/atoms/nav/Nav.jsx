@@ -2,8 +2,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { BiSolidUser } from 'react-icons/bi';
-import logo from '../../assets/images/logo.png';
-import routes from '../../constant/routes';
+import logo from '../../../assets/images/logo.png';
+import routes from '../../../constant/routes';
 
 const Nav = () => {
   return (
