@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
-import Button from '../components/atoms/Button';
-import OtherNav from '../components/atoms/OtherNav';
+import Button from '../components/atoms/button/Button';
+import OtherNav from '../components/atoms/nav/OtherNav';
 import routes from '../constant/routes';
+import intro from '../constant/postWrite/intro';
 
 const PostWriteIntroPage = () => {
   return (
@@ -9,13 +10,13 @@ const PostWriteIntroPage = () => {
       <OtherNav iconColor="#fff" bgColor="#000" />
       <div>
         <div className="text-white p-8">
-          <div className="font-bold text-xl">어떤 음료를 픽업 받으실 건가요?</div>
-          <div>픽업을 위한 정보를 입력합니다.</div>
+          <div className="font-bold text-xl animate-fade-in-move-right">{intro.TITLE}</div>
+          <div className="opacity-0 animate-fade-in-move-right-delayed">{intro.SUB_TITLE}</div>
         </div>
         <div className="flex justify-center mb-14">
           <Link to={routes.postWrite}>
             <Button width="w-[19rem]" height=" h-[2.5rem]" bgColor="bg-white" textColor="text-sky-blue">
-              공고 작성하기
+              {intro.START_POST}
             </Button>
           </Link>
         </div>
