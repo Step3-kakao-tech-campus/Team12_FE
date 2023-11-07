@@ -1,7 +1,7 @@
 const routes = {
   home: '/',
   login: '/login',
-  loginKakao: '/login/kakao',
+  loginKakao: '/login/callback',
   registerBank: '/register/bank',
   mypage: '/mypage',
   admin: '/mypage/admin',
