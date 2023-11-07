@@ -9,6 +9,7 @@ export const instance = axios.create({
   headers: {
     'Content-Type': 'application/json', // 서버단에서 JSON 형태를 많이써서, 프론트단에서 쏴줄 때 이러한 형태로 많이 쓴다(헤더 기본 설정)
   },
+  withCredentials: true,
 });
 
 // request - 요청
