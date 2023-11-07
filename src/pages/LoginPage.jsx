@@ -9,6 +9,9 @@ const LoginPage = () => {
   const REDIRECT_URI = 'http://localhost:3000/login/kakao';
   const KAKAO_AUTH_URI = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
 
+  // 백엔드 배포 이후 아래 코드로 전환
+  // const KAKAO_AUTH_URI = `${process.env.REACT_APP_API_URL}/oauth2/authorization/kakao`;
+
   const loginHandler = () => {
     window.location.href = KAKAO_AUTH_URI;
   };
