@@ -6,15 +6,15 @@ const Button = ({
   disabled,
   children,
   margin,
+  textSize,
+  border,
   width = 'w-64',
   height = 'h-8',
   bgColor = 'bg-blue',
   textColor = 'text-white',
   bdRadius = 'rounded-lg',
-  textSize = '',
-  bdcolor = '',
-  border = '',
-  boxSizing = '',
+  bdcolor = 'border-blue',
+  boxSizing = 'box-content',
 }) => {
   return (
     <button

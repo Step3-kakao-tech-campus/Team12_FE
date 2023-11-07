@@ -14,8 +14,8 @@ import { logoutMessage, logoutCompleteMessage } from '../../utils/alert';
 
 const MyPageTemplate = () => {
   const navigate = useNavigate();
-  // const authority = localStorage.getItem('userAuth');
-  const authority = 'guest';
+  const authority = localStorage.getItem('userAuth');
+  // const authority = 'guest';
 
   // const { data } = useQuery('myPage', getMyPage);
 
@@ -32,7 +32,7 @@ const MyPageTemplate = () => {
     /* eslint no-else-return: "error" */
     if (author === 'admin') {
       return <div>관리자</div>;
-    } else if (author === 'user') {
+    } else if (author === 'student') {
       return <div>전남대학교</div>;
     }
     return <div>학생 미인증</div>;
@@ -42,7 +42,7 @@ const MyPageTemplate = () => {
     /* eslint no-else-return: "error" */
     if (author === 'admin') {
       return <AdminMyPage />;
-    } else if (author === 'user') {
+    } else if (author === 'student') {
       return <StudentMyPage />;
     }
     return <GuestMyPage />;
@@ -71,9 +71,6 @@ const MyPageTemplate = () => {
             bgColor="bg-white"
             textColor="text-blue"
             border="border-2"
-            bdcolor="border-blue"
-            bdRadius="rounded-md"
-            boxSizing="box-content"
           >
             로그아웃
           </Button>
