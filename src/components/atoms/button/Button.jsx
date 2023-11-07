@@ -11,13 +11,17 @@ const Button = ({
   bgColor = 'bg-blue',
   textColor = 'text-white',
   bdRadius = 'rounded-lg',
+  textSize = '',
+  bdcolor = '',
+  border = '',
+  boxSizing = '',
 }) => {
   return (
     <button
       type={type}
       onClick={onClick}
       disabled={disabled}
-      className={[width, height, textColor, bgColor, bdRadius, margin].join(' ')}
+      className={[width, height, textColor, bgColor, bdRadius, margin, textSize, bdcolor, border, boxSizing].join(' ')}
     >
       {children}
     </button>
