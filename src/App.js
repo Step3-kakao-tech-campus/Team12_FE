@@ -13,6 +13,8 @@ import AdminAuthPage from './pages/AdminAuthPage';
 import ErrorPage from './pages/ErrorPage';
 import ProtectedRoute from './components/layout/ProtectedRoute';
 import UploadStudentCardPage from './pages/UploadStudentCardPage';
+import PickupPostPage from './pages/PickupPostPage';
+import WritenPostPage from './pages/WritenPostPage';
 import routes from './constant/routes';
 
 import './global.css';
@@ -40,6 +42,8 @@ function App() {
             </ProtectedRoute>
           }
         />
+        <Route path={routes.pickupPost} element={<PickupPostPage />} />
+        <Route path={routes.writenPost} element={<WritenPostPage />} />
         <Route path={routes.uploadStudentCard} element={<UploadStudentCardPage />} />
         <Route path={routes.admin} element={<AdminPage />} />
         <Route path={routes.adminAuth} element={<AdminAuthPage />} />
