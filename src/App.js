@@ -15,6 +15,8 @@ import ProtectedRoute from './components/layout/ProtectedRoute';
 import UploadStudentCardPage from './pages/UploadStudentCardPage';
 import PickupPostPage from './pages/PickupPostPage';
 import WritenPostPage from './pages/WritenPostPage';
+import MyPagePickupPostDetailPage from './pages/MyPagePickupPostDetailPage';
+import MyPageWritenPostDetailPage from './pages/MyPageWritenPostDetailPage';
 import routes from './constant/routes';
 
 import './global.css';
@@ -44,6 +46,8 @@ function App() {
         />
         <Route path={routes.pickupPost} element={<PickupPostPage />} />
         <Route path={routes.writenPost} element={<WritenPostPage />} />
+        <Route path={routes.pickupPostDetail} element={<MyPagePickupPostDetailPage />} />
+        <Route path={routes.writenPostDetail} element={<MyPageWritenPostDetailPage />} />
         <Route path={routes.uploadStudentCard} element={<UploadStudentCardPage />} />
         <Route path={routes.admin} element={<AdminPage />} />
         <Route path={routes.adminAuth} element={<AdminAuthPage />} />
