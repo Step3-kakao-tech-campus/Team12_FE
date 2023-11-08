@@ -5,7 +5,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { postPickerTime } from '../../apis/postDetail';
 import Button from '../atoms/button/Button';
 
-const PickerTime = ({ setPage, setIsMatch }) => {
+const PickerTime = ({ setPage }) => {
   const navigate = useNavigate();
   const { id } = useParams();
   const { mutate } = useMutation({
@@ -25,11 +25,7 @@ const PickerTime = ({ setPage, setIsMatch }) => {
 
   // 입력완료 버튼
   const doneWrite = () => {
-    // 임시
-    localStorage.setItem('match', true);
-    //
     setPage(0);
-    setIsMatch(true);
     mutate({
       boardId: id,
       arrivalTime: value,
