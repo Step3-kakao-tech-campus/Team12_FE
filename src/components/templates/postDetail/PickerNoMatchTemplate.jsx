@@ -42,8 +42,8 @@ const PickerNoMatchTemplate = ({ response }) => {
       {/* 파란색 부분 */}
       <div className="bg-sky-blue h-60 rounded-b-3xl">
         <OtherNav iconColor="#fff" bgColor="#000" />
-        <div className="px-5">
-          <div className="mt-1 text-white text-xl">매칭을 기다리고 있어요.</div>
+        <div className="px-[25px]">
+          <div className="text-white text-xl">매칭을 기다리고 있어요.</div>
           <Location response={response} />
         </div>
       </div>

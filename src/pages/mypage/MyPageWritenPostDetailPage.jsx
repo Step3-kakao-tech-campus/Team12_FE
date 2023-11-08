@@ -8,48 +8,48 @@ import WriterNoMatchTemplate from '../../components/templates/postDetail/WriterN
 const MyPageWritenPostDetailPage = () => {
   // 상세 페이지 API 요청을 통해 받아온 데이터
   // 매칭 안된 경우
-  // const data = {
-  //   success: true,
-  //   response: {
-  //     boardId: 6,
-  //     shopName: '메가MGC',
-  //     destination: '전남대 공대7 222호관',
-  //     beverage: [
-  //       {
-  //         name: '카페라떼',
-  //       },
-  //     ],
-  //     tip: 2000,
-  //     request: '빨리 와주세요6',
-  //     finishedAt: 1699201131,
-  //     isMatch: false,
-  //   },
-  //   error: null,
-  // };
-
-  // 매칭 된 경우
   const data = {
     success: true,
     response: {
-      boardId: 3,
-      shopName: '더벤티',
-      destination: '전남대 공대7 219호관',
+      boardId: 6,
+      shopName: '메가MGC',
+      destination: '전남대 공대7 222호관',
       beverage: [
         {
-          name: '아메리카노',
+          name: '카페라떼',
         },
       ],
       tip: 2000,
-      request: '빨리 와주세요3',
-      finishedAt: 1699201132,
-      isMatch: true,
-      pickerBank: '신한은행',
-      pickerAccount: '000-0000-0000',
-      arrivalTime: 1708820452,
-      pickerPhoneNumber: '010-0000-0000',
+      request: '빨리 와주세요6',
+      finishedAt: 1699201131,
+      isMatch: false,
     },
     error: null,
   };
+
+  // 매칭 된 경우
+  // const data = {
+  //   success: true,
+  //   response: {
+  //     boardId: 3,
+  //     shopName: '더벤티',
+  //     destination: '전남대 공대7 219호관',
+  //     beverage: [
+  //       {
+  //         name: '아메리카노',
+  //       },
+  //     ],
+  //     tip: 2000,
+  //     request: '빨리 와주세요3',
+  //     finishedAt: 1699201132,
+  //     isMatch: true,
+  //     pickerBank: '신한은행',
+  //     pickerAccount: '000-0000-0000',
+  //     arrivalTime: 1708820452,
+  //     pickerPhoneNumber: '010-0000-0000',
+  //   },
+  //   error: null,
+  // };
 
   // useParams + useQuery로 데이터를 받아와서
   // data를 data?.response로 받아서 WriterMatchTemplate & WriterNoMatchTemplate으로 보내주면 됨
