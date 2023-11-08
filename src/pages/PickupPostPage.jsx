@@ -1,6 +1,6 @@
 import React from 'react';
 import OtherNav from '../components/atoms/nav/OtherNav';
-import Cards from '../components/molecules/Cards';
+import MyPagePickupPostCards from '../components/molecules/MyPagePickupPostCards';
 
 const PickupPostPage = () => {
   const articles = [
@@ -26,7 +26,7 @@ const PickupPostPage = () => {
       destination: '공과대학 6호관',
       finishedAt: 1696040640,
       tip: 1000,
-      match: false,
+      match: true,
     },
     {
       boardId: 6,
@@ -42,7 +42,7 @@ const PickupPostPage = () => {
       destination: '공과대학 7호관',
       finishedAt: 1696992289,
       tip: 1000,
-      match: false,
+      match: true,
     },
     {
       boardId: 4,
@@ -50,7 +50,7 @@ const PickupPostPage = () => {
       destination: '공과대학 7호관',
       finishedAt: 1696040640,
       tip: 1000,
-      match: false,
+      match: true,
     },
     {
       boardId: 3,
@@ -58,7 +58,7 @@ const PickupPostPage = () => {
       destination: '공과대학 7호관',
       finishedAt: 1696040640,
       tip: 1000,
-      match: false,
+      match: true,
     },
     {
       boardId: 2,
@@ -66,7 +66,7 @@ const PickupPostPage = () => {
       destination: '공과대학 7호관',
       finishedAt: 1696040640,
       tip: 1000,
-      match: false,
+      match: true,
     },
     {
       boardId: 1,
@@ -74,7 +74,7 @@ const PickupPostPage = () => {
       destination: '공과대학 7호관',
       finishedAt: 1696040640,
       tip: 1000,
-      match: false,
+      match: true,
     },
   ];
 
@@ -83,7 +83,7 @@ const PickupPostPage = () => {
       <OtherNav />
       <div className="text-center text-xl text-blue my-6">수락한 공고글</div>
       <div className="h-[600px] overflow-y-auto overflow-x-hidden">
-        <Cards articles={articles} />
+        <MyPagePickupPostCards articles={articles} />
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 import React from 'react';
 import OtherNav from '../components/atoms/nav/OtherNav';
-import Cards from '../components/molecules/Cards';
+import MyPageWritenPostCards from '../components/molecules/MyPageWritenPostCards';
 
 const WritenPostPage = () => {
   const articles = [
@@ -83,7 +83,7 @@ const WritenPostPage = () => {
       <OtherNav />
       <div className="text-center text-xl text-blue my-6">작성한 공고글</div>
       <div className="h-[600px] overflow-y-auto overflow-x-hidden">
-        <Cards articles={articles} />
+        <MyPageWritenPostCards articles={articles} />
       </div>
     </div>
   );
