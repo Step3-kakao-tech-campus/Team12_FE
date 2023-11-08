@@ -44,9 +44,9 @@ const PickerTime = ({ setPage }) => {
         <div className="font-bold text-blue text-xl py-2">예상 도착 시간은 언제인가요?</div>
         <div className=" text-sm">오더의 장소에 도착할 시간을 알려주세요.</div>
       </div>
-      <div className="mt-6">
+      <div className="mt-4">
         <input
-          className="text-center w-28 h-10 border-2 border-zinc-700 rounded-lg mr-3"
+          className="text-center w-28 h-10 border border-[#858585] rounded-lg mr-3"
           type="number"
           placeholder="15"
           value={value}
@@ -54,11 +54,18 @@ const PickerTime = ({ setPage }) => {
         />
         분 후 도착
       </div>
-      <div className="mt-72 flex justify-between px-3">
-        <Button onClick={pickUpCancel} width="w-32" textColor="text-black" bgColor="bg-zinc-300">
+      <div className="mt-72 flex justify-between">
+        <Button
+          onClick={pickUpCancel}
+          width="w-[136px]"
+          height="h-9"
+          bdRadius="rounded-md"
+          textColor="text-black"
+          bgColor="bg-zinc-300"
+        >
           취소
         </Button>
-        <Button onClick={doneWrite} width="w-32">
+        <Button onClick={doneWrite} width="w-[136px]" height="h-9" bdRadius="rounded-md">
           입력완료
         </Button>
       </div>
