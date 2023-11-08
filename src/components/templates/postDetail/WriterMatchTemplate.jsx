@@ -1,6 +1,7 @@
 import OtherNav from '../../atoms/nav/OtherNav';
 import Info from '../../atoms/Info';
 import Location from '../../organisms/Location';
+import Time from '../../../utils/time';
 
 const WriterMatchTemplate = ({ response }) => {
   return (
@@ -9,7 +10,8 @@ const WriterMatchTemplate = ({ response }) => {
       <div className="bg-sky-blue h-60 rounded-b-3xl">
         <OtherNav iconColor="#fff" bgColor="#000" />
         <div className="px-5">
-          <div className="mt-1 text-white text-xl">매칭을 기다리고 있어요.</div>
+          <div className="mt-1 text-white text-xl">피커가 픽업을 시작했어요!</div>
+          <div className="mt-1 text-white text-xl">피커에게 픽업팁을 송금해주세요.</div>
           <Location response={response} />
         </div>
       </div>
@@ -19,7 +21,7 @@ const WriterMatchTemplate = ({ response }) => {
         <div className="text-xl font-bold text-blue py-2">피커정보</div>
         <div className="flex">
           <div className="text-zinc-400">도착시간</div>
-          <div className="ml-5">{response.arriveTime}</div>
+          <div className="ml-5">{Time(response.arrivalTime)}</div>
         </div>
         <div className="flex my-1">
           <div className="text-zinc-400">계좌정보</div>
