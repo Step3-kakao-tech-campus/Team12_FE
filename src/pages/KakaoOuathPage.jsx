@@ -1,105 +1,33 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
-// import axios from 'axios';
+import { useQuery } from '@tanstack/react-query';
 import { loginSuccessMessage } from '../utils/alert';
+import getLoginInfo from '../apis/login';
 import Loader from '../components/atoms/Loader';
 import routes from '../constant/routes';
 
 // 리다이렉팅 처리 화면
 const KakaoOuathPage = () => {
-  // params로 받은 인가 코드를 code 변수에 저장
-  const kakaoOauthCode = new URL(window.location.href).searchParams.get('code');
   const navigate = useNavigate();
+  const { data } = useQuery(['getLoginInfo'], getLoginInfo);
 
-  // 토큰 발급 이후 서비스 사용을 위해 임시로 가볍게 만든 토큰 발급 코드
-  // 실제 과정은 인가 코드를 백엔드 API로 보내고 나서 토큰 정보를 발급받아 이용하게 된다.
-  // 우선은 임시 토큰을 이용하여 이를 서비스 이용시 인증하는데 사용!
+  // 로그인완료시 로그인 성공 메시지를 띄우고 유저 정보를 받아옴(토큰 등)
+  // 그리고 로그인 완료 처리를 하고, 액세스 토큰을 계속 담아 보냄
+  // 로그인 완료되면 홈 페이지로 이동시킴
   useEffect(() => {
-    setTimeout(() => {
-      if (kakaoOauthCode) {
-        try {
-          console.log(kakaoOauthCode);
-          localStorage.setItem('accessToken', 'token');
-          Swal.fire(loginSuccessMessage).then(navigate(routes.home));
-        } catch (error) {
-          // console.log(error);
-        }
-      }
-    }, [2000]);
-  }, [kakaoOauthCode]);
-
-  // 백엔드 API에 get을 요청하여 인가코드를 보내는 형태
-  // useEffect(() => {
-  //   if (kakaoOauthCode) {
-  //     (async () => {
-  //       try {
-  //         // 명세서의 내용에 따라 Body의 토큰을 받아서 로컬 스토리지에 저장하는 형태
-  //         const res = await axios.get(`백엔드 API 링크/kakao?code=${kakaoOauthCode}`);
-  //         const ACCESS_TOKEN = res.response.AccessToken;
-  //         await localStorage.setItem('accessToken', ACCESS_TOKEN);
-  //         await Swal.fire(loginSuccessMessage).then(navigate(routes.home));
-  //       } catch (error) {
-  //         console.error(error);
-  //       }
-  //     })();
-  //   }
-  // }, [kakaoOauthCode]);
-
-  // 백엔드 API에 post를 요청하여 인가코드를 보내는 형태
-  // 필요에 따라 API 연동 시점에 코드 리팩토링
-  // useEffect(() => {
-  //   if (kakaoOauthCode) {
-  //     (async () => {
-  //       try {
-  //         const res = await axios.post(
-  //           `백엔드 API 링크/kakao?code=${kakaoOauthCode}`,
-  //           {
-  //             authorizaitonCode: kakaoOauthCode,
-  //           },
-  //           {
-  //             headers: { 'Content-type': 'application/x-www-form-urlencoded;charset=utf-8' },
-  //           },
-  //         );
-  //         const ACCESS_TOKEN = res.response.AccessToken;
-  //         await localStorage.setItem('accessToken', ACCESS_TOKEN);
-  //         await Swal.fire(loginSuccessMessage).then(navigate(routes.home));
-  //       } catch (error) {
-  //         console.error(error);
-  //       }
-  //     })();
-  //   }
-  // }, [kakaoOauthCode]);
-
-  // 백엔드 API에 post를 요청하여 인가코드를 보내는 형태2
-  // 필요에 따라 API 연동 시점에 코드 리팩토링
-  // useEffect(() => {
-  //   if (kakaoOauthCode) {
-  //     try {
-  //       axios
-  //         .post(
-  //           // 백엔드에서 원하는 API로 request
-  //           // "Content-Type: application/x-www-form-urlencoded" (공식문서 내용)
-  //           // 인가 코드와 함께 post 요청을 보내고, 결과로 토큰을 받아 활용
-  //           'https://kauth.kakao.com/...',
-  //           {
-  //             authorizaitonCode: kakaoOauthCode,
-  //           },
-  //           {
-  //             headers: { 'Content-type': 'application/x-www-form-urlencoded;charset=utf-8' },
-  //           },
-  //         )
-  //         .then((res) => {
-  //           console.log(res);
-  //           const ACCESS_TOKEN = res.response.AccessToken;
-  //           localStorage.setItem('accessToken', ACCESS_TOKEN);
-  //           Swal.fire(loginSuccessMessage).then(navigate(routes.home));
-  //         });
-  //     } catch (error) {
-  //       console.error(error);
-  //     }
-  //   }
-  // }, [kakaoOauthCode]);
+    // 임시로 로그인 처리 할려고 넣어논거라 나중에 지울거
+    localStorage.setItem('accessToken', 'accessToken');
+    localStorage.setItem('userAuth', 'student');
+    Swal.fire(loginSuccessMessage).then(navigate(routes.home));
+    if (data) {
+      const userInfo = data.response;
+      localStorage.setItem('accessToken', userInfo.AccessToken);
+      localStorage.setItem('userAuth', userInfo.userAuth);
+      localStorage.setItem('username', userInfo.username);
+      Swal.fire(loginSuccessMessage).then(navigate(routes.home));
+    }
+  }, []);
 
   return (
     <div className="page--layout">

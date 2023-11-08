@@ -9,6 +9,7 @@ export const instance = axios.create({
   headers: {
     'Content-Type': 'application/json', // 서버단에서 JSON 형태를 많이써서, 프론트단에서 쏴줄 때 이러한 형태로 많이 쓴다(헤더 기본 설정)
   },
+  withCredentials: true,
 });
 
 // request - 요청
@@ -34,11 +35,11 @@ instance.interceptors.response.use(
   (error) => {
     // 401 error : 인증되지 않음 - 로그인 화면으로 이동
     // token은 백엔드에서 유효하지 않다면 401(Unauthorized) Http code를 보내주기에, 로그인하도록 처리
-    if (error.response.status === 401) {
+    if (error.error.status === 401) {
       Swal.fire({
         icon: 'error',
         title: '로그인을 진행해주세요!',
-        text: error.response.data.error.message,
+        text: error.error.message,
         confirmButtonText: '확인',
       }).then(() => {
         window.location.href = '/login';
@@ -48,11 +49,11 @@ instance.interceptors.response.use(
 
     // 404 error : 지정한 리소스를 찾을 수 없음
     // 에러 메시지를 띄워주고 & 잘못된 경로로 이동 시 ErrorPage로 이동
-    if (error.response.status === 404) {
+    if (error.error.status === 404) {
       Swal.fire({
         icon: 'error',
         title: '아이쿠! 에러가 발생했네요😅',
-        text: error.response.data.error.message,
+        text: error.error.message,
         confirmButtonText: '확인',
       }).then(() => {
         window.location.href = '/errorPage';
@@ -63,8 +64,8 @@ instance.interceptors.response.use(
     // 401, 404 외의 다른 error에 대한 처리 및 에러 메시지 확인 가능
     Swal.fire({
       icon: 'error',
-      title: '내용을 다시 확인해 주세요!',
-      text: error.response.data.error.message,
+      title: '아래와 같은 에러가 발생했습니다!',
+      text: error.error.message,
       confirmButtonText: '확인',
     });
     // 성공인지 실패인지 여부에 따라 resolve, reject 처리
