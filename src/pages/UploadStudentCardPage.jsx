@@ -42,9 +42,7 @@ const CheckStudentCardPage = () => {
   const requestCardModal = () => {
     return Swal.fire(requestCardModalMessage).then((result) => {
       if (result.isConfirmed && imageSrc) {
-        Swal.fire(successRequestCardMessage).then(mutate(imageSrc));
-        // 그리고 사진 보내고 기다림
-        mutate(formData);
+        Swal.fire(successRequestCardMessage).then(mutate(formData));
       }
     });
   };

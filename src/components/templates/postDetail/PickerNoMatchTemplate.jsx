@@ -42,7 +42,7 @@ const PickerNoMatchTemplate = ({ response }) => {
       <>
         <Info response={response} />
         <div className="flex justify-center">
-          <Button onClick={pickUpBtnModal} bgColor={`${isMatch ? 'bg-zinc-300' : 'bg-blue'}`} disabled={isMatch}>
+          <Button onClick={pickUpBtnModal} bgColor="bg-blue">
             이 음료 픽업하기
           </Button>
         </div>

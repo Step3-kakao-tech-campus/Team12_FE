@@ -1,14 +1,15 @@
 import Swal from 'sweetalert2';
 import { useState } from 'react';
 import { useMutation } from '@tanstack/react-query';
-import { useParams } from 'react-router-dom';
-import { postDetailPicker } from '../../apis/postDetail';
+import { useNavigate, useParams } from 'react-router-dom';
+import { postPickerTime } from '../../apis/postDetail';
 import Button from '../atoms/button/Button';
 
 const PickerTime = ({ setPage, setIsMatch }) => {
+  const navigate = useNavigate();
   const { id } = useParams();
   const { mutate } = useMutation({
-    mutationFn: postDetailPicker,
+    mutationFn: postPickerTime,
   });
 
   // 픽업시간
@@ -33,6 +34,7 @@ const PickerTime = ({ setPage, setIsMatch }) => {
       boardId: id,
       arrivalTime: value,
     });
+    navigate(`/post/${id}`);
     return Swal.fire({
       icon: 'success',
       title: '매칭이 완료 되었어요!',
