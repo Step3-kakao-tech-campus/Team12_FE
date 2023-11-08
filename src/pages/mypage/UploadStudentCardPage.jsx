@@ -40,7 +40,7 @@ const CheckStudentCardPage = () => {
 
   // 입력완료 누를 때 나타나는 모달창
   const requestCardModal = () => {
-    return Swal.fire(requestCardModalMessage).then((result) => {
+    Swal.fire(requestCardModalMessage).then((result) => {
       if (result.isConfirmed && imageSrc) {
         Swal.fire(successRequestCardMessage).then(mutate(formData));
       }
@@ -49,7 +49,7 @@ const CheckStudentCardPage = () => {
 
   // 취소버튼
   const cancel = () => {
-    return navigate(routes.mypage);
+    navigate(routes.mypage);
   };
 
   // 취소, 입력완료 버튼 보일지말지
