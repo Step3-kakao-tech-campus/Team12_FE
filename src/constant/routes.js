@@ -6,6 +6,8 @@ const routes = {
   mypage: '/mypage',
   writenPost: '/mypage/writen-post',
   pickupPost: '/mypage/pickup-post',
+  writenPostDetail: '/mypage/writen-post/:id',
+  pickupPostDetail: '/mypage/pickup-post/:id',
   admin: '/mypage/admin',
   adminAuth: '/mypage/admin/auth/:id',
   uploadStudentCard: '/mypage/uploadStudentCard',

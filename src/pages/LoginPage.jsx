@@ -5,12 +5,12 @@ import LoginNav from '../components/atoms/nav/LoginNav';
 // 버튼을 눌러 개인정보 동의 후 계속하기를 하면 REDIRECT_URI로 리다이렉트 된다.
 // 이후 주소에 카카오에서 보낸 인가 코드가 있는데, 이를 파싱해서 백엔드로 전송
 const LoginPage = () => {
-  const REST_API_KEY = process.env.REACT_APP_REST_API_KEY;
-  const REDIRECT_URI = 'http://localhost:3000/login/callback';
-  const KAKAO_AUTH_URI = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
+  // const REST_API_KEY = process.env.REACT_APP_REST_API_KEY;
+  // const REDIRECT_URI = 'http://localhost:3000/login/callback';
+  // const KAKAO_AUTH_URI = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
 
   // 백엔드 배포 이후 아래 코드로 전환
-  // const KAKAO_AUTH_URI = `${process.env.REACT_APP_API_URL}/oauth2/authorization/kakao`;
+  const KAKAO_AUTH_URI = `${process.env.REACT_APP_API_URL}/oauth2/authorization/kakao`;
 
   const loginHandler = () => {
     window.location.href = KAKAO_AUTH_URI;

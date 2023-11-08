@@ -1,8 +1,16 @@
 import React from 'react';
 import OtherNav from '../components/atoms/nav/OtherNav';
-import Cards from '../components/molecules/Cards';
+import MyPagePickupPostCards from '../components/molecules/MyPagePickupPostCards';
+// import { useQuery } from '@tanstack/react-query';
+// import { getPickupPosts } from '../apis/post';
 
 const PickupPostPage = () => {
+  // 픽업한 공고글 목록 조회(마이페이지) 요청
+  // 데이터를 받아와서 공고글 목록을 posts라는 변수에 담고
+  // MyPagePickupPostCards로 posts를 props로 넘겨주면 끝
+  // const { data } = useQuery(['getPickerPosts'], () => getPickerPosts());
+  // const posts = data?.response?.content;
+
   const articles = [
     {
       boardId: 9,
@@ -26,7 +34,7 @@ const PickupPostPage = () => {
       destination: '공과대학 6호관',
       finishedAt: 1696040640,
       tip: 1000,
-      match: false,
+      match: true,
     },
     {
       boardId: 6,
@@ -42,7 +50,7 @@ const PickupPostPage = () => {
       destination: '공과대학 7호관',
       finishedAt: 1696992289,
       tip: 1000,
-      match: false,
+      match: true,
     },
     {
       boardId: 4,
@@ -50,7 +58,7 @@ const PickupPostPage = () => {
       destination: '공과대학 7호관',
       finishedAt: 1696040640,
       tip: 1000,
-      match: false,
+      match: true,
     },
     {
       boardId: 3,
@@ -58,7 +66,7 @@ const PickupPostPage = () => {
       destination: '공과대학 7호관',
       finishedAt: 1696040640,
       tip: 1000,
-      match: false,
+      match: true,
     },
     {
       boardId: 2,
@@ -66,7 +74,7 @@ const PickupPostPage = () => {
       destination: '공과대학 7호관',
       finishedAt: 1696040640,
       tip: 1000,
-      match: false,
+      match: true,
     },
     {
       boardId: 1,
@@ -74,7 +82,7 @@ const PickupPostPage = () => {
       destination: '공과대학 7호관',
       finishedAt: 1696040640,
       tip: 1000,
-      match: false,
+      match: true,
     },
   ];
 
@@ -83,7 +91,7 @@ const PickupPostPage = () => {
       <OtherNav />
       <div className="text-center text-xl text-blue my-6">수락한 공고글</div>
       <div className="h-[600px] overflow-y-auto overflow-x-hidden">
-        <Cards articles={articles} />
+        <MyPagePickupPostCards articles={articles} />
       </div>
     </div>
   );

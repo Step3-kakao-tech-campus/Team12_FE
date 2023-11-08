@@ -14,6 +14,14 @@ export const postPickerTime = (data) => {
   return instance.post('/articles/agree', { arrivalTime, boardId });
 };
 
+export const getMyPageWritenPostDetail = (boardId) => {
+  return instance.get(`/mypage/requester/detail/${boardId}`);
+};
+
+export const getMyPagePickupPostDetail = (boardId) => {
+  return instance.get(`/mypage/picker/detail/${boardId}`);
+};
+
 // 공고글 삭제
 
 // 공고글 수정
