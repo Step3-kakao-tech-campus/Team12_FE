@@ -34,8 +34,8 @@ const PickerNoMatchTemplate = ({ response }) => {
     return (
       <>
         <Info response={response} />
-        <div className="flex justify-center">
-          <Button onClick={pickUpBtnModal} bgColor="bg-blue">
+        <div className="flex px-8">
+          <Button onClick={pickUpBtnModal} width="w-[100%]" height="h-9" bdRadius="rounded-md" bgColor="bg-blue">
             이 음료 픽업하기
           </Button>
         </div>
