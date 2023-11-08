@@ -16,8 +16,8 @@ const PickerMatchTemplate = ({ response }) => {
       </div>
       {/* 하얀색 부분 */}
       <Info response={response} />
-      <div className="flex justify-center">
-        <Button bgColor="bg-zinc-300" disabled>
+      <div className="flex px-8">
+        <Button width="w-[100%]" height="h-9" bgColor="bg-[#949494]" bdRadius="rounded-md" disabled>
           이미 매칭된 공고
         </Button>
       </div>

@@ -7,16 +7,16 @@ import PostListPage from './pages/PostListPage';
 import PostDetailPage from './pages/PostDetailPage';
 import PostWriteIntroPage from './pages/PostWriteIntroPage';
 import PostWritePage from './pages/PostWritePage';
-import MyPage from './pages/MyPage';
-import AdminPage from './pages/AdminPage';
-import AdminAuthPage from './pages/AdminAuthPage';
-import ErrorPage from './pages/ErrorPage';
 import ProtectedRoute from './components/layout/ProtectedRoute';
-import UploadStudentCardPage from './pages/UploadStudentCardPage';
-import PickupPostPage from './pages/PickupPostPage';
-import WritenPostPage from './pages/WritenPostPage';
-import MyPagePickupPostDetailPage from './pages/MyPagePickupPostDetailPage';
-import MyPageWritenPostDetailPage from './pages/MyPageWritenPostDetailPage';
+import MyPage from './pages/mypage/MyPage';
+import AdminPage from './pages/mypage/AdminPage';
+import AdminAuthPage from './pages/mypage/AdminAuthPage';
+import MyPageWritenPostListPage from './pages/mypage/MyPageWritenPostListPage';
+import MyPagePickupPostListPage from './pages/mypage/MyPagePickupPostListPage';
+import MyPageWritenPostDetailPage from './pages/mypage/MyPageWritenPostDetailPage';
+import MyPagePickupPostDetailPage from './pages/mypage/MyPagePickupPostDetailPage';
+import UploadStudentCardPage from './pages/mypage/UploadStudentCardPage';
+import ErrorPage from './pages/ErrorPage';
 import routes from './constant/routes';
 
 import './global.css';
@@ -44,13 +44,13 @@ function App() {
             </ProtectedRoute>
           }
         />
-        <Route path={routes.pickupPost} element={<PickupPostPage />} />
-        <Route path={routes.writenPost} element={<WritenPostPage />} />
-        <Route path={routes.pickupPostDetail} element={<MyPagePickupPostDetailPage />} />
-        <Route path={routes.writenPostDetail} element={<MyPageWritenPostDetailPage />} />
-        <Route path={routes.uploadStudentCard} element={<UploadStudentCardPage />} />
         <Route path={routes.admin} element={<AdminPage />} />
         <Route path={routes.adminAuth} element={<AdminAuthPage />} />
+        <Route path={routes.writenPost} element={<MyPageWritenPostListPage />} />
+        <Route path={routes.pickupPost} element={<MyPagePickupPostListPage />} />
+        <Route path={routes.writenPostDetail} element={<MyPageWritenPostDetailPage />} />
+        <Route path={routes.pickupPostDetail} element={<MyPagePickupPostDetailPage />} />
+        <Route path={routes.uploadStudentCard} element={<UploadStudentCardPage />} />
         <Route path={routes.error} element={<ErrorPage />} />
       </Routes>
     </BrowserRouter>

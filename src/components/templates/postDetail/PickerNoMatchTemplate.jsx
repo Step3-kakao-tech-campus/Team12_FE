@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Swal from 'sweetalert2';
 import Button from '../../atoms/button/Button';
 import OtherNav from '../../atoms/nav/OtherNav';
@@ -9,13 +9,6 @@ import PickerTime from '../../organisms/PickerTime';
 
 const PickerNoMatchTemplate = ({ response }) => {
   const [page, setPage] = useState(0);
-  const [isMatch, setIsMatch] = useState(false);
-
-  useEffect(() => {
-    // 임시로 새로고침해도 유지
-    setIsMatch(localStorage.getItem('match'));
-    // localStorage.removeItem('match');
-  }, [isMatch]);
 
   // 이 음료 픽업하기 버튼을 눌렀을 때 뜨는 모달창
   const pickUpBtnModal = () => {
@@ -36,13 +29,13 @@ const PickerNoMatchTemplate = ({ response }) => {
   // 페이지가 0이면 상세페이지 처음, 1이면 예상도착시간
   const nowPage = (pageNum) => {
     if (pageNum === 1) {
-      return <PickerTime setPage={setPage} setIsMatch={setIsMatch} />;
+      return <PickerTime setPage={setPage} />;
     }
     return (
       <>
         <Info response={response} />
-        <div className="flex justify-center">
-          <Button onClick={pickUpBtnModal} bgColor="bg-blue">
+        <div className="flex px-8">
+          <Button onClick={pickUpBtnModal} width="w-[100%]" height="h-9" bdRadius="rounded-md" bgColor="bg-blue">
             이 음료 픽업하기
           </Button>
         </div>

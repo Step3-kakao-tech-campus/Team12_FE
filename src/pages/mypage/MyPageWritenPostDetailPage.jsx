@@ -1,6 +1,6 @@
 import React from 'react';
-import WriterMatchTemplate from '../components/templates/postDetail/WriterMatchTemplate';
-import WriterNoMatchTemplate from '../components/templates/postDetail/WriterNoMatchTemplate';
+import WriterMatchTemplate from '../../components/templates/postDetail/WriterMatchTemplate';
+import WriterNoMatchTemplate from '../../components/templates/postDetail/WriterNoMatchTemplate';
 // import { getMyPageWritenPostDetail } from '../apis/postDetail';
 // import { useQuery } from '@tanstack/react-query';
 // import { useParams } from 'react-router-dom';

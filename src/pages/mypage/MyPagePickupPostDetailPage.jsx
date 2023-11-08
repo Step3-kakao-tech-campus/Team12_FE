@@ -1,5 +1,5 @@
 import React from 'react';
-import PickerMatchTemplate from '../components/templates/postDetail/PickerMatchTemplate';
+import PickerMatchTemplate from '../../components/templates/postDetail/PickerMatchTemplate';
 // import { getMyPagePickupPostDetail } from '../apis/postDetail';
 // import { useQuery } from '@tanstack/react-query';
 // import { useParams } from 'react-router-dom';

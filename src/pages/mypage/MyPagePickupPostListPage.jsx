@@ -1,6 +1,6 @@
 import React from 'react';
-import OtherNav from '../components/atoms/nav/OtherNav';
-import MyPagePickupPostCards from '../components/molecules/MyPagePickupPostCards';
+import OtherNav from '../../components/atoms/nav/OtherNav';
+import MyPagePickupPostCards from '../../components/molecules/MyPagePickupPostCards';
 // import { useQuery } from '@tanstack/react-query';
 // import { getPickupPosts } from '../apis/post';
 
