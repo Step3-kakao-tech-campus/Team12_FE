@@ -10,7 +10,7 @@ const PickerMatchTemplate = ({ response }) => {
       <div className="bg-sky-blue h-60 rounded-b-3xl">
         <OtherNav iconColor="#fff" bgColor="#000" />
         <div className="px-5">
-          <div className="mt-1 text-white text-xl">이미 픽업된 공고입니다.</div>
+          <div className="mt-1 text-white text-xl">매칭 완료된 공고입니다.</div>
           <Location response={response} />
         </div>
       </div>
