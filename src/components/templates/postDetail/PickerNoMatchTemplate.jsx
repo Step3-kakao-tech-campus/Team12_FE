@@ -6,14 +6,14 @@ import Info from '../../atoms/Info';
 import Location from '../../organisms/Location';
 import '../../../styles/DeleteSpin.css';
 import PickerTime from '../../organisms/PickerTime';
-import { pickUpDrinkMessage } from '../../../utils/alert';
+import { pickupConfirmMessage } from '../../../utils/alert';
 
 const PickerNoMatchTemplate = ({ response }) => {
   const [page, setPage] = useState(0);
 
   // 이 음료 픽업하기 버튼을 눌렀을 때 뜨는 모달창
   const pickUpBtnModal = () => {
-    return Swal.fire(pickUpDrinkMessage).then((result) => {
+    return Swal.fire(pickupConfirmMessage).then((result) => {
       if (result.isConfirmed) {
         setPage(1);
       }

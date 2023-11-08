@@ -4,16 +4,17 @@ import { useNavigate } from 'react-router-dom';
 import OtherNav from '../../atoms/nav/OtherNav';
 import Info from '../../atoms/Info';
 import Location from '../../organisms/Location';
-import { controlArticleMessage, deleteArticleMessage } from '../../../utils/alert';
+import { controlArticleMessage, deleteArticleMessage, articleDeleteSuccessMessage } from '../../../utils/alert';
+import routes from '../../../constant/routes';
 
 const WriterNoMatchTemplate = ({ response }) => {
   const navigate = useNavigate();
 
   // 삭제 버튼 눌렀을 때
   const postDelete = () => {
-    return Swal.fire(deleteArticleMessage).then((result) => {
+    Swal.fire(deleteArticleMessage).then((result) => {
       if (result.isConfirmed) {
-        // 공고가 삭제됨
+        Swal.fire(articleDeleteSuccessMessage).then(navigate(routes.post));
       }
     });
   };
@@ -22,7 +23,6 @@ const WriterNoMatchTemplate = ({ response }) => {
   const postControl = () => {
     return Swal.fire(controlArticleMessage).then((result) => {
       if (result.isConfirmed) {
-        // 공고 수정하게 됨
         navigate('/post-write');
       } else if (result.isDenied) {
         postDelete();
