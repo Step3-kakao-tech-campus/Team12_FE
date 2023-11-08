@@ -1,8 +1,8 @@
 /* eslint-disable */
 import { useEffect, useState } from 'react';
-import AuthRequest from '../components/organisms/AuthRequest';
-import OtherNav from '../components/atoms/nav/OtherNav';
-import { adminAuthList } from '../apis/admin';
+import AuthRequest from '../../components/organisms/AuthRequest';
+import OtherNav from '../../components/atoms/nav/OtherNav';
+import { adminAuthList } from '../../apis/admin';
 import { useInView } from 'react-intersection-observer';
 import { useInfiniteQuery } from '@tanstack/react-query';
 

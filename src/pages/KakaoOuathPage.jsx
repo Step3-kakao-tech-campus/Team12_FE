@@ -16,6 +16,10 @@ const KakaoOuathPage = () => {
   // 그리고 로그인 완료 처리를 하고, 액세스 토큰을 계속 담아 보냄
   // 로그인 완료되면 홈 페이지로 이동시킴
   useEffect(() => {
+    // 임시로 로그인 처리 할려고 넣어논거라 나중에 지울거
+    localStorage.setItem('accessToken', 'accessToken');
+    localStorage.setItem('userAuth', 'student');
+    Swal.fire(loginSuccessMessage).then(navigate(routes.home));
     if (data) {
       const userInfo = data.response;
       localStorage.setItem('accessToken', userInfo.AccessToken);
