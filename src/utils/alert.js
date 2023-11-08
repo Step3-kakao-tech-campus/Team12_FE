@@ -86,3 +86,17 @@ export const logoutCompleteMessage = {
   icon: 'success',
   confirmButtonText: '확인',
 };
+export const deleteArticleMessage = {
+  title: '삭제하시겠습니까?',
+  text: '삭제하면 음료를 픽업 받을 수 없게 됩니다.',
+  showCancelButton: true,
+  confirmButtonColor: '#0075FF',
+  cancelButtonColor: '#D9D9D9',
+  confirmButtonText: '확인',
+  cancelButtonText: '취소',
+};
+export const controlArticleMessage = {
+  showDenyButton: true,
+  confirmButtonText: '수정',
+  denyButtonText: '삭제',
+};

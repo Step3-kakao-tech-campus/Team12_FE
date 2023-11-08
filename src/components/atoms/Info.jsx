@@ -15,12 +15,12 @@ const Info = ({ response }) => {
     <div className="px-8 pt-6">
       {/* 주문정보 */}
       <div>
-        <div className="text-xl font-bold text-blue py-2">주문 정보</div>
+        <div className="text-xl font-bold text-blue py-1">주문 정보</div>
         <div>{showMenu(response.beverage)}</div>
       </div>
       {/* 요청사항 */}
       <div className="my-12">
-        <div className="text-xl font-bold text-blue py-2">요청 사항</div>
+        <div className="text-xl font-bold text-blue py-1">요청 사항</div>
         <div>
           <div className="flex">
             <div className="text-zinc-400">픽업팁</div>
@@ -34,7 +34,7 @@ const Info = ({ response }) => {
       </div>
       {/* 마감기한 */}
       <div className="my-12">
-        <div className="text-xl font-bold text-blue py-2">마감기한</div>
+        <div className="text-xl font-bold text-blue py-1">마감기한</div>
         <div>{time(finishTime)}</div>
       </div>
     </div>

@@ -12,21 +12,25 @@ const PostDetailPage = () => {
   // 샘플데이터
   const sample = {
     boardId: 1,
-    shopName: '전남대 후문 스타벅스',
-    destination: '전남대 공대7 217호관',
+    shopName: '스타벅스 전대후문점',
+    destination: '공과대학 7호관',
     beverage: [
       {
-        name: '핫 아메리카노',
+        name: '아이스 아메리카노 1잔',
       },
       {
-        name: '아이스 아메리카노',
+        name: '핫 아메리카노 1잔',
       },
     ],
-    tip: 1000,
-    request: '빨리 와주세요',
-    finishedAt: 1696073040,
-    isMatch: false,
-    same: false,
+    tip: 3000,
+    request: '1층 도착하시면 연락주세요!',
+    finishedAt: 15468965196,
+    pickerBank: '농협',
+    pickerAccount: '00000000000000',
+    arriveTime: '14시 20분 도착예정',
+    pickerPhoneNumber: '010-1234-1234',
+    isMatch: true,
+    same: true,
   };
 
   // const { id } = useParams();
