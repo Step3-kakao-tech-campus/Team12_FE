@@ -89,6 +89,7 @@ export const logoutCompleteMessage = {
 export const controlArticleMessage = {
   icon: 'question',
   title: '공고글을<br/>수정 혹은 삭제 하시겠습니까?',
+  showCloseButton: true,
   showDenyButton: true,
   confirmButtonText: '수정',
   denyButtonText: '삭제',
