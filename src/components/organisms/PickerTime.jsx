@@ -4,7 +4,7 @@ import { useMutation } from '@tanstack/react-query';
 import { useNavigate, useParams } from 'react-router-dom';
 import { postPickerTime } from '../../apis/postDetail';
 import Button from '../atoms/button/Button';
-import { successMatchMessage } from '../../utils/alert';
+import { articlePickupDenyMessage, articlePickupConfirmMessage, articlePickupSuccessMessage } from '../../utils/alert';
 
 const PickerTime = ({ setPage }) => {
   const navigate = useNavigate();
@@ -26,14 +26,19 @@ const PickerTime = ({ setPage }) => {
 
   // 입력완료 버튼
   const doneWrite = () => {
-    setPage(0);
-    mutate({
-      boardId: id,
-      arrivalTime: value,
+    Swal.fire(articlePickupConfirmMessage).then((result) => {
+      if (result.isConfirmed && value) {
+        mutate({
+          boardId: id,
+          arrivalTime: value,
+        });
+        Swal.fire(articlePickupSuccessMessage).then(navigate(`/post/${id}`));
+      } else {
+        Swal.fire(articlePickupDenyMessage);
+      }
     });
-    navigate(`/post/${id}`);
-    return Swal.fire(successMatchMessage);
   };
+
   return (
     <div className="px-8">
       <div className="mt-12 mb-3">
