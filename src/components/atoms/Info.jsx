@@ -1,17 +1,16 @@
 import time from '../../utils/time';
 
+// 메뉴들 나열하는 거
+const showMenu = (item) => {
+  return item.map(({ name }) => {
+    return <div key={name}>{name}</div>;
+  });
+};
+
 /* eslint-disable */
 const Info = ({ response }) => {
   // 마감시간
-  let finishTime = new Date(response.finishedAt);
-
-  // 메뉴들 나열하는 거
-  const showMenu = (item) => {
-    return item.map(({ name }) => {
-      return <div key={name}>{name}</div>;
-    });
-  };
-
+  const finishTime = new Date(response.finishedAt);
   return (
     <div className="px-8 pt-6">
       {/* 주문정보 */}

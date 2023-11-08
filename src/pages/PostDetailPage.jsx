@@ -6,7 +6,7 @@ import PickerMatch from '../components/templates/postDetail/PickerMatchTemplate'
 import PickerNoMatch from '../components/templates/postDetail/PickerNoMatchTemplate.jsx';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
-import { getPostById } from '../apis/post';
+import { getPostDetail } from '../apis/postDetail.js';
 
 const PostDetailPage = () => {
   // 샘플데이터
@@ -30,7 +30,7 @@ const PostDetailPage = () => {
   };
 
   // const { id } = useParams();
-  // const { data } = useQuery(`post/${id}`, () => getPostById(id));
+  // const { data } = useQuery([`post/${id}`], () => getPostDetail(id));
   // const post = data?.data.response;
   const post = sample;
 
