@@ -4,22 +4,14 @@ import { useNavigate } from 'react-router-dom';
 import OtherNav from '../../atoms/nav/OtherNav';
 import Info from '../../atoms/Info';
 import Location from '../../organisms/Location';
+import { controlArticleMessage, deleteArticleMessage } from '../../../utils/alert';
 
 const WriterNoMatchTemplate = ({ response }) => {
   const navigate = useNavigate();
 
   // 삭제 버튼 눌렀을 때
   const postDelete = () => {
-    return Swal.fire({
-      // 여기 alert.js로 뺄려고 하는데 그러면 안되더라고요..
-      title: '삭제하시겠습니까?',
-      text: '삭제하면 음료를 픽업 받을 수 없게 됩니다.',
-      showCancelButton: true,
-      confirmButtonColor: '#0075FF',
-      cancelButtonColor: '#D9D9D9',
-      confirmButtonText: '확인',
-      cancelButtonText: '취소',
-    }).then((result) => {
+    return Swal.fire(deleteArticleMessage).then((result) => {
       if (result.isConfirmed) {
         // 공고가 삭제됨
       }
@@ -28,11 +20,7 @@ const WriterNoMatchTemplate = ({ response }) => {
 
   // 우상단 점3개 눌렀을 때
   const postControl = () => {
-    return Swal.fire({
-      showDenyButton: true,
-      confirmButtonText: '수정',
-      denyButtonText: '삭제',
-    }).then((result) => {
+    return Swal.fire(controlArticleMessage).then((result) => {
       if (result.isConfirmed) {
         // 공고 수정하게 됨
         navigate('/post-write');

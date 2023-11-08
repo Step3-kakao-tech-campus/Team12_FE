@@ -7,7 +7,7 @@ const WriterMatchTemplate = ({ response }) => {
   return (
     <>
       {/* 파란색 부분 */}
-      <div className="bg-sky-blue h-60 rounded-b-3xl">
+      <div className="bg-sky-blue h-64 rounded-b-3xl">
         <OtherNav iconColor="#fff" bgColor="#000" />
         <div className="px-5">
           <div className="mt-1 text-white text-xl">피커가 픽업을 시작했어요!</div>
@@ -18,7 +18,7 @@ const WriterMatchTemplate = ({ response }) => {
       {/* 하얀색 부분 */}
       <Info response={response} />
       <div className="my-8 px-8">
-        <div className="text-xl font-bold text-blue py-2">피커정보</div>
+        <div className="text-xl font-bold text-blue pb-2">피커정보</div>
         <div className="flex">
           <div className="text-zinc-400">도착시간</div>
           <div className="ml-5">{Time(response.arrivalTime)}</div>
