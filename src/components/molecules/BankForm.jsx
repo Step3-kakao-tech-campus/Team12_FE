@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { useMutation } from '@tanstack/react-query';
-import Button from '../atoms/button/Button';
-import banks from '../../constant/bank';
-import routes from '../../constant/routes';
-import registerBank from '../../apis/register';
-import { bankInvalidMessage, unknownErrorMessage, registerCompleteMessage } from '../../utils/alert';
+import Button from '@components/atoms/button/Button';
+import banks from '@/constant/bank';
+import routes from '@/constant/routes';
+import registerBank from '@/apis/register';
+import { bankInvalidMessage, unknownErrorMessage, registerCompleteMessage } from '@/utils/alert';
 
 const BankForm = () => {
   const [accountBank, setAccountBank] = useState('');

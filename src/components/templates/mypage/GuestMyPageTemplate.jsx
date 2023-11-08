@@ -1,7 +1,7 @@
 import { CiEdit } from 'react-icons/ci';
 import { PiGraduationCapLight, PiCaretRightLight } from 'react-icons/pi';
 import { useNavigate } from 'react-router-dom';
-import routes from '../../../constant/routes';
+import routes from '@/constant/routes';
 
 const GuestMyPageTemplate = () => {
   const navigate = useNavigate();

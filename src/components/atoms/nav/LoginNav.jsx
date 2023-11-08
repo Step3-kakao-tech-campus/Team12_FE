@@ -2,7 +2,7 @@ import React from 'react';
 import { BsArrowLeft } from 'react-icons/bs';
 import { MdHome } from 'react-icons/md';
 import { Link, useNavigate } from 'react-router-dom';
-import routes from '../../../constant/routes';
+import routes from '@/constant/routes';
 
 const LoginNav = () => {
   const navigate = useNavigate();

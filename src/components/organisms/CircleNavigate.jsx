@@ -1,5 +1,5 @@
-import CircleBtn from '../molecules/CircleBtn';
-import Line from '../atoms/Line';
+import CircleBtn from '@components/molecules/CircleBtn';
+import Line from '@components/atoms/Line';
 
 const CircleNavigate = ({ navigate }) => {
   return (

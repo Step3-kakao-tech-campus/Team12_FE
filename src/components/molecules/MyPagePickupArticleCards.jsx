@@ -1,7 +1,7 @@
 import React from 'react';
-import Card from '../atoms/Card';
+import Card from '@components/atoms/Card';
 
-const MyPagePickupPostCards = ({ articles }) => {
+const MyPagePickupArticleCards = ({ articles }) => {
   return (
     <div>
       {articles.map((article) => (
@@ -12,11 +12,11 @@ const MyPagePickupPostCards = ({ articles }) => {
           pickupTip={article.tip}
           deadline={article.finishedAt}
           match={article.match}
-          to={`/mypage/pickup-post/${article.boardId}`}
+          to={`/mypage/pickup-article/${article.boardId}`}
         />
       ))}
     </div>
   );
 };
 
-export default MyPagePickupPostCards;
+export default MyPagePickupArticleCards;

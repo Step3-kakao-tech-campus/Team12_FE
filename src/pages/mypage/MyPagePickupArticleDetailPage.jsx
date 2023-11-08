@@ -1,10 +1,10 @@
 import React from 'react';
-import PickerMatchTemplate from '../../components/templates/postDetail/PickerMatchTemplate';
-// import { getMyPagePickupPostDetail } from '../apis/postDetail';
+import PickerMatchTemplate from '@components/templates/articleDetail/PickerMatchTemplate';
+// import { getMyPagePickupArticleDetail } from '@/apis/ArticleDetail';
 // import { useQuery } from '@tanstack/react-query';
 // import { useParams } from 'react-router-dom';
 
-const MyPagePickupPostDetailPage = () => {
+const MyPagePickupArticleDetailPage = () => {
   const data = {
     success: true,
     response: {
@@ -28,8 +28,8 @@ const MyPagePickupPostDetailPage = () => {
   // useParams + useQuery로 데이터를 받아와서
   // data를 data?.response로 받아서 PickerMatchTemplate으로 보내주면 됨
   // const { id } = useParams();
-  // const { data } = useQuery(['getMyPagePickupPostDetail'], () => getMyPagePickupPostDetail(id));
-  // const post = data?.response;
+  // const { data } = useQuery(['getMyPagePickupArticleDetail'], () => getMyPagePickupArticleDetail(id));
+  // const article = data?.response;
 
   return (
     <div className="page--layout">
@@ -38,4 +38,4 @@ const MyPagePickupPostDetailPage = () => {
   );
 };
 
-export default MyPagePickupPostDetailPage;
+export default MyPagePickupArticleDetailPage;

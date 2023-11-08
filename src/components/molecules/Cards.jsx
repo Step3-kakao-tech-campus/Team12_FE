@@ -1,5 +1,5 @@
 import React from 'react';
-import Card from '../atoms/Card';
+import Card from '@components/atoms/Card';
 
 const Cards = ({ articles }) => {
   return (
@@ -12,7 +12,7 @@ const Cards = ({ articles }) => {
           pickupTip={article.tip}
           deadline={article.finishedAt}
           match={article.match}
-          to={`/post/${article.boardId}`}
+          to={`/article/${article.boardId}`}
         />
       ))}
     </div>

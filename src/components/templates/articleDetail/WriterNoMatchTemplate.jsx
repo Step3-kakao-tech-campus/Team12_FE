@@ -1,31 +1,31 @@
 import { BsThreeDotsVertical } from 'react-icons/bs';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
-import OtherNav from '../../atoms/nav/OtherNav';
-import Info from '../../atoms/Info';
-import Location from '../../organisms/Location';
-import { controlArticleMessage, deleteArticleMessage, articleDeleteSuccessMessage } from '../../../utils/alert';
-import routes from '../../../constant/routes';
+import OtherNav from '@components/atoms/nav/OtherNav';
+import Info from '@components/atoms/Info';
+import Location from '@components/organisms/Location';
+import { controlArticleMessage, deleteArticleMessage, articleDeleteSuccessMessage } from '@/utils/alert';
+import routes from '@/constant/routes';
 
 const WriterNoMatchTemplate = ({ response }) => {
   const navigate = useNavigate();
 
   // 삭제 버튼 눌렀을 때
-  const postDelete = () => {
+  const articleDelete = () => {
     Swal.fire(deleteArticleMessage).then((result) => {
       if (result.isConfirmed) {
-        Swal.fire(articleDeleteSuccessMessage).then(navigate(routes.post));
+        Swal.fire(articleDeleteSuccessMessage).then(navigate(routes.article));
       }
     });
   };
 
   // 우상단 점3개 눌렀을 때
-  const postControl = () => {
+  const articleControl = () => {
     return Swal.fire(controlArticleMessage).then((result) => {
       if (result.isConfirmed) {
-        navigate('/post-write');
+        navigate('/article-write');
       } else if (result.isDenied) {
-        postDelete();
+        articleDelete();
       }
     });
   };
@@ -39,7 +39,7 @@ const WriterNoMatchTemplate = ({ response }) => {
           <div className="flex justify-between items-center">
             <div className="text-white text-xl">매칭을 기다리고 있어요.</div>
             {/* eslint-disable-next-line */}
-            <button onClick={postControl}>
+            <button onClick={articleControl}>
               <BsThreeDotsVertical size="25" style={{ color: 'white' }} />
             </button>
           </div>

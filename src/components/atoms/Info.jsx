@@ -1,4 +1,4 @@
-import time from '../../utils/time';
+import time from '@/utils/time';
 
 // 메뉴들 나열하는 거
 const showMenu = (item) => {

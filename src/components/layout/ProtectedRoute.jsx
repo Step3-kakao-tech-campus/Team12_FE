@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import routes from '../../constant/routes';
-import { loginNeedMessage, authInvalidMessage } from '../../utils/alert';
+import routes from '@/constant/routes';
+import { loginNeedMessage, authInvalidMessage } from '@/utils/alert';
 
 const ProtectedRoute = ({ children, requiredAuth }) => {
   const navigate = useNavigate();
