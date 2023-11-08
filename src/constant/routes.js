@@ -1,9 +1,11 @@
 const routes = {
   home: '/',
   login: '/login',
-  loginKakao: '/login/kakao',
+  loginKakao: '/login/callback',
   registerBank: '/register/bank',
   mypage: '/mypage',
+  writenPost: '/mypage/writen-post',
+  pickupPost: '/mypage/pickup-post',
   admin: '/mypage/admin',
   adminAuth: '/mypage/admin/auth/:id',
   uploadStudentCard: '/mypage/uploadStudentCard',

@@ -6,18 +6,22 @@ const Button = ({
   disabled,
   children,
   margin,
+  textSize,
+  border,
   width = 'w-64',
   height = 'h-8',
   bgColor = 'bg-blue',
   textColor = 'text-white',
   bdRadius = 'rounded-lg',
+  bdcolor = 'border-blue',
+  boxSizing = 'box-content',
 }) => {
   return (
     <button
       type={type}
       onClick={onClick}
       disabled={disabled}
-      className={[width, height, textColor, bgColor, bdRadius, margin].join(' ')}
+      className={[width, height, textColor, bgColor, bdRadius, margin, textSize, bdcolor, border, boxSizing].join(' ')}
     >
       {children}
     </button>
