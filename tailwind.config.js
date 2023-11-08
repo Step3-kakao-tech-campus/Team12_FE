@@ -8,6 +8,17 @@ module.exports = {
         blue: '#0075FF',
       },
     },
+    keyframes: {
+      fadeInMoveRight: {
+        '0%': { opacity: '0', transform: 'translateX(-10px)' },
+        '100%': { opacity: '1', transform: 'translateX(0)' },
+      },
+    },
+    animation: {
+      'fade-in-move-right': 'fadeInMoveRight 1s ease-out forwards',
+      'fade-in-move-right-delayed': 'fadeInMoveRight 1s ease-out 1s forwards',
+    },
   },
-  plugins: [],
+  // eslint-disable-next-line global-require
+  plugins: [require('tailwind-scrollbar-hide')],
 };
