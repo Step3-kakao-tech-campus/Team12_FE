@@ -4,6 +4,7 @@ import { useMutation } from '@tanstack/react-query';
 import { useNavigate, useParams } from 'react-router-dom';
 import { postPickerTime } from '../../apis/postDetail';
 import Button from '../atoms/button/Button';
+import { successMatchMessage } from '../../utils/alert';
 
 const PickerTime = ({ setPage }) => {
   const navigate = useNavigate();
@@ -31,12 +32,7 @@ const PickerTime = ({ setPage }) => {
       arrivalTime: value,
     });
     navigate(`/post/${id}`);
-    return Swal.fire({
-      icon: 'success',
-      title: '매칭이 완료 되었어요!',
-      showConfirmButton: false,
-      timer: 3000,
-    });
+    return Swal.fire(successMatchMessage);
   };
   return (
     <div className="px-8">

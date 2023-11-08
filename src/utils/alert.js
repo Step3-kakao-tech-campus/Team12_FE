@@ -100,3 +100,17 @@ export const controlArticleMessage = {
   confirmButtonText: '수정',
   denyButtonText: '삭제',
 };
+export const successMatchMessage = {
+  icon: 'success',
+  title: '매칭이 완료 되었어요!',
+  showConfirmButton: false,
+  timer: 3000,
+};
+export const pickUpDrinkMessage = {
+  title: '이 음료를 픽업하시겠습니까?',
+  showCancelButton: true,
+  cancelButtonText: '취소',
+  confirmButtonText: '수락',
+  confirmButtonColor: '#0075ff',
+  heightAuto: true,
+};
