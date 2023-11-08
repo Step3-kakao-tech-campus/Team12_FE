@@ -29,8 +29,8 @@ const PostDetailPage = () => {
     pickerAccount: '00000000000000',
     arriveTime: '14시 20분 도착예정',
     pickerPhoneNumber: '010-1234-1234',
-    isMatch: true,
-    same: true,
+    isMatch: false,
+    same: false,
   };
 
   // const { id } = useParams();

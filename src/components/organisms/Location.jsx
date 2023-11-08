@@ -3,7 +3,7 @@ import { MdLocationPin, MdOutlineLocationOn } from 'react-icons/md';
 
 const Location = ({ response }) => {
   return (
-    <div className="p-4">
+    <div className="pt-4">
       <div className="flex items-center">
         <MdOutlineLocationOn className="mr-1" size="30" style={{ color: 'white' }} />
         <span className="text-white">{response.shopName}</span>

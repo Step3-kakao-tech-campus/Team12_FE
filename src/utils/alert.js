@@ -86,6 +86,14 @@ export const logoutCompleteMessage = {
   icon: 'success',
   confirmButtonText: '확인',
 };
+export const controlArticleMessage = {
+  icon: 'question',
+  title: '공고글을<br/>수정 혹은 삭제 하시겠습니까?',
+  showCloseButton: true,
+  showDenyButton: true,
+  confirmButtonText: '수정',
+  denyButtonText: '삭제',
+};
 export const deleteArticleMessage = {
   title: '삭제하시겠습니까?',
   text: '삭제하면 음료를 픽업 받을 수 없게 됩니다.',
@@ -95,22 +103,39 @@ export const deleteArticleMessage = {
   confirmButtonText: '확인',
   cancelButtonText: '취소',
 };
-export const controlArticleMessage = {
-  showDenyButton: true,
-  confirmButtonText: '수정',
-  denyButtonText: '삭제',
-};
-export const successMatchMessage = {
+export const articleDeleteSuccessMessage = {
+  title: '공고글이 삭제되었습니다!',
   icon: 'success',
-  title: '매칭이 완료 되었어요!',
-  showConfirmButton: false,
-  timer: 3000,
+  confirmButtonText: '확인',
 };
-export const pickUpDrinkMessage = {
+export const pickupConfirmMessage = {
+  icon: 'question',
   title: '이 음료를 픽업하시겠습니까?',
   showCancelButton: true,
   cancelButtonText: '취소',
   confirmButtonText: '수락',
   confirmButtonColor: '#0075ff',
   heightAuto: true,
+};
+export const articlePickupConfirmMessage = {
+  icon: 'question',
+  title: '정말로 이 공고글을 수락하시겠습니까?',
+  text: '공고글 수락 이후, 음료를 픽업하여 가져다 주세요!😊',
+  showCancelButton: true,
+  reverseButtons: true,
+  confirmButtonColor: '#0075FF',
+  cancelButtonColor: '#D9D9D9',
+  cancelButtonText: '취소',
+  confirmButtonText: '확인',
+};
+export const articlePickupSuccessMessage = {
+  icon: 'success',
+  title: '매칭이 완료 되었어요!',
+  showConfirmButton: false,
+  timer: 3000,
+};
+export const articlePickupDenyMessage = {
+  icon: 'error',
+  title: '예상 도착 시간을 <br>제대로 입력해주세요!',
+  confirmButtonText: '확인',
 };
