@@ -19,3 +19,13 @@ export const getPosts = (offset = '') => {
 export const getLastPosts = () => {
   return instance.get('/articles/latest');
 };
+
+// 작성한 공고글 목록 조회(마이페이지)
+export const getWritenPosts = () => {
+  return instance.get('/mypage/requester/list');
+};
+
+// 픽업한 공고글 목록 조회(마이페이지)
+export const getPickupPosts = () => {
+  return instance.get('/mypage/picker/list');
+};
