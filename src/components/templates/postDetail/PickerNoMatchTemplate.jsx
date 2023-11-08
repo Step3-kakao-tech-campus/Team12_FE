@@ -13,7 +13,7 @@ const PickerNoMatchTemplate = ({ response }) => {
 
   // 이 음료 픽업하기 버튼을 눌렀을 때 뜨는 모달창
   const pickUpBtnModal = () => {
-    return Swal.fire(pickupConfirmMessage).then((result) => {
+    Swal.fire(pickupConfirmMessage).then((result) => {
       if (result.isConfirmed) {
         setPage(1);
       }

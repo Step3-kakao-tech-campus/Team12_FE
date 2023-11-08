@@ -33,7 +33,8 @@ const PickerTime = ({ setPage }) => {
           arrivalTime: value,
         });
         Swal.fire(articlePickupSuccessMessage).then(navigate(`/post/${id}`));
-      } else {
+      }
+      if (result.isConfirmed && !value) {
         Swal.fire(articlePickupDenyMessage);
       }
     });
