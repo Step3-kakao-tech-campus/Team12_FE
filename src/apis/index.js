@@ -19,7 +19,7 @@ instance.interceptors.request.use((config) => {
   const token = localStorage.getItem('accessToken');
   if (token) {
     // eslint-disable-next-line no-param-reassign
-    config.headers.Authorization = `${token}`;
+    config.headers.Authorization = `Bearer ${token}`;
   }
   return config;
 });
