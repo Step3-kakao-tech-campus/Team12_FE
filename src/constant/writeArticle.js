@@ -25,7 +25,7 @@ export const ORDER_REQUEST = {
 };
 
 export const ITEM = {
-  SHOP_NAME: 'shop_name',
+  SHOP_NAME: 'shopName',
   BEVERAGES: 'beverages',
   DESTINATION: 'destination',
   TIP: 'tip',
