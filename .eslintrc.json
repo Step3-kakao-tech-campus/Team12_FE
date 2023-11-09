@@ -36,7 +36,10 @@
       {
         "devDependencies": true
       }
-    ]
+    ],
+    "import/no-unresolved": "off",
+    "import/prefer-default-export": "off",
+    "import/extensions": ["off"]
   },
   "settings": {
     "import/resolver": {

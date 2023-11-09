@@ -1,6 +1,6 @@
 import React from 'react';
-import LoginNav from '../components/atoms/nav/LoginNav';
-import BankForm from '../components/molecules/BankForm';
+import LoginNav from '@components/atoms/nav/LoginNav';
+import BankForm from '@components/molecules/BankForm';
 
 const RegisterBankPage = () => {
   return (

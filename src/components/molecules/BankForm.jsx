@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { useMutation } from '@tanstack/react-query';
-import Button from '../atoms/button/Button';
-import banks from '../../constant/bank';
-import routes from '../../constant/routes';
-import registerBank from '../../apis/register';
-import { bankInvalidMessage, unknownErrorMessage, registerCompleteMessage } from '../../utils/alert';
+import Button from '@components/atoms/button/Button';
+import banks from '@/constant/bank';
+import routes from '@/constant/routes';
+import registerBank from '@/apis/register';
+import { bankInvalidMessage, unknownErrorMessage, loginSuccessMessage } from '@/utils/alert';
 
 const BankForm = () => {
   const [accountBank, setAccountBank] = useState('');
@@ -17,9 +17,10 @@ const BankForm = () => {
 
   const { mutate } = useMutation({
     mutationFn: registerBank,
-    onSuccess: () => {
-      Swal.fire(registerCompleteMessage);
-      navigate(routes.login); // 회원가입 이후 로그인을 할 수 있도록 로그인 페이지로 이동시킴
+    onSuccess: (response) => {
+      localStorage.setItem('userAuth', response.data.response.userAuth);
+      Swal.fire(loginSuccessMessage);
+      navigate(routes.home); // 회원가입 이후 로그인을 할 수 있도록 로그인 페이지로 이동시킴
     },
     onError: () => {
       Swal.fire(unknownErrorMessage);

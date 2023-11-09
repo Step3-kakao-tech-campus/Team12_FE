@@ -1,14 +1,16 @@
 import Swal from 'sweetalert2';
 import { useState } from 'react';
 import { useMutation } from '@tanstack/react-query';
-import { useParams } from 'react-router-dom';
-import { postDetailPicker } from '../../apis/postDetail';
-import Button from '../atoms/button/Button';
+import { useNavigate, useParams } from 'react-router-dom';
+import Button from '@components/atoms/button/Button';
+import { articlePickerTime } from '@/apis/articleDetail';
+import { articlePickupDenyMessage, articlePickupConfirmMessage, articlePickupSuccessMessage } from '@/utils/alert';
 
-const PickerTime = ({ setPage, setIsMatch }) => {
+const PickerTime = ({ setPage }) => {
+  const navigate = useNavigate();
   const { id } = useParams();
   const { mutate } = useMutation({
-    mutationFn: postDetailPicker,
+    mutationFn: articlePickerTime,
   });
 
   // 픽업시간
@@ -24,31 +26,29 @@ const PickerTime = ({ setPage, setIsMatch }) => {
 
   // 입력완료 버튼
   const doneWrite = () => {
-    // 임시
-    localStorage.setItem('match', true);
-    //
-    setPage(0);
-    setIsMatch(true);
-    mutate({
-      boardId: id,
-      arrivalTime: value,
-    });
-    return Swal.fire({
-      icon: 'success',
-      title: '매칭이 완료 되었어요!',
-      showConfirmButton: false,
-      timer: 3000,
+    Swal.fire(articlePickupConfirmMessage).then((result) => {
+      if (result.isConfirmed && value) {
+        mutate({
+          boardId: id,
+          arrivalTime: value,
+        });
+        Swal.fire(articlePickupSuccessMessage).then(navigate(`/article/${id}`));
+      }
+      if (result.isConfirmed && !value) {
+        Swal.fire(articlePickupDenyMessage);
+      }
     });
   };
+
   return (
     <div className="px-8">
       <div className="mt-12 mb-3">
         <div className="font-bold text-blue text-xl py-2">예상 도착 시간은 언제인가요?</div>
         <div className=" text-sm">오더의 장소에 도착할 시간을 알려주세요.</div>
       </div>
-      <div className="mt-6">
+      <div className="mt-4">
         <input
-          className="text-center w-28 h-10 border-2 border-zinc-700 rounded-lg mr-3"
+          className="text-center w-28 h-10 border border-[#858585] rounded-lg mr-3"
           type="number"
           placeholder="15"
           value={value}
@@ -56,11 +56,18 @@ const PickerTime = ({ setPage, setIsMatch }) => {
         />
         분 후 도착
       </div>
-      <div className="mt-72 flex justify-between px-3">
-        <Button onClick={pickUpCancel} width="w-32" textColor="text-black" bgColor="bg-zinc-300">
+      <div className="mt-72 flex justify-between">
+        <Button
+          onClick={pickUpCancel}
+          width="w-[136px]"
+          height="h-9"
+          bdRadius="rounded-md"
+          textColor="text-black"
+          bgColor="bg-zinc-300"
+        >
           취소
         </Button>
-        <Button onClick={doneWrite} width="w-32">
+        <Button onClick={doneWrite} width="w-[136px]" height="h-9" bdRadius="rounded-md">
           입력완료
         </Button>
       </div>

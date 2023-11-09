@@ -1,8 +1,15 @@
 import adminHandlers from './admin';
 import registerHandlers from './register';
-import postWriteHandlers from './postWrite';
-import postListHandlers from './postList';
+import articleWriteHandlers from './articleWrite';
+import articleListHandlers from './articleList';
+import loginHandlers from './login';
 
-const handlers = [...adminHandlers, ...registerHandlers, ...postWriteHandlers, ...postListHandlers];
+const handlers = [
+  ...adminHandlers,
+  ...registerHandlers,
+  ...articleWriteHandlers,
+  ...articleListHandlers,
+  ...loginHandlers,
+];
 
 export default handlers;

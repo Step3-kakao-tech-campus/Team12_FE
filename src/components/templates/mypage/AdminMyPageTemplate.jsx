@@ -2,7 +2,7 @@ import { CiEdit } from 'react-icons/ci';
 import { PiCaretRightLight, PiReadCvLogoThin, PiCheckSquareLight } from 'react-icons/pi';
 import { RiAdminLine } from 'react-icons/ri';
 import { useNavigate } from 'react-router-dom';
-import routes from '../../../constant/routes';
+import routes from '@/constant/routes';
 
 const AdminMyPageTemplate = () => {
   const navigate = useNavigate();
