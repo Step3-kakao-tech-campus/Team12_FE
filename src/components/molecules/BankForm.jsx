@@ -6,8 +6,6 @@ import axios from 'axios';
 import banks from '@/constant/bank';
 import routes from '@/constant/routes';
 import { bankInvalidMessage, unknownErrorMessage, loginSuccessMessage } from '@/utils/alert';
-// import { useMutation } from '@tanstack/react-query';
-// import registerBank from '@/apis/register';
 
 const BankForm = () => {
   const [accountBank, setAccountBank] = useState('');
@@ -15,19 +13,6 @@ const BankForm = () => {
   const [formValid, setFormValid] = useState(false);
 
   const navigate = useNavigate();
-
-  // const { mutate } = useMutation({
-  //   mutationFn: registerBank,
-  //   onSuccess: (response) => {
-  //     localStorage.setItem('userAuth', response.data.response.userAuth);
-  //     Swal.fire(loginSuccessMessage);
-  //     navigate(routes.home); // 회원가입 이후 로그인을 할 수 있도록 로그인 페이지로 이동시킴
-  //   },
-  //   onError: () => {
-  //     Swal.fire(unknownErrorMessage);
-  //     navigate(routes.error);
-  //   },
-  // });
 
   // 계좌 은행을 선택할 때 호출될 함수
   const handleBankChange = (e) => {
