@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
-// import { useQuery } from '@tanstack/react-query';
 import Loader from '@components/atoms/Loader';
 import axios from 'axios';
 import routes from '@/constant/routes';
-import { loginSuccessMessage } from '@/utils/alert';
+import { loginSuccessMessage, unknownErrorMessage } from '@/utils/alert';
+// import { useQuery } from '@tanstack/react-query';
 // import getLoginInfo from '@/apis/login';
 
 // 리다이렉팅 처리 화면
@@ -23,9 +23,9 @@ const KakaoOuathPage = () => {
     axios
       .get('/api/login/callback')
       .then((response) => {
-        const status = response.data.success;
+        const status = response.success;
         if (status) {
-          const userInfo = response.data.response;
+          const userInfo = response.response;
           const { userAuth, AccessToken } = userInfo;
           localStorage.setItem('accessToken', AccessToken);
           localStorage.setItem('userAuth', userAuth);
@@ -41,7 +41,7 @@ const KakaoOuathPage = () => {
       .catch((error) => {
         // 요청 중 오류가 발생한 경우 처리
         console.error('Login Callback Error:', error);
-        // 에러 처리 로직 추가 가능
+        Swal.fire(unknownErrorMessage).then(routes.error);
       });
   }, []);
 

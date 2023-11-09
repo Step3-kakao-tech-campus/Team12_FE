@@ -5,15 +5,15 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-async function deferRender() {
-  if (process.env.NODE_ENV !== 'development') {
-    return;
-  }
+// async function deferRender() {
+//   if (process.env.NODE_ENV !== 'development') {
+//     return;
+//   }
 
-  const { worker } = await import('./mocks/browser');
+//   const { worker } = await import('./mocks/browser');
 
-  return worker.start();
-}
+//   return worker.start();
+// }
 
 const queryClient = new QueryClient();
 const root = ReactDOM.createRoot(document.getElementById('root'));
