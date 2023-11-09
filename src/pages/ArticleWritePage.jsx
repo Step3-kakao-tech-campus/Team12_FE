@@ -36,12 +36,12 @@ const ArticleWritePage = () => {
     request.finishedAt = dateAndTime(data);
 
     // msw
-    fetch('/articles/write', {
-      method: 'POST',
-      body: JSON.stringify(data),
-    })
-      .then((response) => response.json())
-      .then((result) => console.log(result));
+    // fetch('/articles/write', {
+    //   method: 'POST',
+    //   body: JSON.stringify(data),
+    // })
+    //   .then((response) => response.json())
+    //   .then((result) => console.log(result));
 
     // react-query
     mutate(data, {

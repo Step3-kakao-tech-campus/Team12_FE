@@ -11,7 +11,7 @@ const MyPagePickupArticleCards = ({ articles }) => {
           pickupLocation={article.destination}
           pickupTip={article.tip}
           deadline={article.finishedAt}
-          match={article.match}
+          match={article.isMatch}
           to={`/mypage/pickup-article/${article.boardId}`}
         />
       ))}

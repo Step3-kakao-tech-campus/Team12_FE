@@ -8,7 +8,7 @@ export const REQUEST_ARTICLE_LIST = {
         destination: '공과대학 7호관',
         finishedAt: 1696992289,
         tip: 1500,
-        match: true,
+        isMatch: true,
       },
       {
         boardId: 8,
@@ -16,7 +16,7 @@ export const REQUEST_ARTICLE_LIST = {
         destination: '공과대학 7호관',
         finishedAt: 1696992289,
         tip: 1500,
-        match: true,
+        isMatch: true,
       },
       {
         boardId: 7,
@@ -24,7 +24,7 @@ export const REQUEST_ARTICLE_LIST = {
         destination: '공과대학 6호관',
         finishedAt: 1696040640,
         tip: 1000,
-        match: false,
+        isMatch: false,
       },
       {
         boardId: 6,
@@ -32,7 +32,7 @@ export const REQUEST_ARTICLE_LIST = {
         destination: '공과대학 7호관',
         finishedAt: 1696040640,
         tip: 1500,
-        match: true,
+        isMatch: true,
       },
       {
         boardId: 5,
@@ -40,7 +40,7 @@ export const REQUEST_ARTICLE_LIST = {
         destination: '공과대학 7호관',
         finishedAt: 1696992289,
         tip: 1000,
-        match: false,
+        isMatch: false,
       },
       {
         boardId: 4,
@@ -48,7 +48,7 @@ export const REQUEST_ARTICLE_LIST = {
         destination: '공과대학 7호관',
         finishedAt: 1696040640,
         tip: 1000,
-        match: false,
+        isMatch: false,
       },
       {
         boardId: 3,
@@ -56,7 +56,7 @@ export const REQUEST_ARTICLE_LIST = {
         destination: '공과대학 7호관',
         finishedAt: 1696040640,
         tip: 1000,
-        match: false,
+        isMatch: false,
       },
       {
         boardId: 2,
@@ -64,7 +64,7 @@ export const REQUEST_ARTICLE_LIST = {
         destination: '공과대학 7호관',
         finishedAt: 1696040640,
         tip: 1000,
-        match: false,
+        isMatch: false,
       },
       {
         boardId: 1,
@@ -72,7 +72,7 @@ export const REQUEST_ARTICLE_LIST = {
         destination: '공과대학 7호관',
         finishedAt: 1696040640,
         tip: 1000,
-        match: false,
+        isMatch: false,
       },
     ],
     pageable: {

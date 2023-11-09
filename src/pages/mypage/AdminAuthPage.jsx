@@ -41,7 +41,7 @@ const AdminAuthPage = () => {
 
   // 학생증 인증 승인
   const handleApprove = () => {
-    handleAuth({ user_id: id });
+    handleAuth({ userId: id });
   };
 
   // 학생증 인증 거절
