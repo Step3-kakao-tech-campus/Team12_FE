@@ -14,6 +14,7 @@ import { ITEM } from '@/constant/writeArticle';
 import { registerMessage } from '@/utils/alert';
 import dateAndTime from '@/utils/dateAndTime';
 import writeArticle from '@/apis/articleWrite';
+import alertError from '@/constant/alertError';
 
 const ArticleWritePage = () => {
   const navigate = useNavigate();
@@ -37,12 +38,12 @@ const ArticleWritePage = () => {
     delete request.beverage;
 
     // msw
-    fetch('/articles/write', {
-      method: 'POST',
-      body: JSON.stringify(request),
-    })
-      .then((response) => response.json())
-      .then((result) => console.log(result));
+    // fetch('/articles/write', {
+    //   method: 'POST',
+    //   body: JSON.stringify(request),
+    // })
+    //   .then((response) => response.json())
+    //   .then((result) => console.log(result));
 
     // react-query
     mutate(request, {
@@ -50,6 +51,7 @@ const ArticleWritePage = () => {
         navigate('/article');
       },
       onError: (error) => {
+        alert(alertError(error));
         console.error(error);
       },
     });
