@@ -29,6 +29,9 @@ const AdminPage = () => {
       onSuccess: (data) => {
         console.log(data);
       },
+      onError: (error) => {
+        console.error(error);
+      },
       retry: false,
     },
   );
