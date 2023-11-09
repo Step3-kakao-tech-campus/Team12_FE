@@ -11,6 +11,8 @@
 
 # production
 /build
+/k8s/configMap.yaml
+api-key.txt
 
 # misc
 .DS_Store

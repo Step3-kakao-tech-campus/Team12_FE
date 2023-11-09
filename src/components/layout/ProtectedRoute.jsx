@@ -21,9 +21,9 @@ const ProtectedRoute = ({ children, requiredAuth }) => {
   };
 
   const checkUserAuth = () => {
-    // requiredAuth(admin, student, user)가 존재할 경우, 현재 유저 권한에 대한 유효성을 검증
-    // 사실상 user 권한의 경우는 로그인 토큰 자체만으로도 검증이 가능하기 때문에, 별도로 requiredAuth prop을 넘겨줄 필요 없음
-    // [admin, student] 이렇게 넘겨줄 수도 있는 경우를 감안하여 다음과 같이 처리
+    // requiredAuth(ADMIN, STUDENT, USER)가 존재할 경우, 현재 유저 권한에 대한 유효성을 검증
+    // 사실상 USER 권한의 경우는 로그인 토큰 자체만으로도 검증이 가능하기 때문에, 별도로 requiredAuth prop을 넘겨줄 필요 없음
+    // [ADMIN, STUDENT] 이렇게 넘겨줄 수도 있는 경우를 감안하여 다음과 같이 처리
     // requiredAuth 중 하나라도 만족하면, 페이지 접근 권한 유효함
     const userAuth = localStorage.getItem('userAuth');
     if (!requiredAuth || requiredAuth.includes(userAuth)) {

@@ -6,10 +6,10 @@ import MyPageWritenArticleCards from '@components/molecules/MyPageWritenArticleC
 
 const WritenArticlePage = () => {
   // 작성한 공고글 목록 조회(마이페이지) 요청
-  // 데이터를 받아와서 공고글 목록을 posts라는 변수에 담고
-  // MyPagePickupArticleCards로 posts를 props로 넘겨주면 끝
+  // 데이터를 받아와서 공고글 목록을 articles 변수에 담고
+  // MyPagePickupArticleCards로 articles를 props로 넘겨주면 끝
   // const { data } = useQuery(['getWritenArticles'], () => getWritenArticles());
-  // const posts = data?.response?.content;
+  // const articles = data?.response?.content;
 
   const articles = [
     {
