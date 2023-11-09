@@ -1,10 +1,10 @@
 import { instance } from './index';
 
 const writeArticle = (data) => {
-  const { store, beverage, destination, tip, request, finishedAt } = data;
+  const { shopName, beverages, destination, tip, request, finishedAt } = data;
   return instance.post('/articles/write', {
-    store,
-    beverage,
+    shopName,
+    beverages,
     destination,
     tip,
     request,
