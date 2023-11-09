@@ -145,7 +145,7 @@ export const authApproval = {
   showCancelButton: true,
   reverseButtons: true,
   cancelButtonText: '취소',
-  confirmButtonText: '승인',
+  confirmButtonText: '확인',
   confirmButtonColor: '#0075ff',
   heightAuto: true,
 };
