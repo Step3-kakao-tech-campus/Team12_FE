@@ -1,7 +1,8 @@
 import { CiEdit } from 'react-icons/ci';
 import { PiCaretRightLight, PiReadCvLogoThin, PiCheckSquareLight } from 'react-icons/pi';
 import { RiAdminLine } from 'react-icons/ri';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
+
 import routes from '@/constant/routes';
 
 const AdminMyPageTemplate = () => {
@@ -22,16 +23,20 @@ const AdminMyPageTemplate = () => {
             <PiCaretRightLight className="float-right" size={30} />
           </button>
         </div>
-        <div className="py-3 text-lg">
-          <PiReadCvLogoThin className="mx-2 inline-block" size={25} />
-          <div className="inline-block">작성한 공고글</div>
-          <PiCaretRightLight className="float-right" size={30} />
-        </div>
-        <div className="py-3 text-lg">
-          <PiCheckSquareLight className="mx-2 inline-block" size={25} />
-          <div className="inline-block">수락한 공고글</div>
-          <PiCaretRightLight className="float-right" size={30} />
-        </div>
+        <Link to={routes.writenArticle}>
+          <div className="py-3 text-lg">
+            <PiReadCvLogoThin className="mx-2 inline-block" size={25} />
+            <div className="inline-block">작성한 공고글</div>
+            <PiCaretRightLight className="float-right" size={30} />
+          </div>
+        </Link>
+        <Link to={routes.pickupArticle}>
+          <div className="py-3 text-lg">
+            <PiCheckSquareLight className="mx-2 inline-block" size={25} />
+            <div className="inline-block">수락한 공고글</div>
+            <PiCaretRightLight className="float-right" size={30} />
+          </div>
+        </Link>
         <div className="py-3 text-lg">
           <CiEdit className="mx-2 inline-block" size={25} />
           <div className="inline-block">개인정보 수정</div>
