@@ -1,4 +1,3 @@
-/* eslint-disable */
 import { useFieldArray, useFormContext } from 'react-hook-form';
 import Labels from '@components/molecules/Labels';
 import SelectInput from '@components/atoms/input/SelectInput';
@@ -15,7 +14,7 @@ const OrderInfoTemplate = () => {
     formState: { errors },
     control,
   } = useFormContext();
-  const { fields, append, remove } = useFieldArray({ control, name: 'hi' });
+  const { fields, append, remove } = useFieldArray({ control, name: ITEM.BEVERAGES });
 
   return (
     <>
@@ -38,16 +37,15 @@ const OrderInfoTemplate = () => {
           <div className="flex items-center">
             <Input
               id={ITEM.BEVERAGES}
-              name={ITEM.BEVERAGES}
-              register={register(ITEM.BEVERAGES, {
+              name="beverage"
+              register={register('beverage', {
                 required: validateInputMsg.BEVERAGE_MSG,
-                // validate: (value) => (value == '' ? true : validateInputMsg.BEVERAGE_MSG),
               })}
               width="w-[15rem]"
               placeholder="아이스 아메리카노 1잔"
             />
 
-            <PlusBtn onClick={() => append({ value: '' })} />
+            <PlusBtn onClick={() => append()} />
           </div>
           {fields.map((field, index) => {
             return (
@@ -55,8 +53,8 @@ const OrderInfoTemplate = () => {
                 <li key={field.id} className="list-none">
                   <Input
                     id={ITEM.BEVERAGES}
-                    name={`${ITEM.BEVERAGES}.${index}.value`}
-                    register={register(`${ITEM.BEVERAGES}.${index}.value`)}
+                    name={`${ITEM.BEVERAGES}.${index}`}
+                    register={register(`${ITEM.BEVERAGES}.${index}`)}
                     width="w-[15rem]"
                     placeholder="아이스 아메리카노 1잔"
                   />
