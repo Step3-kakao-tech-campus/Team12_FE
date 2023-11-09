@@ -2,10 +2,10 @@ import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { useQuery } from '@tanstack/react-query';
-import { loginSuccessMessage } from '../utils/alert';
-import getLoginInfo from '../apis/login';
-import Loader from '../components/atoms/Loader';
-import routes from '../constant/routes';
+import Loader from '@components/atoms/Loader';
+import routes from '@/constant/routes';
+import { loginSuccessMessage } from '@/utils/alert';
+import getLoginInfo from '@/apis/login';
 
 // 리다이렉팅 처리 화면
 const KakaoOuathPage = () => {

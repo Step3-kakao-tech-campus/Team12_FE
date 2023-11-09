@@ -1,7 +1,7 @@
-import OtherNav from '../../atoms/nav/OtherNav';
-import Info from '../../atoms/Info';
-import Location from '../../organisms/Location';
-import Time from '../../../utils/time';
+import OtherNav from '@components/atoms/nav/OtherNav';
+import Info from '@components/atoms/Info';
+import Location from '@components/organisms/Location';
+import Time from '@/utils/time';
 
 const WriterMatchTemplate = ({ response }) => {
   return (

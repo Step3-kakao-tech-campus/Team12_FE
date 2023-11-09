@@ -1,6 +1,6 @@
 import { instance } from './index';
 
-const writePost = (data) => {
+const writeArticle = (data) => {
   const { store, beverage, destination, tip, request, finishedAt } = data;
   return instance.post('/articles/write', {
     store,
@@ -12,4 +12,4 @@ const writePost = (data) => {
   });
 };
 
-export default writePost;
+export default writeArticle;

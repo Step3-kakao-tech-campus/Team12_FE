@@ -1,7 +1,7 @@
-import Button from '../../atoms/button/Button';
-import OtherNav from '../../atoms/nav/OtherNav';
-import Info from '../../atoms/Info';
-import Location from '../../organisms/Location';
+import Button from '@components/atoms/button/Button';
+import OtherNav from '@components/atoms/nav/OtherNav';
+import Info from '@components/atoms/Info';
+import Location from '@components/organisms/Location';
 
 const PickerMatchTemplate = ({ response }) => {
   return (

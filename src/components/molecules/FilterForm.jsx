@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import FilterBtn from '../atoms/button/FilterBtn';
+import FilterBtn from '@components/atoms/button/FilterBtn';
 
 const FilterForm = ({ getFilter }) => {
   const [filter, setFilter] = useState('All');

@@ -1,5 +1,5 @@
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
-import Button from '../atoms/button/Button';
+import Button from '@components/atoms/button/Button';
 
 const BtnNavigate = ({ handlePrev, handleNext }) => {
   const btnWidth = 'w-[8rem]';

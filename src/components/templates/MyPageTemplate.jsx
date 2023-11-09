@@ -2,15 +2,15 @@ import React from 'react';
 // import { useQuery } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import OtherNav from '../atoms/nav/OtherNav';
+import OtherNav from '@components/atoms/nav/OtherNav';
+import Footer from '@components/atoms/Footer';
+import Button from '@components/atoms/button/Button';
 import AdminMyPage from './mypage/AdminMyPageTemplate';
 import GuestMyPage from './mypage/GuestMyPageTemplate';
 import StudentMyPage from './mypage/StudentMyPageTemplate';
-import Footer from '../atoms/Footer';
-// import { getMyPage } from '../../apis/myPage';
-import Button from '../atoms/button/Button';
-import routes from '../../constant/routes';
-import { logoutMessage, logoutCompleteMessage } from '../../utils/alert';
+// import { getMyPage } from '@/apis/myPage';
+import routes from '@/constant/routes';
+import { logoutMessage, logoutCompleteMessage } from '@/utils/alert';
 
 const MyPageTemplate = () => {
   const navigate = useNavigate();

@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import Swal from 'sweetalert2';
-import Button from '../../atoms/button/Button';
-import OtherNav from '../../atoms/nav/OtherNav';
-import Info from '../../atoms/Info';
-import Location from '../../organisms/Location';
-import '../../../styles/DeleteSpin.css';
-import PickerTime from '../../organisms/PickerTime';
-import { pickupConfirmMessage } from '../../../utils/alert';
+import Button from '@components/atoms/button/Button';
+import OtherNav from '@components/atoms/nav/OtherNav';
+import Info from '@components/atoms/Info';
+import Location from '@components/organisms/Location';
+import '@/styles/DeleteSpin.css';
+import PickerTime from '@components/organisms/PickerTime';
+import { pickupConfirmMessage } from '@/utils/alert';
 
 const PickerNoMatchTemplate = ({ response }) => {
   const [page, setPage] = useState(0);

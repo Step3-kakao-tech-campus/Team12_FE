@@ -1,5 +1,4 @@
-// eslint-disable-next-line import/prefer-default-export
-export const REQUEST_POSTLIST = {
+export const REQUEST_ARTICLE_LIST = {
   success: true,
   response: {
     content: [

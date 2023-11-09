@@ -3,13 +3,13 @@ import { useEffect, useRef, useState } from 'react';
 import { BsUpload } from 'react-icons/bs';
 import Swal from 'sweetalert2';
 import { useMutation, useQuery } from '@tanstack/react-query';
-import { getUserAuth } from '../../apis/myPage';
-import OtherNav from '../../components/atoms/nav/OtherNav';
-import Button from '../../components/atoms/button/Button';
+import { getUserAuth } from '@/apis/myPage';
+import OtherNav from '@components/atoms/nav/OtherNav';
+import Button from '@components/atoms/button/Button';
 import { useNavigate } from 'react-router-dom';
-import routes from '../../constant/routes';
-import uploadCard from '../../apis/uploadCard';
-import { requestCardModalMessage, successRequestCardMessage, errorRequestCardMessage } from '../../utils/alert';
+import routes from '@/constant/routes';
+import uploadCard from '@/apis/uploadCard';
+import { requestCardModalMessage, successRequestCardMessage, errorRequestCardMessage } from '@/utils/alert';
 
 const CheckStudentCardPage = () => {
   // 주석 부분은 백엔드랑 연결되면 사용

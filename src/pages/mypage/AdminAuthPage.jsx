@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 import { useMutation, useQuery } from '@tanstack/react-query';
 import { useParams, useNavigate } from 'react-router-dom';
-import OtherNav from '../../components/atoms/nav/OtherNav';
-import AuthDetail from '../../components/organisms/AuthDetail';
-import Button from '../../components/atoms/button/Button';
-import { REJECT, APPROVE } from '../../constant/auth';
-import { adminAuth } from '../../apis/admin';
-import routes from '../../constant/routes';
+import OtherNav from '@components/atoms/nav/OtherNav';
+import AuthDetail from '@components/organisms/AuthDetail';
+import Button from '@components/atoms/button/Button';
+import { REJECT, APPROVE } from '@/constant/auth';
+import { adminAuth } from '@/apis/admin';
+import routes from '@/constant/routes';
 
 const AdminAuthPage = () => {
   const { id } = useParams();

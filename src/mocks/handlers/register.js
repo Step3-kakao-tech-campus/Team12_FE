@@ -1,5 +1,5 @@
 import { http, HttpResponse } from 'msw';
-import REQUEST_REGISTER from '../data/registerData';
+import REQUEST_REGISTER from '@/mocks/data/registerData';
 
 const registerHandlers = [
   // POST 요청에 대한 핸들러

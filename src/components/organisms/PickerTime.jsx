@@ -2,15 +2,15 @@ import Swal from 'sweetalert2';
 import { useState } from 'react';
 import { useMutation } from '@tanstack/react-query';
 import { useNavigate, useParams } from 'react-router-dom';
-import { postPickerTime } from '../../apis/postDetail';
-import Button from '../atoms/button/Button';
-import { articlePickupDenyMessage, articlePickupConfirmMessage, articlePickupSuccessMessage } from '../../utils/alert';
+import Button from '@components/atoms/button/Button';
+import { articlePickerTime } from '@/apis/articleDetail';
+import { articlePickupDenyMessage, articlePickupConfirmMessage, articlePickupSuccessMessage } from '@/utils/alert';
 
 const PickerTime = ({ setPage }) => {
   const navigate = useNavigate();
   const { id } = useParams();
   const { mutate } = useMutation({
-    mutationFn: postPickerTime,
+    mutationFn: articlePickerTime,
   });
 
   // 픽업시간
@@ -32,7 +32,7 @@ const PickerTime = ({ setPage }) => {
           boardId: id,
           arrivalTime: value,
         });
-        Swal.fire(articlePickupSuccessMessage).then(navigate(`/post/${id}`));
+        Swal.fire(articlePickupSuccessMessage).then(navigate(`/article/${id}`));
       }
       if (result.isConfirmed && !value) {
         Swal.fire(articlePickupDenyMessage);

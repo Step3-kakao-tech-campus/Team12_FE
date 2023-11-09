@@ -1,14 +1,14 @@
 /* eslint-disable */
 import { useEffect, useState } from 'react';
-import WriterMatch from '../components/templates/postDetail/WriterMatchTemplate';
-import WriterNoMatch from '../components/templates/postDetail/WriterNoMatchTemplate';
-import PickerMatch from '../components/templates/postDetail/PickerMatchTemplate';
-import PickerNoMatch from '../components/templates/postDetail/PickerNoMatchTemplate.jsx';
+import WriterMatch from '@components/templates/articleDetail/WriterMatchTemplate';
+import WriterNoMatch from '@components/templates/articleDetail/WriterNoMatchTemplate';
+import PickerMatch from '@components/templates/articleDetail/PickerMatchTemplate';
+import PickerNoMatch from '@components/templates/articleDetail/PickerNoMatchTemplate.jsx';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
-import { getPostDetail } from '../apis/postDetail.js';
+import { getArticleDetail } from '@/apis/articleDetail.js';
 
-const PostDetailPage = () => {
+const ArticleDetailPage = () => {
   // 샘플데이터
   const sample = {
     boardId: 1,
@@ -34,31 +34,31 @@ const PostDetailPage = () => {
   };
 
   // const { id } = useParams();
-  // const { data } = useQuery([`post/${id}`], () => getPostDetail(id));
-  // const post = data?.data.response;
-  const post = sample;
+  // const { data } = useQuery([`article/${id}`], () => getArticleDetail(id));
+  // const article = data?.data.response;
+  const article = sample;
 
   /* eslint no-else-return: "error" */
-  const showDetailPage = (post) => {
+  const showDetailPage = (article) => {
     // 작성자이고 매칭됐을 때
-    if (post.same && post.isMatch) {
-      return <WriterMatch response={post} />;
+    if (article.same && article.isMatch) {
+      return <WriterMatch response={article} />;
       // 작성자이고 매칭 안됐을 때
-    } else if (post.same && !post.isMatch) {
-      return <WriterNoMatch response={post} />;
+    } else if (article.same && !article.isMatch) {
+      return <WriterNoMatch response={article} />;
       // 피커이고 매칭 됐을 때
-    } else if (!post.same && post.isMatch) {
-      return <PickerMatch response={post} />;
+    } else if (!article.same && article.isMatch) {
+      return <PickerMatch response={article} />;
     }
     // 피커이고 매칭 안됐을 때
-    return <PickerNoMatch response={post} />;
+    return <PickerNoMatch response={article} />;
   };
 
   return (
     <div className="page--layout">
-      <div>{showDetailPage(post)}</div>
+      <div>{showDetailPage(article)}</div>
     </div>
   );
 };
 
-export default PostDetailPage;
+export default ArticleDetailPage;

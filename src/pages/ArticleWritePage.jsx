@@ -3,20 +3,18 @@ import { useNavigate } from 'react-router-dom';
 import { useForm, FormProvider } from 'react-hook-form';
 import { useMutation } from '@tanstack/react-query';
 import Swal from 'sweetalert2';
-import OtherNav from '../components/atoms/nav/OtherNav';
-import BtnNavigate from '../components/molecules/BtnNavigate';
-import OrderInfo from '../components/templates/postWrite/OrderInfoTemplate';
-import OrderRequest from '../components/templates/postWrite/OrderRequestTemplate';
-import OrderDeadLine from '../components/templates/postWrite/OrderDeadLineTemplate';
-import CircleNavigate from '../components/organisms/CircleNavigate';
-import { STORE, BEVERAGE } from '../constant/postWrite/orderInfo';
-import { DESTINATION } from '../constant/postWrite/orderRequest';
-import { HOUR, MINUTE } from '../constant/postWrite/orderDeadLine';
-import { registerMessage } from '../utils/alert';
-import dateAndTime from '../utils/dateAndTime';
-import writePost from '../apis/postWrite';
+import OtherNav from '@components/atoms/nav/OtherNav';
+import BtnNavigate from '@components/molecules/BtnNavigate';
+import CircleNavigate from '@components/organisms/CircleNavigate';
+import OrderInfoTemplate from '@components/templates/articleWrite/OrderInfoTemplate';
+import OrderRequestTemplate from '@components/templates/articleWrite/OrderRequestTemplate';
+import OrderDeadLineTemplate from '@components/templates/articleWrite/OrderDeadLineTemplate';
+import { ITEM } from '@/constant/writeArticle';
+import { registerMessage } from '@/utils/alert';
+import dateAndTime from '@/utils/dateAndTime';
+import writeArticle from '@/apis/articleWrite';
 
-const PostWritePage = () => {
+const ArticleWritePage = () => {
   const navigate = useNavigate();
   const [focus, setFocus] = useState(1);
   const methods = useForm();
@@ -24,15 +22,16 @@ const PostWritePage = () => {
 
   const inputValue = methods.watch({
     control: methods.control,
-    name: [STORE, `${BEVERAGE}[0].value`, DESTINATION, HOUR, MINUTE],
+    name: [ITEM.STORE, `${ITEM.BEVERAGE}[0].value`, ITEM.DESTINATION, ITEM.HOUR, ITEM.MINUTE],
   });
 
   const { mutate } = useMutation({
-    mutationFn: writePost,
+    mutationFn: writeArticle,
   });
 
   // msw
   const onSubmit = (data) => {
+    console.log(data);
     const request = { ...data };
     request.finishedAt = dateAndTime(data);
 
@@ -46,6 +45,9 @@ const PostWritePage = () => {
 
     // react-query
     mutate(data, {
+      onSuccess: () => {
+        navigate('/article');
+      },
       onError: (error) => {
         console.error(error);
       },
@@ -85,13 +87,13 @@ const PostWritePage = () => {
   // eslint-disable-next-line
   const currentPage = (function (page) {
     if (page === 1) {
-      return <OrderInfo />;
+      return <OrderInfoTemplate />;
     }
     if (page === 2) {
-      return <OrderRequest />;
+      return <OrderRequestTemplate />;
     }
     if (page === 3) {
-      return <OrderDeadLine />;
+      return <OrderDeadLineTemplate />;
     }
   })(focus);
 
@@ -113,4 +115,4 @@ const PostWritePage = () => {
   );
 };
 
-export default PostWritePage;
+export default ArticleWritePage;
