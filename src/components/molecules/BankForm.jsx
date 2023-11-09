@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import { useMutation } from '@tanstack/react-query';
+// import { useMutation } from '@tanstack/react-query';
 import Button from '@components/atoms/button/Button';
+import axios from 'axios';
 import banks from '@/constant/bank';
 import routes from '@/constant/routes';
-import registerBank from '@/apis/register';
+// import registerBank from '@/apis/register';
 import { bankInvalidMessage, unknownErrorMessage, loginSuccessMessage } from '@/utils/alert';
 
 const BankForm = () => {
@@ -15,18 +16,18 @@ const BankForm = () => {
 
   const navigate = useNavigate();
 
-  const { mutate } = useMutation({
-    mutationFn: registerBank,
-    onSuccess: (response) => {
-      localStorage.setItem('userAuth', response.data.response.userAuth);
-      Swal.fire(loginSuccessMessage);
-      navigate(routes.home); // 회원가입 이후 로그인을 할 수 있도록 로그인 페이지로 이동시킴
-    },
-    onError: () => {
-      Swal.fire(unknownErrorMessage);
-      navigate(routes.error);
-    },
-  });
+  // const { mutate } = useMutation({
+  //   mutationFn: registerBank,
+  //   onSuccess: (response) => {
+  //     localStorage.setItem('userAuth', response.data.response.userAuth);
+  //     Swal.fire(loginSuccessMessage);
+  //     navigate(routes.home); // 회원가입 이후 로그인을 할 수 있도록 로그인 페이지로 이동시킴
+  //   },
+  //   onError: () => {
+  //     Swal.fire(unknownErrorMessage);
+  //     navigate(routes.error);
+  //   },
+  // });
 
   // 계좌 은행을 선택할 때 호출될 함수
   const handleBankChange = (e) => {
@@ -42,10 +43,23 @@ const BankForm = () => {
   const handleSubmit = () => {
     if (formValid) {
       // 입력 정보 post 처리 이후 홈 페이지 이동(회원가입 완료)
-      mutate({
-        bankName: accountBank,
-        accountNum: accountNumber,
-      });
+      axios
+        .post('/api/signup', {
+          bankName: accountBank,
+          accountNum: accountNumber,
+        })
+        .then((response) => {
+          // 성공적으로 회원가입 처리가 되면 로컬 스토리지에 인증정보를 저장하고 홈으로 이동
+          localStorage.setItem('userAuth', response.data.response.userAuth);
+          Swal.fire(loginSuccessMessage);
+          navigate(routes.home);
+        })
+        .catch((error) => {
+          // 에러가 발생하면 알림을 띄우고 에러 페이지로 이동
+          console.log(error);
+          Swal.fire(unknownErrorMessage);
+          navigate(routes.error);
+        });
     } else {
       Swal.fire(bankInvalidMessage);
     }
