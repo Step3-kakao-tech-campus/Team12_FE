@@ -15,7 +15,7 @@ import { logoutMessage, logoutCompleteMessage } from '@/utils/alert';
 const MyPageTemplate = () => {
   const navigate = useNavigate();
   const authority = localStorage.getItem('userAuth');
-  // const authority = 'guest';
+  // const authority = 'GUEST';
 
   // const { data } = useQuery('myPage', getMyPage);
 
@@ -23,16 +23,16 @@ const MyPageTemplate = () => {
   const sample = {
     success: true,
     response: {
-      role: 'student',
+      role: 'STUDENT',
       nickname: '닉네임',
     },
   };
 
   const userLevel = (author) => {
     /* eslint no-else-return: "error" */
-    if (author === 'admin') {
+    if (author === 'ADMIN') {
       return <div>관리자</div>;
-    } else if (author === 'student') {
+    } else if (author === 'STUDENT') {
       return <div>전남대학교</div>;
     }
     return <div>학생 미인증</div>;
@@ -40,9 +40,9 @@ const MyPageTemplate = () => {
 
   const certification = (author) => {
     /* eslint no-else-return: "error" */
-    if (author === 'admin') {
+    if (author === 'ADMIN') {
       return <AdminMyPage />;
-    } else if (author === 'student') {
+    } else if (author === 'STUDENT') {
       return <StudentMyPage />;
     }
     return <GuestMyPage />;
