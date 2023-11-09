@@ -25,22 +25,27 @@ const ArticleWritePage = () => {
     mutationFn: writeArticle,
   });
 
-  // msw
   const onSubmit = (data) => {
-    console.log(data);
     const request = { ...data };
+
     request.finishedAt = dateAndTime(data);
+    request.beverages.unshift(request.beverage);
+    request.tip = +request.tip;
+
+    delete request.hour;
+    delete request.minute;
+    delete request.beverage;
 
     // msw
-    // fetch('/articles/write', {
-    //   method: 'POST',
-    //   body: JSON.stringify(data),
-    // })
-    //   .then((response) => response.json())
-    //   .then((result) => console.log(result));
+    fetch('/articles/write', {
+      method: 'POST',
+      body: JSON.stringify(request),
+    })
+      .then((response) => response.json())
+      .then((result) => console.log(result));
 
     // react-query
-    mutate(data, {
+    mutate(request, {
       onSuccess: () => {
         navigate('/article');
       },
@@ -86,7 +91,6 @@ const ArticleWritePage = () => {
     }
   };
 
-  // eslint-disable-next-line
   const currentPage = (function (page) {
     if (page === 1) {
       return <OrderInfoTemplate />;
