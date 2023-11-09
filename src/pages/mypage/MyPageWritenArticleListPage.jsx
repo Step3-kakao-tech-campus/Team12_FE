@@ -18,7 +18,7 @@ const WritenArticlePage = () => {
       destination: '공과대학 7호관',
       finishedAt: 1696992289,
       tip: 1500,
-      match: true,
+      isMatch: true,
     },
     {
       boardId: 8,
@@ -26,7 +26,7 @@ const WritenArticlePage = () => {
       destination: '공과대학 7호관',
       finishedAt: 1696992289,
       tip: 1500,
-      match: true,
+      isMatch: true,
     },
     {
       boardId: 7,
@@ -34,7 +34,7 @@ const WritenArticlePage = () => {
       destination: '공과대학 6호관',
       finishedAt: 1696040640,
       tip: 1000,
-      match: false,
+      isMatch: false,
     },
     {
       boardId: 6,
@@ -42,7 +42,7 @@ const WritenArticlePage = () => {
       destination: '공과대학 7호관',
       finishedAt: 1696040640,
       tip: 1500,
-      match: true,
+      isMatch: true,
     },
     {
       boardId: 5,
@@ -50,7 +50,7 @@ const WritenArticlePage = () => {
       destination: '공과대학 7호관',
       finishedAt: 1696992289,
       tip: 1000,
-      match: false,
+      isMatch: false,
     },
     {
       boardId: 4,
@@ -58,7 +58,7 @@ const WritenArticlePage = () => {
       destination: '공과대학 7호관',
       finishedAt: 1696040640,
       tip: 1000,
-      match: false,
+      isMatch: false,
     },
     {
       boardId: 3,
@@ -66,7 +66,7 @@ const WritenArticlePage = () => {
       destination: '공과대학 7호관',
       finishedAt: 1696040640,
       tip: 1000,
-      match: false,
+      isMatch: false,
     },
     {
       boardId: 2,
@@ -74,7 +74,7 @@ const WritenArticlePage = () => {
       destination: '공과대학 7호관',
       finishedAt: 1696040640,
       tip: 1000,
-      match: false,
+      isMatch: false,
     },
     {
       boardId: 1,
@@ -82,7 +82,7 @@ const WritenArticlePage = () => {
       destination: '공과대학 7호관',
       finishedAt: 1696040640,
       tip: 1000,
-      match: false,
+      isMatch: false,
     },
   ];
 
