@@ -1,7 +1,7 @@
 # node 16 이미지를 기반으로 함
 FROM krmp-d2hub-idock.9rum.cc/goorm/node:16
 
-ENV REACT_APP_API_URL = https://k0d01653e1a11a.user-app.krampoline.com/api
+ENV REACT_APP_API_URL=api
 
 # 작업 디렉토리 설정
 WORKDIR /usr/src/app
