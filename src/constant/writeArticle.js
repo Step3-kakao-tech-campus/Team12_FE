@@ -9,7 +9,7 @@ export const ORDER_DEADLINE = {
   subLabel: '마감기한을 설정해주세요! 마감기한이 지나면 공고가 사라져요.',
 };
 
-export const ORDER_INFO_STORE = {
+export const ORDER_INFO_SHOP_NAME = {
   label: '주문할 매장은 어디인가요? *',
   subLabel: '음료를 주문할 매장을 정확하게 입력해주세요.',
 };
@@ -25,11 +25,16 @@ export const ORDER_REQUEST = {
 };
 
 export const ITEM = {
-  STORE: 'store',
-  BEVERAGE: 'beverage',
-  HOUR: 'hour',
-  MINUTE: 'minute',
+  SHOP_NAME: 'shopName',
+  BEVERAGES: 'beverages',
   DESTINATION: 'destination',
   TIP: 'tip',
   REQUEST: 'request',
+  HOUR: 'hour',
+  MINUTE: 'minute',
+};
+
+export const DEAD_LINE = {
+  HOUR: '시',
+  UNTIL_MINUTE: '분까지',
 };

@@ -8,6 +8,6 @@ export const adminAuthDetail = (id = 1) => {
   return instance.get(`/admin/auth/list/${id}`);
 };
 
-export const adminAuthList = () => {
-  return instance.get('/admin/auth/list');
+export const adminAuthList = (offset = '') => {
+  return instance.get(`/admin/auth/list?offset=${offset}`);
 };

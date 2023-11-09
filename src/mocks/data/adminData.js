@@ -18,6 +18,38 @@ export const REQUEST_LIST = {
         userId: 4,
         nickname: 'msw',
       },
+      {
+        userId: 5,
+        nickname: '홍길동',
+      },
+      {
+        userId: 6,
+        nickname: '카테캠',
+      },
+      {
+        userId: 7,
+        nickname: '12조',
+      },
+      {
+        userId: 8,
+        nickname: 'msw',
+      },
+      {
+        userId: 9,
+        nickname: '홍길동',
+      },
+      {
+        userId: 10,
+        nickname: '카테캠',
+      },
+      {
+        userId: 11,
+        nickname: '12조',
+      },
+      {
+        userId: 12,
+        nickname: 'msw',
+      },
     ],
   },
   error: null,

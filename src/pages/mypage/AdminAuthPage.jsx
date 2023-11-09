@@ -4,9 +4,12 @@ import { useParams, useNavigate } from 'react-router-dom';
 import OtherNav from '@components/atoms/nav/OtherNav';
 import AuthDetail from '@components/organisms/AuthDetail';
 import Button from '@components/atoms/button/Button';
+import Swal from 'sweetalert2';
 import { REJECT, APPROVE } from '@/constant/auth';
 import { adminAuth } from '@/apis/admin';
 import routes from '@/constant/routes';
+import { authApproval, authReject } from '@/utils/alert';
+import alertError from '@/constant/alertError';
 
 const AdminAuthPage = () => {
   const { id } = useParams();
@@ -28,25 +31,33 @@ const AdminAuthPage = () => {
     select: (data) => data?.response,
   });
 
-  // 학생증 인증 요청 성공 & 에러에 따른 useMutation 정의
   const { mutate: handleAuth } = useMutation({
     mutationFn: adminAuth,
     onSuccess: () => {
       navigate(routes.admin);
     },
     onError: (error) => {
+      alert(alertError(error));
       console.error(error);
     },
   });
 
   // 학생증 인증 승인
   const handleApprove = () => {
-    handleAuth({ userId: id });
+    Swal.fire(authApproval).then((result) => {
+      if (result.isConfirmed) {
+        handleAuth({ userId: id });
+      }
+    });
   };
 
   // 학생증 인증 거절
   const handleReject = () => {
-    navigate(routes.admin);
+    Swal.fire(authReject).then((result) => {
+      if (result.isConfirmed) {
+        navigate(routes.admin);
+      }
+    });
   };
 
   return (
@@ -57,6 +68,7 @@ const AdminAuthPage = () => {
           <AuthDetail user={userInfo} />
         </div>
       </div>
+
       <div className="flex place-content-around p-[35px] mb-[20px]">
         <Button
           onClick={handleReject}

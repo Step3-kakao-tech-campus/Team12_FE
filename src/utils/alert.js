@@ -139,3 +139,24 @@ export const articlePickupDenyMessage = {
   title: '예상 도착 시간을 <br>제대로 입력해주세요!',
   confirmButtonText: '확인',
 };
+export const authApproval = {
+  icon: 'question',
+  title: '학생 인증을 승인 하시겠습니까?',
+  showCancelButton: true,
+  reverseButtons: true,
+  cancelButtonText: '취소',
+  confirmButtonText: '확인',
+  confirmButtonColor: '#0075ff',
+  heightAuto: true,
+};
+export const authReject = {
+  icon: 'question',
+  title: '학생 인증을 거절 하시겠습니까?',
+  text: '해당 회원은 픽업셔틀 서비스를 이용할 수 없게 됩니다.',
+  showCancelButton: true,
+  reverseButtons: true,
+  confirmButtonColor: '#0075FF',
+  cancelButtonColor: '#D9D9D9',
+  cancelButtonText: '취소',
+  confirmButtonText: '확인',
+};
