@@ -9,6 +9,7 @@ import { REJECT, APPROVE } from '@/constant/auth';
 import { adminAuth } from '@/apis/admin';
 import routes from '@/constant/routes';
 import { authApproval, authReject } from '@/utils/alert';
+import alertError from '@/constant/alertError';
 
 const AdminAuthPage = () => {
   const { id } = useParams();
@@ -36,6 +37,7 @@ const AdminAuthPage = () => {
       navigate(routes.admin);
     },
     onError: (error) => {
+      alert(alertError(error));
       console.error(error);
     },
   });

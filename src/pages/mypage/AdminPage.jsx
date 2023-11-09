@@ -5,6 +5,7 @@ import OtherNav from '@components/atoms/nav/OtherNav';
 import { adminAuthList } from '@/apis/admin';
 import { useInView } from 'react-intersection-observer';
 import { useInfiniteQuery } from '@tanstack/react-query';
+import alertError from '@/constant/alertError';
 
 const AdminPage = () => {
   const [userInfo, setUserInfo] = useState([]);
@@ -30,6 +31,7 @@ const AdminPage = () => {
         console.log(data);
       },
       onError: (error) => {
+        alert(alertError(error));
         console.error(error);
       },
       retry: false,
