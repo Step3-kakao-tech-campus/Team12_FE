@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
-// import { useMutation } from '@tanstack/react-query';
 import Button from '@components/atoms/button/Button';
 import axios from 'axios';
 import banks from '@/constant/bank';
 import routes from '@/constant/routes';
-// import registerBank from '@/apis/register';
 import { bankInvalidMessage, unknownErrorMessage, loginSuccessMessage } from '@/utils/alert';
+// import { useMutation } from '@tanstack/react-query';
+// import registerBank from '@/apis/register';
 
 const BankForm = () => {
   const [accountBank, setAccountBank] = useState('');
@@ -51,7 +51,7 @@ const BankForm = () => {
         .then((response) => {
           console.log('response 값 : ', response);
           // 성공적으로 회원가입 처리가 되면 로컬 스토리지에 인증정보를 저장하고 홈으로 이동
-          localStorage.setItem('userAuth', response.response.userAuth);
+          localStorage.setItem('userAuth', 'USER');
           Swal.fire(loginSuccessMessage);
           navigate(routes.home);
         })

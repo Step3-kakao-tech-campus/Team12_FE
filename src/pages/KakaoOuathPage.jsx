@@ -24,9 +24,9 @@ const KakaoOuathPage = () => {
       .get('/api/login/callback')
       .then((response) => {
         console.log('response 값 : ', response);
-        const status = response.success;
-        if (status) {
-          const userInfo = response.response;
+        const { status } = response;
+        if (status === 200) {
+          const userInfo = response.data.response;
           const { userAuth, AccessToken } = userInfo;
           localStorage.setItem('accessToken', AccessToken);
           localStorage.setItem('userAuth', userAuth);
