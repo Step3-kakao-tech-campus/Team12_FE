@@ -3,7 +3,6 @@ import LoginNav from '@components/atoms/nav/LoginNav';
 import loginIcon from '@/assets/images/kakao_login_medium_wide.png';
 
 const LoginPage = () => {
-  // 카카오 연동 로그인 페이지로 이동
   const KAKAO_AUTH_URI = `${process.env.REACT_APP_API_URL}/oauth2/authorization/kakao`;
 
   const loginHandler = () => {
