@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useForm, FormProvider } from 'react-hook-form';
@@ -18,12 +19,7 @@ const ArticleWritePage = () => {
   const navigate = useNavigate();
   const [focus, setFocus] = useState(1);
   const methods = useForm();
-  const { handleSubmit } = methods;
-
-  const inputValue = methods.watch({
-    control: methods.control,
-    name: [ITEM.STORE, `${ITEM.BEVERAGE}[0].value`, ITEM.DESTINATION, ITEM.HOUR, ITEM.MINUTE],
-  });
+  const { handleSubmit, trigger, getValues, getFieldState } = methods;
 
   const { mutate } = useMutation({
     mutationFn: writeArticle,
@@ -55,10 +51,12 @@ const ArticleWritePage = () => {
   };
 
   const handleAlert = (data) => {
-    if (focus === 3 && inputValue.hour && inputValue.minute) {
+    if (focus === 3) {
       Swal.fire(registerMessage).then((result) => {
         if (result.isConfirmed) {
           onSubmit(data);
+        } else {
+          setFocus(3);
         }
       });
     }
@@ -73,14 +71,18 @@ const ArticleWritePage = () => {
   };
 
   const handleNext = () => {
-    if (focus === 1 && inputValue.store && inputValue.beverage[0].value) {
+    trigger();
+    const formValues = getValues(Object.values(ITEM)).map((x) => !!x);
+    const isTimeValid = getFieldState(ITEM.HOUR).error && getFieldState(ITEM.MINUTE).error;
+
+    if (focus === 1 && formValues[0] && formValues[1]) {
       setFocus((prev) => prev + 1);
     }
-    if (focus === 2 && inputValue.destination) {
+    if (focus === 2 && formValues[2]) {
       setFocus((prev) => prev + 1);
     }
-    if (focus === 3 && inputValue.hour && inputValue.minute) {
-      handleAlert();
+    if (focus === 3 && formValues[5] && formValues[6]) {
+      isTimeValid && handleAlert();
     }
   };
 
