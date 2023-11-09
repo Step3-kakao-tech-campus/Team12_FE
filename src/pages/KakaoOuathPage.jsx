@@ -23,6 +23,7 @@ const KakaoOuathPage = () => {
     axios
       .get('/api/login/callback')
       .then((response) => {
+        console.log('response 값 : ', response);
         const status = response.success;
         if (status) {
           const userInfo = response.response;

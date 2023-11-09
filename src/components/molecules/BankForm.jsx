@@ -49,6 +49,7 @@ const BankForm = () => {
           accountNum: accountNumber,
         })
         .then((response) => {
+          console.log('response 값 : ', response);
           // 성공적으로 회원가입 처리가 되면 로컬 스토리지에 인증정보를 저장하고 홈으로 이동
           localStorage.setItem('userAuth', response.response.userAuth);
           Swal.fire(loginSuccessMessage);
