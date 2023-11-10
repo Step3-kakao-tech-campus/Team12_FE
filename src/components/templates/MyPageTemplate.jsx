@@ -15,18 +15,19 @@ import { logoutMessage, logoutCompleteMessage } from '@/utils/alert';
 const MyPageTemplate = () => {
   const navigate = useNavigate();
   const authority = localStorage.getItem('userAuth');
+  const nickName = localStorage.getItem('nickName');
   // const authority = 'GUEST';
 
   // const { data } = useQuery('myPage', getMyPage);
 
   // 샘플
-  const sample = {
-    success: true,
-    response: {
-      role: 'STUDENT',
-      nickname: '닉네임',
-    },
-  };
+  // const sample = {
+  //   success: true,
+  //   response: {
+  //     role: 'STUDENT',
+  //     nickname: '닉네임',
+  //   },
+  // };
 
   const userLevel = (author) => {
     /* eslint no-else-return: "error" */
@@ -62,7 +63,7 @@ const MyPageTemplate = () => {
       <div className="h-24 p-5">
         <div className="flex justify-between text-xl font-bold">
           {/* 나중에 지울거 */}
-          {sample.response.nickname}
+          {nickName}
           <Button
             onClick={logout}
             width="w-[72px]"
