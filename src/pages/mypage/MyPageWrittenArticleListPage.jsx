@@ -3,7 +3,7 @@ import OtherNav from '@components/atoms/nav/OtherNav';
 import MyPageWrittenArticleCards from '@components/molecules/MyPageWrittenArticleCards';
 import { useQuery } from '@tanstack/react-query';
 import { getWrittenArticles } from '@/apis/article';
-import mypage from '@/constant/mypage';
+import MYPAGE from '@/constant/mypage';
 import occurError from '@/utils/occurError';
 
 const WrittenArticlePage = () => {
@@ -26,7 +26,7 @@ const WrittenArticlePage = () => {
   return (
     <div className="page--layout">
       <OtherNav />
-      <div className="text-center text-xl text-blue my-6">{mypage.WRITTEN_ARTICLE}</div>
+      <div className="text-center text-xl text-blue my-6">{MYPAGE.WRITTEN_ARTICLE}</div>
       <div className="h-[600px] overflow-y-auto overflow-x-hidden">
         <MyPageWrittenArticleCards articles={articles} />
       </div>

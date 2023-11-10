@@ -7,6 +7,7 @@ import { useInView } from 'react-intersection-observer';
 import { useInfiniteQuery } from '@tanstack/react-query';
 import occurError from '@/utils/occurError';
 import Loader from '@components/atoms/Loader';
+import { STUDENT } from '@/constant/auth';
 
 const AdminPage = () => {
   // const [userInfo, setUserInfo] = useState([]);
@@ -65,7 +66,7 @@ const AdminPage = () => {
     <div className="page--layout">
       <OtherNav />
       <div className="pt-[25px] p-[35px]">
-        <div className="text-center text-xl text-blue mb-10">학생 인증 요청</div>
+        <div className="text-center text-xl text-blue mb-10">{STUDENT.REQUEST_AUTH}</div>
         {isInData(userData)}
       </div>
     </div>

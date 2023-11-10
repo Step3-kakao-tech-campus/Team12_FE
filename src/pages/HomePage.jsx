@@ -8,7 +8,7 @@ import routes from '@/constant/routes';
 import { getLastArticles } from '@/apis/article';
 import Cards from '@/components/molecules/Cards';
 import Loader from '@/components/atoms/Loader';
-import HOME from '@/constant/home';
+import { HOME } from '@/constant/home';
 
 const HomePage = () => {
   const navigate = useNavigate();
