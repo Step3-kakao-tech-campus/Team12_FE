@@ -4,6 +4,10 @@ export const adminAuth = () => {
   return instance.put('/admin/auth/approval');
 };
 
+export const adminAuthReject = () => {
+  return instance.put('admin/auth/reject');
+};
+
 export const adminAuthDetail = (id = 1) => {
   return instance.get(`/admin/auth/list/${id}`);
 };

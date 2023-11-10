@@ -1,5 +1,5 @@
 /* eslint-disable */
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import AuthRequest from '@components/organisms/AuthRequest';
 import OtherNav from '@components/atoms/nav/OtherNav';
 import { adminAuthList } from '@/apis/admin';
@@ -9,9 +9,6 @@ import occurError from '@/utils/occurError';
 import Loader from '@components/atoms/Loader';
 
 const AdminPage = () => {
-  // const [userInfo, setUserInfo] = useState([]);
-  const { inView } = useInView();
-
   // msw
   // useEffect(() => {
   //   fetch('/admin/auth/list')
@@ -22,14 +19,19 @@ const AdminPage = () => {
   //     });
   // }, []);
 
+  const { ref, inView } = useInView({ threshold: 0.5 });
+
   // react-query
   const {
     data: userData,
     fetchNextPage,
     isLoading,
-    refetch,
-  } = useInfiniteQuery(['adminAuthList'], ({ pageParam = 0 }) => adminAuthList(pageParam), {
-    getNextPageParam: (lastPage) => (!lastPage.isLast ? lastPage.nextPage : undefined),
+    hasNextPage,
+  } = useInfiniteQuery(['adminAuthList'], ({ pageParam = '' }) => adminAuthList(pageParam), {
+    getNextPageParam: (lastPage) =>
+      !lastPage.data.response.pageable.last
+        ? lastPage.data.response.content[lastPage.data.response.pageable.numberOfElements - 1].userId
+        : undefined,
     select: (data) => data?.data?.response.content,
     onSuccess: (data) => {
       console.log(data);
@@ -40,8 +42,9 @@ const AdminPage = () => {
     retry: false,
   });
 
+  // inView가 사용자에게 보임 & hasNextPage가 true일 경우 다음 페이지를 렌더링해오도록 한다.
   useEffect(() => {
-    if (inView) {
+    if (inView && hasNextPage) {
       fetchNextPage();
     }
   }, [inView]);
@@ -65,7 +68,10 @@ const AdminPage = () => {
       <OtherNav />
       <div className="pt-[25px] p-[35px]">
         <div className="text-center text-xl text-blue mb-10">학생 인증 요청</div>
-        {isInData(userData)}
+        <div className="h-[550px] overflow-y-auto overflow-x-hidden scrollbar-hide">
+          {isInData(userData)}
+          <div ref={ref} className="w-[100%] h-[10px]" />
+        </div>
       </div>
     </div>
   );

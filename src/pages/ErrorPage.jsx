@@ -14,7 +14,7 @@ const ErrorPage = () => {
 
   return (
     <div className="page--layout">
-      <div className="text-center mt-32">
+      <div className="text-center mt-24">
         <h1>{ERROR.NO_PAGE}</h1>
         <p className="text-xs text-gray-500 mt-1 mb-2 whitespace-pre">{ERROR.DESCRIPTION}</p>
         <Button onClick={goMain}>{ERROR.GO_HOME}</Button>
