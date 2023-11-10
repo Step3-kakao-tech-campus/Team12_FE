@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useForm, FormProvider } from 'react-hook-form';
-import { useMutation } from '@tanstack/react-query';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import Swal from 'sweetalert2';
 import OtherNav from '@components/atoms/nav/OtherNav';
 import BtnNavigate from '@components/molecules/BtnNavigate';
@@ -51,6 +51,7 @@ const ArticleWritePage = () => {
         navigate('/article');
       },
       onError: (error) => {
+        queryClient.serQueryData([writeArticle], data);
         console.log(error);
         console.log(data);
         alert(alertError(error));
