@@ -9,7 +9,7 @@ import { useMutation } from '@tanstack/react-query';
 import { controlArticleMessage, deleteArticleMessage, articleDeleteSuccessMessage } from '@/utils/alert';
 import routes from '@/constant/routes';
 import { deleteArticle } from '@/apis/articleDetail';
-import { article } from '@/constant/article';
+import { MATCHING_STATE } from '@/constant/article';
 import occurError from '@/utils/occurError';
 
 const WriterNoMatchTemplate = ({ response }) => {
@@ -50,7 +50,7 @@ const WriterNoMatchTemplate = ({ response }) => {
         <OtherNav iconColor="#fff" bgColor="#000" />
         <div className="px-[25px]">
           <div className="flex justify-between items-center">
-            <div className="text-white text-xl">{article.WAITING_MATCHING}</div>
+            <div className="text-white text-xl">{MATCHING_STATE.WAITING_MATCHING}</div>
             {/* eslint-disable-next-line */}
             <button onClick={articleControl}>
               <BsThreeDotsVertical size="25" style={{ color: 'white' }} />

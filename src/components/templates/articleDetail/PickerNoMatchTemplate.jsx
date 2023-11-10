@@ -7,6 +7,7 @@ import Location from '@components/organisms/Location';
 import '@/styles/DeleteSpin.css';
 import PickerTime from '@components/organisms/PickerTime';
 import { pickupConfirmMessage } from '@/utils/alert';
+import { MATCHING_STATE } from '@/constant/article';
 
 const PickerNoMatchTemplate = ({ response }) => {
   const [page, setPage] = useState(0);
@@ -30,7 +31,7 @@ const PickerNoMatchTemplate = ({ response }) => {
         <Info response={response} />
         <div className="flex px-8">
           <Button onClick={pickUpBtnModal} width="w-[100%]" height="h-9" bdRadius="rounded-md" bgColor="bg-blue">
-            이 음료 픽업하기
+            {MATCHING_STATE.PICKUP_BEVERAGE}
           </Button>
         </div>
       </>
@@ -43,7 +44,7 @@ const PickerNoMatchTemplate = ({ response }) => {
       <div className="bg-sky-blue h-60 rounded-b-3xl">
         <OtherNav iconColor="#fff" bgColor="#000" />
         <div className="px-[25px]">
-          <div className="text-white text-xl">매칭을 기다리고 있어요.</div>
+          <div className="text-white text-xl">{MATCHING_STATE.WAITING_MATCHING}</div>
           <Location response={response} />
         </div>
       </div>

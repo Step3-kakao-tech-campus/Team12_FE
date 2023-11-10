@@ -3,7 +3,7 @@ import { PiGraduationCapLight } from 'react-icons/pi';
 import MyPageMenu from '@components/organisms/MyPageMenu';
 import routes from '@/constant/routes';
 import { STUDENT } from '@/constant/auth';
-import mypage from '@/constant/mypage';
+import MYPAGE from '@/constant/mypage';
 
 const GuestMyPageTemplate = () => {
   const iconStyle = 'mx-2 inline-block';
@@ -15,7 +15,7 @@ const GuestMyPageTemplate = () => {
         <MyPageMenu to={routes.uploadStudentCard} icon={<PiGraduationCapLight className={iconStyle} size={25} />}>
           {STUDENT.TITLE}
         </MyPageMenu>
-        <MyPageMenu icon={<CiEdit className={iconStyle} size={25} />}>{mypage.EDIT_INFO}</MyPageMenu>
+        <MyPageMenu icon={<CiEdit className={iconStyle} size={25} />}>{MYPAGE.EDIT_INFO}</MyPageMenu>
       </div>
     </div>
   );

@@ -10,12 +10,14 @@ const LoginNav = () => {
     navigate(-1); // 바로 이전 페이지로 이동
   };
 
+  const ICON_SIZE = '25';
+
   return (
     <div>
       <div className="flex justify-between p-[25px] ">
-        <BsArrowLeft className="cursor-pointer" onClick={goPreviousPage} size={25} />
+        <BsArrowLeft className="cursor-pointer" onClick={goPreviousPage} size={ICON_SIZE} />
         <Link to={routes.home}>
-          <MdHome size={25} />
+          <MdHome size={ICON_SIZE} />
         </Link>
       </div>
     </div>

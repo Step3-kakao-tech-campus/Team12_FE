@@ -6,6 +6,7 @@ import axios from 'axios';
 import banks from '@/constant/bank';
 import routes from '@/constant/routes';
 import { bankInvalidMessage, unknownErrorMessage, loginSuccessMessage } from '@/utils/alert';
+import { LOGIN, BANK, ALREADY_ACCOUNT, REGISTER } from '@/constant/auth';
 
 const BankForm = () => {
   const [accountBank, setAccountBank] = useState('');
@@ -62,14 +63,14 @@ const BankForm = () => {
 
   return (
     <div>
-      <div className="text-[12px] mb-[6px]">계좌정보 *</div>
+      <div className="text-[12px] mb-[6px]">{BANK.ACCOUNT}</div>
       <div className="h-[450px]">
         <div className="flex mb-[2px]">
           <select
             className="w-[75px] h-[35px] rounded-lg border border-[#858585] mr-[15px] text-[10px]"
             onChange={handleBankChange}
           >
-            <option value="">은행 선택</option>
+            <option value="">{BANK.CHOICE_BANK}</option>
             {banks.map((item) => (
               <option key={item} value={item}>
                 {item}
@@ -84,7 +85,7 @@ const BankForm = () => {
             onChange={handleAccountNumberChange}
           />
         </div>
-        {!formValid && <p className="text-red-600 text-sm">필수 입력 항목입니다.</p>}
+        {!formValid && <p className="text-red-600 text-sm">{BANK.ERROR_MSG}</p>}
       </div>
       <div className="text-center">
         <Button
@@ -93,12 +94,12 @@ const BankForm = () => {
             handleSubmit();
           }}
         >
-          회원가입
+          {REGISTER}
         </Button>
         <div className="mt-[10px] text-[10px] text-[#8C8C8C]">
-          이미 계정이 있으신가요?{' '}
+          {ALREADY_ACCOUNT}
           <Link to={routes.login}>
-            <span className="text-black cursor-pointer">로그인</span>
+            <span className="text-black cursor-pointer">{LOGIN}</span>
           </Link>
         </div>
       </div>
