@@ -14,7 +14,8 @@ import { ITEM } from '@/constant/writeArticle';
 import { registerMessage } from '@/utils/alert';
 import dateAndTime from '@/utils/dateAndTime';
 import writeArticle from '@/apis/articleWrite';
-import alertError from '@/constant/alertError';
+import routes from '@/constant/routes';
+import occurError from '@/utils/occurError';
 
 const ArticleWritePage = () => {
   const navigate = useNavigate();
@@ -48,14 +49,11 @@ const ArticleWritePage = () => {
     // react-query
     mutate(request, {
       onSuccess: () => {
-        navigate('/article');
+        navigate(routes.article);
       },
       onError: (error) => {
         queryClient.serQueryData([writeArticle], data);
-        console.log(error);
-        console.log(data);
-        alert(alertError(error));
-        console.error(error);
+        occurError(error);
       },
     });
   };

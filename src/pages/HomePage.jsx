@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Footer from '@components/atoms/Footer';
 import Nav from '@components/atoms/nav/Nav';
 import { useQuery } from '@tanstack/react-query';
@@ -8,15 +8,15 @@ import routes from '@/constant/routes';
 import { getLastArticles } from '@/apis/article';
 import Cards from '@/components/molecules/Cards';
 import Loader from '@/components/atoms/Loader';
-import ErrorPage from './ErrorPage';
 import HOME from '@/constant/home';
 
 const HomePage = () => {
+  const navigate = useNavigate();
   const {
     data: articlesData,
     isLoading,
     isError,
-  } = useQuery(['/articles?limit=3'], getLastArticles(), {
+  } = useQuery(['/articles?limit=3'], getLastArticles, {
     select: (data) => data?.data.response.content,
   });
 
@@ -30,7 +30,7 @@ const HomePage = () => {
     }
 
     if (isError) {
-      return <ErrorPage />;
+      navigate('/errorPage');
     }
 
     return <Cards articles={articles} />;

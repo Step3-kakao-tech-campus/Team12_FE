@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import { useMutation, useQuery } from '@tanstack/react-query';
 import { useParams, useNavigate } from 'react-router-dom';
 import OtherNav from '@components/atoms/nav/OtherNav';
@@ -9,26 +8,29 @@ import { REJECT, APPROVE } from '@/constant/auth';
 import { adminAuth } from '@/apis/admin';
 import routes from '@/constant/routes';
 import { authApproval, authReject } from '@/utils/alert';
-import alertError from '@/constant/alertError';
+import occurError from '@/utils/occurError';
 
 const AdminAuthPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const [userInfo, setUserInfo] = useState([]);
+  // const [userInfo, setUserInfo] = useState([]);
   const btnWidth = 'w-[8rem]';
   const btnHeight = 'h-[2.2rem]';
 
-  useEffect(() => {
-    fetch(`/admin/auth/list/${id}`)
-      .then((response) => response.json())
-      .then((data) => {
-        setUserInfo(data.response);
-      });
-  }, []);
+  // useEffect(() => {
+  //   fetch(`/admin/auth/list/${id}`)
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       setUserInfo(data.response);
+  //     });
+  // }, []);
 
   // eslint-disable-next-line
   const { data: userDetail } = useQuery(['admin_auth_approval', id], () => adminAuth(id), {
-    select: (data) => data?.response,
+    select: (data) => data?.data?.response,
+    onError: (error) => {
+      occurError(error);
+    },
   });
 
   const { mutate: handleAuth } = useMutation({
@@ -37,8 +39,7 @@ const AdminAuthPage = () => {
       navigate(routes.admin);
     },
     onError: (error) => {
-      alert(alertError(error));
-      console.error(error);
+      occurError(error);
     },
   });
 
@@ -65,7 +66,7 @@ const AdminAuthPage = () => {
       <div>
         <OtherNav />
         <div className="pt-[25px] p-[35px]">
-          <AuthDetail user={userInfo} />
+          <AuthDetail user={userDetail} />
         </div>
       </div>
 
