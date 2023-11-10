@@ -9,7 +9,7 @@ import { getLastArticles } from '@/apis/article';
 import Cards from '@/components/molecules/Cards';
 
 const HomePage = () => {
-  const { data } = useQuery(['/articles?limit=3'], () => getLastArticles());
+  const { data } = useQuery(['/articles?limit=3'], getLastArticles());
   const articles = data?.data.response.content;
 
   return (
