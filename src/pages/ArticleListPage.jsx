@@ -24,6 +24,7 @@ const ArticleListPage = () => {
         // 초회 요청시에는 API문서 내용에 따라 아무것도 넣지 않아야 하므로 ''를 넣고, 이후에는 boardId값 기반으로 요청
         // 마지막 페이지가 아닐경우 추가 렌더링을 위해 offset 계산하여 리턴 or 마지막 페이지일 경우 undefined 반환하여 페이지를 불러오지 않도록 함
         // 마지막 페이지 데이터를 의미하는 last = true일 경우 undefined를 반환하여 페이지 요청 x
+        console.log('lastPage', lastPage);
         return !lastPage.data.response.last
           ? lastPage.data.response.content[lastPage.data.response.numberOfElements - 1].boardId
           : undefined;
@@ -50,6 +51,7 @@ const ArticleListPage = () => {
   // 여기에 setFilteredArticles가 있는 이유는, 필터가 적용된 상태에서 추가 공고글을 불러올 경우에도 해당 필터에 대한 공고글을 렌더링 하기 위함
   useEffect(() => {
     if (data) {
+      console.log('data', data);
       const newArticles = data.pages.flatMap((page) => page.data.response.content);
       setArticles(newArticles);
       setFilteredArticles(newArticles.filter((article) => article.shopName.includes(filter)));
