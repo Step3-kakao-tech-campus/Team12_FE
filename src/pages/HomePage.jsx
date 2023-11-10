@@ -9,7 +9,7 @@ import { getLastArticles } from '@/apis/article';
 import Cards from '@/components/molecules/Cards';
 import Loader from '@/components/atoms/Loader';
 import ErrorPage from './ErrorPage';
-import home from '@/constant/home';
+import HOME from '@/constant/home';
 
 const HomePage = () => {
   const {
@@ -42,15 +42,15 @@ const HomePage = () => {
       <div className="mt-28">
         <Carousel />
       </div>
-      <div>
+      <article>
         <div className="mt-10 px-6 flex justify-between items-center">
-          <div className="text-xl text-blue">{home.lastest}</div>
+          <p className="text-xl text-blue">{HOME.LASTEST}</p>
           <Link to={routes.article}>
-            <div className="text-zinc-400">{home.more}</div>
+            <p className="text-zinc-400">{HOME.MORE}</p>
           </Link>
         </div>
-        <div className="mx-5">{isArticles(articlesData)}</div>
-      </div>
+        <section className="mx-5">{isArticles(articlesData)}</section>
+      </article>
       <Footer />
     </div>
   );
