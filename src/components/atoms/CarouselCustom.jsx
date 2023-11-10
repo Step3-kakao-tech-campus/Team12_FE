@@ -3,7 +3,7 @@ import { Carousel } from '@material-tailwind/react';
 import carousel from '@/assets/images/carousel.png';
 import carousel2 from '@/assets/images/carousel2.png';
 
-const CarouselCustomNavigation = () => {
+const CarouselCustom = () => {
   return (
     <Carousel
       autoplay={true}
@@ -33,4 +33,4 @@ const CarouselCustomNavigation = () => {
   );
 };
 
-export default CarouselCustomNavigation;
+export default CarouselCustom;
