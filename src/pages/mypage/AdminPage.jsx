@@ -27,6 +27,7 @@ const AdminPage = () => {
     data: userData,
     fetchNextPage,
     isLoading,
+    isError,
     refetch,
   } = useInfiniteQuery(['adminAuthList'], ({ pageParam = 0 }) => adminAuthList(pageParam), {
     getNextPageParam: (lastPage) => (!lastPage.isLast ? lastPage.nextPage : undefined),
