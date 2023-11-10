@@ -1,56 +1,48 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 /* width */
 ::-webkit-scrollbar {
   width: 5px;
   height: 5px;
 }
-
 /* Track */
 ::-webkit-scrollbar-track {
   background: #f1f1f1;
 }
-
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: #888;
   border-radius: 10px;
 }
-
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
-
 @font-face {
   font-family: 'Pretendard-Regular';
   src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
   font-weight: 400;
   font-style: normal;
 }
-
 @layer base {
   html {
     font-family: 'Pretendard-Regular';
     background-color: #e9e9e9;
   }
 }
-
 @layer components {
   .page--layout {
     position: absolute;
     width: 360px;
-    max-height: 800px;
+    height: 800px;
     top: 50%;
     left: 50%;
     margin-left: -180px;
-    margin-top: -360px;
+    margin-top: -400px;
     border: 1px solid #ddd;
     background-color: #fff;
     box-sizing: content-box;
     overflow: auto;
-    @apply sm:h-[720px] lg:h-[800px];
   }
 }
