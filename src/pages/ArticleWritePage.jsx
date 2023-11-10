@@ -52,7 +52,7 @@ const ArticleWritePage = () => {
         navigate(routes.article);
       },
       onError: (error) => {
-        queryClient.serQueryData([writeArticle], data);
+        console.log(queryClient.serQueryData([writeArticle], data));
         occurError(error);
       },
     });

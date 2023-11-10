@@ -16,6 +16,7 @@ const PickupArticlePage = () => {
     },
   });
 
+  console.log(articles);
   // useQuery data 디버깅용
   useEffect(() => {
     console.log(articles);

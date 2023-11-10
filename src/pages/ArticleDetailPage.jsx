@@ -18,6 +18,8 @@ const ArticleDetailPage = () => {
     },
   });
 
+  console.log(article);
+
   // useQuery data 디버깅용
   useEffect(() => {
     console.log(article);
