@@ -13,14 +13,14 @@ import home from '@/constant/home';
 
 const HomePage = () => {
   const {
-    data: articles,
+    data: articlesData,
     isLoading,
     isError,
   } = useQuery(['/articles?limit=3'], getLastArticles(), {
     select: (data) => data?.data.response.content,
   });
 
-  const isArticles = (article) => {
+  const isArticles = (articles) => {
     if (isLoading) {
       return (
         <div className="relative top-[10rem]">
@@ -33,7 +33,7 @@ const HomePage = () => {
       return <ErrorPage />;
     }
 
-    return <Cards articles={article} />;
+    return <Cards articles={articles} />;
   };
 
   return (
@@ -49,7 +49,7 @@ const HomePage = () => {
             <div className="text-zinc-400">{home.more}</div>
           </Link>
         </div>
-        <div className="mx-5">{isArticles(articles)}</div>
+        <div className="mx-5">{isArticles(articlesData)}</div>
       </div>
       <Footer />
     </div>
