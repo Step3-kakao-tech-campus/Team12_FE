@@ -1,19 +1,26 @@
 import { BsThreeDotsVertical } from 'react-icons/bs';
 import Swal from 'sweetalert2';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import OtherNav from '@components/atoms/nav/OtherNav';
 import Info from '@components/atoms/Info';
 import Location from '@components/organisms/Location';
+import { useMutation } from '@tanstack/react-query';
 import { controlArticleMessage, deleteArticleMessage, articleDeleteSuccessMessage } from '@/utils/alert';
 import routes from '@/constant/routes';
+import { deleteArticle } from '@/apis/articleDetail';
 
 const WriterNoMatchTemplate = ({ response }) => {
+  const { id } = useParams();
   const navigate = useNavigate();
+  const deleteMutation = useMutation({
+    mutationFn: deleteArticle,
+  });
 
   // 삭제 버튼 눌렀을 때
   const articleDelete = () => {
     Swal.fire(deleteArticleMessage).then((result) => {
       if (result.isConfirmed) {
+        deleteMutation.mutate(id);
         Swal.fire(articleDeleteSuccessMessage).then(navigate(routes.article));
       }
     });
