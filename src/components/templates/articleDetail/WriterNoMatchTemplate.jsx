@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { BsThreeDotsVertical } from 'react-icons/bs';
 import Swal from 'sweetalert2';
 import { useNavigate, useParams } from 'react-router-dom';

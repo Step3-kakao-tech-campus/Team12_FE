@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import Footer from '@components/atoms/Footer';
 import Nav from '@components/atoms/nav/Nav';
 import { useQuery } from '@tanstack/react-query';
+import Card from '@components/atoms/Card';
+import Carousel from '@components/atoms/CarouselCustomNavigation';
 import routes from '@/constant/routes';
 import { getLastArticles } from '@/apis/article';
 import Cards from '@/components/molecules/Cards';
@@ -17,12 +19,15 @@ const HomePage = () => {
       <Nav />
       {/* 사진 or 캐러셀 부분 */}
       <div className="mt-28">
+        <Carousel />
+      </div>
+      {/* <div className="mt-28">
         <img
           src="https://media.istockphoto.com/id/517157936/ko/%EC%82%AC%EC%A7%84/%EA%B5%BF-%EB%AA%A8%EB%8B%9D-%EC%BB%A4%ED%94%BC%EB%A5%BC-%EC%8B%9C%EC%9E%91.jpg?s=612x612&w=0&k=20&c=q9_3X3T3vqxgYi9CQ_fMFa0ZkG77tJN3pQqgzBrYYcE="
           alt="MainPage-img"
           width={360}
         />
-      </div>
+      </div> */}
       {/* 현재 픽업을 기다리고 있어요 부분 */}
       <div>
         <div className="mt-10 px-6 flex justify-between items-center">
