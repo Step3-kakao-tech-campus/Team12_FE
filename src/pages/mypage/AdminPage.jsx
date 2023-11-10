@@ -12,21 +12,21 @@ const AdminPage = () => {
   const { inView } = useInView();
 
   // msw
-  useEffect(() => {
-    fetch('/admin/auth/list')
-      .then((response) => response.json())
-      .then((data) => {
-        const userArray = data.response.user;
-        setUserInfo(userArray);
-      });
-  }, []);
+  // useEffect(() => {
+  //   fetch('/admin/auth/list')
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       const userArray = data.response.user;
+  //       setUserInfo(userArray);
+  //     });
+  // }, []);
 
   // react-query
   const { data, fetchNextPage, isLoading, refetch } = useInfiniteQuery(
     ['adminAuthList'],
-    ({ pageParam = 0 }) => adminAuthList(pageParam),
+    ({ pageParam = '' }) => adminAuthList(pageParam),
     {
-      getNextPageParam: (lastPage) => (!lastPage.isLast ? lastPage.nextPage : undefined),
+      getNextPageParam: (lastPage) => (!lastPage.isLast ? lastPage.nextPage : null),
       onSuccess: (data) => {
         console.log(data);
       },

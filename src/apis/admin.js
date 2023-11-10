@@ -9,5 +9,5 @@ export const adminAuthDetail = (id = 1) => {
 };
 
 export const adminAuthList = (offset = '') => {
-  return instance.get(`/admin/auth/list?offset=${offset}`);
+  return instance.get(`/admin/auth/list?offset=${offset}&limit=10`);
 };
