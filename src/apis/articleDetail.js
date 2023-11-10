@@ -14,7 +14,7 @@ export const articlePickerTime = (data) => {
   return instance.post('/articles/agree', { arrivalTime, boardId });
 };
 
-export const getMyPageWritenArticleDetail = (boardId) => {
+export const getMyPageWrittenArticleDetail = (boardId) => {
   return instance.get(`/mypage/requester/detail/${boardId}`);
 };
 

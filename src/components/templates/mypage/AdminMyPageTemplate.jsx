@@ -23,7 +23,7 @@ const AdminMyPageTemplate = () => {
             <PiCaretRightLight className="float-right" size={30} />
           </button>
         </div>
-        <Link to={routes.writenArticle}>
+        <Link to={routes.writtenArticle}>
           <div className="py-3 text-lg">
             <PiReadCvLogoThin className="mx-2 inline-block" size={25} />
             <div className="inline-block">작성한 공고글</div>

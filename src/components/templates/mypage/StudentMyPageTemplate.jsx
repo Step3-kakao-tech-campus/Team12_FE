@@ -8,7 +8,7 @@ const StudentMyPageTemplate = () => {
     <div>
       <div className="w-full h-1 bg-zinc-200" />
       <div className="px-5 mt-5">
-        <Link to={routes.writenArticle}>
+        <Link to={routes.writtenArticle}>
           <div className="py-3 text-lg">
             <PiReadCvLogoThin className="mx-2 inline-block" size={25} />
             <div className="inline-block">작성한 공고글</div>
