@@ -3,13 +3,15 @@ import { PiCaretRightLight } from 'react-icons/pi';
 
 const MyPageMenu = ({ to, icon, children }) => {
   return (
-    <Link to={to}>
-      <div className="py-3 text-lg">
-        {icon}
-        <div className="inline-block">{children}</div>
+    <div className="py-3 text-lg">
+      <Link to={to} className="w-full flex justify-between">
+        <div>
+          {icon}
+          <div className="inline-block">{children}</div>
+        </div>
         <PiCaretRightLight className="float-right" size={30} />
-      </div>
-    </Link>
+      </Link>
+    </div>
   );
 };
 
