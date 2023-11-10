@@ -18,8 +18,8 @@ const OrderInfoTemplate = () => {
 
   return (
     <>
-      <div className="mt-6 mb-12">
-        <Labels htmlFor={ITEM.SHOP_NAME} label={ORDER_INFO_SHOP_NAME.label} subLabel={ORDER_INFO_SHOP_NAME.subLabel} />
+      <section className="mt-6 mb-12">
+        <Labels htmlFor={ITEM.SHOP_NAME} label={ORDER_INFO_SHOP_NAME.LABEL} subLabel={ORDER_INFO_SHOP_NAME.SUB_LABEL} />
         <SelectInput
           register={register(ITEM.SHOP_NAME, {
             required: validateInputMsg.SHOP_NAME_MSG,
@@ -29,10 +29,10 @@ const OrderInfoTemplate = () => {
           className="mb-10"
         />
         <ErrorMsg errors={errors} name={ITEM.SHOP_NAME} as="p" />
-      </div>
+      </section>
 
-      <div className="mt-6">
-        <Labels htmlFor={ITEM.BEVERAGES} label={ORDER_INFO_BEVERAGE.label} subLabel={ORDER_INFO_BEVERAGE.subLabel} />
+      <section className="mt-6">
+        <Labels htmlFor={ITEM.BEVERAGES} label={ORDER_INFO_BEVERAGE.LABEL} subLabel={ORDER_INFO_BEVERAGE.SUB_LABEL} />
         <div className="flex flex-col">
           <div className="flex items-center">
             <Input
@@ -65,7 +65,7 @@ const OrderInfoTemplate = () => {
           })}
           <ErrorMsg errors={errors} name={ITEM.BEVERAGES} as="p" />
         </div>
-      </div>
+      </section>
     </>
   );
 };
