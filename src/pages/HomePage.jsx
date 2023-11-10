@@ -13,7 +13,7 @@ const HomePage = () => {
   const articles = data?.data.response.content;
 
   const isArticles = (articles) => {
-    if (!articles) {
+    if (articles.length !== 0) {
       return <Cards articles={articles} />;
     }
     return;
