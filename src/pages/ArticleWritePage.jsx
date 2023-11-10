@@ -51,6 +51,8 @@ const ArticleWritePage = () => {
         navigate('/article');
       },
       onError: (error) => {
+        console.log(error);
+        console.log(data);
         alert(alertError(error));
         console.error(error);
       },

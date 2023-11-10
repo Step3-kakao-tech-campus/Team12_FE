@@ -21,9 +21,10 @@ const KakaoOuathPage = () => {
         const { status } = response;
         if (status === 200) {
           const userInfo = response.data.response;
-          const { userAuth, AccessToken } = userInfo;
+          const { userAuth, AccessToken, nickName } = userInfo;
           localStorage.setItem('accessToken', AccessToken);
           localStorage.setItem('userAuth', userAuth);
+          localStorage.setItem('nickName', nickName);
           if (userAuth === 'GUEST') {
             navigate(routes.registerBank); // GUEST인 경우 은행 등록 페이지로 이동
           } else {
