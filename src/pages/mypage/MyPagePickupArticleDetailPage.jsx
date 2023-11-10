@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import PickerMatchTemplate from '@components/templates/articleDetail/PickerMatchTemplate';
 import { useQuery } from '@tanstack/react-query';
 import { useParams } from 'react-router-dom';
-import { getMyPagePickupArticleDetail } from '@/apis/ArticleDetail';
+import { getMyPagePickupArticleDetail } from '@/apis/articleDetail';
 
 const MyPagePickupArticleDetailPage = () => {
   // useParams + useQuery로 데이터를 받아와서
