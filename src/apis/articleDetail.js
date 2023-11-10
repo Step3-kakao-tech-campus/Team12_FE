@@ -23,5 +23,11 @@ export const getMyPagePickupArticleDetail = (boardId) => {
 };
 
 // 공고글 삭제
+export const deleteArticle = (boardId) => {
+  return instance.delete(`/articles/delete/${boardId}`);
+};
 
 // 공고글 수정
+export const modifyArticle = () => {
+  return instance.put('/articles/modify');
+};
