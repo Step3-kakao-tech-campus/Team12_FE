@@ -1,11 +1,17 @@
+/* eslint-disable */
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Footer from '@components/atoms/Footer';
 import Nav from '@components/atoms/nav/Nav';
-import Card from '@components/atoms/Card';
+import { useQuery } from '@tanstack/react-query';
 import routes from '@/constant/routes';
+import { getLastArticles } from '@/apis/article';
+import Cards from '@/components/molecules/Cards';
 
 const HomePage = () => {
+  const { data } = useQuery(['/articles?limit=3'], () => getLastArticles());
+  const articles = data?.data.response.content;
+
   return (
     <div className="page--layout">
       <Nav />
@@ -27,9 +33,7 @@ const HomePage = () => {
           </Link>
         </div>
         <div className="mx-5">
-          <Card to="/article/1" />
-          <Card to="/article/2" />
-          <Card to="/article/3" />
+          <Cards articles={articles} />
         </div>
       </div>
       <Footer />
