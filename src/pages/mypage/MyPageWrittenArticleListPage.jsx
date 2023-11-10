@@ -16,6 +16,7 @@ const WrittenArticlePage = () => {
       occurError(error);
     },
   });
+  console.log(articles);
 
   // useQuery data 디버깅용
   useEffect(() => {

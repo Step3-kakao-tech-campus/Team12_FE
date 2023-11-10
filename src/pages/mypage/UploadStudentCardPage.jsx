@@ -12,6 +12,7 @@ const CheckStudentCardPage = () => {
       occurError(error);
     },
   });
+  console.log(checking);
 
   // 학생증인증중인지 아닌지 체크
   const isCheck = (check) => {

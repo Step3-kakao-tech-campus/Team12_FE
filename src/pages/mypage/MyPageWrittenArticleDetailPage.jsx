@@ -18,6 +18,7 @@ const MyPageWrittenArticleDetailPage = () => {
     },
   });
 
+  console.log(articleData);
   // useQuery data 디버깅용
   useEffect(() => {
     console.log(articleData);
