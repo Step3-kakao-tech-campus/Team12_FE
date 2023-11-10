@@ -10,7 +10,7 @@ const MyPageWritenArticleDetailPage = () => {
   // useParams + useQuery로 데이터를 받아와서
   // data를 data?.response로 받아서 WriterMatchTemplate & WriterNoMatchTemplate으로 보내주면 됨
   const { id } = useParams();
-  const { data } = useQuery(['getMyPageWritenArticleDetail'], () => getMyPageWritenArticleDetail(id));
+  const { data } = useQuery(['getMyPageWritenArticleDetail'], getMyPageWritenArticleDetail(id));
   const articleData = data?.response;
 
   // useQuery data 디버깅용
