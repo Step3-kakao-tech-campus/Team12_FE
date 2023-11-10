@@ -11,6 +11,7 @@ import { getLastArticles } from '@/apis/article';
 import Cards from '@/components/molecules/Cards';
 import Loader from '@/components/atoms/Loader';
 import ErrorPage from './ErrorPage';
+import home from '@/constant/home';
 
 const HomePage = () => {
   const {
@@ -49,9 +50,9 @@ const HomePage = () => {
       </div>
       <div>
         <div className="mt-10 px-6 flex justify-between items-center">
-          <div className="text-xl text-blue">현재 픽업을 기다리고 있어요.</div>
+          <div className="text-xl text-blue">{home.lastest}</div>
           <Link to={routes.article}>
-            <div className="text-zinc-400">더보기</div>
+            <div className="text-zinc-400">{home.more}</div>
           </Link>
         </div>
         <div className="mx-5">{isArticles(articles)}</div>
