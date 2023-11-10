@@ -5,26 +5,34 @@ import { useQuery } from '@tanstack/react-query';
 import { useParams } from 'react-router-dom';
 import { getMyPageWrittenArticleDetail } from '@/apis/articleDetail';
 import occurError from '@/utils/occurError';
+import Loader from '@/components/atoms/Loader';
 
 const MyPageWrittenArticleDetailPage = () => {
   // 상세 페이지 API 요청을 통해 받아온 데이터
   // useParams + useQuery로 데이터를 받아와서
   // data를 data?.response로 받아서 WriterMatchTemplate & WriterNoMatchTemplate으로 보내주면 됨
   const { id } = useParams();
-  const { data: articleData } = useQuery(['getMyPageWrittenArticleDetail'], () => getMyPageWrittenArticleDetail(id), {
-    select: (data) => data?.response,
-    onError: (error) => {
-      occurError(error);
+  const { data: articleData, isLoading } = useQuery(
+    ['getMyPageWrittenArticleDetail'],
+    getMyPageWrittenArticleDetail(id),
+    {
+      select: (data) => data?.response,
+      onError: (error) => {
+        occurError(error);
+      },
     },
-  });
+  );
 
-  console.log(articleData);
   // useQuery data 디버깅용
   useEffect(() => {
     console.log(articleData);
   }, [articleData]);
 
   const showDetailPage = (article) => {
+    if (isLoading) {
+      return <Loader />;
+    }
+
     // 작성자이고 매칭됐을 때
     if (article.isMatch) {
       return <WriterMatchTemplate response={article} />;
