@@ -1,27 +1,18 @@
-/* eslint-disable */
 import { useEffect, useRef, useState } from 'react';
 import { BsUpload } from 'react-icons/bs';
 import Swal from 'sweetalert2';
 import { useMutation, useQuery } from '@tanstack/react-query';
-import { getUserAuth } from '@/apis/myPage';
 import OtherNav from '@components/atoms/nav/OtherNav';
 import Button from '@components/atoms/button/Button';
 import { useNavigate } from 'react-router-dom';
+import { getUserAuth } from '@/apis/myPage';
 import routes from '@/constant/routes';
 import uploadCard from '@/apis/uploadCard';
 import { requestCardModalMessage, successRequestCardMessage, errorRequestCardMessage } from '@/utils/alert';
 
 const CheckStudentCardPage = () => {
-  // 주석 부분은 백엔드랑 연결되면 사용
-  // const { data } = useQuery('/mypage/auth', getUserAuth);
-  // const checking = data?.data?.response;
-
-  // 샘플
-  const checking = {
-    success: true,
-    response: '미인증',
-    error: null,
-  };
+  const { data } = useQuery('/mypage/auth', getUserAuth);
+  const checking = data?.data?.response;
 
   const navigate = useNavigate();
   const didMount = useRef(false);
@@ -42,7 +33,11 @@ const CheckStudentCardPage = () => {
   const requestCardModal = () => {
     Swal.fire(requestCardModalMessage).then((result) => {
       if (result.isConfirmed && imageSrc) {
+        navigate(routes.mypage);
         Swal.fire(successRequestCardMessage).then(mutate(formData));
+      }
+      if (!imageSrc) {
+        Swal.fire(errorRequestCardMessage);
       }
     });
   };
@@ -53,6 +48,7 @@ const CheckStudentCardPage = () => {
   };
 
   // 취소, 입력완료 버튼 보일지말지
+  /* eslint-disable-next-line */
   const showButton = (pic) => {
     if (pic) {
       return (
@@ -105,6 +101,7 @@ const CheckStudentCardPage = () => {
           onChange={(e) => onUpload(e)}
           style={{ display: 'none' }}
         />
+        {/* eslint-disable-next-line */}
         <img className="mx-auto my-5 w-72 h-40" src={imageSrc} />
         {showButton(show)}
       </>
@@ -112,9 +109,9 @@ const CheckStudentCardPage = () => {
   };
 
   // 학생증인증중인지 아닌지 체크
-  const isCheck = (checking) => {
-    if (checking.response === '미인증') return uploadForm();
-    else return <div className="text-center text-xl my-10">학생증 인증 검토 중입니다.</div>;
+  const isCheck = (check) => {
+    if (check.response === '미인증') return uploadForm();
+    return <div className="text-center text-xl my-10">학생증 인증 검토 중입니다.</div>;
   };
 
   return (
