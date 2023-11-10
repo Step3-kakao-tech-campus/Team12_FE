@@ -5,28 +5,19 @@ import AuthDetail from '@components/organisms/AuthDetail';
 import Button from '@components/atoms/button/Button';
 import Swal from 'sweetalert2';
 import { REJECT, APPROVE } from '@/constant/auth';
-import { adminAuth } from '@/apis/admin';
+import { adminAuth, adminAuthReject } from '@/apis/admin';
 import routes from '@/constant/routes';
-import { authApproval, authReject } from '@/utils/alert';
+import { authApproval, authReject, authApprovalComplete, authRejectComplete } from '@/utils/alert';
 import occurError from '@/utils/occurError';
 
 const AdminAuthPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  // const [userInfo, setUserInfo] = useState([]);
   const btnWidth = 'w-[8rem]';
   const btnHeight = 'h-[2.2rem]';
 
-  // useEffect(() => {
-  //   fetch(`/admin/auth/list/${id}`)
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       setUserInfo(data.response);
-  //     });
-  // }, []);
-
   // eslint-disable-next-line
-  const { data: userDetail } = useQuery(['admin_auth_approval', id], () => adminAuth(id), {
+  const { data: userDetail } = useQuery(['admin_auth_approval', id], adminAuth(id), {
     select: (data) => data?.data?.response,
     onError: (error) => {
       occurError(error);
@@ -36,7 +27,7 @@ const AdminAuthPage = () => {
   const { mutate: handleAuth } = useMutation({
     mutationFn: adminAuth,
     onSuccess: () => {
-      navigate(routes.admin);
+      Swal.fire(authApprovalComplete).then(navigate(routes.admin));
     },
     onError: (error) => {
       occurError(error);
@@ -56,7 +47,7 @@ const AdminAuthPage = () => {
   const handleReject = () => {
     Swal.fire(authReject).then((result) => {
       if (result.isConfirmed) {
-        navigate(routes.admin);
+        adminAuthReject({ userId: id }).then(Swal.fire(authRejectComplete)).then(navigate(routes.admin));
       }
     });
   };

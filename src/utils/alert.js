@@ -160,3 +160,13 @@ export const authReject = {
   cancelButtonText: '취소',
   confirmButtonText: '확인',
 };
+export const authApprovalComplete = {
+  title: '인증 승인 처리가 완료되었습니다!',
+  icon: 'success',
+  confirmButtonText: '확인',
+};
+export const authRejectComplete = {
+  title: '인증 거절 처리가 완료되었습니다!',
+  icon: 'success',
+  confirmButtonText: '확인',
+};
