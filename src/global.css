@@ -42,14 +42,15 @@
   .page--layout {
     position: absolute;
     width: 360px;
-    height: 800px;
+    max-height: 800px;
     top: 50%;
     left: 50%;
     margin-left: -180px;
-    margin-top: -400px;
+    margin-top: -360px;
     border: 1px solid #ddd;
     background-color: #fff;
     box-sizing: content-box;
     overflow: auto;
+    @apply sm:h-[720px] lg:h-[800px];
   }
 }

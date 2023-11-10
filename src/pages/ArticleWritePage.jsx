@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useForm, FormProvider } from 'react-hook-form';
-import { useMutation } from '@tanstack/react-query';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import Swal from 'sweetalert2';
 import OtherNav from '@components/atoms/nav/OtherNav';
 import BtnNavigate from '@components/molecules/BtnNavigate';
@@ -14,7 +14,8 @@ import { ITEM } from '@/constant/writeArticle';
 import { registerMessage } from '@/utils/alert';
 import dateAndTime from '@/utils/dateAndTime';
 import writeArticle from '@/apis/articleWrite';
-import alertError from '@/constant/alertError';
+import routes from '@/constant/routes';
+import occurError from '@/utils/occurError';
 
 const ArticleWritePage = () => {
   const navigate = useNavigate();
@@ -48,13 +49,11 @@ const ArticleWritePage = () => {
     // react-query
     mutate(request, {
       onSuccess: () => {
-        navigate('/article');
+        navigate(routes.article);
       },
       onError: (error) => {
-        console.log(error);
-        console.log(data);
-        alert(alertError(error));
-        console.error(error);
+        queryClient.serQueryData([writeArticle], data);
+        occurError(error);
       },
     });
   };

@@ -5,6 +5,7 @@
   "dependencies": {
     "@craco/craco": "^7.1.0",
     "@hookform/error-message": "^2.0.1",
+    "@material-tailwind/react": "^2.1.4",
     "@tanstack/react-query": "^4.35.3",
     "@tanstack/react-query-devtools": "^4.35.3",
     "@testing-library/jest-dom": "^5.17.0",
@@ -59,5 +60,8 @@
     "msw": "^2.0.1",
     "prettier": "3.0.3",
     "tailwindcss": "^3.3.3"
+  },
+  "msw": {
+    "workerDirectory": "public"
   }
 }

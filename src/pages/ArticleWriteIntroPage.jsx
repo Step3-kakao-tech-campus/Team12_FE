@@ -7,7 +7,7 @@ import { INTRO } from '@/constant/writeArticle';
 const ArticleWriteIntroPage = () => {
   return (
     <div className="page--layout bg-sky-blue flex flex-col justify-between">
-      <OtherNav iconColor="#fff" bgColor="#000" />
+      <OtherNav iconColor="white" bgColor="black" />
       <div>
         <div className="text-white p-8">
           <div className="font-bold text-xl animate-fade-in-move-right">{INTRO.TITLE}</div>

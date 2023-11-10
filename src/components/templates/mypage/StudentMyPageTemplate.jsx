@@ -1,34 +1,25 @@
 import { CiEdit } from 'react-icons/ci';
-import { PiCaretRightLight, PiReadCvLogoThin, PiCheckSquareLight } from 'react-icons/pi';
-import { Link } from 'react-router-dom';
+import { PiReadCvLogoThin, PiCheckSquareLight } from 'react-icons/pi';
+import MyPageMenu from '@components/organisms/MyPageMenu';
 import routes from '@/constant/routes';
+import mypage from '@/constant/mypage';
 
 const StudentMyPageTemplate = () => {
+  const iconStyle = 'mx-2 inline-block';
+
   return (
-    <div>
+    <>
       <div className="w-full h-1 bg-zinc-200" />
       <div className="px-5 mt-5">
-        <Link to={routes.writenArticle}>
-          <div className="py-3 text-lg">
-            <PiReadCvLogoThin className="mx-2 inline-block" size={25} />
-            <div className="inline-block">작성한 공고글</div>
-            <PiCaretRightLight className="float-right" size={30} />
-          </div>
-        </Link>
-        <Link to={routes.pickupArticle}>
-          <div className="py-3 text-lg">
-            <PiCheckSquareLight className="mx-2 inline-block" size={25} />
-            <div className="inline-block">수락한 공고글</div>
-            <PiCaretRightLight className="float-right" size={30} />
-          </div>
-        </Link>
-        <div className="py-3 text-lg">
-          <CiEdit className="mx-2 inline-block" size={25} />
-          <div className="inline-block">개인정보 수정</div>
-          <PiCaretRightLight className="float-right" size={30} />
-        </div>
+        <MyPageMenu to={routes.writtenArticle} icon={<PiReadCvLogoThin className={iconStyle} size={25} />}>
+          {mypage.WRITTEN_ARITCLE}
+        </MyPageMenu>
+        <MyPageMenu to={routes.pickupArticle} icon={<PiCheckSquareLight className={iconStyle} size={25} />}>
+          {mypage.APPROVAL_ARTICLE}
+        </MyPageMenu>
+        <MyPageMenu icon={<CiEdit className={iconStyle} size={25} />}>{mypage.EDIT_INFO}</MyPageMenu>
       </div>
-    </div>
+    </>
   );
 };
 

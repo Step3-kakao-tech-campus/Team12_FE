@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from '@components/atoms/Card';
 
-const MyPageWritenArticleCards = ({ articles }) => {
+const MyPageWrittenArticleCards = ({ articles }) => {
   return (
     <div>
       {articles.map((article) => (
@@ -12,11 +12,11 @@ const MyPageWritenArticleCards = ({ articles }) => {
           pickupTip={article.tip}
           deadline={article.finishedAt}
           match={article.isMatch}
-          to={`/mypage/writen-article/${article.boardId}`}
+          to={`/mypage/written-article/${article.boardId}`}
         />
       ))}
     </div>
   );
 };
 
-export default MyPageWritenArticleCards;
+export default MyPageWrittenArticleCards;

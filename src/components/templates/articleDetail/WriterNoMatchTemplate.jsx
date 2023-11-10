@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { BsThreeDotsVertical } from 'react-icons/bs';
 import Swal from 'sweetalert2';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -8,12 +9,17 @@ import { useMutation } from '@tanstack/react-query';
 import { controlArticleMessage, deleteArticleMessage, articleDeleteSuccessMessage } from '@/utils/alert';
 import routes from '@/constant/routes';
 import { deleteArticle } from '@/apis/articleDetail';
+import { article } from '@/constant/article';
+import occurError from '@/utils/occurError';
 
 const WriterNoMatchTemplate = ({ response }) => {
   const { id } = useParams();
   const navigate = useNavigate();
   const deleteMutation = useMutation({
     mutationFn: deleteArticle,
+    onError: (error) => {
+      occurError(error);
+    },
   });
 
   // 삭제 버튼 눌렀을 때
@@ -30,7 +36,7 @@ const WriterNoMatchTemplate = ({ response }) => {
   const articleControl = () => {
     return Swal.fire(controlArticleMessage).then((result) => {
       if (result.isConfirmed) {
-        navigate('/article-write');
+        navigate(routes.articleWrite);
       } else if (result.isDenied) {
         articleDelete();
       }
@@ -44,7 +50,7 @@ const WriterNoMatchTemplate = ({ response }) => {
         <OtherNav iconColor="#fff" bgColor="#000" />
         <div className="px-[25px]">
           <div className="flex justify-between items-center">
-            <div className="text-white text-xl">매칭을 기다리고 있어요.</div>
+            <div className="text-white text-xl">{article.WAITING_MATCHING}</div>
             {/* eslint-disable-next-line */}
             <button onClick={articleControl}>
               <BsThreeDotsVertical size="25" style={{ color: 'white' }} />

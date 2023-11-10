@@ -11,9 +11,9 @@ import ProtectedRoute from './components/layout/ProtectedRoute';
 import MyPage from './pages/mypage/MyPage';
 import AdminPage from './pages/mypage/AdminPage';
 import AdminAuthPage from './pages/mypage/AdminAuthPage';
-import MyPageWritenArticleListPage from './pages/mypage/MyPageWritenArticleListPage';
+import MyPageWrittenArticleListPage from './pages/mypage/MyPageWrittenArticleListPage';
 import MyPagePickupArticleListPage from './pages/mypage/MyPagePickupArticleListPage';
-import MyPageWritenArticleDetailPage from './pages/mypage/MyPageWritenArticleDetailPage';
+import MyPageWrittenArticleDetailPage from './pages/mypage/MyPageWrittenArticleDetailPage';
 import MyPagePickupArticleDetailPage from './pages/mypage/MyPagePickupArticleDetailPage';
 import UploadStudentCardPage from './pages/mypage/UploadStudentCardPage';
 import ErrorPage from './pages/ErrorPage';
@@ -21,11 +21,9 @@ import routes from './constant/routes';
 
 import './global.css';
 
-const staticServerUri = process.env.REACT_APP_PATH || '';
-
 function App() {
   return (
-    <BrowserRouter basename={staticServerUri}>
+    <BrowserRouter>
       <Routes>
         <Route path={routes.home} element={<HomePage />} />
         <Route path={routes.login} element={<LoginPage />} />
@@ -46,9 +44,9 @@ function App() {
         />
         <Route path={routes.admin} element={<AdminPage />} />
         <Route path={routes.adminAuth} element={<AdminAuthPage />} />
-        <Route path={routes.writenArticle} element={<MyPageWritenArticleListPage />} />
+        <Route path={routes.writtenArticle} element={<MyPageWrittenArticleListPage />} />
         <Route path={routes.pickupArticle} element={<MyPagePickupArticleListPage />} />
-        <Route path={routes.writenArticleDetail} element={<MyPageWritenArticleDetailPage />} />
+        <Route path={routes.writtenArticleDetail} element={<MyPageWrittenArticleDetailPage />} />
         <Route path={routes.pickupArticleDetail} element={<MyPagePickupArticleDetailPage />} />
         <Route path={routes.uploadStudentCard} element={<UploadStudentCardPage />} />
         <Route path={routes.error} element={<ErrorPage />} />

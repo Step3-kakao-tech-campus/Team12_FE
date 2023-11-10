@@ -3,18 +3,23 @@ import PickerMatchTemplate from '@components/templates/articleDetail/PickerMatch
 import { useQuery } from '@tanstack/react-query';
 import { useParams } from 'react-router-dom';
 import { getMyPagePickupArticleDetail } from '@/apis/articleDetail';
+import occurError from '@/utils/occurError';
 
 const MyPagePickupArticleDetailPage = () => {
   // useParams + useQuery로 데이터를 받아와서
   // data를 data?.response로 받아서 PickerMatchTemplate으로 보내주면 됨
   const { id } = useParams();
-  const { data } = useQuery(['getMyPagePickupArticleDetail'], getMyPagePickupArticleDetail(id));
-  const articles = data?.response?.content;
+  const { data: articles } = useQuery(['getMyPagePickupArticleDetail'], () => getMyPagePickupArticleDetail(id), {
+    select: (data) => data?.response?.content,
+    onError: (error) => {
+      occurError(error);
+    },
+  });
 
   // useQuery data 디버깅용
   useEffect(() => {
-    console.log(data);
-  }, [data]);
+    console.log(articles);
+  }, [articles]);
 
   return (
     <div className="page--layout">

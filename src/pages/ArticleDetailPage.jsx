@@ -7,18 +7,22 @@ import PickerNoMatch from '@components/templates/articleDetail/PickerNoMatchTemp
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import { getArticleDetail } from '@/apis/articleDetail.js';
+import occurError from '@/utils/occurError';
 
 const ArticleDetailPage = () => {
   const { id } = useParams();
-  const { data } = useQuery([`article/${id}`], () => getArticleDetail(id));
-  const article = data?.data.response;
+  const { data: article } = useQuery([`article/${id}`], () => getArticleDetail(id), {
+    select: (data) => data?.data.response,
+    onError: () => {
+      occurError(error);
+    },
+  });
 
   // useQuery data 디버깅용
   useEffect(() => {
-    console.log(data);
-  }, [data]);
+    console.log(article);
+  }, [article]);
 
-  /* eslint no-else-return: "error" */
   const showDetailPage = (article) => {
     // 작성자이고 매칭됐을 때
     if (article.isRequester && article.isMatch) {
