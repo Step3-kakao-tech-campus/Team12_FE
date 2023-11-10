@@ -1,5 +1,5 @@
 /* eslint-disable */
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import WriterMatch from '@components/templates/articleDetail/WriterMatchTemplate';
 import WriterNoMatch from '@components/templates/articleDetail/WriterNoMatchTemplate';
 import PickerMatch from '@components/templates/articleDetail/PickerMatchTemplate';
@@ -8,17 +8,16 @@ import { useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import { getArticleDetail } from '@/apis/articleDetail.js';
 import occurError from '@/utils/occurError';
+import Loader from '@/components/atoms/Loader';
 
 const ArticleDetailPage = () => {
   const { id } = useParams();
-  const { data: article } = useQuery([`article/${id}`], () => getArticleDetail(id), {
+  const { data: article, isLoading } = useQuery([`article/${id}`], () => getArticleDetail(id), {
     select: (data) => data?.data.response,
-    onError: () => {
+    onError: (error) => {
       occurError(error);
     },
   });
-
-  console.log(article);
 
   // useQuery data 디버깅용
   useEffect(() => {
@@ -42,7 +41,7 @@ const ArticleDetailPage = () => {
 
   return (
     <div className="page--layout">
-      <div>{showDetailPage(article)}</div>
+      <div>{isLoading ? <Loader /> : showDetailPage(article)}</div>
     </div>
   );
 };
