@@ -9,7 +9,7 @@ const MyPageMenu = ({ to, icon, children }) => {
           {icon}
           <div className="inline-block">{children}</div>
         </div>
-        <PiCaretRightLight className="float-right" size={30} />
+        <PiCaretRightLight className="float-right text-gray-400" size={23} />
       </Link>
     </div>
   );
