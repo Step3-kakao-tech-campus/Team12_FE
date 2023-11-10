@@ -6,7 +6,7 @@ module.exports = {
       colors: {
         'sky-blue': '#74B4FF',
         blue: '#0075FF',
-        gray: '#8F8F8F',
+        'light-gray': '#8F8F8F',
       },
     },
     keyframes: {
