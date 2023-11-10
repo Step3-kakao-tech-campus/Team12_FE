@@ -14,6 +14,13 @@ const HomePage = () => {
   const { data } = useQuery(['/articles?limit=3'], getLastArticles());
   const articles = data?.data.response.content;
 
+  const isArticles = (articles) => {
+    if (articles.length !== 0) {
+      return <Cards articles={articles} />;
+    }
+    return;
+  };
+
   return (
     <div className="page--layout">
       <Nav />
@@ -38,7 +45,8 @@ const HomePage = () => {
           </Link>
         </div>
         <div className="mx-5">
-          <Cards articles={articles} />
+          {isArticles(articles)}
+          {/* <Cards articles={articles} /> */}
         </div>
       </div>
       <Footer />
