@@ -7,7 +7,7 @@ const Footer = () => {
       <br />
       <span className="text-zinc-400 text-xs">{FOOTER.TEAM}</span>
       <hr className="border-1 border-zinc-300" />
-      <div className="text-right text-xs m-1 text-zinc-400">{FOOTER.COPYRIGHT} &#169;</div>
+      <div className="text-right text-xs  text-zinc-400">{FOOTER.COPYRIGHT} &#169;</div>
     </div>
   );
 };
