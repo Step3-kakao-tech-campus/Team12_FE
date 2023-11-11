@@ -68,14 +68,13 @@ const AdminPage = () => {
     if (isLoading) {
       return <Loader />;
     }
-
     if (isError) {
       navigate('/errorPage');
+    } else {
+      userData.map((item) => {
+        return <AuthRequest key={item.id} user={item} />;
+      });
     }
-
-    return userData.map((item) => {
-      return <AuthRequest key={item.id} user={item} />;
-    });
   };
 
   return (
