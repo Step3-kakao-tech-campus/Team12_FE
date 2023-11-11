@@ -22,7 +22,7 @@ const KakaoOuathPage = () => {
   useEffect(() => {
     if (data) {
       console.log('data', data);
-      const status = data?.response.status;
+      const status = data?.status;
       if (status === 200) {
         const userInfo = data.data.response;
         const { userAuth, AccessToken, nickName } = userInfo;
