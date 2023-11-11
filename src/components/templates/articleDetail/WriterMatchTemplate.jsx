@@ -1,25 +1,16 @@
+/* eslint-disable */
 import OtherNav from '@components/atoms/nav/OtherNav';
 import PickUpInfo from '@components/organisms/PickUpInfo';
 import LocationInfo from '@components/organisms/LocationInfo';
 import { PICKUP } from '@/constant/article';
 import { ERROR } from '@/constant/error';
 
-const WriterMatchTemplate = ({ response }) => {
+const WriterMatchTemplate = ({ response, beverages }) => {
   if (!response) {
     return <div>{ERROR.NO_RESPONSE}</div>;
   }
-  const {
-    shopName,
-    destination,
-    finishedAt,
-    beverages,
-    tip,
-    request,
-    pickerBank,
-    pickerAccount,
-    arrivalTime,
-    pickerPhoneNumber,
-  } = response;
+  const { shopName, destination, finishedAt, tip, request, pickerBank, pickerAccount, arrivalTime, pickerPhoneNumber } =
+    response;
 
   return (
     <>
