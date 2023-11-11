@@ -65,15 +65,10 @@ const AdminPage = () => {
 
   useEffect(() => {
     if (data) {
-      console.log('data', data);
       const newUserData = data.pages.flatMap((page) => page.data.response.content);
       setUserData(newUserData);
     }
   }, [data]);
-
-  useEffect(() => {
-    console.log('userData', userData);
-  }, [userData]);
 
   const isInData = (userData) => {
     if (isLoading) {
@@ -85,7 +80,7 @@ const AdminPage = () => {
 
     return userData
       ? userData.map((item) => {
-          <AuthRequest key={item.id} user={item} />;
+          return <AuthRequest key={item.userId} user={item} />;
         })
       : ERROR.NO_USER_LIST;
   };
