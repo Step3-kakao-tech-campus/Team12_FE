@@ -22,7 +22,7 @@ const BankForm = () => {
     onSuccess: () => {
       localStorage.setItem('userAuth', 'USER');
       Swal.fire(loginSuccessMessage);
-      navigate(routes.login); // 회원가입 이후 로그인을 할 수 있도록 로그인 페이지로 이동시킴
+      navigate(routes.home); // 회원가입 이후 로그인을 할 수 있도록 로그인 페이지로 이동시킴
     },
     onError: () => {
       Swal.fire(unknownErrorMessage);
