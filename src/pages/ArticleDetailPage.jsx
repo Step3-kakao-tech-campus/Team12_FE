@@ -9,21 +9,20 @@ import { getArticleDetail } from '@/apis/articleDetail.js';
 import occurError from '@/utils/occurError';
 import Loader from '@/components/atoms/Loader';
 import { ERROR } from '@/constant/error';
-import { data } from './data';
+
 const ArticleDetailPage = () => {
-  // const { id } = useParams();
-  // const { data: article, isLoading } = useQuery([`article_detail`, id], () => getArticleDetail(id), {
-  //   select: (data) => data?.data?.response,
-  //   onError: (error) => {
-  //     occurError(error);
-  //   },
-  // });
-  const article = data.data.response;
+  const { id } = useParams();
+  const { data: article, isLoading } = useQuery([`article_detail`, id], () => getArticleDetail(id), {
+    select: (data) => data?.data?.response,
+    onError: (error) => {
+      occurError(error);
+    },
+  });
   console.log(article);
 
   const [beverages, setBeverages] = useState([]);
   useEffect(() => {
-    setBeverages(article?.beverages?.map((beverage) => beverage.name));
+    article && setBeverages(article?.beverages?.map((beverage) => beverage.name));
     delete article.beverages;
   }, [article]);
 
@@ -33,9 +32,9 @@ const ArticleDetailPage = () => {
   }, [article]);
 
   const showDetailPage = (article) => {
-    // if (isLoading) {
-    //   return <Loader />;
-    // }
+    if (isLoading) {
+      return <Loader />;
+    }
     if (!article) {
       return <div>{ERROR.NO_ARTICLE_INFO}</div>;
     }
