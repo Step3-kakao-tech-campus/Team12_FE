@@ -4,9 +4,9 @@ import OtherNav from '@components/atoms/nav/OtherNav';
 import AuthDetail from '@components/organisms/AuthDetail';
 import Button from '@components/atoms/button/Button';
 import Swal from 'sweetalert2';
-import axios from 'axios';
+// import axios from 'axios';
 import { REJECT, APPROVE } from '@/constant/auth';
-// import { adminAuthDetail, adminAuth, adminAuthReject } from '@/apis/admin';
+import { adminAuthDetail, adminAuth, adminAuthReject } from '@/apis/admin';
 import routes from '@/constant/routes';
 import { authApproval, authReject, authApprovalComplete, authRejectComplete } from '@/utils/alert';
 import occurError from '@/utils/occurError';
@@ -18,52 +18,8 @@ const AdminAuthPage = () => {
   const btnWidth = 'w-[8rem]';
   const btnHeight = 'h-[2.2rem]';
 
-  const adminAuth = () => {
-    const config = {
-      timeout: 1000,
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      withCredentials: true,
-    };
-
-    const body = {
-      userId: id,
-    };
-
-    return axios.put('api/admin/auth/approval', body, config);
-  };
-
-  const adminAuthReject = () => {
-    const config = {
-      timeout: 1000,
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      withCredentials: true,
-    };
-
-    const body = {
-      userId: id,
-    };
-
-    return axios.put('api/admin/auth/reject', body, config);
-  };
-
-  const adminAuthDetail = () => {
-    const config = {
-      timeout: 1000,
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      withCredentials: true,
-    };
-
-    return axios.get(`api/admin/auth/list/${id}`, config);
-  };
-
   // eslint-disable-next-line
-  const { data: userDetail, isLoading } = useQuery(['admin_auth_approval', id], adminAuthDetail(), {
+  const { data: userDetail, isLoading } = useQuery(['admin_auth_approval', id], adminAuthDetail(id), {
     select: (data) => data?.data?.response,
     onError: (error) => {
       occurError(error);
@@ -125,3 +81,47 @@ const AdminAuthPage = () => {
 };
 
 export default AdminAuthPage;
+
+// const adminAuth = () => {
+//   const config = {
+//     timeout: 1000,
+//     headers: {
+//       'Content-Type': 'application/json',
+//     },
+//     withCredentials: true,
+//   };
+
+//   const body = {
+//     userId: id,
+//   };
+
+//   return axios.put('api/admin/auth/approval', body, config);
+// };
+
+// const adminAuthReject = () => {
+//   const config = {
+//     timeout: 1000,
+//     headers: {
+//       'Content-Type': 'application/json',
+//     },
+//     withCredentials: true,
+//   };
+
+//   const body = {
+//     userId: id,
+//   };
+
+//   return axios.put('api/admin/auth/reject', body, config);
+// };
+
+// const adminAuthDetail = () => {
+//   const config = {
+//     timeout: 1000,
+//     headers: {
+//       'Content-Type': 'application/json',
+//     },
+//     withCredentials: true,
+//   };
+
+//   return axios.get(`api/admin/auth/list/${id}`, config);
+// };
