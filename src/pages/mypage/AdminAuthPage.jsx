@@ -59,7 +59,7 @@ const AdminAuthPage = () => {
       withCredentials: true,
     };
 
-    return axios.get(`/admin/auth/list/${id}`, config);
+    return axios.get(`api/admin/auth/list/${id}`, config);
   };
 
   // eslint-disable-next-line
