@@ -24,7 +24,7 @@ const ArticleDetailPage = () => {
   useEffect(() => {
     setBeverages(article?.beverages?.map((beverage) => beverage.name));
     delete article.beverages;
-  }, [data]);
+  }, [article]);
 
   // useQuery data 디버깅용
   useEffect(() => {
