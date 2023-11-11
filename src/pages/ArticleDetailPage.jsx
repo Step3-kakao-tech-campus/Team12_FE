@@ -1,5 +1,5 @@
 /* eslint-disable */
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import WriterMatch from '@components/templates/articleDetail/WriterMatchTemplate';
 import WriterNoMatch from '@components/templates/articleDetail/WriterNoMatchTemplate';
 import PickerMatch from '@components/templates/articleDetail/PickerMatchTemplate';
