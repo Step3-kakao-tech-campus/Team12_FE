@@ -8,7 +8,7 @@ import { articlePickupDenyMessage, articlePickupConfirmMessage, articlePickupSuc
 import occurError from '@/utils/occurError';
 import { PICKER_INPUT } from '@/constant/writeArticle';
 
-const PickerTime = ({ setPage }) => {
+const PickerTime = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const { mutate } = useMutation({
@@ -18,18 +18,15 @@ const PickerTime = ({ setPage }) => {
     },
   });
 
-  // 픽업시간
-  const [value, setValue] = useState();
+  const [value, setValue] = useState(0);
   const onChange = (e) => {
     setValue(e.target.value);
   };
 
-  // 픽업하기 눌렀다가 취소할 때
   const pickUpCancel = () => {
-    setPage(0);
+    window.location.reload();
   };
 
-  // 입력완료 버튼
   const doneWrite = () => {
     Swal.fire(articlePickupConfirmMessage).then((result) => {
       if (result.isConfirmed && value) {
@@ -48,8 +45,8 @@ const PickerTime = ({ setPage }) => {
   return (
     <div className="px-8">
       <div className="mt-12 mb-3">
-        <div className="font-bold text-blue text-xl py-2">{PICKER_INPUT.LABEL}</div>
-        <div className=" text-sm">{PICKER_INPUT.SUB_LABEL}</div>
+        <p className="font-bold text-blue text-xl py-2">{PICKER_INPUT.LABEL}</p>
+        <p className=" text-sm">{PICKER_INPUT.SUB_LABEL}</p>
       </div>
       <div className="mt-4">
         <input
@@ -61,6 +58,7 @@ const PickerTime = ({ setPage }) => {
         />
         {PICKER_INPUT.ARRIVE}
       </div>
+
       <div className="mt-72 flex justify-between">
         <Button
           onClick={pickUpCancel}
@@ -72,6 +70,7 @@ const PickerTime = ({ setPage }) => {
         >
           {PICKER_INPUT.CANCEL}
         </Button>
+
         <Button onClick={doneWrite} width="w-[136px]" height="h-9" bdRadius="rounded-md">
           {PICKER_INPUT.COMPLETE}
         </Button>
