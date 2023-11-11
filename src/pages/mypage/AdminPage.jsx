@@ -29,7 +29,7 @@ const AdminPage = () => {
       withCredentials: true,
     };
 
-    return axios.get(`/admin/auth/list?offset=${offset}&limit=10`, config);
+    return axios.get(`api/admin/auth/list?offset=${offset}&limit=10`, config);
   };
 
   const { ref, inView } = useInView({ threshold: 0.5 });
