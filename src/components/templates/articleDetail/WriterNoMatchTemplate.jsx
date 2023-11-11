@@ -11,8 +11,8 @@ import { deleteArticle } from '@/apis/articleDetail';
 import { MATCHING_STATE } from '@/constant/article';
 import occurError from '@/utils/occurError';
 
-const WriterNoMatchTemplate = ({ response }) => {
-  const { shopName, destination, finishedAt, beverages, tip, request } = response;
+const WriterNoMatchTemplate = ({ response, beverages }) => {
+  const { shopName, destination, finishedAt, tip, request } = response;
   const { id } = useParams();
   const navigate = useNavigate();
 

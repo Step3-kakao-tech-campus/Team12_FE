@@ -19,6 +19,8 @@ const ArticleDetailPage = () => {
     },
   });
 
+  const beveragesNames = article.beverages.map((beverage) => beverage.name);
+  delete article.beverages;
   console.log(article);
 
   // useQuery data 디버깅용
@@ -34,9 +36,13 @@ const ArticleDetailPage = () => {
       return <div>{ERROR.NO_ARTICLE_INFO}</div>;
     }
     if (article.isRequester) {
-      return article.isMatch ? <WriterMatch response={article} /> : <WriterNoMatch response={article} />;
+      return article.isMatch ? (
+        <WriterMatch response={article} beverages={beverageNames} />
+      ) : (
+        <WriterNoMatch response={article} beverages={beverageNames} />
+      );
     }
-    return <PickerMatch response={article} isMatch={article.isMatch} />;
+    return <PickerMatch response={article} isMatch={article.isMatch} beverages={beverageNames} />;
   };
 
   return (

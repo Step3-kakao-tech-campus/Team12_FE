@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { useState } from 'react';
 import Swal from 'sweetalert2';
 import Button from '@components/atoms/button/Button';
@@ -9,20 +10,10 @@ import PickerTime from '@components/organisms/PickerTime';
 import { pickupConfirmMessage } from '@/utils/alert';
 import { MATCHING_STATE } from '@/constant/article';
 
-const PickerMatchTemplate = ({ response, isMatch }) => {
+const PickerMatchTemplate = ({ response, isMatch, beverages }) => {
   const [page, setPage] = useState(0);
-  const {
-    shopName,
-    destination,
-    finishedAt,
-    beverages,
-    tip,
-    request,
-    pickerBank,
-    pickerAccount,
-    arrivalTime,
-    pickerPhoneNumber,
-  } = response;
+  const { shopName, destination, finishedAt, tip, request, pickerBank, pickerAccount, arrivalTime, pickerPhoneNumber } =
+    response;
 
   const pickUpBtnModal = () => {
     Swal.fire(pickupConfirmMessage).then((result) => {
