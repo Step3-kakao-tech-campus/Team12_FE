@@ -57,6 +57,10 @@ const AdminPage = () => {
     retry: false,
   });
 
+  useEffect(() => {
+    console.log('userData', userData);
+  }, [userData]);
+
   // inView가 사용자에게 보임 & hasNextPage가 true일 경우 다음 페이지를 렌더링해오도록 한다.
   useEffect(() => {
     if (inView && hasNextPage) {
@@ -68,14 +72,13 @@ const AdminPage = () => {
     if (isLoading) {
       return <Loader />;
     }
-
     if (isError) {
       navigate('/errorPage');
+    } else {
+      userData.map((item) => {
+        return <AuthRequest key={item.id} user={item} />;
+      });
     }
-
-    return userData.map((item) => {
-      return <AuthRequest key={item.id} user={item} />;
-    });
   };
 
   return (
