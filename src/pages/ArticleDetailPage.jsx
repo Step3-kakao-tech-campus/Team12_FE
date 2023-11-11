@@ -19,7 +19,7 @@ const ArticleDetailPage = () => {
     },
   });
 
-  const beveragesNames = article.beverages.map((beverage) => beverage.name);
+  const beveragesNames = article?.beverages?.map((beverage) => beverage.name);
   delete article.beverages;
   console.log(article);
 
