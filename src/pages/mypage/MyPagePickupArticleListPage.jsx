@@ -7,6 +7,7 @@ import { getPickupArticles } from '@/apis/article';
 import occurError from '@/utils/occurError';
 import MYPAGE from '@/constant/mypage';
 import Loader from '@/components/atoms/Loader';
+import { ERROR } from '@/constant/error';
 
 const PickupArticlePage = () => {
   // 픽업한 공고글 목록 조회(마이페이지) 요청
@@ -38,7 +39,7 @@ const PickupArticlePage = () => {
       navigate('/errorPage');
     }
 
-    return <MyPagePickupArticleCards articles={articles} />;
+    return articles ? <MyPagePickupArticleCards articles={articles} /> : ERROR.NO_APPROVAL_ARTICLE;
   };
 
   return (

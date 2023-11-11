@@ -50,7 +50,7 @@ const UploadForm = () => {
         onChange={(e) => onUpload(e)}
         style={{ display: 'none' }}
       />
-      <img className="mx-auto my-5 w-72 h-40" src={imageSrc} alt="student-card" />
+      {imageSrc && <img className="mx-auto my-5 w-72 h-40" src={imageSrc} alt="student-card" />}
       {show && <StudentMyPageBtn isUploadImg={!!imageSrc} formData={formData} />}
     </>
   );
