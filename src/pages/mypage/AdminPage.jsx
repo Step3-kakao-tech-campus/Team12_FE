@@ -19,6 +19,18 @@ const AdminPage = () => {
   //     });
   // }, []);
 
+  const adminAuthList = (offset = '') => {
+    const config = {
+      timeout: 1000,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      withCredentials: true,
+    };
+
+    return instance.get(`/admin/auth/list?offset=${offset}&limit=10`, config);
+  };
+
   const { ref, inView } = useInView({ threshold: 0.5 });
 
   // react-query
