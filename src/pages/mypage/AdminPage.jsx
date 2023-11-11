@@ -9,6 +9,7 @@ import occurError from '@/utils/occurError';
 import Loader from '@components/atoms/Loader';
 // import axios from 'axios';
 import { STUDENT } from '@/constant/auth';
+import { useState } from 'react';
 
 const AdminPage = () => {
   // msw

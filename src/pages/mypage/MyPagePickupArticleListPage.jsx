@@ -39,6 +39,10 @@ const PickupArticlePage = () => {
       navigate('/errorPage');
     }
 
+    if (!articlesData) {
+      <div className="text-center">픽업한 공고글이 없습니다.</div>;
+    }
+
     return articles ? <MyPagePickupArticleCards articles={articles} /> : ERROR.NO_APPROVAL_ARTICLE;
   };
 

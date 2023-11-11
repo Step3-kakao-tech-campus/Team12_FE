@@ -12,7 +12,7 @@ const StudentMyPageTemplate = () => {
       <div className="w-full h-1 bg-zinc-200" />
       <div className="px-5 mt-5">
         <MyPageMenu to={routes.writtenArticle} icon={<PiReadCvLogoThin className={iconStyle} size={SIZE} />}>
-          {MYPAGE.WRITTEN_ARITCLE}
+          {MYPAGE.WRITTEN_ARTICLE}
         </MyPageMenu>
         <MyPageMenu to={routes.pickupArticle} icon={<PiCheckSquareLight className={iconStyle} size={SIZE} />}>
           {MYPAGE.APPROVAL_ARTICLE}
