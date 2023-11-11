@@ -5,6 +5,7 @@ import AuthDetail from '@components/organisms/AuthDetail';
 import Button from '@components/atoms/button/Button';
 import Swal from 'sweetalert2';
 // import axios from 'axios';
+import { useEffect } from 'react';
 import { REJECT, APPROVE } from '@/constant/auth';
 import { adminAuthDetail, adminAuth, adminAuthReject } from '@/apis/admin';
 import routes from '@/constant/routes';
@@ -53,6 +54,10 @@ const AdminAuthPage = () => {
       }
     });
   };
+
+  useEffect(() => {
+    console.log('userDetail : ', userDetail);
+  }, [userDetail]);
 
   return (
     <div className="page--layout flex flex-col justify-between">
