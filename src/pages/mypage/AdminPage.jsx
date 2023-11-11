@@ -7,6 +7,7 @@ import { useInView } from 'react-intersection-observer';
 import { useInfiniteQuery } from '@tanstack/react-query';
 import occurError from '@/utils/occurError';
 import Loader from '@components/atoms/Loader';
+import axios from 'axios';
 
 const AdminPage = () => {
   // msw
@@ -28,7 +29,7 @@ const AdminPage = () => {
       withCredentials: true,
     };
 
-    return instance.get(`/admin/auth/list?offset=${offset}&limit=10`, config);
+    return axios.get(`/admin/auth/list?offset=${offset}&limit=10`, config);
   };
 
   const { ref, inView } = useInView({ threshold: 0.5 });
