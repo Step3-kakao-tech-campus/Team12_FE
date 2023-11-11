@@ -33,7 +33,7 @@ const uploadCard = (imageData) => {
     value: imageData,
   };
   console.log(formData);
-  return imageInstance.post('/mypage/image/url', formData);
+  return imageInstance.put('/mypage/image/url', formData);
 };
 
 export default uploadCard;
