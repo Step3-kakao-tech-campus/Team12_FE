@@ -8,7 +8,7 @@ import occurError from '@/utils/occurError';
 
 const CheckStudentCardPage = () => {
   const { data: checking, isLoading } = useQuery(['/mypage/auth'], getUserAuth, {
-    select: (data) => data,
+    select: (data) => data?.data?.response,
     onError: (error) => {
       occurError(error);
     },
@@ -16,9 +16,9 @@ const CheckStudentCardPage = () => {
   console.log(checking);
 
   if (isLoading) return <Loader />;
-  // 학생증인증중인지 아닌지 체크
+
   const isCheck = (check) => {
-    if (check.message === USER_LEVEL.NOT_CERTIFIED) return <UploadForm />;
+    if (check === USER_LEVEL.NOT_CERTIFIED) return <UploadForm />;
     return <div className="text-center text-xl my-10">{STUDENT.IN_PROGRESS}</div>;
   };
 

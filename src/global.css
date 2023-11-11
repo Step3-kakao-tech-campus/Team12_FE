@@ -35,7 +35,7 @@
   .page--layout {
     position: absolute;
     width: 360px;
-    min-height: 99vh;
+    min-height: 760px;
     max-height: 800px;
     top: 50%;
     left: 50%;
@@ -44,6 +44,6 @@
     background-color: #fff;
     box-sizing: content-box;
     overflow: auto;
-    @apply sm:h-[700px];
+    @apply sm:h-[700px] lg:h-[800px];
   }
 }

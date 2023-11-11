@@ -69,7 +69,7 @@ instance.interceptors.response.use(
         text: error.data.error.message,
         confirmButtonText: '확인',
       }).then(() => {
-        window.location.href = '/errorPage';
+        // window.location.href = '/errorPage';
       });
       return Promise.reject(error);
     }
