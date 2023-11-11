@@ -28,8 +28,12 @@ imageInstance.interceptors.response.use(
 );
 
 const uploadCard = (imageData) => {
-  console.log(imageData);
-  return imageInstance.put('/mypage/image/url', imageData);
+  const formData = {
+    key: 'image',
+    value: imageData,
+  };
+  console.log(formData);
+  return imageInstance.put('/mypage/image/url', formData);
 };
 
 export default uploadCard;
