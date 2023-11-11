@@ -12,11 +12,14 @@ import Loader from '@/components/atoms/Loader';
 const ArticleDetailPage = () => {
   const { id } = useParams();
   const { data: article, isLoading } = useQuery([`article_detail`, id], () => getArticleDetail(id), {
-    select: (data) => data?.data.response,
+    select: (data) => data?.data?.response,
     onError: (error) => {
       occurError(error);
     },
   });
+
+  console.log(data);
+  console.log(data?.data?.response);
 
   // useQuery data 디버깅용
   useEffect(() => {
