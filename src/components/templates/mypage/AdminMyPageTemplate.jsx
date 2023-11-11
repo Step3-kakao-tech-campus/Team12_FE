@@ -16,7 +16,7 @@ const AdminMyPageTemplate = () => {
           {MYPAGE.ADMIN}
         </MyPageMenu>
         <MyPageMenu to={routes.writtenArticle} icon={<PiReadCvLogoThin className={iconStyle} size={25} />}>
-          {MYPAGE.WRITTEN_ARITCLE}
+          {MYPAGE.WRITTEN_ARTICLE}
         </MyPageMenu>
         <MyPageMenu to={routes.pickupArticle} icon={<PiCheckSquareLight className={iconStyle} size={25} />}>
           {MYPAGE.APPROVAL_ARTICLE}
