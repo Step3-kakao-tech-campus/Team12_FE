@@ -11,19 +11,21 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="page--layout">
+    <div className="page--layout flex flex-col justify-between">
       <LoginNav />
-      <section className="grid mt-[80px]">
+      <section className="grid">
         <div className="text-blue text-xl ml-[30px]">
           <p className="animate-fade-in-move-right">{INFO.FIRST_MSG}</p>
           <p className="opacity-0 animate-fade-in-move-right-delayed">{INFO.SECOND_MSG}</p>
         </div>
-        <img
-          onClick={loginHandler}
-          src={loginIcon}
-          alt={INFO.KAKAO}
-          className="justify-self-center mt-[500px] cursor-pointer"
-        />
+        <div className="flex justify-center mb-14">
+          <img
+            onClick={loginHandler}
+            src={loginIcon}
+            alt={INFO.KAKAO}
+            className="justify-self-center mt-[500px] cursor-pointer"
+          />
+        </div>
       </section>
     </div>
   );
