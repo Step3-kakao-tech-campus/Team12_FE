@@ -10,19 +10,19 @@ const axiosConfig = {
 
 // 크램폴린 환경에서 경로가 잘못 설정되어 요청되어 다음 로직으로 바꿔서 적용
 export const adminAuth = () => {
-  return axios.put('/admin/auth/approval', {}, axiosConfig);
+  return axios.put('api/admin/auth/approval', {}, axiosConfig);
 };
 
 export const adminAuthReject = () => {
-  return axios.put('/admin/auth/reject', {}, axiosConfig);
+  return axios.put('api/admin/auth/reject', {}, axiosConfig);
 };
 
 export const adminAuthDetail = (id = 1) => {
-  return axios.get(`/admin/auth/list/${id}`, axiosConfig);
+  return axios.get(`api/admin/auth/list/${id}`, axiosConfig);
 };
 
 export const adminAuthList = (offset = '') => {
-  return axios.get(`/admin/auth/list?offset=${offset}&limit=10`, axiosConfig);
+  return axios.get(`api/admin/auth/list?offset=${offset}&limit=10`, axiosConfig);
 };
 
 // import { instance } from './index';
