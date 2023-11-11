@@ -22,7 +22,7 @@ const ArticleDetailPage = () => {
 
   const [beverages, setBeverages] = useState([]);
   useEffect(() => {
-    setBeverages(article?.beverages?.map((beverage) => beverage.name));
+    article && setBeverages(article?.beverages?.map((beverage) => beverage.name));
     delete article.beverages;
   }, [article]);
 
@@ -40,12 +40,12 @@ const ArticleDetailPage = () => {
     }
     if (article.isRequester) {
       return article.isMatch ? (
-        <WriterMatch response={article} beverages={beverageNames} />
+        <WriterMatch response={article} beverages={beverages} />
       ) : (
-        <WriterNoMatch response={article} beverages={beverageNames} />
+        <WriterNoMatch response={article} beverages={beverages} />
       );
     }
-    return <PickerMatch response={article} isMatch={article.isMatch} beverages={beverageNames} />;
+    return <PickerMatch response={article} isMatch={article.isMatch} beverages={beverages} />;
   };
 
   return (
