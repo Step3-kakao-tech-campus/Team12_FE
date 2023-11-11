@@ -11,4 +11,5 @@ export const ERROR = {
   GO_HOME: '픽업셔틀 홈으로 돌아가기',
   NO_APPROVAL_ARTICLE: '수락한 공고글이 없습니다.🥲',
   NO_WRITTEN_ARTICLE: '작성한 공고글이 없습니다.🥲',
+  NO_USER_LIST: '요청한 유저 인증이 없습니다.🥲',
 };
