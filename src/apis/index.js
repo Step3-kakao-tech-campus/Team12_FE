@@ -33,6 +33,19 @@ instance.interceptors.response.use(
     return response;
   },
   (error) => {
+    // 302 error 처리 - 로그인 페이지로 이동시켜서 재로그인 시킴(로그인 정보 만료로 데이터 못받음)
+    if (error.data.error.status === 302) {
+      Swal.fire({
+        icon: 'error',
+        title: '로그인을 진행해주세요!',
+        text: error.data.error.message,
+        confirmButtonText: '확인',
+      })
+        .then(localStorage.clear())
+        .then(() => {
+          window.location.href = 'login';
+        });
+    }
     // 401 error : 인증되지 않음 - 로그인 화면으로 이동
     // token은 백엔드에서 유효하지 않다면 401(Unauthorized) Http code를 보내주기에, 로그인하도록 처리
     if (error.data.error.status === 401) {
