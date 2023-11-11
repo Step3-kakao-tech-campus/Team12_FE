@@ -19,7 +19,9 @@ const ErrorPage = () => {
         <p className="text-xs text-gray-500 mt-1 mb-2 whitespace-pre">{ERROR.DESCRIPTION}</p>
         <Button onClick={goMain}>{ERROR.GO_HOME}</Button>
       </div>
-      <Loader />
+      <div className="relative top-[10rem]">
+        <Loader />
+      </div>
       <Footer />
     </div>
   );
