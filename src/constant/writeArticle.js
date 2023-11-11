@@ -48,3 +48,11 @@ export const DEAD_LINE = {
   HOUR: '시',
   UNTIL_MINUTE: '분까지',
 };
+
+export const PICKER_INPUT = {
+  LABEL: '예상 도착 시간은 언제인가요?',
+  SUB_LABEL: '오더의 장소에 도착할 시간을 알려주세요.',
+  ARRIVE: '분 후 도착',
+  CANCEL: '취소',
+  COMPLETE: '입력완료',
+};

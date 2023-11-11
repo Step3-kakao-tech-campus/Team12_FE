@@ -3,7 +3,7 @@ import { Carousel } from '@material-tailwind/react';
 import carousel from '@/assets/images/carousel.png';
 import carousel2 from '@/assets/images/carousel2.png';
 
-const CarouselCustomNavigation = () => {
+const CarouselCustom = () => {
   return (
     <Carousel
       autoplay={true}
@@ -15,7 +15,7 @@ const CarouselCustomNavigation = () => {
             <span
               key={i}
               className={`block h-1 cursor-pointer rounded-2xl transition-all content-[''] ${
-                activeIndex === i ? 'w-8 bg-blue' : 'w-4 bg-white'
+                activeIndex === i ? 'w-8 bg-blue' : 'w-4 bg-zinc-100'
               }`}
               onClick={() => setActiveIndex(i)}
             />
@@ -33,4 +33,4 @@ const CarouselCustomNavigation = () => {
   );
 };
 
-export default CarouselCustomNavigation;
+export default CarouselCustom;

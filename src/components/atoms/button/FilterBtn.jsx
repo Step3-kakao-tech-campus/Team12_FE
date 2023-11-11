@@ -17,7 +17,7 @@ const FilterBtn = ({
       type={type}
       onClick={onClick}
       disabled={disabled}
-      className={`${width} ${height} ${textColor} ${bdRadius} ${margin} ${filter ? 'bg-blue' : 'bg-[#8F8F8F]'}`}
+      className={`${width} ${height} ${textColor} ${bdRadius} ${margin} ${filter ? 'bg-blue' : 'bg-light-gray'}`}
     >
       {children}
     </button>

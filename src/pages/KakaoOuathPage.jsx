@@ -5,7 +5,7 @@ import Loader from '@components/atoms/Loader';
 import axios from 'axios';
 import routes from '@/constant/routes';
 import { loginSuccessMessage, unknownErrorMessage } from '@/utils/alert';
-import { LOGIN } from '@/constant/auth';
+import { WAITING_LOGIN } from '@/constant/auth';
 
 // 리다이렉팅 처리 화면
 const KakaoOuathPage = () => {
@@ -44,7 +44,7 @@ const KakaoOuathPage = () => {
 
   return (
     <div className="page--layout">
-      <p className="text-blue text-xl ml-[30px] mt-[200px] whitespace-pre">{LOGIN}</p>
+      <p className="text-blue text-xl ml-[30px] mt-[200px] whitespace-pre">{WAITING_LOGIN}</p>
       <Loader />
     </div>
   );

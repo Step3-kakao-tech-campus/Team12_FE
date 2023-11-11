@@ -20,7 +20,7 @@ const OrderDeadLineTemplate = () => {
           name={ITEM.HOUR}
           register={register(ITEM.HOUR, {
             required: validateInputMsg.HOUR_MSG,
-            validate: (value) => (value >= 0 && value <= 24 ? true : validateInputMsg.HOUR_MSG),
+            validate: (value) => (value >= 0 && value <= 23 ? true : validateInputMsg.HOUR_MSG),
           })}
           type="number"
           width="w-[6rem]"

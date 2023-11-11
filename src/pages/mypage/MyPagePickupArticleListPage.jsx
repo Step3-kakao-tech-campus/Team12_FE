@@ -4,6 +4,7 @@ import MyPagePickupArticleCards from '@components/molecules/MyPagePickupArticleC
 import { useQuery } from '@tanstack/react-query';
 import { getPickupArticles } from '@/apis/article';
 import occurError from '@/utils/occurError';
+import MYPAGE from '@/constant/mypage';
 import Loader from '@/components/atoms/Loader';
 
 const PickupArticlePage = () => {
@@ -26,7 +27,7 @@ const PickupArticlePage = () => {
   return (
     <div className="page--layout">
       <OtherNav />
-      <div className="text-center text-xl text-blue my-6">수락한 공고글</div>
+      <div className="text-center text-xl text-blue my-6">{MYPAGE.APPROVAL_ARTICLE}</div>
       <div className="h-[600px] overflow-y-auto overflow-x-hidden">
         {isLoading ? <Loader /> : <MyPagePickupArticleCards articles={articles} />}
       </div>

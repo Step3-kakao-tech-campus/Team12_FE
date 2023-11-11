@@ -1,11 +1,11 @@
 import Button from '@components/atoms/button/Button';
 
-const CircleBtn = ({ num, children, active }) => {
+const CircleBtn = ({ num, children, active, key }) => {
   const bgColor = active ? 'bg-blue' : 'bg-gray-400';
   const textColor = active ? 'text-blue' : 'text-gray-400';
 
   return (
-    <div className="flex flex-col items-center z-10">
+    <div className="flex flex-col items-center z-10" key={key}>
       <Button bgColor={bgColor} width="w-8" bdRadius="rounded-full">
         {num}
       </Button>

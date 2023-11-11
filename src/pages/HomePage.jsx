@@ -3,12 +3,12 @@ import { Link, useNavigate } from 'react-router-dom';
 import Footer from '@components/atoms/Footer';
 import Nav from '@components/atoms/nav/Nav';
 import { useQuery } from '@tanstack/react-query';
-import Carousel from '@components/atoms/CarouselCustomNavigation';
+import Carousel from '@components/atoms/CarouselCustom';
 import routes from '@/constant/routes';
 import { getLastArticles } from '@/apis/article';
 import Cards from '@/components/molecules/Cards';
 import Loader from '@/components/atoms/Loader';
-import HOME from '@/constant/home';
+import { HOME } from '@/constant/home';
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -44,9 +44,9 @@ const HomePage = () => {
       </div>
       <article>
         <div className="mt-10 px-6 flex justify-between items-center">
-          <p className="text-xl text-blue">{HOME.LASTEST}</p>
+          <p className="text-lg text-blue">{HOME.LASTEST}</p>
           <Link to={routes.article}>
-            <p className="text-zinc-400">{HOME.MORE}</p>
+            <p className="text-sm text-zinc-400">{HOME.MORE}</p>
           </Link>
         </div>
         <section className="mx-5">{isArticles(articlesData)}</section>

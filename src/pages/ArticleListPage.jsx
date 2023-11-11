@@ -8,6 +8,7 @@ import FilterForm from '@components/molecules/FilterForm';
 import routes from '@/constant/routes';
 import { getArticles } from '@/apis/article';
 import WriteArticleIcon from '@/assets/images/writeArticle.png';
+import { HOME } from '@/constant/home';
 
 const ArticleListPage = () => {
   const navigate = useNavigate();
@@ -80,13 +81,13 @@ const ArticleListPage = () => {
   return (
     <div className="page--layout">
       <OtherNav />
-      <div className="text-center text-blue text-xl">공고 현황</div>
+      <div className="text-center text-blue text-xl">{HOME.ARTICLE}</div>
       <FilterForm getFilter={getFilter} />
       <div className="h-[550px] overflow-y-auto overflow-x-hidden scrollbar-hide">
         <Cards articles={filteredArticles} />
         <div ref={ref} className="w-[100%] h-[10px]" />
       </div>
-      <div className="flex flex-row-reverse h-[84px] items-center px-[22px]">
+      <div className="fixed bottom-6 right-6">
         <img
           className="cursor-pointer transition-transform duration-1000 ease-in-out transform hover:scale-110"
           onClick={goWriteArticle}
