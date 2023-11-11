@@ -35,14 +35,15 @@
   .page--layout {
     position: absolute;
     width: 360px;
-    height: 800px;
+    min-height: 100vh;
+    max-height: 800px;
     top: 50%;
     left: 50%;
-    margin-left: -180px;
-    margin-top: -320px;
+    transform: translate(-50%, -50%);
     border: 1px solid #ddd;
     background-color: #fff;
     box-sizing: content-box;
     overflow: auto;
+    @apply sm:h-[700px];
   }
 }
