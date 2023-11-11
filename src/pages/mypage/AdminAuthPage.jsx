@@ -20,12 +20,18 @@ const AdminAuthPage = () => {
   const btnHeight = 'h-[2.2rem]';
 
   // eslint-disable-next-line
-  const { data: userDetail, isLoading } = useQuery(['admin_auth_approval', id], adminAuthDetail(id), {
+  const { data: userDetail, isLoading } = useQuery([`/admin/auth/list/${id}`], adminAuthDetail(id), {
     select: (data) => data?.data?.response,
     onError: (error) => {
       occurError(error);
     },
   });
+  // const { data: userDetail, isLoading } = useQuery(['admin_auth_approval', id], adminAuthDetail(id), {
+  //   select: (data) => data?.data?.response,
+  //   onError: (error) => {
+  //     occurError(error);
+  //   },
+  // });
 
   const { mutate: handleAuth } = useMutation({
     mutationFn: adminAuth,
