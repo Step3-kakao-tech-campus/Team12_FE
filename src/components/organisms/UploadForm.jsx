@@ -13,7 +13,9 @@ const UploadForm = () => {
   useEffect(() => {
     if (didMount.current) setShow(true);
     else didMount.current = true;
-  }, [imageSrc]);
+    console.log('imageSrc : ', imageSrc);
+    console.log('formDataRef : ', formDataRef);
+  }, [imageSrc, formDataRef]);
 
   const onUpload = (e) => {
     const file = e.target.files[0];
