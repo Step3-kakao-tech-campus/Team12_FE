@@ -82,7 +82,7 @@ function App() {
           }
         />
         <Route
-          path={routes.writenArticle}
+          path={routes.writtenArticle}
           element={
             <ProtectedRoute requiredAuth={['STUDENT', 'ADMIN']}>
               <MyPageWrittenArticleListPage />

@@ -68,9 +68,12 @@ const AdminPage = () => {
       console.log('data', data);
       const newUserData = data.pages.flatMap((page) => page.data.response.content);
       setUserData(newUserData);
-      console.log(userData);
     }
   }, [data]);
+
+  useEffect(() => {
+    console.log('userData', userData);
+  }, [userData]);
 
   const isInData = (userData) => {
     if (isLoading) {
