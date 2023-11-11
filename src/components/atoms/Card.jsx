@@ -2,7 +2,8 @@ import { BsArrowDown } from 'react-icons/bs';
 import { MdOutlineLocationOn, MdLocationPin } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 import comma from '@/utils/comma';
-import getDeadlineDate from '@/utils/date';
+import { getDeadlineDate } from '@/utils/date';
+import { MATCHING_STATE } from '@/constant/article';
 
 // to : 해당 공고글의 링크로 이동
 const Card = ({
@@ -45,7 +46,7 @@ const Card = ({
         </div>
         {match ? (
           <div className="text-[#fff] absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] font-medium">
-            매칭완료
+            {MATCHING_STATE.COMPLETE_MATCHING}
           </div>
         ) : (
           ''

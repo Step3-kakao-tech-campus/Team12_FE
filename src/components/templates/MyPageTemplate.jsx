@@ -47,7 +47,7 @@ const MyPageTemplate = () => {
   return (
     <div className="page--layout">
       <OtherNav />
-      <div className="h-24 p-5">
+      <div className="h-24 p-5 mx-2">
         <div className="flex justify-between text-xl font-bold">
           {nickName}
           <Button
