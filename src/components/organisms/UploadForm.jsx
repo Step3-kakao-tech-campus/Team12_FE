@@ -4,7 +4,7 @@ import StudentMyPageBtn from '@components/molecules/StudentMyPageBtn';
 import { STUDENT } from '@/constant/auth';
 
 const UploadForm = () => {
-  const formData = new FormData();
+  const formDataRef = useRef(new FormData());
   const [imageSrc, setImageSrc] = useState(null);
   const [show, setShow] = useState(false);
   const didMount = useRef(false);
@@ -20,7 +20,9 @@ const UploadForm = () => {
     const reader = new FileReader();
     reader.readAsDataURL(file);
 
-    formData.append('file', file);
+    formDataRef.current = new FormData(); // 새로운 파일이 업로드되면 새로운 FormData로 초기화
+
+    formDataRef.current.append('file', file);
 
     return new Promise((resolve) => {
       reader.onload = () => {
@@ -51,7 +53,7 @@ const UploadForm = () => {
         style={{ display: 'none' }}
       />
       {imageSrc && <img className="mx-auto my-5 w-72 h-40" src={imageSrc} alt="student-card" />}
-      {show && <StudentMyPageBtn isUploadImg={!!imageSrc} formData={formData} />}
+      {show && <StudentMyPageBtn formData={formDataRef.current} />}
     </>
   );
 };

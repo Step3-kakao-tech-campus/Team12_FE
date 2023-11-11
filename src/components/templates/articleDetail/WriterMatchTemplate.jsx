@@ -2,8 +2,12 @@ import OtherNav from '@components/atoms/nav/OtherNav';
 import PickUpInfo from '@components/organisms/PickUpInfo';
 import LocationInfo from '@components/organisms/LocationInfo';
 import { PICKUP } from '@/constant/article';
+import { ERROR } from '@/constant/error';
 
 const WriterMatchTemplate = ({ response }) => {
+  if (!response) {
+    return <div>{ERROR.NO_RESPONSE}</div>;
+  }
   const {
     shopName,
     destination,
