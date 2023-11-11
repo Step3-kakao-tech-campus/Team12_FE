@@ -14,7 +14,10 @@ const UploadForm = () => {
     if (didMount.current) setShow(true);
     else didMount.current = true;
     console.log('imageSrc : ', imageSrc);
-    console.log('formDataRef : ', formDataRef);
+    /* eslint-disable-next-line */
+    for (let value of formDataRef.values()) {
+      console.log('formDataRef : ', value);
+    }
   }, [imageSrc, formDataRef]);
 
   const onUpload = (e) => {
