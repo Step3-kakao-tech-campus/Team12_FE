@@ -9,6 +9,8 @@ import occurError from '@/utils/occurError';
 import Loader from '@components/atoms/Loader';
 // import axios from 'axios';
 import { STUDENT } from '@/constant/auth';
+import { useState } from 'react';
+import { ERROR } from '@/constant/error';
 
 const AdminPage = () => {
   // msw
@@ -66,21 +68,24 @@ const AdminPage = () => {
       console.log('data', data);
       const newUserData = data.pages.flatMap((page) => page.data.response.content);
       setUserData(newUserData);
+      console.log(userData);
     }
   }, [data]);
 
-  // const isInData = (userData) => {
-  //   if (isLoading) {
-  //     return <Loader />;
-  //   }
-  //   if (isError) {
-  //     navigate('/errorPage');
-  //   } else {
-  //     userData.map((item) => {
-  //       return <AuthRequest key={item.id} user={item} />;
-  //     });
-  //   }
-  // };
+  const isInData = (userData) => {
+    if (isLoading) {
+      return <Loader />;
+    }
+    if (isError) {
+      navigate('/errorPage');
+    }
+
+    return userData
+      ? userData.map((item) => {
+          <AuthRequest key={item.id} user={item} />;
+        })
+      : ERROR.NO_USER_LIST;
+  };
 
   return (
     <div className="page--layout">
@@ -88,8 +93,8 @@ const AdminPage = () => {
       <div className="pt-[25px] p-[35px]">
         <div className="text-center text-xl text-blue mb-10">{STUDENT.REQUEST_AUTH}</div>
         <div className="h-[550px] overflow-y-auto overflow-x-hidden scrollbar-hide">
-          {/* {isInData(userData)} */}
-          <AuthRequest user={userData} />
+          {isInData(userData)}
+          {/* <AuthRequest user={userData} /> */}
           <div ref={ref} className="w-[100%] h-[10px]" />
         </div>
       </div>
