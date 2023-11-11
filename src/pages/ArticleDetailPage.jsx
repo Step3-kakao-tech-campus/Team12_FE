@@ -9,15 +9,16 @@ import { getArticleDetail } from '@/apis/articleDetail.js';
 import occurError from '@/utils/occurError';
 import Loader from '@/components/atoms/Loader';
 import { ERROR } from '@/constant/error';
-
+import { data } from './data';
 const ArticleDetailPage = () => {
-  const { id } = useParams();
-  const { data: article, isLoading } = useQuery([`article_detail`, id], () => getArticleDetail(id), {
-    select: (data) => data?.data?.response,
-    onError: (error) => {
-      occurError(error);
-    },
-  });
+  // const { id } = useParams();
+  // const { data: article, isLoading } = useQuery([`article_detail`, id], () => getArticleDetail(id), {
+  //   select: (data) => data?.data?.response,
+  //   onError: (error) => {
+  //     occurError(error);
+  //   },
+  // });
+  const article = data.data.response;
   console.log(article);
 
   const [beverages, setBeverages] = useState([]);
@@ -32,20 +33,20 @@ const ArticleDetailPage = () => {
   }, [article]);
 
   const showDetailPage = (article) => {
-    if (isLoading) {
-      return <Loader />;
-    }
+    // if (isLoading) {
+    //   return <Loader />;
+    // }
     if (!article) {
       return <div>{ERROR.NO_ARTICLE_INFO}</div>;
     }
     if (article.isRequester) {
       return article.isMatch ? (
-        <WriterMatch response={article} beverages={beverageNames} />
+        <WriterMatch response={article} beverages={beverages} />
       ) : (
-        <WriterNoMatch response={article} beverages={beverageNames} />
+        <WriterNoMatch response={article} beverages={beverages} />
       );
     }
-    return <PickerMatch response={article} isMatch={article.isMatch} beverages={beverageNames} />;
+    return <PickerMatch response={article} isMatch={article.isMatch} beverages={beverages} />;
   };
 
   return (

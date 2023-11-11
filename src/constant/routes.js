@@ -4,7 +4,7 @@ const routes = {
   loginKakao: '/login/callback',
   registerBank: '/register/bank',
   article: '/article',
-  detailArticle: '/article/:id',
+  detailArticle: '/article/1',
   articleWriteIntro: '/article-write-intro',
   articleWrite: '/article-write',
   mypage: '/mypage',

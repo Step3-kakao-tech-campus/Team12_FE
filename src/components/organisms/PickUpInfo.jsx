@@ -19,7 +19,7 @@ const PickUpInfo = ({
   return (
     <div className="px-8 pt-6">
       <article>
-        <p className={TITLE}>{ARTICLE.PICKUPINFO}</p>
+        <p className={TITLE}>{ARTICLE.INFO}</p>
         <div>
           {beverages.map((name) => {
             return <p key={name.id}>{name}</p>;
