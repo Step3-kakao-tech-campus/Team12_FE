@@ -11,9 +11,9 @@ import ProtectedRoute from './components/layout/ProtectedRoute';
 import MyPage from './pages/mypage/MyPage';
 import AdminPage from './pages/mypage/AdminPage';
 import AdminAuthPage from './pages/mypage/AdminAuthPage';
-import MyPageWritenArticleListPage from './pages/mypage/MyPageWritenArticleListPage';
+import MyPageWrittenArticleListPage from './pages/mypage/MyPageWrittenArticleListPage';
 import MyPagePickupArticleListPage from './pages/mypage/MyPagePickupArticleListPage';
-import MyPageWritenArticleDetailPage from './pages/mypage/MyPageWritenArticleDetailPage';
+import MyPageWrittenArticleDetailPage from './pages/mypage/MyPageWrittenArticleDetailPage';
 import MyPagePickupArticleDetailPage from './pages/mypage/MyPagePickupArticleDetailPage';
 import UploadStudentCardPage from './pages/mypage/UploadStudentCardPage';
 import ErrorPage from './pages/ErrorPage';
@@ -85,7 +85,7 @@ function App() {
           path={routes.writenArticle}
           element={
             <ProtectedRoute requiredAuth={['STUDENT', 'ADMIN']}>
-              <MyPageWritenArticleListPage />
+              <MyPageWrittenArticleListPage />
             </ProtectedRoute>
           }
         />
@@ -101,7 +101,7 @@ function App() {
           path={routes.writenArticleDetail}
           element={
             <ProtectedRoute requiredAuth={['STUDENT', 'ADMIN']}>
-              <MyPageWritenArticleDetailPage />
+              <MyPageWrittenArticleDetailPage />
             </ProtectedRoute>
           }
         />
