@@ -35,7 +35,7 @@
   .page--layout {
     position: absolute;
     width: 360px;
-    max-height: 800px;
+    height: 750px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -43,6 +43,6 @@
     background-color: #fff;
     box-sizing: content-box;
     overflow: auto;
-    @apply sm:h-[720px];
+    @apply sm:h-[750px] xl:h-[760px];
   }
 }
