@@ -12,7 +12,7 @@ import OrderRequestTemplate from '@components/templates/articleWrite/OrderReques
 import OrderDeadLineTemplate from '@components/templates/articleWrite/OrderDeadLineTemplate';
 import { ITEM } from '@/constant/writeArticle';
 import { registerMessage } from '@/utils/alert';
-import dateAndTime from '@/utils/dateAndTime';
+import { dateAndTime } from '@/utils/date';
 import writeArticle from '@/apis/articleWrite';
 import routes from '@/constant/routes';
 import occurError from '@/utils/occurError';
@@ -52,7 +52,6 @@ const ArticleWritePage = () => {
         navigate(routes.article);
       },
       onError: (error) => {
-        console.log(queryClient.serQueryData([writeArticle], data));
         occurError(error);
       },
     });

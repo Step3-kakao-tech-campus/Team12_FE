@@ -2,7 +2,7 @@ import { BsArrowDown } from 'react-icons/bs';
 import { MdOutlineLocationOn, MdLocationPin } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 import comma from '@/utils/comma';
-import getDeadlineDate from '@/utils/date';
+import { getDeadlineDate } from '@/utils/date';
 import { MATCHING_STATE } from '@/constant/article';
 
 // to : 해당 공고글의 링크로 이동
