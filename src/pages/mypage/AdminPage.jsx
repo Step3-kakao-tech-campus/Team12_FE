@@ -2,12 +2,12 @@
 import { useEffect } from 'react';
 import AuthRequest from '@components/organisms/AuthRequest';
 import OtherNav from '@components/atoms/nav/OtherNav';
-// import { adminAuthList } from '@/apis/admin';
+import { adminAuthList } from '@/apis/admin';
 import { useInView } from 'react-intersection-observer';
 import { useInfiniteQuery } from '@tanstack/react-query';
 import occurError from '@/utils/occurError';
 import Loader from '@components/atoms/Loader';
-import axios from 'axios';
+// import axios from 'axios';
 import { STUDENT } from '@/constant/auth';
 
 const AdminPage = () => {
@@ -21,17 +21,17 @@ const AdminPage = () => {
   //     });
   // }, []);
 
-  const adminAuthList = (offset = '') => {
-    const config = {
-      timeout: 1000,
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      withCredentials: true,
-    };
+  // const adminAuthList = (offset = '') => {
+  //   const config = {
+  //     timeout: 1000,
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     withCredentials: true,
+  //   };
 
-    return axios.get(`api/admin/auth/list?offset=${offset}&limit=10`, config);
-  };
+  //   return axios.get(`api/admin/auth/list?offset=${offset}&limit=10`, config);
+  // };
 
   const { ref, inView } = useInView({ threshold: 0.5 });
 
