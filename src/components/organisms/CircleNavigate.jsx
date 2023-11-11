@@ -1,19 +1,18 @@
 import CircleBtn from '@components/molecules/CircleBtn';
 import Line from '@components/atoms/Line';
+import { ARTICLE } from '@/constant/article';
 
 const CircleNavigate = ({ navigate }) => {
+  const writeMenu = [ARTICLE.INFO, ARTICLE.REQUEST, ARTICLE.DEADLINE];
+
   return (
     <div className="relative mt-4">
       <div className="flex place-content-around">
-        <CircleBtn num="1" active={navigate === 1}>
-          주문정보
-        </CircleBtn>
-        <CircleBtn num="2" active={navigate === 2}>
-          요청사항
-        </CircleBtn>
-        <CircleBtn num="3" active={navigate === 3}>
-          마감기한
-        </CircleBtn>
+        {writeMenu.map((el, idx) => (
+          <CircleBtn key={el.id} num={`${idx + 1}`} active={navigate === idx + 1}>
+            {el}
+          </CircleBtn>
+        ))}
       </div>
       <div className="absolute top-4 left-14">
         <Line />

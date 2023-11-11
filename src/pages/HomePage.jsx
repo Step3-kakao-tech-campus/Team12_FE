@@ -3,12 +3,12 @@ import { Link, useNavigate } from 'react-router-dom';
 import Footer from '@components/atoms/Footer';
 import Nav from '@components/atoms/nav/Nav';
 import { useQuery } from '@tanstack/react-query';
-import Carousel from '@components/atoms/CarouselCustomNavigation';
+import Carousel from '@components/atoms/CarouselCustom';
 import routes from '@/constant/routes';
 import { getLastArticles } from '@/apis/article';
 import Cards from '@/components/molecules/Cards';
 import Loader from '@/components/atoms/Loader';
-import HOME from '@/constant/home';
+import { HOME } from '@/constant/home';
 
 const HomePage = () => {
   const navigate = useNavigate();

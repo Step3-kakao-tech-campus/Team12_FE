@@ -5,26 +5,28 @@ import { useNavigate, useParams } from 'react-router-dom';
 import Button from '@components/atoms/button/Button';
 import { articlePickerTime } from '@/apis/articleDetail';
 import { articlePickupDenyMessage, articlePickupConfirmMessage, articlePickupSuccessMessage } from '@/utils/alert';
+import occurError from '@/utils/occurError';
+import { PICKER_INPUT } from '@/constant/writeArticle';
 
-const PickerTime = ({ setPage }) => {
+const PickerTime = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const { mutate } = useMutation({
     mutationFn: articlePickerTime,
+    onError: (error) => {
+      occurError(error);
+    },
   });
 
-  // 픽업시간
-  const [value, setValue] = useState();
+  const [value, setValue] = useState(0);
   const onChange = (e) => {
     setValue(e.target.value);
   };
 
-  // 픽업하기 눌렀다가 취소할 때
   const pickUpCancel = () => {
-    setPage(0);
+    window.location.reload();
   };
 
-  // 입력완료 버튼
   const doneWrite = () => {
     Swal.fire(articlePickupConfirmMessage).then((result) => {
       if (result.isConfirmed && value) {
@@ -43,8 +45,8 @@ const PickerTime = ({ setPage }) => {
   return (
     <div className="px-8">
       <div className="mt-12 mb-3">
-        <div className="font-bold text-blue text-xl py-2">예상 도착 시간은 언제인가요?</div>
-        <div className=" text-sm">오더의 장소에 도착할 시간을 알려주세요.</div>
+        <p className="font-bold text-blue text-xl py-2">{PICKER_INPUT.LABEL}</p>
+        <p className=" text-sm">{PICKER_INPUT.SUB_LABEL}</p>
       </div>
       <div className="mt-4">
         <input
@@ -54,8 +56,9 @@ const PickerTime = ({ setPage }) => {
           value={value}
           onChange={onChange}
         />
-        분 후 도착
+        {PICKER_INPUT.ARRIVE}
       </div>
+
       <div className="mt-72 flex justify-between">
         <Button
           onClick={pickUpCancel}
@@ -65,10 +68,11 @@ const PickerTime = ({ setPage }) => {
           textColor="text-black"
           bgColor="bg-zinc-300"
         >
-          취소
+          {PICKER_INPUT.CANCEL}
         </Button>
+
         <Button onClick={doneWrite} width="w-[136px]" height="h-9" bdRadius="rounded-md">
-          입력완료
+          {PICKER_INPUT.COMPLETE}
         </Button>
       </div>
     </div>
