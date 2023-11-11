@@ -24,10 +24,9 @@ const UploadForm = () => {
 
     formDataRef.current = new FormData(); // 새로운 파일이 업로드되면 새로운 FormData로 초기화
 
-    formDataRef.current.append('file', file);
-
     return new Promise((resolve) => {
       reader.onload = () => {
+        formDataRef.current.append('file', reader.result);
         setImageSrc(reader.result || null); // 파일의 컨텐츠
         resolve();
       };
