@@ -8,6 +8,7 @@ import { useQuery } from '@tanstack/react-query';
 import { getArticleDetail } from '@/apis/articleDetail.js';
 import occurError from '@/utils/occurError';
 import Loader from '@/components/atoms/Loader';
+import { ERROR } from '@/constant/error';
 
 const ArticleDetailPage = () => {
   const { id } = useParams();
@@ -26,6 +27,12 @@ const ArticleDetailPage = () => {
   }, [article]);
 
   const showDetailPage = (article) => {
+    if (isLoading) {
+      return <Loader />;
+    }
+    if (!article) {
+      return <div>{ERROR.NO_ARTICLE_INFO}</div>;
+    }
     if (article.isRequester) {
       return article.isMatch ? <WriterMatch response={article} /> : <WriterNoMatch response={article} />;
     }
@@ -34,7 +41,7 @@ const ArticleDetailPage = () => {
 
   return (
     <div className="page--layout">
-      <div>{isLoading ? <Loader /> : showDetailPage(article)}</div>
+      <div>{showDetailPage(article)}</div>
     </div>
   );
 };

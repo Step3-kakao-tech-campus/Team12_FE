@@ -12,4 +12,5 @@ export const ERROR = {
   NO_APPROVAL_ARTICLE: '수락한 공고글이 없습니다.🥲',
   NO_WRITTEN_ARTICLE: '작성한 공고글이 없습니다.🥲',
   NO_USER_LIST: '요청한 유저 인증이 없습니다.🥲',
+  NO_ARTICLE_INFO: '해당 공고의 데이터가 없습니다.🥲',
 };
