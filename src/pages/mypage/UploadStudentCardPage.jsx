@@ -18,7 +18,7 @@ const CheckStudentCardPage = () => {
   if (isLoading) return <Loader />;
 
   const isCheck = (check) => {
-    if (check === USER_LEVEL.NOT_CERTIFIED) return <UploadForm />;
+    if (check.message === USER_LEVEL.NOT_CERTIFIED) return <UploadForm />;
     return <div className="text-center text-xl my-10">{STUDENT.IN_PROGRESS}</div>;
   };
 
