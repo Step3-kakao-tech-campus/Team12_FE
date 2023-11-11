@@ -12,7 +12,7 @@ import Loader from '@/components/atoms/Loader';
 const ArticleDetailPage = () => {
   const { id } = useParams();
   const { data: article, isLoading } = useQuery([`article_detail`, id], () => getArticleDetail(id), {
-    select: (data) => data,
+    select: (data) => data?.data?.response,
     onError: (error) => {
       occurError(error);
     },
