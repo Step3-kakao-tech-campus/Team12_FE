@@ -19,8 +19,6 @@ const ArticleDetailPage = () => {
   });
 
   console.log(article);
-  console.log(article?.response);
-  console.log(article?.article?.response);
 
   // useQuery data 디버깅용
   useEffect(() => {
