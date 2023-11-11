@@ -35,7 +35,7 @@
   .page--layout {
     position: absolute;
     width: 360px;
-    min-height: 100vh;
+    min-height: 99vh;
     max-height: 800px;
     top: 50%;
     left: 50%;

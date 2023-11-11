@@ -44,9 +44,9 @@ const HomePage = () => {
       </div>
       <article>
         <div className="mt-10 px-6 flex justify-between items-center">
-          <p className="text-xl text-blue">{HOME.LASTEST}</p>
+          <p className="text-lg text-blue">{HOME.LASTEST}</p>
           <Link to={routes.article}>
-            <p className="text-zinc-400">{HOME.MORE}</p>
+            <p className="text-sm text-zinc-400">{HOME.MORE}</p>
           </Link>
         </div>
         <section className="mx-5">{isArticles(articlesData)}</section>

@@ -87,7 +87,7 @@ const ArticleListPage = () => {
         <Cards articles={filteredArticles} />
         <div ref={ref} className="w-[100%] h-[10px]" />
       </div>
-      <div className="flex flex-row-reverse h-[84px] items-center px-[22px]">
+      <div className="fixed bottom-6 right-6">
         <img
           className="cursor-pointer transition-transform duration-1000 ease-in-out transform hover:scale-110"
           onClick={goWriteArticle}
