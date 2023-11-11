@@ -7,6 +7,7 @@ import { getWrittenArticles } from '@/apis/article';
 import MYPAGE from '@/constant/mypage';
 import occurError from '@/utils/occurError';
 import Loader from '@/components/atoms/Loader';
+import { ERROR } from '@/constant/error';
 
 const WrittenArticlePage = () => {
   // 작성한 공고글 목록 조회(마이페이지) 요청
@@ -38,7 +39,7 @@ const WrittenArticlePage = () => {
       navigate('/errorPage');
     }
 
-    return <MyPageWrittenArticleCards articles={articles} />;
+    return articles ? <MyPageWrittenArticleCards articles={articles} /> : ERROR.NO_WRITTEN_ARTICLE;
   };
 
   return (
