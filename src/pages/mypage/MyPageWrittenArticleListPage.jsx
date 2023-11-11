@@ -6,6 +6,7 @@ import { getWrittenArticles } from '@/apis/article';
 import MYPAGE from '@/constant/mypage';
 import occurError from '@/utils/occurError';
 import Loader from '@/components/atoms/Loader';
+import { ERROR } from '@/constant/error';
 
 const WrittenArticlePage = () => {
   // 작성한 공고글 목록 조회(마이페이지) 요청
@@ -28,7 +29,8 @@ const WrittenArticlePage = () => {
       <OtherNav />
       <div className="text-center text-xl text-blue my-6">{MYPAGE.WRITTEN_ARTICLE}</div>
       <div className="h-[600px] overflow-y-auto overflow-x-hidden">
-        {isLoading ? <Loader /> : <MyPageWrittenArticleCards articles={articles} />}
+        {isLoading && <Loader />}
+        {articles ? <MyPageWrittenArticleCards articles={articles} /> : ERROR.NO_WRITTEN_ARTICLE}
       </div>
     </div>
   );
