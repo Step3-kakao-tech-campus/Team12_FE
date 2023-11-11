@@ -34,7 +34,7 @@ const StudentMyPageBtn = ({ formData }) => {
   };
 
   return (
-    <div className="mt-72 flex justify-between px-10">
+    <div className="mt-52 flex justify-between px-10">
       <Button width="w-32" textColor="text-black" bgColor="bg-zinc-300" onClick={navigatePrev}>
         {STUDENT.CANCEL}
       </Button>
