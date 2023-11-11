@@ -18,10 +18,13 @@ const ArticleDetailPage = () => {
       occurError(error);
     },
   });
-
-  const beveragesNames = article?.beverages?.map((beverage) => beverage.name);
-  delete article.beverages;
   console.log(article);
+
+  const [beverages, setBeverages] = useState([]);
+  useEffect(() => {
+    setBeverages(article?.beverages?.map((beverage) => beverage.name));
+    delete article.beverages;
+  }, [data]);
 
   // useQuery data 디버깅용
   useEffect(() => {
