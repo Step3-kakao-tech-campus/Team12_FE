@@ -20,7 +20,7 @@ const AdminAuthPage = () => {
   const btnHeight = 'h-[2.2rem]';
 
   // eslint-disable-next-line
-  const { data, isLoading } = useQuery(['admin_auth_approval', id], adminAuthDetail(id));
+  const { data, isLoading } = useQuery(['admin_auth_approval'], adminAuthDetail(id));
 
   const { mutate: handleAuth } = useMutation({
     mutationFn: adminAuth,

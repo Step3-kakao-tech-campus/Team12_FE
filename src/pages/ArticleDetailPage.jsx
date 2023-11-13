@@ -12,7 +12,7 @@ import { ERROR } from '@/constant/error';
 
 const ArticleDetailPage = () => {
   const { id } = useParams();
-  const { data: article, isLoading } = useQuery([`article_detail`, id], getArticleDetail(id), {
+  const { data: article, isLoading } = useQuery([`article_detail`], getArticleDetail(id), {
     select: (data) => data,
     onError: (error) => {
       occurError(error);
