@@ -63,14 +63,14 @@ instance.interceptors.response.use(
 
     // 404 error : 지정한 리소스를 찾을 수 없음
     // 에러 메시지를 띄워주고 & 잘못된 경로로 이동 시 ErrorPage로 이동
-    if (error.data.error.status === 404) {
+    if (error.response.status === 404) {
       Swal.fire({
         icon: 'error',
-        title: '아이쿠! 에러가 발생했네요😅',
-        text: error.data.error.message,
+        title: '404 에러가 발생했어요!',
+        text: '요청하신 리소스를 찾을 수 없습니다😭',
         confirmButtonText: '확인',
       }).then(() => {
-        // window.location.href = '/errorPage';
+        window.location.href = '/errorPage';
       });
       return Promise.reject(error);
     }
