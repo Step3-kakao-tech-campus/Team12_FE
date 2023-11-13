@@ -89,7 +89,7 @@ const ArticleListPage = () => {
         {filteredArticles.length !== 0 ? (
           <Cards articles={filteredArticles} />
         ) : (
-          <div className="text-center text-blue text-xl">{ARTICLE.NO_ARTICLE}</div>
+          <div className="text-center text-blue text-xl mt-48">{ARTICLE.NO_ARTICLE}</div>
         )}
         <div ref={ref} className="w-[100%] h-[10px]" />
       </div>
