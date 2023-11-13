@@ -44,7 +44,6 @@ const AdminPage = () => {
     ({ pageParam = '' }) => adminAuthList(pageParam),
     {
       getNextPageParam: (lastPage) => {
-        console.log('lastPage', lastPage);
         return !lastPage.data.response.pageable.last
           ? lastPage.data.response.content[lastPage.data.response.pageable.numberOfElements - 1].userId
           : undefined;

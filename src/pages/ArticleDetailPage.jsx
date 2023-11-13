@@ -20,12 +20,12 @@ const ArticleDetailPage = () => {
     },
   });
 
-  // const [beverages, setBeverages] = useState([]);
+  const [beverages, setBeverages] = useState([]);
 
-  // useEffect(() => {
-  //   article && setBeverages(article?.beverages?.map((beverage) => beverage.name));
-  //   delete article.beverages;
-  // }, [article]);
+  useEffect(() => {
+    article && setBeverages(article?.beverages?.map((beverage) => beverage.name));
+    delete article.beverages;
+  }, [article]);
 
   // useQuery data 디버깅용
   useEffect(() => {
