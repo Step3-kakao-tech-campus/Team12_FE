@@ -4,6 +4,7 @@ export const ARTICLE = {
   TIP: '픽업팁',
   WON: '원',
   DEADLINE: '마감기한',
+  NO_ARTICLE: '지금은 아무런 공고글이 없네요!',
 };
 
 export const MATCHING_STATE = {

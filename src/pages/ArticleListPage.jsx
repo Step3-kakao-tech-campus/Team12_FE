@@ -9,6 +9,7 @@ import routes from '@/constant/routes';
 import { getArticles } from '@/apis/article';
 import WriteArticleIcon from '@/assets/images/writeArticle.png';
 import { HOME } from '@/constant/home';
+import { ARTICLE } from '@/constant/article';
 
 const ArticleListPage = () => {
   const navigate = useNavigate();
@@ -83,7 +84,11 @@ const ArticleListPage = () => {
       <div className="text-center text-blue text-xl">{HOME.ARTICLE}</div>
       <FilterForm getFilter={getFilter} />
       <div className="h-[550px] overflow-y-auto overflow-x-hidden scrollbar-hide">
-        <Cards articles={filteredArticles} />
+        {filteredArticles ? (
+          <Cards articles={filteredArticles} />
+        ) : (
+          <div className="text-center text-blue text-xl">{ARTICLE.NO_ARTICLE}</div>
+        )}
         <div ref={ref} className="w-[100%] h-[10px]" />
       </div>
       <div className="fixed bottom-6 right-6">
