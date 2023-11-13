@@ -76,13 +76,17 @@ const ArticleListPage = () => {
     setFilter(text);
   };
 
+  useEffect(() => {
+    console.log('filteredArticles length : ', filteredArticles.length);
+  }, [filteredArticles]);
+
   return (
     <div className="page--layout">
       <OtherNav />
       <div className="text-center text-blue text-xl">{HOME.ARTICLE}</div>
       <FilterForm getFilter={getFilter} />
       <div className="h-[550px] overflow-y-auto overflow-x-hidden scrollbar-hide">
-        {filteredArticles.length === 0 ? (
+        {filteredArticles.length !== 0 ? (
           <Cards articles={filteredArticles} />
         ) : (
           <div className="text-center text-blue text-xl">{ARTICLE.NO_ARTICLE}</div>
