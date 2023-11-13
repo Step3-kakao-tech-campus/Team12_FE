@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import OtherNav from '@components/atoms/nav/OtherNav';
 import UploadForm from '@components/organisms/UploadForm';
 import Loader from '@components/atoms/Loader';
+import { useEffect } from 'react';
 import { getUserAuth } from '@/apis/myPage';
 import { STUDENT, USER_LEVEL } from '@/constant/auth';
 import occurError from '@/utils/occurError';
@@ -13,7 +14,10 @@ const CheckStudentCardPage = () => {
       occurError(error);
     },
   });
-  console.log(checking);
+
+  useEffect(() => {
+    console.log('checking : ', checking);
+  }, [checking]);
 
   if (isLoading) return <Loader />;
 
