@@ -4,7 +4,6 @@ import OtherNav from '@components/atoms/nav/OtherNav';
 import AuthDetail from '@components/organisms/AuthDetail';
 import Button from '@components/atoms/button/Button';
 import Swal from 'sweetalert2';
-// import axios from 'axios';
 import { useEffect } from 'react';
 import { REJECT, APPROVE } from '@/constant/auth';
 import { adminAuthDetail, adminAuth, adminAuthReject } from '@/apis/admin';
@@ -20,7 +19,9 @@ const AdminAuthPage = () => {
   const btnHeight = 'h-[2.2rem]';
 
   // eslint-disable-next-line
-  const { data, isLoading } = useQuery([`/admin/auth/list/${id}`], () => adminAuthDetail(id));
+  const { data: userInfo, isLoading } = useQuery([`/admin/auth/list/${id}`], () => adminAuthDetail(id), {
+    select: (data) => data?.data.response,
+  });
 
   const { mutate: handleAuth } = useMutation({
     mutationFn: adminAuth,
@@ -51,14 +52,14 @@ const AdminAuthPage = () => {
   };
 
   useEffect(() => {
-    console.log('data : ', data);
-  }, [data]);
+    console.log('userInfo : ', userInfo);
+  }, [userInfo]);
 
   return (
     <div className="page--layout flex flex-col justify-between">
       <div>
         <OtherNav />
-        <div className="pt-[25px] p-[35px]">{isLoading ? <Loader /> : <AuthDetail user={data} />}</div>
+        <div className="pt-[25px] p-[35px]">{isLoading ? <Loader /> : <AuthDetail user={userInfo} />}</div>
       </div>
 
       <div className="flex place-content-around p-[35px] mb-[20px]">
@@ -81,47 +82,3 @@ const AdminAuthPage = () => {
 };
 
 export default AdminAuthPage;
-
-// const adminAuth = () => {
-//   const config = {
-//     timeout: 1000,
-//     headers: {
-//       'Content-Type': 'application/json',
-//     },
-//     withCredentials: true,
-//   };
-
-//   const body = {
-//     userId: id,
-//   };
-
-//   return axios.put('api/admin/auth/approval', body, config);
-// };
-
-// const adminAuthReject = () => {
-//   const config = {
-//     timeout: 1000,
-//     headers: {
-//       'Content-Type': 'application/json',
-//     },
-//     withCredentials: true,
-//   };
-
-//   const body = {
-//     userId: id,
-//   };
-
-//   return axios.put('api/admin/auth/reject', body, config);
-// };
-
-// const adminAuthDetail = () => {
-//   const config = {
-//     timeout: 1000,
-//     headers: {
-//       'Content-Type': 'application/json',
-//     },
-//     withCredentials: true,
-//   };
-
-//   return axios.get(`api/admin/auth/list/${id}`, config);
-// };
