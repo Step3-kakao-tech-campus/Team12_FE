@@ -76,10 +76,6 @@ const ArticleListPage = () => {
     setFilter(text);
   };
 
-  useEffect(() => {
-    console.log('filteredArticles length : ', filteredArticles.length);
-  }, [filteredArticles]);
-
   return (
     <div className="page--layout">
       <OtherNav />
