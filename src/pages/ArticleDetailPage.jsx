@@ -12,7 +12,7 @@ import { ERROR } from '@/constant/error';
 
 const ArticleDetailPage = () => {
   const { id } = useParams();
-  const { data: article, isLoading } = useQuery([`article_detail`, id], () => getArticleDetail(id), {
+  const { data: article, isLoading } = useQuery([`article_detail`, id], getArticleDetail(id), {
     select: (data) => data?.data?.response,
     onError: (error) => {
       occurError(error);
@@ -21,6 +21,7 @@ const ArticleDetailPage = () => {
   console.log(article);
 
   const [beverages, setBeverages] = useState([]);
+
   useEffect(() => {
     article && setBeverages(article?.beverages?.map((beverage) => beverage.name));
     delete article.beverages;
@@ -28,7 +29,7 @@ const ArticleDetailPage = () => {
 
   // useQuery data 디버깅용
   useEffect(() => {
-    console.log(article);
+    console.log('article ', article);
   }, [article]);
 
   const showDetailPage = (article) => {
