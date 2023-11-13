@@ -26,7 +26,6 @@ const ArticleListPage = () => {
         // 초회 요청시에는 API문서 내용에 따라 아무것도 넣지 않아야 하므로 ''를 넣고, 이후에는 boardId값 기반으로 요청
         // 마지막 페이지가 아닐경우 추가 렌더링을 위해 offset 계산하여 리턴 or 마지막 페이지일 경우 undefined 반환하여 페이지를 불러오지 않도록 함
         // 마지막 페이지 데이터를 의미하는 last = true일 경우 undefined를 반환하여 페이지 요청 x
-        console.log('lastPage', lastPage);
         return !lastPage.data.response.pageable.last
           ? lastPage.data.response.content[lastPage.data.response.pageable.numberOfElements - 1].boardId
           : undefined;
@@ -68,10 +67,6 @@ const ArticleListPage = () => {
     }
   }, [filter]);
 
-  useEffect(() => {
-    console.log('filteredArticles : ', filteredArticles);
-  }, [filteredArticles]);
-
   const goWriteArticle = () => {
     navigate(routes.articleWriteIntro);
   };
@@ -87,7 +82,7 @@ const ArticleListPage = () => {
       <div className="text-center text-blue text-xl">{HOME.ARTICLE}</div>
       <FilterForm getFilter={getFilter} />
       <div className="h-[550px] overflow-y-auto overflow-x-hidden scrollbar-hide">
-        {filteredArticles ? (
+        {filteredArticles.length === 0 ? (
           <Cards articles={filteredArticles} />
         ) : (
           <div className="text-center text-blue text-xl">{ARTICLE.NO_ARTICLE}</div>
