@@ -33,11 +33,8 @@ instance.interceptors.response.use(
     return response;
   },
   (error) => {
-    console.log('interceptor error  : ', error);
-    console.log('interceptor error.response.data.status : ', error.response.data.status);
-    console.log('status type', typeof error.response.data.status);
     // 302 error 처리 - 로그인 페이지로 이동시켜서 재로그인 시킴(로그인 정보 만료로 데이터 못받음)
-    if (error.data.error.status === 302) {
+    if (error.response.status === 302) {
       Swal.fire({
         icon: 'error',
         title: '로그인을 진행해주세요!',
@@ -51,7 +48,7 @@ instance.interceptors.response.use(
     }
     // 401 error : 인증되지 않음 - 로그인 화면으로 이동
     // token은 백엔드에서 유효하지 않다면 401(Unauthorized) Http code를 보내주기에, 로그인하도록 처리
-    if (error.data.error.status === 401) {
+    if (error.response.status === 401) {
       Swal.fire({
         icon: 'error',
         title: '로그인을 진행해주세요!',
@@ -65,7 +62,7 @@ instance.interceptors.response.use(
 
     // 404 error : 지정한 리소스를 찾을 수 없음
     // 에러 메시지를 띄워주고 & 잘못된 경로로 이동 시 ErrorPage로 이동
-    if (error.response.data.status === 404) {
+    if (error.response.status === 404) {
       Swal.fire({
         icon: 'error',
         title: '404 에러가 발생했어요!',
