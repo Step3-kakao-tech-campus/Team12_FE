@@ -21,7 +21,7 @@ const AdminAuthPage = () => {
 
   // eslint-disable-next-line
   const { data: userDetail, isLoading } = useQuery(['admin_auth_approval', id], adminAuthDetail(id), {
-    select: (data) => data?.response,
+    select: (data) => data,
     onError: (error) => {
       occurError(error);
     },
