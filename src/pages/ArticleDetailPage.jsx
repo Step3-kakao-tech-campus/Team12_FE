@@ -13,12 +13,11 @@ import { ERROR } from '@/constant/error';
 const ArticleDetailPage = () => {
   const { id } = useParams();
   const { data: article, isLoading } = useQuery([`article_detail`, id], getArticleDetail(id), {
-    select: (data) => data?.data?.response,
+    select: (data) => data,
     onError: (error) => {
       occurError(error);
     },
   });
-  console.log(article);
 
   const [beverages, setBeverages] = useState([]);
 
