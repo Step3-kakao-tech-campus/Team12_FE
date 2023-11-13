@@ -13,7 +13,7 @@ import axios from 'axios';
 
 const ArticleDetailPage = () => {
   const { id } = useParams();
-  const { data: article, isLoading } = useQuery([`article_detail`], getArticleDetail(id), {
+  const { data: article, isLoading } = useQuery([`/articles/${id}`], () => getArticleDetail(id), {
     select: (data) => data,
     onError: (error) => {
       occurError(error);
@@ -35,10 +35,6 @@ const ArticleDetailPage = () => {
   useEffect(() => {
     console.log('로딩중? : ', isLoading);
   }, [isLoading]);
-
-  useEffect(() => {
-    axios.get(`/articles/${id}`).then((response) => console.log('이거는 찍히나?', response));
-  }, []);
 
   const showDetailPage = (article) => {
     if (isLoading) {
