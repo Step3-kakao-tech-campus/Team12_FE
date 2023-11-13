@@ -52,7 +52,6 @@ const ArticleListPage = () => {
   // 여기에 setFilteredArticles가 있는 이유는, 필터가 적용된 상태에서 추가 공고글을 불러올 경우에도 해당 필터에 대한 공고글을 렌더링 하기 위함
   useEffect(() => {
     if (data) {
-      console.log('data', data);
       const newArticles = data.pages.flatMap((page) => page.data.response.content);
       setArticles(newArticles);
       setFilteredArticles(newArticles.filter((article) => article.shopName.includes(filter)));
@@ -68,6 +67,10 @@ const ArticleListPage = () => {
       setFilteredArticles(articles.filter((article) => article.shopName.includes(filter)));
     }
   }, [filter]);
+
+  useEffect(() => {
+    console.log('filteredArticles : ', filteredArticles);
+  }, [filteredArticles]);
 
   const goWriteArticle = () => {
     navigate(routes.articleWriteIntro);
