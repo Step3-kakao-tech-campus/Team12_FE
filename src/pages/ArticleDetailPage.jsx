@@ -9,6 +9,7 @@ import { getArticleDetail } from '@/apis/articleDetail.js';
 import occurError from '@/utils/occurError';
 import Loader from '@/components/atoms/Loader';
 import { ERROR } from '@/constant/error';
+import axios from 'axios';
 
 const ArticleDetailPage = () => {
   const { id } = useParams();
@@ -28,8 +29,16 @@ const ArticleDetailPage = () => {
 
   // useQuery data 디버깅용
   useEffect(() => {
-    console.log('article ', article);
+    console.log('받아온 데이터 ', article);
   }, [article]);
+
+  useEffect(() => {
+    console.log('로딩중? : ', isLoading);
+  }, [isLoading]);
+
+  useEffect(() => {
+    axios.get(`/articles/${id}`).then((response) => console.log('이거는 찍히나?', response));
+  }, []);
 
   const showDetailPage = (article) => {
     if (isLoading) {
