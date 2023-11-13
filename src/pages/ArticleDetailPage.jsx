@@ -14,7 +14,7 @@ import axios from 'axios';
 const ArticleDetailPage = () => {
   const { id } = useParams();
   const { data: article, isLoading } = useQuery([`/articles/${id}`], () => getArticleDetail(id), {
-    select: (data) => data,
+    select: (data) => data?.data.response,
     onError: (error) => {
       occurError(error);
     },
