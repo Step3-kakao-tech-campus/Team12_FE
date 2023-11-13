@@ -30,6 +30,10 @@ imageInstance.interceptors.response.use(
 
 const uploadCard = (formData) => {
   console.log('formData : ', formData);
+  // eslint-disable-next-line no-restricted-syntax
+  for (const pair of formData.entries()) {
+    console.log(`formData Pairs : ${pair[0]}, ${pair[1]}`);
+  }
   return imageInstance.put('/mypage/image/url', formData);
 };
 
