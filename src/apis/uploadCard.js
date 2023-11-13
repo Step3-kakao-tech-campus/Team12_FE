@@ -6,6 +6,7 @@ const imageInstance = axios.create({
   headers: {
     'Content-Type': 'multipart/form-data',
   },
+  withCredentials: true,
 });
 
 imageInstance.interceptors.request.use((config) => {
@@ -27,13 +28,18 @@ imageInstance.interceptors.response.use(
   },
 );
 
-const uploadCard = (imageData) => {
-  const formData = {
-    key: 'image',
-    value: imageData,
-  };
-  console.log(formData);
+const uploadCard = (formData) => {
+  console.log('formData : ', formData);
   return imageInstance.put('/mypage/image/url', formData);
 };
+
+// const uploadCard = (imageData) => {
+//   const formData = {
+//     key: 'image',
+//     value: imageData,
+//   };
+//   console.log(formData);
+//   return imageInstance.put('/mypage/image/url', formData);
+// };
 
 export default uploadCard;
