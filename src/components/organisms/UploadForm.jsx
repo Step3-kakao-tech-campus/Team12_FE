@@ -37,8 +37,7 @@ const UploadForm = () => {
     // key : "image" & value : 파일값을 담기위한 formdata 선언
     const formdata = new FormData();
     const file = e.target.files[0];
-    formdata.append('key', 'image');
-    formdata.append('value', file);
+    formdata.append('image', file);
     setFormData(formdata);
 
     // 이미지 미리보기를 위한 코드, FileReader를 활용한다.
