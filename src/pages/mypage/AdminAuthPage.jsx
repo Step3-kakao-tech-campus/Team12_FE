@@ -20,12 +20,7 @@ const AdminAuthPage = () => {
   const btnHeight = 'h-[2.2rem]';
 
   // eslint-disable-next-line
-  const { data: userDetail, isLoading } = useQuery(['admin_auth_approval', id], adminAuthDetail(id), {
-    select: (data) => data,
-    onError: (error) => {
-      occurError(error);
-    },
-  });
+  const { data, isLoading } = useQuery(['admin_auth_approval', id], adminAuthDetail(id));
 
   const { mutate: handleAuth } = useMutation({
     mutationFn: adminAuth,
@@ -56,14 +51,14 @@ const AdminAuthPage = () => {
   };
 
   useEffect(() => {
-    console.log('userDetail : ', userDetail);
-  }, [userDetail]);
+    console.log('data : ', data);
+  }, [data]);
 
   return (
     <div className="page--layout flex flex-col justify-between">
       <div>
         <OtherNav />
-        <div className="pt-[25px] p-[35px]">{isLoading ? <Loader /> : <AuthDetail user={userDetail} />}</div>
+        <div className="pt-[25px] p-[35px]">{isLoading ? <Loader /> : <AuthDetail user={data} />}</div>
       </div>
 
       <div className="flex place-content-around p-[35px] mb-[20px]">
