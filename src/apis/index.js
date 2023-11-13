@@ -35,6 +35,7 @@ instance.interceptors.response.use(
   (error) => {
     console.log('interceptor error  : ', error);
     console.log('interceptor error.response.data.status : ', error.response.data.status);
+    console.log('status type', typeof error.response.data.status);
     // 302 error 처리 - 로그인 페이지로 이동시켜서 재로그인 시킴(로그인 정보 만료로 데이터 못받음)
     if (error.data.error.status === 302) {
       Swal.fire({
