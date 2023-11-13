@@ -170,3 +170,9 @@ export const authRejectComplete = {
   icon: 'success',
   confirmButtonText: '확인',
 };
+export const articleWriteComplete = {
+  title: '공고글 등록이 완료되었습니다!',
+  icon: 'success',
+  confirmButtonText: '확인',
+  timer: 1000,
+};

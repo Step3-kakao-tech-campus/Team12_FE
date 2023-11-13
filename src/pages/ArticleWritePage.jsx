@@ -16,6 +16,7 @@ import { dateAndTime } from '@/utils/date';
 import writeArticle from '@/apis/articleWrite';
 import routes from '@/constant/routes';
 import occurError from '@/utils/occurError';
+import { articleWriteComplete } from '@/utils/alert';
 
 const ArticleWritePage = () => {
   const navigate = useNavigate();
@@ -49,7 +50,7 @@ const ArticleWritePage = () => {
     // react-query
     mutate(request, {
       onSuccess: () => {
-        navigate(routes.article);
+        Swal.fire(articleWriteComplete).then(navigate(routes.article));
       },
       onError: (error) => {
         occurError(error);
