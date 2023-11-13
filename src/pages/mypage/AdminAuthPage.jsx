@@ -41,7 +41,7 @@ const AdminAuthPage = () => {
   const handleApprove = () => {
     Swal.fire(authApproval).then((result) => {
       if (result.isConfirmed) {
-        handleAuth();
+        handleAuth({ userId: id });
       }
     });
   };
@@ -50,7 +50,7 @@ const AdminAuthPage = () => {
   const handleReject = () => {
     Swal.fire(authReject).then((result) => {
       if (result.isConfirmed) {
-        adminAuthReject().then(Swal.fire(authRejectComplete)).then(navigate(routes.admin));
+        adminAuthReject({ userId: id }).then(Swal.fire(authRejectComplete)).then(navigate(routes.admin));
       }
     });
   };

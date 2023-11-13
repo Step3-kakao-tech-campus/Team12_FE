@@ -1,11 +1,11 @@
 import { instance } from './index';
 
-export const adminAuth = () => {
-  return instance.put('/admin/auth/approval');
+export const adminAuth = (userId) => {
+  return instance.put('/admin/auth/approval', userId);
 };
 
-export const adminAuthReject = () => {
-  return instance.put('admin/auth/reject');
+export const adminAuthReject = (userId) => {
+  return instance.put('admin/auth/reject', userId);
 };
 
 export const adminAuthDetail = (id = 1) => {
