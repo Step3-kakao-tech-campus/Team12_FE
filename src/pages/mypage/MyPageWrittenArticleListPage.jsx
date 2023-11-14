@@ -5,7 +5,6 @@ import { useQuery } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
 import { getWrittenArticles } from '@/apis/article';
 import MYPAGE from '@/constant/mypage';
-import occurError from '@/utils/occurError';
 import Loader from '@/components/atoms/Loader';
 import { ERROR } from '@/constant/error';
 
@@ -19,18 +18,16 @@ const WrittenArticlePage = () => {
     isLoading,
     isError,
   } = useQuery(['getWrittenArticles'], getWrittenArticles, {
-    select: (data) => data?.data.response.content,
-    onError: (error) => {
-      occurError(error);
-    },
+    select: (data) => data?.data.response,
   });
 
   // useQuery data 디버깅용
   useEffect(() => {
-    console.log(articlesData);
+    console.log('articlesData : ', articlesData);
   }, [articlesData]);
 
   const isWrittenArticles = (articles) => {
+    console.log('전달받은 articlesData : ', articles);
     if (isLoading) {
       return <Loader />;
     }
