@@ -62,11 +62,11 @@ const AdminPage = () => {
   };
 
   return (
-    <div className="page--layout">
+    <div className="page--layout scrollbar-hide">
       <OtherNav />
       <div className="pt-[25px] p-[35px]">
         <div className="text-center text-xl text-blue mb-10">{STUDENT.REQUEST_AUTH}</div>
-        <div className="h-[550px] overflow-y-auto overflow-x-hidden scrollbar-hide">
+        <div className="h-[550px] overflow-y-auto overflow-x-hidden">
           {isInData(userData)}
           {/* <AuthRequest user={userData} /> */}
           <div ref={ref} className="w-[100%] h-[10px]" />
