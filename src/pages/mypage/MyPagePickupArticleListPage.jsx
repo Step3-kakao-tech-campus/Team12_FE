@@ -19,7 +19,7 @@ const PickupArticlePage = () => {
     isLoading,
     isError,
   } = useQuery(['getPickupArticles'], getPickupArticles, {
-    select: (data) => data?.response?.content,
+    select: (data) => data?.data.response.content,
     onError: (error) => {
       occurError(error);
     },
