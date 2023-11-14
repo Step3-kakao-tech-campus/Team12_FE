@@ -9,6 +9,7 @@ import ArticleWriteIntroPage from './pages/ArticleWriteIntroPage';
 import ArticleWritePage from './pages/ArticleWritePage';
 import ProtectedRoute from './components/layout/ProtectedRoute';
 import MyPage from './pages/mypage/MyPage';
+import MyPageModifyPage from './pages/mypage/MyPageModifyPage';
 import AdminPage from './pages/mypage/AdminPage';
 import AdminAuthPage from './pages/mypage/AdminAuthPage';
 import MyPageWrittenArticleListPage from './pages/mypage/MyPageWrittenArticleListPage';
@@ -62,6 +63,14 @@ function App() {
           element={
             <ProtectedRoute>
               <MyPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path={routes.mypageModify}
+          element={
+            <ProtectedRoute>
+              <MyPageModifyPage />
             </ProtectedRoute>
           }
         />
