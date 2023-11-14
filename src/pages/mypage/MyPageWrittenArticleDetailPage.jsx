@@ -1,18 +1,20 @@
+/* eslint-disable */
 import React, { useEffect } from 'react';
-import WriterMatchTemplate from '@components/templates/articleDetail/WriterMatchTemplate';
-import WriterNoMatchTemplate from '@components/templates/articleDetail/WriterNoMatchTemplate';
+import WriterMatch from '@components/templates/articleDetail/WriterMatchTemplate';
+import WriterNoMatch from '@components/templates/articleDetail/WriterNoMatchTemplate';
 import { useQuery } from '@tanstack/react-query';
 import { useParams } from 'react-router-dom';
 import { getMyPageWrittenArticleDetail } from '@/apis/articleDetail';
 import occurError from '@/utils/occurError';
 import Loader from '@/components/atoms/Loader';
+import { ERROR } from '@/constant/error';
 
 const MyPageWrittenArticleDetailPage = () => {
   // 상세 페이지 API 요청을 통해 받아온 데이터
   // useParams + useQuery로 데이터를 받아와서
   // data를 data?.response로 받아서 WriterMatchTemplate & WriterNoMatchTemplate으로 보내주면 됨
   const { id } = useParams();
-  const { data: articleData, isLoading } = useQuery(
+  const { data: article, isLoading } = useQuery(
     [`/mypage/requester/detail/${id}`],
     () => getMyPageWrittenArticleDetail(id),
     {
@@ -25,25 +27,28 @@ const MyPageWrittenArticleDetailPage = () => {
 
   // useQuery data 디버깅용
   useEffect(() => {
-    console.log(articleData);
-  }, [articleData]);
+    console.log('받아온 데이터 ', article);
+  }, [article]);
 
   const showDetailPage = (article) => {
     if (isLoading) {
       return <Loader />;
     }
-
-    // 작성자이고 매칭됐을 때
-    if (article.isMatch) {
-      return <WriterMatchTemplate response={article} />;
+    if (!article) {
+      return <div>{ERROR.NO_ARTICLE_INFO}</div>;
     }
-    // 작성자이고 매칭 안됐을 때
-    return <WriterNoMatchTemplate response={article} />;
+    if (article.isRequester) {
+      return article.isMatch ? (
+        <WriterMatch response={article} beverages={article.beverages} />
+      ) : (
+        <WriterNoMatch response={article} beverages={article.beverages} />
+      );
+    }
   };
 
   return (
     <div className="page--layout">
-      <div>{showDetailPage(articleData)}</div>
+      <div>{showDetailPage(article)}</div>
     </div>
   );
 };
