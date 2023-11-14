@@ -45,9 +45,6 @@ const ArticleDetailPage = () => {
     console.log('article.isRequester 전달 데이터 : ', article.isRequester);
     console.log('article.isMatch 전달 데이터 : ', article.isMatch);
     console.log('article.beverages 전달 데이터 : ', article.beverages);
-    if (isLoading) {
-      return <Loader />;
-    }
     if (!article) {
       return <div>{ERROR.NO_ARTICLE_INFO}</div>;
     }
@@ -63,7 +60,7 @@ const ArticleDetailPage = () => {
 
   return (
     <div className="page--layout">
-      <div>{showDetailPage(article)}</div>
+      <div>{isLoading ? <Loader /> : showDetailPage(article)}</div>
     </div>
   );
 };
