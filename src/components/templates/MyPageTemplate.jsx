@@ -18,7 +18,7 @@ const MyPageTemplate = () => {
   const authority = localStorage.getItem('userAuth');
   const nickName = localStorage.getItem('nickName');
   const { data: userAuth } = useQuery(['/mypage'], getMyPage, {
-    select: (data) => data?.data.response,
+    select: (data) => data?.data.response.userAuth,
   });
 
   useEffect(() => {
