@@ -23,7 +23,7 @@ const MyPageTemplate = () => {
 
   // userAuth를 서버로부터 받아오면 그걸로 업데이트
   useEffect(() => {
-    console.log('userAuth 저장', userAuth);
+    console.log('userAuth', userAuth);
     localStorage.setItem('userAuth', userAuth);
     authority = userAuth;
   }, [userAuth]);

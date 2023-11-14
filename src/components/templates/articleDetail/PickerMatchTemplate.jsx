@@ -10,7 +10,7 @@ import PickerTime from '@components/organisms/PickerTime';
 import { pickupConfirmMessage } from '@/utils/alert';
 import { MATCHING_STATE } from '@/constant/article';
 
-const PickerMatchTemplate = ({ response, isMatch, beverages }) => {
+const PickerMatchTemplate = ({ response, isMatch, beverages, isRequester }) => {
   const [page, setPage] = useState(0);
   const { shopName, destination, finishedAt, tip, request, pickerBank, pickerAccount, arrivalTime, pickerPhoneNumber } =
     response;
@@ -47,6 +47,7 @@ const PickerMatchTemplate = ({ response, isMatch, beverages }) => {
             pickerAccount={pickerAccount}
             arrivalTime={arrivalTime}
             pickerPhoneNumber={pickerPhoneNumber}
+            isRequester={isRequester}
           />
           <div className="flex px-8 my-6">
             {isMatch ? (

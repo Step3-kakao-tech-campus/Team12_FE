@@ -48,7 +48,14 @@ const ArticleDetailPage = () => {
         <WriterNoMatch response={article} beverages={article.beverages} />
       );
     }
-    return <PickerMatch response={article} isMatch={article.isMatch} beverages={article.beverages} />;
+    return (
+      <PickerMatch
+        response={article}
+        isMatch={article.isMatch}
+        beverages={article.beverages}
+        isRequester={article.isRequester}
+      />
+    );
   };
 
   return (

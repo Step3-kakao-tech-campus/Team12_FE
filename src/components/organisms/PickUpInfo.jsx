@@ -12,6 +12,7 @@ const PickUpInfo = ({
   pickerAccount,
   arrivalTime,
   pickerPhoneNumber,
+  isRequester,
 }) => {
   const TITLE = 'text-xl text-blue py-1';
   const TEXT_GRAY = 'text-zinc-400';
@@ -49,7 +50,8 @@ const PickUpInfo = ({
         <p>{time(finishedAt)}</p>
       </article>
 
-      {isMatch && (
+      {/* 작성자일 경우에 따라 렌더링 되도록 수정 */}
+      {isMatch && isRequester ? (
         <article className="my-8">
           <div className="text-xl text-blue pb-2">{PICKUP.INFO}</div>
           <ArticleInfo label={PICKUP.ARRIVAL_TIME}>{time(arrivalTime)}</ArticleInfo>
@@ -60,6 +62,8 @@ const PickUpInfo = ({
             {pickerPhoneNumber}
           </ArticleInfo>
         </article>
+      ) : (
+        <div />
       )}
     </div>
   );
