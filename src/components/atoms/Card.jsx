@@ -23,10 +23,7 @@ const Card = ({
       className={`w-80 h-20 rounded-xl border-[#8B8B8B] border m-auto my-[15px] 
       ${match ? 'bg-[#000000]/50' : ''}`}
     >
-      <Link
-        to={match ? '.' : to}
-        className={`relative flex justify-between py-2 px-3 ${match ? 'cursor-default' : ''}`}
-      >
+      <Link to={to} className={`relative flex justify-between py-2 px-3 ${match ? 'cursor-default' : ''}`}>
         <div>
           <div className="flex items-center">
             <MdOutlineLocationOn className="mr-1" style={{ color: '#0075FF' }} />
