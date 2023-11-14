@@ -9,11 +9,11 @@ import { getArticleDetail } from '@/apis/articleDetail.js';
 import occurError from '@/utils/occurError';
 import Loader from '@/components/atoms/Loader';
 import { ERROR } from '@/constant/error';
-import axios from 'axios';
+
 const ArticleDetailPage = () => {
-  const [beverages, setBeverages] = useState([]);
+  // const [beverages, setBeverages] = useState([]);
   const { id } = useParams();
-  const { data: article, isLoading } = useQuery([`/articles/${id}`], () => getArticleDetail(id), {
+  const { data: article, isLoading } = useQuery([`article_detail`], () => getArticleDetail(id), {
     select: (data) => data?.data.response,
     onError: (error) => {
       occurError(error);
@@ -43,13 +43,14 @@ const ArticleDetailPage = () => {
     }
     if (article.isRequester) {
       return article.isMatch ? (
-        <WriterMatch response={article} beverages={beverages} />
+        <WriterMatch response={article} beverages={article.beverages} />
       ) : (
-        <WriterNoMatch response={article} beverages={beverages} />
+        <WriterNoMatch response={article} beverages={article.beverages} />
       );
     }
-    return <PickerMatch response={article} isMatch={article.isMatch} beverages={beverages} />;
+    return <PickerMatch response={article} isMatch={article.isMatch} beverages={article.beverages} />;
   };
+
   return (
     <div className="page--layout">
       <div>{showDetailPage(article)}</div>

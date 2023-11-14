@@ -112,6 +112,7 @@ export const pickupConfirmMessage = {
   icon: 'question',
   title: '이 음료를 픽업하시겠습니까?',
   showCancelButton: true,
+  reverseButtons: true,
   cancelButtonText: '취소',
   confirmButtonText: '수락',
   confirmButtonColor: '#0075ff',

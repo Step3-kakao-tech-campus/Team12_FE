@@ -48,7 +48,7 @@ const PickerMatchTemplate = ({ response, isMatch, beverages }) => {
             arrivalTime={arrivalTime}
             pickerPhoneNumber={pickerPhoneNumber}
           />
-          <div className="flex px-8">
+          <div className="flex px-8 my-6">
             {isMatch ? (
               <Button width="w-[100%]" height="h-9" bgColor="bg-[#949494]" bdRadius="rounded-md" disabled>
                 {MATCHING_STATE.ALREADY_MATCHING}
