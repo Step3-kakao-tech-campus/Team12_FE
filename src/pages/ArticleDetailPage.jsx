@@ -25,20 +25,20 @@ const ArticleDetailPage = () => {
   //   delete article.beverages;
   // }, [article]);
 
-  // useEffect(() => {
-  //   if (article) {
-  //     setBeverages(article.beverages);
-  //   }
-  // }, [article]);
-
   // useQuery data 디버깅용
-  // useEffect(() => {
-  //   console.log('받아온 데이터 ', article);
-  // }, [article]);
+  useEffect(() => {
+    if (article) {
+      setBeverages(article.beverages);
+    }
+  }, [article]);
 
-  // useEffect(() => {
-  //   console.log('바뀐 beverages : ', beverages);
-  // }, [beverages]);
+  useEffect(() => {
+    console.log('받아온 데이터 ', article);
+  }, [article]);
+
+  useEffect(() => {
+    console.log('바뀐 beverages : ', beverages);
+  }, [beverages]);
 
   const showDetailPage = (article) => {
     console.log('showDetailPage 전달 데이터 : ', article);
