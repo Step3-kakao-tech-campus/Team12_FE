@@ -1,10 +1,9 @@
 import { CiEdit } from 'react-icons/ci';
-import { PiReadCvLogoThin, PiCheckSquareLight, PiGraduationCapLight } from 'react-icons/pi';
+import { PiReadCvLogoThin, PiCheckSquareLight } from 'react-icons/pi';
 import { RiAdminLine } from 'react-icons/ri';
 import MyPageMenu from '@components/organisms/MyPageMenu';
 import MYPAGE from '@/constant/mypage';
 import routes from '@/constant/routes';
-import { STUDENT } from '@/constant/auth';
 
 const AdminMyPageTemplate = () => {
   const iconStyle = 'mx-2 inline-block';
@@ -24,10 +23,6 @@ const AdminMyPageTemplate = () => {
         </MyPageMenu>
         <MyPageMenu to={routes.mypageModify} icon={<CiEdit className={iconStyle} size={25} />}>
           {MYPAGE.EDIT_INFO}
-        </MyPageMenu>
-        {/* 임시 학생증인증 */}
-        <MyPageMenu to={routes.uploadStudentCard} icon={<PiGraduationCapLight className={iconStyle} size={25} />}>
-          {STUDENT.TITLE}
         </MyPageMenu>
       </div>
     </div>
