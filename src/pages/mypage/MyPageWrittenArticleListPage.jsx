@@ -5,9 +5,9 @@ import { useQuery } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
 import { getWrittenArticles } from '@/apis/article';
 import MYPAGE from '@/constant/mypage';
-import occurError from '@/utils/occurError';
 import Loader from '@/components/atoms/Loader';
 import { ERROR } from '@/constant/error';
+import occurError from '@/utils/occurError';
 
 const WrittenArticlePage = () => {
   // 작성한 공고글 목록 조회(마이페이지) 요청
@@ -27,7 +27,7 @@ const WrittenArticlePage = () => {
 
   // useQuery data 디버깅용
   useEffect(() => {
-    console.log(articlesData);
+    console.log('articlesData : ', articlesData);
   }, [articlesData]);
 
   const isWrittenArticles = (articles) => {

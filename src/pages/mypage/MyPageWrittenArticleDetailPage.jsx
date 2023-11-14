@@ -16,7 +16,7 @@ const MyPageWrittenArticleDetailPage = () => {
     [`/mypage/requester/detail/${id}`],
     () => getMyPageWrittenArticleDetail(id),
     {
-      select: (data) => data?.response,
+      select: (data) => data?.data.response,
       onError: (error) => {
         occurError(error);
       },
