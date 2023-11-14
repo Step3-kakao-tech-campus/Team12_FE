@@ -26,6 +26,7 @@ const WriterMatchTemplate = ({ response, beverages }) => {
 
       <PickUpInfo
         isMatch="true"
+        isRequester="true"
         finishedAt={finishedAt}
         beverages={beverages}
         tip={tip}
