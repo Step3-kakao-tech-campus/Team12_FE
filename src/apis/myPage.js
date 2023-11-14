@@ -20,5 +20,5 @@ export const getUserAuth = () => {
 
 // 회원수정
 export const modifyUserInfo = (userInfo) => {
-  return instance.put('/articles/modify', userInfo);
+  return instance.put('/mypage/modify', userInfo);
 };
