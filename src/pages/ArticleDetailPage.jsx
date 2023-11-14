@@ -11,7 +11,7 @@ import Loader from '@/components/atoms/Loader';
 import { ERROR } from '@/constant/error';
 
 const ArticleDetailPage = () => {
-  const [beverages, setBeverages] = useState([]);
+  // const [beverages, setBeverages] = useState([]);
   const { id } = useParams();
   const { data: article, isLoading } = useQuery([`/articles/${id}`], () => getArticleDetail(id), {
     select: (data) => data?.data.response,
@@ -25,23 +25,26 @@ const ArticleDetailPage = () => {
   //   delete article.beverages;
   // }, [article]);
 
-  useEffect(() => {
-    if (article) {
-      setBeverages(article.beverages);
-    }
-  }, [article]);
+  // useEffect(() => {
+  //   if (article) {
+  //     setBeverages(article.beverages);
+  //   }
+  // }, [article]);
 
   // useQuery data 디버깅용
-  useEffect(() => {
-    console.log('받아온 데이터 ', article);
-  }, [article]);
+  // useEffect(() => {
+  //   console.log('받아온 데이터 ', article);
+  // }, [article]);
 
-  useEffect(() => {
-    console.log('바뀐 beverages : ', beverages);
-  }, [beverages]);
+  // useEffect(() => {
+  //   console.log('바뀐 beverages : ', beverages);
+  // }, [beverages]);
 
   const showDetailPage = (article) => {
     console.log('showDetailPage 전달 데이터 : ', article);
+    console.log('article.isRequester 전달 데이터 : ', article.isRequester);
+    console.log('article.isMatch 전달 데이터 : ', article.isMatch);
+    console.log('article.beverages 전달 데이터 : ', article.beverages);
     if (isLoading) {
       return <Loader />;
     }
@@ -50,12 +53,12 @@ const ArticleDetailPage = () => {
     }
     if (article.isRequester) {
       return article.isMatch ? (
-        <WriterMatch response={article} beverages={beverages} />
+        <WriterMatch response={article} beverages={article.beverages} />
       ) : (
-        <WriterNoMatch response={article} beverages={beverages} />
+        <WriterNoMatch response={article} beverages={article.beverages} />
       );
     }
-    return <PickerMatch response={article} isMatch={article.isMatch} beverages={beverages} />;
+    return <PickerMatch response={article} isMatch={article.isMatch} beverages={article.beverages} />;
   };
 
   return (
