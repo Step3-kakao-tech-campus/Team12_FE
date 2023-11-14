@@ -22,10 +22,10 @@ export const getLastArticles = () => {
 
 // 작성한 공고글 목록 조회(마이페이지)
 export const getWrittenArticles = () => {
-  return instance.get('/articles/requester/list');
+  return instance.get('/mypage/requester/list');
 };
 
 // 픽업한 공고글 목록 조회(마이페이지)
 export const getPickupArticles = () => {
-  return instance.get('/articles/picker/list');
+  return instance.get('/mypage/picker/list');
 };

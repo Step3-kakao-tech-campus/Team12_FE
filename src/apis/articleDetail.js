@@ -15,11 +15,11 @@ export const articlePickerTime = (data) => {
 };
 
 export const getMyPageWrittenArticleDetail = (boardId) => {
-  return instance.get(`/articles/requester/detail/${boardId}`);
+  return instance.get(`/mypage/requester/detail/${boardId}`);
 };
 
 export const getMyPagePickupArticleDetail = (boardId) => {
-  return instance.get(`/articles/picker/detail/${boardId}`);
+  return instance.get(`/mypage/picker/detail/${boardId}`);
 };
 
 // 공고글 삭제

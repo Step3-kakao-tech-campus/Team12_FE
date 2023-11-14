@@ -22,11 +22,3 @@ export const getUserAuth = () => {
 export const modifyUserInfo = (userInfo) => {
   return instance.put('/articles/modify', userInfo);
 };
-
-// 공고글 목록(작성자)
-
-// 공고글 상세확인(작성자)
-
-// 공고글 목록(피커)
-
-// 공고글 상세확인(피커)
