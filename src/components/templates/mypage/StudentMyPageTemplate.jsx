@@ -17,7 +17,9 @@ const StudentMyPageTemplate = () => {
         <MyPageMenu to={routes.pickupArticle} icon={<PiCheckSquareLight className={iconStyle} size={SIZE} />}>
           {MYPAGE.APPROVAL_ARTICLE}
         </MyPageMenu>
-        <MyPageMenu icon={<CiEdit className={iconStyle} size={SIZE} />}>{MYPAGE.EDIT_INFO}</MyPageMenu>
+        <MyPageMenu to={routes.mypageModify} icon={<CiEdit className={iconStyle} size={SIZE} />}>
+          {MYPAGE.EDIT_INFO}
+        </MyPageMenu>
       </div>
     </>
   );

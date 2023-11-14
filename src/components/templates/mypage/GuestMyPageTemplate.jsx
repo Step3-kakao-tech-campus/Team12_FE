@@ -15,7 +15,9 @@ const GuestMyPageTemplate = () => {
         <MyPageMenu to={routes.uploadStudentCard} icon={<PiGraduationCapLight className={iconStyle} size={25} />}>
           {STUDENT.TITLE}
         </MyPageMenu>
-        <MyPageMenu icon={<CiEdit className={`${iconStyle} mt-[-2px]`} size={25} />}>{MYPAGE.EDIT_INFO}</MyPageMenu>
+        <MyPageMenu to={routes.mypageModify} icon={<CiEdit className={`${iconStyle} mt-[-2px]`} size={25} />}>
+          {MYPAGE.EDIT_INFO}
+        </MyPageMenu>
       </div>
     </div>
   );

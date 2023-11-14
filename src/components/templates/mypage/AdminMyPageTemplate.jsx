@@ -22,7 +22,9 @@ const AdminMyPageTemplate = () => {
         <MyPageMenu to={routes.pickupArticle} icon={<PiCheckSquareLight className={iconStyle} size={25} />}>
           {MYPAGE.APPROVAL_ARTICLE}
         </MyPageMenu>
-        <MyPageMenu icon={<CiEdit className={iconStyle} size={25} />}>{MYPAGE.EDIT_INFO}</MyPageMenu>
+        <MyPageMenu to={routes.mypageModify} icon={<CiEdit className={iconStyle} size={25} />}>
+          {MYPAGE.EDIT_INFO}
+        </MyPageMenu>
         {/* 임시 학생증인증 */}
         <MyPageMenu to={routes.uploadStudentCard} icon={<PiGraduationCapLight className={iconStyle} size={25} />}>
           {STUDENT.TITLE}
