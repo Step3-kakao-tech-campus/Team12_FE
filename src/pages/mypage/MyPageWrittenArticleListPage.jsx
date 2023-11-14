@@ -7,6 +7,7 @@ import { getWrittenArticles } from '@/apis/article';
 import MYPAGE from '@/constant/mypage';
 import Loader from '@/components/atoms/Loader';
 import { ERROR } from '@/constant/error';
+import occurError from '@/utils/occurError';
 
 const WrittenArticlePage = () => {
   // 작성한 공고글 목록 조회(마이페이지) 요청
@@ -19,6 +20,9 @@ const WrittenArticlePage = () => {
     isError,
   } = useQuery(['getWrittenArticles'], getWrittenArticles, {
     select: (data) => data?.data.response,
+    onError: (error) => {
+      occurError(error);
+    },
   });
 
   // useQuery data 디버깅용
@@ -27,7 +31,6 @@ const WrittenArticlePage = () => {
   }, [articlesData]);
 
   const isWrittenArticles = (articles) => {
-    console.log('전달받은 articlesData : ', articles);
     if (isLoading) {
       return <Loader />;
     }
