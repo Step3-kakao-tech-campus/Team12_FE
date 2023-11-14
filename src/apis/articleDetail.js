@@ -11,7 +11,7 @@ export const getArticleDetail = (boardId) => {
 /* eslint-disable-next-line */
 export const articlePickerTime = (data) => {
   const { arrivalTime, boardId } = data;
-  return instance.post('/articles/agree', { arrivalTime, boardId });
+  return instance.post(`/articles/agree/${boardId}`, { arrivalTime });
 };
 
 export const getMyPageWrittenArticleDetail = (boardId) => {
