@@ -56,7 +56,7 @@ const AdminAuthPage = () => {
   }, [userInfo]);
 
   return (
-    <div className="page--layout flex flex-col justify-between">
+    <div className="page--layout flex flex-col justify-between scrollbar-hide">
       <div>
         <OtherNav />
         <div className="pt-[25px] p-[35px]">{isLoading ? <Loader /> : <AuthDetail user={userInfo} />}</div>
