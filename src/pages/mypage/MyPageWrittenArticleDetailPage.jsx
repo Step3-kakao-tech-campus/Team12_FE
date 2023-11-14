@@ -13,8 +13,8 @@ const MyPageWrittenArticleDetailPage = () => {
   // data를 data?.response로 받아서 WriterMatchTemplate & WriterNoMatchTemplate으로 보내주면 됨
   const { id } = useParams();
   const { data: articleData, isLoading } = useQuery(
-    ['getMyPageWrittenArticleDetail'],
-    getMyPageWrittenArticleDetail(id),
+    [`/mypage/requester/detail/${id}`],
+    () => getMyPageWrittenArticleDetail(id),
     {
       select: (data) => data?.response,
       onError: (error) => {

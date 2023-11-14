@@ -10,12 +10,16 @@ const MyPagePickupArticleDetailPage = () => {
   // useParams + useQuery로 데이터를 받아와서
   // data를 data?.response로 받아서 PickerMatchTemplate으로 보내주면 됨
   const { id } = useParams();
-  const { data: articles, isLoading } = useQuery(['getMyPagePickupArticleDetail'], getMyPagePickupArticleDetail(id), {
-    select: (data) => data?.response?.content,
-    onError: (error) => {
-      occurError(error);
+  const { data: articles, isLoading } = useQuery(
+    [`/mypage/picker/detail/${id}`],
+    () => getMyPagePickupArticleDetail(id),
+    {
+      select: (data) => data?.response?.content,
+      onError: (error) => {
+        occurError(error);
+      },
     },
-  });
+  );
 
   // useQuery data 디버깅용
   useEffect(() => {
