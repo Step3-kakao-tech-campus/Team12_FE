@@ -47,10 +47,10 @@ const PickupArticlePage = () => {
   };
 
   return (
-    <div className="page--layout scrollbar-hide">
+    <div className="page--layout">
       <OtherNav />
       <div className="text-center text-xl text-blue my-6">{MYPAGE.APPROVAL_ARTICLE}</div>
-      <div className="h-[600px] overflow-y-auto overflow-x-hidden">{isPickupArticles(articlesData)}</div>
+      <div className="h-[580px] overflow-y-auto overflow-x-hidden scrollbar-hide">{isPickupArticles(articlesData)}</div>
     </div>
   );
 };
