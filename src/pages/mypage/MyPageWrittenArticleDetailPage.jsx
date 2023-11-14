@@ -37,13 +37,12 @@ const MyPageWrittenArticleDetailPage = () => {
     if (!article) {
       return <div>{ERROR.NO_ARTICLE_INFO}</div>;
     }
-    if (article.isRequester) {
-      return article.isMatch ? (
-        <WriterMatch response={article} beverages={article.beverages} />
-      ) : (
-        <WriterNoMatch response={article} beverages={article.beverages} />
-      );
+    // 매칭된 경우
+    if (article.isMatch) {
+      return <WriterMatch response={article} beverages={article.beverages} />;
     }
+    // 매칭되지 않은 경우
+    return <WriterNoMatch response={article} beverages={article.beverages} />;
   };
 
   return (
