@@ -7,6 +7,7 @@ import { articlePickerTime } from '@/apis/articleDetail';
 import { articlePickupDenyMessage, articlePickupConfirmMessage, articlePickupSuccessMessage } from '@/utils/alert';
 import occurError from '@/utils/occurError';
 import { PICKER_INPUT } from '@/constant/writeArticle';
+import routes from '@/constant/routes';
 
 const PickerTime = () => {
   const navigate = useNavigate();
@@ -38,7 +39,7 @@ const PickerTime = () => {
           boardId: id,
           arrivalTime: value,
         });
-        Swal.fire(articlePickupSuccessMessage).then(navigate(`/article/${id}`));
+        Swal.fire(articlePickupSuccessMessage).then(navigate(routes.article));
       }
       if (result.isConfirmed && !value) {
         Swal.fire(articlePickupDenyMessage);
