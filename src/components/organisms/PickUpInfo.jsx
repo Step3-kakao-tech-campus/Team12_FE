@@ -13,7 +13,7 @@ const PickUpInfo = ({
   arrivalTime,
   pickerPhoneNumber,
 }) => {
-  const TITLE = 'text-xl font-bold text-blue py-1';
+  const TITLE = 'text-xl text-blue py-1';
   const TEXT_GRAY = 'text-zinc-400';
 
   return (
@@ -22,7 +22,7 @@ const PickUpInfo = ({
         <p className={TITLE}>{ARTICLE.INFO}</p>
         <div>
           {beverages.map((name) => {
-            return <p key={name.id}>{name}</p>;
+            return <p key={name.id}>{Object.values(name)}</p>;
           })}
         </div>
       </article>
@@ -50,8 +50,8 @@ const PickUpInfo = ({
       </article>
 
       {isMatch && (
-        <article className="my-8 px-8">
-          <div className="text-xl font-bold text-blue pb-2">{PICKUP.INFO}</div>
+        <article className="my-8">
+          <div className="text-xl text-blue pb-2">{PICKUP.INFO}</div>
           <ArticleInfo label={PICKUP.ARRIVAL_TIME}>{time(arrivalTime)}</ArticleInfo>
           <ArticleInfo className="my-1" label={PICKUP.ACCOUNT}>
             {pickerBank} {pickerAccount}

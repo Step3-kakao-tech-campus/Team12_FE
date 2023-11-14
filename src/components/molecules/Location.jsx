@@ -4,7 +4,7 @@ const Location = ({ icon, children }) => {
   return (
     <div className="flex items-center">
       <LocationIcon className="mr-1" size="30" style={{ color: 'white' }} />
-      <span className="text-white">{children}</span>
+      <span className="text-white text-lg">{children}</span>
     </div>
   );
 };
