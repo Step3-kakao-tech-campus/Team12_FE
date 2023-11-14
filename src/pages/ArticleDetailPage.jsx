@@ -9,9 +9,9 @@ import { getArticleDetail } from '@/apis/articleDetail.js';
 import occurError from '@/utils/occurError';
 import Loader from '@/components/atoms/Loader';
 import { ERROR } from '@/constant/error';
-
+import axios from 'axios';
 const ArticleDetailPage = () => {
-  // const [beverages, setBeverages] = useState([]);
+  const [beverages, setBeverages] = useState([]);
   const { id } = useParams();
   const { data: article, isLoading } = useQuery([`/articles/${id}`], () => getArticleDetail(id), {
     select: (data) => data?.data.response,
@@ -27,39 +27,33 @@ const ArticleDetailPage = () => {
 
   // useQuery data 디버깅용
   useEffect(() => {
-    if (article) {
-      setBeverages(article.beverages);
-    }
-  }, [article]);
-
-  useEffect(() => {
     console.log('받아온 데이터 ', article);
   }, [article]);
 
   useEffect(() => {
-    console.log('바뀐 beverages : ', beverages);
-  }, [beverages]);
+    console.log('로딩중? : ', isLoading);
+  }, [isLoading]);
 
   const showDetailPage = (article) => {
-    console.log('showDetailPage 전달 데이터 : ', article);
+    if (isLoading) {
+      return <Loader />;
+    }
     if (!article) {
       return <div>{ERROR.NO_ARTICLE_INFO}</div>;
     }
     if (article.isRequester) {
       return article.isMatch ? (
-        <WriterMatch response={article} beverages={article.beverages} />
+        <WriterMatch response={article} beverages={beverages} />
       ) : (
-        <WriterNoMatch response={article} beverages={article.beverages} />
+        <WriterNoMatch response={article} beverages={beverages} />
       );
     }
-    return <PickerMatch response={article} isMatch={article.isMatch} beverages={article.beverages} />;
+    return <PickerMatch response={article} isMatch={article.isMatch} beverages={beverages} />;
   };
-
   return (
     <div className="page--layout">
-      <div>{isLoading ? <Loader /> : showDetailPage(article)}</div>
+      <div>{showDetailPage(article)}</div>
     </div>
   );
 };
-
 export default ArticleDetailPage;
