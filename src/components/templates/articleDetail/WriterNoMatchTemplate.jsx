@@ -5,7 +5,12 @@ import OtherNav from '@components/atoms/nav/OtherNav';
 import PickUpInfo from '@components/organisms/PickUpInfo';
 import LocationInfo from '@components/organisms/LocationInfo';
 import { useMutation } from '@tanstack/react-query';
-import { controlArticleMessage, deleteArticleMessage, articleDeleteSuccessMessage } from '@/utils/alert';
+import {
+  controlArticleMessage,
+  deleteArticleMessage,
+  articleDeleteSuccessMessage,
+  modifyArticleDenyMessage,
+} from '@/utils/alert';
 import routes from '@/constant/routes';
 import { deleteArticle } from '@/apis/articleDetail';
 import { MATCHING_STATE } from '@/constant/article';
@@ -37,7 +42,7 @@ const WriterNoMatchTemplate = ({ response, beverages }) => {
   const handleOnOption = () => {
     return Swal.fire(controlArticleMessage).then((result) => {
       if (result.isConfirmed) {
-        navigate(routes.articleWrite);
+        Swal.fire(modifyArticleDenyMessage);
       } else if (result.isDenied) {
         articleDelete();
       }

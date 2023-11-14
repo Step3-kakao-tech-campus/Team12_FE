@@ -183,3 +183,9 @@ export const modifyUserInfoComplete = {
   confirmButtonText: '확인',
   timer: 1000,
 };
+export const modifyArticleDenyMessage = {
+  title: '죄송합니다😥',
+  text: '공고글 수정 기능은 추후 업데이트 예정입니다!..미래의 픽업 셔틀을 기대해주세요💕',
+  icon: 'error',
+  confirmButtonText: '확인',
+};
