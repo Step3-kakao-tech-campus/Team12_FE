@@ -1,6 +1,6 @@
 import Swal from 'sweetalert2';
 import { useState } from 'react';
-import { useMutation } from '@tanstack/react-query';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useNavigate, useParams } from 'react-router-dom';
 import Button from '@components/atoms/button/Button';
 import { articlePickerTime } from '@/apis/articleDetail';
@@ -11,14 +11,18 @@ import { PICKER_INPUT } from '@/constant/writeArticle';
 const PickerTime = () => {
   const navigate = useNavigate();
   const { id } = useParams();
+  const queryClient = useQueryClient();
   const { mutate } = useMutation({
     mutationFn: articlePickerTime,
+    onSuccess: () => {
+      queryClient.invalidateQueries('article_detail');
+    },
     onError: (error) => {
       occurError(error);
     },
   });
 
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState('');
   const onChange = (e) => {
     setValue(e.target.value);
   };
@@ -44,9 +48,9 @@ const PickerTime = () => {
 
   return (
     <div className="px-8">
-      <div className="mt-12 mb-3">
-        <p className="font-bold text-blue text-xl py-2">{PICKER_INPUT.LABEL}</p>
-        <p className=" text-sm">{PICKER_INPUT.SUB_LABEL}</p>
+      <div className="mt-8 mb-3">
+        <p className="text-blue text-xl">{PICKER_INPUT.LABEL}</p>
+        <p className="text-sm">{PICKER_INPUT.SUB_LABEL}</p>
       </div>
       <div className="mt-4">
         <input
