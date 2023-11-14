@@ -38,4 +38,5 @@ export const BANK = {
   ACCOUNT: '계좌정보 *',
   ERROR_MSG: '필수 입력 항목입니다.',
   CHOICE_BANK: '은행 선택',
+  MODIFY: '수정 완료',
 };

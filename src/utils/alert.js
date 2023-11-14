@@ -176,3 +176,9 @@ export const articleWriteComplete = {
   confirmButtonText: '확인',
   timer: 1000,
 };
+export const modifyUserInfoComplete = {
+  title: '개인정보 수정이 완료되었습니다!',
+  icon: 'success',
+  confirmButtonText: '확인',
+  timer: 1000,
+};
