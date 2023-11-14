@@ -60,7 +60,7 @@ const WriterNoMatchTemplate = ({ response, beverages }) => {
         </div>
       </div>
 
-      <PickUpInfo isMatch="false" finishedAt={finishedAt} beverages={beverages} tip={tip} request={request} />
+      <PickUpInfo isMatch={false} finishedAt={finishedAt} beverages={beverages} tip={tip} request={request} />
     </>
   );
 };
