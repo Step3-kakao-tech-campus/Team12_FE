@@ -19,6 +19,9 @@ export const getUserAuth = () => {
 };
 
 // 회원수정
+export const modifyUserInfo = (userInfo) => {
+  return instance.put('/articles/modify', userInfo);
+};
 
 // 공고글 목록(작성자)
 
