@@ -45,7 +45,7 @@ function App() {
         <Route
           path={routes.detailArticle}
           element={
-            <ProtectedRoute>
+            <ProtectedRoute requiredAuth={['STUDENT', 'ADMIN']}>
               <ArticleDetailPage />
             </ProtectedRoute>
           }
@@ -53,7 +53,7 @@ function App() {
         <Route
           path={routes.articleWrite}
           element={
-            <ProtectedRoute>
+            <ProtectedRoute requiredAuth={['STUDENT', 'ADMIN']}>
               <ArticleWritePage />
             </ProtectedRoute>
           }
