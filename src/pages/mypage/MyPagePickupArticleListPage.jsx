@@ -39,7 +39,11 @@ const PickupArticlePage = () => {
       navigate('/errorPage');
     }
 
-    return articles ? <MyPagePickupArticleCards articles={articles} /> : ERROR.NO_APPROVAL_ARTICLE;
+    return articles ? (
+      <MyPagePickupArticleCards articles={articles} />
+    ) : (
+      <div className="text-center text-blue text-xl mt-[17rem]">{ERROR.NO_APPROVAL_ARTICLE}</div>
+    );
   };
 
   return (
