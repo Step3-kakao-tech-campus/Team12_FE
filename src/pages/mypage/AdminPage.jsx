@@ -7,34 +7,11 @@ import { useInView } from 'react-intersection-observer';
 import { useInfiniteQuery } from '@tanstack/react-query';
 import occurError from '@/utils/occurError';
 import Loader from '@components/atoms/Loader';
-// import axios from 'axios';
 import { STUDENT } from '@/constant/auth';
 import { useState } from 'react';
 import { ERROR } from '@/constant/error';
 
 const AdminPage = () => {
-  // msw
-  // useEffect(() => {
-  //   fetch('/admin/auth/list')
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       const userArray = data.response.user;
-  //       setUserInfo(userArray);
-  //     });
-  // }, []);
-
-  // const adminAuthList = (offset = '') => {
-  //   const config = {
-  //     timeout: 1000,
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //     withCredentials: true,
-  //   };
-
-  //   return axios.get(`api/admin/auth/list?offset=${offset}&limit=10`, config);
-  // };
-
   const [userData, setUserData] = useState([]);
   const { ref, inView } = useInView({ threshold: 0.5 });
 
