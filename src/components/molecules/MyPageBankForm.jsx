@@ -41,7 +41,7 @@ const MyPageBankForm = () => {
   // 폼을 제출할 때 호출될 함수
   const handleSubmit = () => {
     if (formValid) {
-      // 입력 정보 post 처리 이후 홈 페이지 이동(회원가입 완료)
+      // 입력 정보 put 처리 이후 홈 페이지 이동(개인정보 수정 완료)
       mutate({
         bankName: accountBank,
         accountNum: accountNumber,
