@@ -12,6 +12,11 @@ import { ERROR } from '@/constant/error';
 import axios from 'axios';
 
 const ArticleDetailPage = () => {
+  const [beverages, setBeverages] = useState([
+    {
+      name: '카페모카 3잔',
+    },
+  ]);
   const { id } = useParams();
   const { data: article, isLoading } = useQuery([`/articles/${id}`], () => getArticleDetail(id), {
     select: (data) => data?.data.response,
@@ -20,21 +25,15 @@ const ArticleDetailPage = () => {
     },
   });
 
-  const [beverages, setBeverages] = useState([]);
-
-  useEffect(() => {
-    article && setBeverages(article?.beverages?.map((beverage) => beverage.name));
-    delete article.beverages;
-  }, [article]);
+  // useEffect(() => {
+  //   article && setBeverages(article?.beverages?.map((beverage) => beverage.name));
+  //   delete article.beverages;
+  // }, [article]);
 
   // useQuery data 디버깅용
   useEffect(() => {
     console.log('받아온 데이터 ', article);
   }, [article]);
-
-  useEffect(() => {
-    console.log('로딩중? : ', isLoading);
-  }, [isLoading]);
 
   const showDetailPage = (article) => {
     if (isLoading) {
