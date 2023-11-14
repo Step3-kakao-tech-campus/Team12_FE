@@ -29,7 +29,7 @@ const WriterNoMatchTemplate = ({ response, beverages }) => {
   const articleDelete = () => {
     Swal.fire(deleteArticleMessage).then((result) => {
       if (result.isConfirmed) {
-        deleteMutation({ id });
+        deleteMutation(id);
       }
     });
   };
