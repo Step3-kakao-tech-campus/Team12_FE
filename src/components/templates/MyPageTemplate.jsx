@@ -15,14 +15,16 @@ import { getMyPage } from '@/apis/myPage';
 
 const MyPageTemplate = () => {
   const navigate = useNavigate();
-  const authority = localStorage.getItem('userAuth');
+  let authority = localStorage.getItem('userAuth');
   const nickName = localStorage.getItem('nickName');
   const { data: userAuth } = useQuery(['/mypage'], getMyPage, {
     select: (data) => data?.data.response.userAuth,
   });
 
+  // userAuth를 서버로부터 받아오면 그걸로 업데이트
   useEffect(() => {
     console.log('userAuth', userAuth);
+    authority = userAuth;
   }, [userAuth]);
 
   const userLevel = (author) => {
