@@ -42,9 +42,6 @@ const ArticleDetailPage = () => {
 
   const showDetailPage = (article) => {
     console.log('showDetailPage 전달 데이터 : ', article);
-    console.log('article.isRequester 전달 데이터 : ', article.isRequester);
-    console.log('article.isMatch 전달 데이터 : ', article.isMatch);
-    console.log('article.beverages 전달 데이터 : ', article.beverages);
     if (!article) {
       return <div>{ERROR.NO_ARTICLE_INFO}</div>;
     }
