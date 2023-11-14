@@ -7,7 +7,7 @@ import banks from '@/constant/bank';
 import routes from '@/constant/routes';
 import { bankInvalidMessage, unknownErrorMessage, modifyUserInfoComplete } from '@/utils/alert';
 import { BANK } from '@/constant/auth';
-import modifyUserInfo from '@/apis/myPage';
+import { modifyUserInfo } from '@/apis/myPage';
 
 const MyPageBankForm = () => {
   const [accountBank, setAccountBank] = useState('');
