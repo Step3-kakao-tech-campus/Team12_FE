@@ -19,7 +19,7 @@ const WrittenArticlePage = () => {
     isLoading,
     isError,
   } = useQuery(['getWrittenArticles'], getWrittenArticles, {
-    select: (data) => data?.data.response,
+    select: (data) => data?.data.response.content,
     onError: (error) => {
       occurError(error);
     },
