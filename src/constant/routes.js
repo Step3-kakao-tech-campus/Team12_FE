@@ -8,6 +8,7 @@ const routes = {
   articleWriteIntro: '/article-write-intro',
   articleWrite: '/article-write',
   mypage: '/mypage',
+  mypageModify: '/mypage/modify',
   admin: '/mypage/admin',
   adminAuth: '/mypage/admin/auth/:id',
   writtenArticle: '/mypage/written-article',
