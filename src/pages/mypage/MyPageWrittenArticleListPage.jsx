@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
 import OtherNav from '@components/atoms/nav/OtherNav';
 import MyPageWrittenArticleCards from '@components/molecules/MyPageWrittenArticleCards';
 import { useQuery } from '@tanstack/react-query';
@@ -26,9 +26,9 @@ const WrittenArticlePage = () => {
   });
 
   // useQuery data 디버깅용
-  useEffect(() => {
-    console.log('articlesData : ', articlesData);
-  }, [articlesData]);
+  // useEffect(() => {
+  //   console.log('articlesData : ', articlesData);
+  // }, [articlesData]);
 
   const isWrittenArticles = (articles) => {
     if (isLoading) {

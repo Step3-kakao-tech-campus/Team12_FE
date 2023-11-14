@@ -26,13 +26,13 @@ const ArticleDetailPage = () => {
   // }, [article]);
 
   // useQuery data 디버깅용
-  useEffect(() => {
-    console.log('받아온 데이터 ', article);
-  }, [article]);
+  // useEffect(() => {
+  //   console.log('받아온 데이터 ', article);
+  // }, [article]);
 
-  useEffect(() => {
-    console.log('로딩중? : ', isLoading);
-  }, [isLoading]);
+  // useEffect(() => {
+  //   console.log('로딩중? : ', isLoading);
+  // }, [isLoading]);
 
   const showDetailPage = (article) => {
     if (isLoading) {
