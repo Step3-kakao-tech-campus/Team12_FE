@@ -9,7 +9,6 @@ import { getArticleDetail } from '@/apis/articleDetail.js';
 import occurError from '@/utils/occurError';
 import Loader from '@/components/atoms/Loader';
 import { ERROR } from '@/constant/error';
-import axios from 'axios';
 
 const ArticleDetailPage = () => {
   const [beverages, setBeverages] = useState([]);
@@ -38,10 +37,11 @@ const ArticleDetailPage = () => {
   }, [article]);
 
   useEffect(() => {
-    console.log('beverages : ', beverages);
+    console.log('바뀐 beverages : ', beverages);
   }, [beverages]);
 
   const showDetailPage = (article) => {
+    console.log('showDetailPage 전달 데이터 : ', article);
     if (isLoading) {
       return <Loader />;
     }
