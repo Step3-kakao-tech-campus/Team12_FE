@@ -1,20 +1,29 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import OtherNav from '@components/atoms/nav/OtherNav';
 import Footer from '@components/atoms/Footer';
 import Button from '@components/atoms/button/Button';
+import { useQuery } from '@tanstack/react-query';
 import AdminMyPage from './mypage/AdminMyPageTemplate';
 import GuestMyPage from './mypage/GuestMyPageTemplate';
 import StudentMyPage from './mypage/StudentMyPageTemplate';
 import routes from '@/constant/routes';
 import { logoutMessage, logoutCompleteMessage } from '@/utils/alert';
 import { USER_LEVEL, STUDENT, LOGOUT } from '@/constant/auth';
+import { getMyPage } from '@/apis/myPage';
 
 const MyPageTemplate = () => {
   const navigate = useNavigate();
   const authority = localStorage.getItem('userAuth');
   const nickName = localStorage.getItem('nickName');
+  const { data: userAuth } = useQuery(['/mypage'], getMyPage, {
+    select: (data) => data?.data.response,
+  });
+
+  useEffect(() => {
+    console.log('userAuth', userAuth);
+  }, [userAuth]);
 
   const userLevel = (author) => {
     if (author === USER_LEVEL.ADMIN) {
