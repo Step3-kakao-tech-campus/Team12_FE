@@ -39,7 +39,7 @@ const WrittenArticlePage = () => {
       navigate('/errorPage');
     }
 
-    return articles ? (
+    return articles.length !== 0 ? (
       <MyPageWrittenArticleCards articles={articles} />
     ) : (
       <div className="text-center text-blue text-xl mt-[17rem]">{ERROR.NO_WRITTEN_ARTICLE}</div>
