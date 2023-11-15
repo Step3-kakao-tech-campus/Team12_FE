@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import PickerMatch from '@components/templates/articleDetail/PickerMatchTemplate';
 import { useQuery } from '@tanstack/react-query';
 import { useParams } from 'react-router-dom';
@@ -22,9 +22,9 @@ const MyPagePickupArticleDetailPage = () => {
   );
 
   // useQuery data 디버깅용
-  useEffect(() => {
-    console.log('받아온 데이터 ', article);
-  }, [article]);
+  // useEffect(() => {
+  //   console.log('받아온 데이터 ', article);
+  // }, [article]);
 
   return (
     <div className="page--layout">
