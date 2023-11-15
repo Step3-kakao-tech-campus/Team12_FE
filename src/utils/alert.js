@@ -31,8 +31,8 @@ export const registerMessage = {
   confirmButtonText: '확인',
 };
 export const bankInvalidMessage = {
-  title: '은행 정보를 제대로 입력해 주세요!',
-  text: '은행 혹은 계좌 정보가 입력되어 있지 않습니다.',
+  title: '은행 정보 & 전화번호를 제대로 입력해 주세요!',
+  text: '은행 정보 혹은 전화번호가 입력되어 있지 않습니다.',
   icon: 'error',
   confirmButtonText: '확인',
 };
