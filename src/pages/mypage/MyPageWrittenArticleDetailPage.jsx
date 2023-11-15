@@ -1,5 +1,5 @@
 /* eslint-disable */
-import React, { useEffect } from 'react';
+import React from 'react';
 import WriterMatch from '@components/templates/articleDetail/WriterMatchTemplate';
 import WriterNoMatch from '@components/templates/articleDetail/WriterNoMatchTemplate';
 import { useQuery } from '@tanstack/react-query';
@@ -26,9 +26,9 @@ const MyPageWrittenArticleDetailPage = () => {
   );
 
   // useQuery data 디버깅용
-  useEffect(() => {
-    console.log('받아온 데이터 ', article);
-  }, [article]);
+  // useEffect(() => {
+  //   console.log('받아온 데이터 ', article);
+  // }, [article]);
 
   const showDetailPage = (article) => {
     if (isLoading) {

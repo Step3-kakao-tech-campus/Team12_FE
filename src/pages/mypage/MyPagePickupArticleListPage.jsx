@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import OtherNav from '@components/atoms/nav/OtherNav';
 import MyPagePickupArticleCards from '@components/molecules/MyPagePickupArticleCards';
 import { useQuery } from '@tanstack/react-query';
@@ -26,9 +26,9 @@ const PickupArticlePage = () => {
   });
 
   // useQuery data 디버깅용
-  useEffect(() => {
-    console.log(articlesData);
-  }, [articlesData]);
+  // useEffect(() => {
+  //   console.log(articlesData);
+  // }, [articlesData]);
 
   const isPickupArticles = (articles) => {
     if (isLoading) {
