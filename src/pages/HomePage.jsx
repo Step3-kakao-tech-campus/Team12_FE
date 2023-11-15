@@ -16,7 +16,7 @@ const HomePage = () => {
     data: articlesData,
     isLoading,
     isError,
-  } = useQuery(['/articles?limit=3'], getLastArticles, {
+  } = useQuery(['/articles/latest'], getLastArticles, {
     select: (data) => data?.data.response.content,
   });
 

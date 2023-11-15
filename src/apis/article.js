@@ -17,7 +17,7 @@ export const getArticles = (offset = '') => {
 // 메인페이지 공고 최근 3개
 // eslint-disable-next-line import/prefer-default-export
 export const getLastArticles = () => {
-  return instance.get('/articles?limit=3');
+  return instance.get('/articles/latest');
 };
 
 // 작성한 공고글 목록 조회(마이페이지)
