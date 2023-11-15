@@ -12,6 +12,7 @@ import { modifyUserInfo } from '@/apis/myPage';
 const MyPageBankForm = () => {
   const [accountBank, setAccountBank] = useState('');
   const [accountNumber, setAccountNumber] = useState('');
+  const [phoneNumber, setPhoneNum] = useState('');
   const [formValid, setFormValid] = useState(false);
 
   const navigate = useNavigate();
@@ -38,6 +39,11 @@ const MyPageBankForm = () => {
     setAccountNumber(e.target.value);
   };
 
+  // 전화 번호를 입력할 때 호출할 함수
+  const handlePhoneNumberChange = (e) => {
+    setPhoneNum(e.target.value);
+  };
+
   // 폼을 제출할 때 호출될 함수
   const handleSubmit = () => {
     if (formValid) {
@@ -45,6 +51,7 @@ const MyPageBankForm = () => {
       mutate({
         bankName: accountBank,
         accountNum: accountNumber,
+        phoneNum: phoneNumber,
       });
     } else {
       Swal.fire(bankInvalidMessage);
@@ -53,12 +60,12 @@ const MyPageBankForm = () => {
 
   // 계좌 은행 혹은 계좌 번호가 입력될 때 값의 입력 유무를 판단
   useEffect(() => {
-    if (accountBank.trim() !== '' && accountNumber.trim() !== '') {
+    if (accountBank.trim() !== '' && accountNumber.trim() !== '' && phoneNumber.trim() !== '') {
       setFormValid(true);
     } else {
       setFormValid(false);
     }
-  }, [accountBank, accountNumber]);
+  }, [accountBank, accountNumber, phoneNumber]);
 
   return (
     <div>
@@ -84,7 +91,17 @@ const MyPageBankForm = () => {
             onChange={handleAccountNumberChange}
           />
         </div>
-        {!formValid && <p className="text-red-600 text-sm">{BANK.ERROR_MSG}</p>}
+        <div>
+          <div className="text-[12px] mb-[6px] mt-[6px]">{BANK.PHONE_NUMBER}</div>
+          <input
+            className="w-[180px] h-[35px] rounded-lg border border-[#858585] text-[10px] pl-[10px]"
+            type="text"
+            placeholder="전화 번호 입력"
+            value={phoneNumber}
+            onChange={handlePhoneNumberChange}
+          />
+        </div>
+        {!formValid && <p className="text-red-600 text-sm mt-[6px]">{BANK.ERROR_MSG}</p>}
       </div>
       <div className="text-center">
         <Button
