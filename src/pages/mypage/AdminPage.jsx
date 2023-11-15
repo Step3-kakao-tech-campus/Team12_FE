@@ -54,7 +54,7 @@ const AdminPage = () => {
       navigate('/errorPage');
     }
 
-    return userData
+    return userData.length !== 0
       ? userData.map((item) => {
           return <AuthRequest key={item.userId} user={item} />;
         })
