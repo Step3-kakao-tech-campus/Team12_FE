@@ -39,4 +39,5 @@ export const BANK = {
   ERROR_MSG: '필수 입력 항목입니다.',
   CHOICE_BANK: '은행 선택',
   MODIFY: '수정 완료',
+  PHONE_NUMBER: "전화번호('-'포함 입력) *",
 };
