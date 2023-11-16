@@ -54,11 +54,13 @@ const AdminPage = () => {
       navigate('/errorPage');
     }
 
-    return userData.length !== 0
-      ? userData.map((item) => {
-          return <AuthRequest key={item.userId} user={item} />;
-        })
-      : ERROR.NO_USER_LIST;
+    return userData.length !== 0 ? (
+      userData.map((item) => {
+        return <AuthRequest key={item.userId} user={item} />;
+      })
+    ) : (
+      <div className="text-center text-xl text-blue mt-[17rem]">{ERROR.NO_USER_LIST}</div>
+    );
   };
 
   return (
