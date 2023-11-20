@@ -22,6 +22,11 @@
 
 [6. 아키텍쳐](#아키텍쳐)
 
+[7. 커밋 컨벤션](#커밋-컨벤션)
+
+[8. 코딩 컨벤션](#코딩-컨벤션)
+
+[9. 시연 화면](#시연-화면)
 
 ## 최종 과제 제출
 
@@ -37,7 +42,7 @@ FE : https://k0d01653e1a11a.user-app.krampoline.com/
 BE : https://k0d01653e1a11a.user-app.krampoline.com/api
 ```
 
-### 2️⃣ 최신 ERD 이미지 파일 (링크X)
+### 2️⃣ 최신 ERD 이미지 파일
 
 ![image](https://github.com/rktdnjs/pick_up_shuttle/assets/67001905/ea6a157e-604d-4a3d-abe2-f3aec681754d)
 
@@ -247,6 +252,55 @@ $ npm start
 ├── global.css
 └── index.js
 ```
+
+## 커밋 컨벤션
+
+```
+1. commit의 제목은 commit을 설명하는 하나의 구나 절로 완성
+2. importanceofcapitalize -> Importance of Capitalize 와 같은 형식으로 작성
+3. prefix 앞에 달아주기
+	 - feat  : 기능 개발 관련
+	 - style : CSS 등의 스타일 변경 관련
+	 - comment : 주석 추가 및 수정
+	 - docs  : 문서화 작업(README.md 수정)
+	 - fix : 버그 수정
+	 - refactor : 기능에 변동 없이 코드가 리팩토링 되었을 경우
+	 - conf  : 환경설정 관련(패키지 매니저 관리/라이브러리 추가)
+	 (- build : 빌드 관련)
+	 (- test  : 테스트 관련)
+
+작성 예시) 
+[feat] : 로그인 페이지 input 추가
+[style] : 메인 페이지 UI 수정
+```
+
+## 코딩 컨벤션
+
+```
+[PascalCase]
+- Components    ex)Button, LoginForm
+[camelCase]
+- let variable
+- const variable
+- function name ex)handleClick, ..
+- custom hook   ex)useFetch, ...
+- props
+[UPPERCASE]
+- constant
+```
+
+## 시연 화면
+
+| 픽업셔틀 첫 사용 - 회원가입(USER) & 학생 인증 완료(STUDENT) |
+|------------|
+
+| 픽업셔틀 학생증 인증 승인 - 관리자(ADMIN) |
+|------------|
+
+| 픽업셔틀 공고 작성 & 공고 현황 & 공고 삭제 & 활동 내역 확인 etc - 학생(STUDENT) & 관리자(ADMIN) |
+|------------|
+
+
 
 ### 참고
 
