@@ -291,16 +291,23 @@ $ npm start
 
 ## 시연 화면
 
-| 픽업셔틀 첫 사용 - 회원가입(USER) & 학생 인증 완료(STUDENT) |
+| 픽업셔틀 첫 사용 - 회원가입(USER) & 학생증 인증 요청 |
 |------------|
+
+https://github.com/rktdnjs/pick_up_shuttle/assets/67001905/df8edede-539b-4a09-aff6-ce814a7ef6ed
+
 
 | 픽업셔틀 학생증 인증 승인 - 관리자(ADMIN) |
 |------------|
 
+https://github.com/rktdnjs/pick_up_shuttle/assets/67001905/bdc30463-103e-4039-b05f-caed116656f9
+
+
+
 | 픽업셔틀 공고 작성 & 공고 현황 & 공고 삭제 & 활동 내역 확인 etc - 학생(STUDENT) & 관리자(ADMIN) |
 |------------|
 
-
+https://github.com/rktdnjs/pick_up_shuttle/assets/67001905/35f5d85a-0690-47d5-9e5e-0507aab68901
 
 ### 참고
 
