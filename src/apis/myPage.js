@@ -19,11 +19,6 @@ export const getUserAuth = () => {
 };
 
 // 회원수정
-
-// 공고글 목록(작성자)
-
-// 공고글 상세확인(작성자)
-
-// 공고글 목록(피커)
-
-// 공고글 상세확인(피커)
+export const modifyUserInfo = (userInfo) => {
+  return instance.put('/mypage/modify', userInfo);
+};

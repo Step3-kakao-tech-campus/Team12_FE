@@ -1,5 +1,5 @@
 import { http, HttpResponse } from 'msw';
-import { REQUEST_LIST, REQUEST_DETAIL } from '../data/adminData';
+import { REQUEST_LIST, REQUEST_DETAIL } from '@/mocks/data/adminData';
 
 const adminHandlers = [
   http.get('/admin/auth/list', () => {

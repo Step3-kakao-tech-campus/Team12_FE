@@ -1,5 +1,5 @@
 const validateInputMsg = {
-  STORE_MSG: '주문 매장은 필수 입력입니다.',
+  SHOP_NAME_MSG: '주문 매장은 필수 입력입니다.',
   BEVERAGE_MSG: '주문 정보는 필수 입력입니다.',
   DESTINATION_MSG: '픽업할 장소는 필수 입력입니다.',
   HOUR_MSG: '시는 0부터 24까지 입력 가능합니다',

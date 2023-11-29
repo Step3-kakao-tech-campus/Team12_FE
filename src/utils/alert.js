@@ -31,8 +31,8 @@ export const registerMessage = {
   confirmButtonText: '확인',
 };
 export const bankInvalidMessage = {
-  title: '은행 정보를 제대로 입력해 주세요!',
-  text: '은행 혹은 계좌 정보가 입력되어 있지 않습니다.',
+  title: '은행 정보 & 전화번호를 제대로 입력해 주세요!',
+  text: '은행 정보 혹은 전화번호가 입력되어 있지 않습니다.',
   icon: 'error',
   confirmButtonText: '확인',
 };
@@ -67,5 +67,125 @@ export const registerCompleteMessage = {
   title: '회원가입 완료!',
   text: '픽업 셔틀에 오신 것을 환영합니다😊 로그인을 진행해주세요!!',
   icon: 'success',
+  confirmButtonText: '확인',
+};
+export const logoutMessage = {
+  title: '로그아웃 하시겠습니까?',
+  icon: 'question',
+  showCancelButton: true,
+  reverseButtons: true,
+  confirmButtonColor: '#0075FF',
+  cancelButtonColor: '#D9D9D9',
+  cancelButtonText: '취소',
+  confirmButtonText: '확인',
+};
+export const logoutCompleteMessage = {
+  title: '로그아웃 완료!',
+  html: `픽업 셔틀을 사용해주셔서 감사해요😊<br> 
+  다음에 또 만나요!`,
+  icon: 'success',
+  confirmButtonText: '확인',
+};
+export const controlArticleMessage = {
+  icon: 'question',
+  title: '공고글을<br/>수정 혹은 삭제 하시겠습니까?',
+  showCloseButton: true,
+  showDenyButton: true,
+  confirmButtonText: '수정',
+  denyButtonText: '삭제',
+};
+export const deleteArticleMessage = {
+  title: '삭제하시겠습니까?',
+  text: '삭제하면 음료를 픽업 받을 수 없게 됩니다.',
+  showCancelButton: true,
+  confirmButtonColor: '#0075FF',
+  cancelButtonColor: '#D9D9D9',
+  confirmButtonText: '확인',
+  cancelButtonText: '취소',
+};
+export const articleDeleteSuccessMessage = {
+  title: '공고글이 삭제되었습니다!',
+  icon: 'success',
+  confirmButtonText: '확인',
+};
+export const pickupConfirmMessage = {
+  icon: 'question',
+  title: '이 음료를 픽업하시겠습니까?',
+  showCancelButton: true,
+  reverseButtons: true,
+  cancelButtonText: '취소',
+  confirmButtonText: '수락',
+  confirmButtonColor: '#0075ff',
+  heightAuto: true,
+};
+export const articlePickupConfirmMessage = {
+  icon: 'question',
+  title: '정말로 이 공고글을 수락하시겠습니까?',
+  text: '공고글 수락 이후, 음료를 픽업하여 가져다 주세요!😊',
+  showCancelButton: true,
+  reverseButtons: true,
+  confirmButtonColor: '#0075FF',
+  cancelButtonColor: '#D9D9D9',
+  cancelButtonText: '취소',
+  confirmButtonText: '확인',
+};
+export const articlePickupSuccessMessage = {
+  icon: 'success',
+  title: '매칭이 완료 되었어요!',
+  showConfirmButton: false,
+  timer: 3000,
+};
+export const articlePickupDenyMessage = {
+  icon: 'error',
+  title: '예상 도착 시간을 <br>제대로 입력해주세요!',
+  confirmButtonText: '확인',
+};
+export const authApproval = {
+  icon: 'question',
+  title: '학생 인증을 승인 하시겠습니까?',
+  showCancelButton: true,
+  reverseButtons: true,
+  cancelButtonText: '취소',
+  confirmButtonText: '확인',
+  confirmButtonColor: '#0075ff',
+  heightAuto: true,
+};
+export const authReject = {
+  icon: 'question',
+  title: '학생 인증을 거절 하시겠습니까?',
+  text: '해당 회원은 픽업셔틀 서비스를 이용할 수 없게 됩니다.',
+  showCancelButton: true,
+  reverseButtons: true,
+  confirmButtonColor: '#0075FF',
+  cancelButtonColor: '#D9D9D9',
+  cancelButtonText: '취소',
+  confirmButtonText: '확인',
+};
+export const authApprovalComplete = {
+  title: '인증 승인 처리가 완료되었습니다!',
+  icon: 'success',
+  confirmButtonText: '확인',
+};
+export const authRejectComplete = {
+  title: '인증 거절 처리가 완료되었습니다!',
+  icon: 'success',
+  confirmButtonText: '확인',
+};
+export const articleWriteComplete = {
+  title: '공고글 등록이 완료되었습니다!',
+  icon: 'success',
+  confirmButtonText: '확인',
+  timer: 1000,
+};
+export const modifyUserInfoComplete = {
+  title: '개인정보 수정이 완료되었습니다!',
+  icon: 'success',
+  confirmButtonText: '확인',
+  timer: 1000,
+};
+export const modifyArticleDenyMessage = {
+  title: '죄송합니다😥',
+  text: '공고글 수정 기능은 추후 업데이트 예정입니다!..미래의 픽업 셔틀을 기대해주세요💕',
+  icon: 'error',
   confirmButtonText: '확인',
 };

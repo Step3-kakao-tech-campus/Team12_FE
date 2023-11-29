@@ -9,6 +9,7 @@ export const instance = axios.create({
   headers: {
     'Content-Type': 'application/json', // 서버단에서 JSON 형태를 많이써서, 프론트단에서 쏴줄 때 이러한 형태로 많이 쓴다(헤더 기본 설정)
   },
+  withCredentials: true,
 });
 
 // request - 요청
@@ -18,7 +19,7 @@ instance.interceptors.request.use((config) => {
   const token = localStorage.getItem('accessToken');
   if (token) {
     // eslint-disable-next-line no-param-reassign
-    config.headers.Authorization = `${token}`;
+    config.headers.Authorization = `Bearer ${token}`;
   }
   return config;
 });
@@ -32,13 +33,27 @@ instance.interceptors.response.use(
     return response;
   },
   (error) => {
-    // 401 error : 인증되지 않음 - 로그인 화면으로 이동
-    // token은 백엔드에서 유효하지 않다면 401(Unauthorized) Http code를 보내주기에, 로그인하도록 처리
-    if (error.error.status === 401) {
+    console.log('error.response : ', error.response);
+    // 302 error 처리 - 로그인 페이지로 이동시켜서 재로그인 시킴(로그인 정보 만료로 데이터 못받음)
+    if (error.response.status === 302) {
       Swal.fire({
         icon: 'error',
         title: '로그인을 진행해주세요!',
-        text: error.error.message,
+        text: error.data.error.message,
+        confirmButtonText: '확인',
+      })
+        .then(localStorage.clear())
+        .then(() => {
+          window.location.href = 'login';
+        });
+    }
+    // 401 error : 인증되지 않음 - 로그인 화면으로 이동
+    // token은 백엔드에서 유효하지 않다면 401(Unauthorized) Http code를 보내주기에, 로그인하도록 처리
+    if (error.response.status === 401) {
+      Swal.fire({
+        icon: 'error',
+        title: '로그인을 진행해주세요!',
+        text: error.data.error.message,
         confirmButtonText: '확인',
       }).then(() => {
         window.location.href = '/login';
@@ -48,11 +63,11 @@ instance.interceptors.response.use(
 
     // 404 error : 지정한 리소스를 찾을 수 없음
     // 에러 메시지를 띄워주고 & 잘못된 경로로 이동 시 ErrorPage로 이동
-    if (error.error.status === 404) {
+    if (error.response.status === 404) {
       Swal.fire({
         icon: 'error',
-        title: '아이쿠! 에러가 발생했네요😅',
-        text: error.error.message,
+        title: '404 에러가 발생했어요!',
+        text: '요청하신 리소스를 찾을 수 없습니다😭',
         confirmButtonText: '확인',
       }).then(() => {
         window.location.href = '/errorPage';
@@ -64,7 +79,7 @@ instance.interceptors.response.use(
     Swal.fire({
       icon: 'error',
       title: '아래와 같은 에러가 발생했습니다!',
-      text: error.error.message,
+      text: error.data.error.message,
       confirmButtonText: '확인',
     });
     // 성공인지 실패인지 여부에 따라 resolve, reject 처리

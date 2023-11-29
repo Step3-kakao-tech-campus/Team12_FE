@@ -1,4 +1,4 @@
-import cafe from '../../../constant/cafe';
+import { CAFE } from '@/constant/cafe';
 
 const SelectInput = ({
   register,
@@ -7,7 +7,7 @@ const SelectInput = ({
   name,
   placeholder,
   width = 'w-[18rem]',
-  sort = cafe,
+  sort = CAFE,
   ...inputProps
 }) => {
   return (
